@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Validation;
+namespace Unit\Validation;
 
 use Unit\TestCase;
 use ArangoDB\Validation\ConnectionOptionsValidator;
@@ -15,8 +15,8 @@ class ConnectionOptionsValidatorTest extends TestCase
         $connectionOptions = new ConnectionOptionsValidator([
             'endpoint' => 'http://localhost:8529',
             'database' => '_system',
-            'user' => 'someUser',
-            'pwd' => 'somePasswd',
+            'username' => 'someUser',
+            'password' => 'somePasswd',
         ]);
 
         $this->assertIsArray($connectionOptions->rules());
@@ -27,8 +27,8 @@ class ConnectionOptionsValidatorTest extends TestCase
         $connectionOptions = new ConnectionOptionsValidator([
             'endpoint' => 'http://localhost:8529',
             'database' => '_system',
-            'user' => 'someUser',
-            'pwd' => 'somePasswd',
+            'username' => 'someUser',
+            'password' => 'somePasswd',
         ]);
 
         $this->assertTrue($connectionOptions->validate());
@@ -38,8 +38,8 @@ class ConnectionOptionsValidatorTest extends TestCase
     {
         $connectionOptions = new ConnectionOptionsValidator([
             'database' => '_system',
-            'user' => 'someUser',
-            'pwd' => 'somePasswd',
+            'username' => 'someUser',
+            'password' => 'somePasswd',
         ]);
 
         $this->expectException(MissingParameterException::class);
@@ -51,8 +51,8 @@ class ConnectionOptionsValidatorTest extends TestCase
         $connectionOptions = new ConnectionOptionsValidator([
             'endpoint' => 'http://localhost:8529',
             'database' => '_system',
-            'user' => 'someUser',
-            'pwd' => 'somePasswd',
+            'username' => 'someUser',
+            'password' => 'somePasswd',
             'connection' => 'Open'
         ]);
 

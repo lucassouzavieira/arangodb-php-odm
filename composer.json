@@ -6,9 +6,12 @@
         "php": ">=7.0.0",
         "ext-json": "*",
         "ext-memcached": "*",
-        "phpunit/phpunit": "^8.1",
         "guzzlehttp/psr7": "^1.5",
         "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.1",
+        "vlucas/phpdotenv": "^3.0"
     },
     "license": "MIT",
     "authors": [

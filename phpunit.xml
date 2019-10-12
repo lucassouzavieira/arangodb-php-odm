@@ -5,13 +5,11 @@
          convertWarningsToExceptions="true">
     <php>
         <ini name="error_reporting" value="-1"/>
-        <env name="ARANGODB_HOST" value="http://localhost"></env>
-        <env name="ARANGODB_PORT" value="http://localhost"></env>
-        <env name="ARANGODB_DB" value=""></env>
-        <env name="ARANGODB_USERNAME" value=""></env>
-        <env name="ARANGODB_PASSWORD" value=""></env>
     </php>
     <testsuites>
+        <testsuite name="Connection">
+            <directory suffix="Test.php">tests/Connection</directory>
+        </testsuite>
         <testsuite name="Validation">
             <directory suffix="Test.php">tests/Validation</directory>
         </testsuite>

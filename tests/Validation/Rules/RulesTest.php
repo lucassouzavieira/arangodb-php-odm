@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Validation\Rules;
+namespace Unit\Validation\Rules;
 
 use ArangoDB\Validation\Rules\Rules;
 use Unit\TestCase;
