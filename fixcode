@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Fixing code"
+vendor/bin/php-cs-fixer fix src/ --rules=@PSR1,@PSR2
+vendor/bin/php-cs-fixer fix tests/ --rules=@PSR1,@PSR2
+
