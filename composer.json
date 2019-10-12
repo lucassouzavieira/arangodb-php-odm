@@ -4,8 +4,9 @@
     "type": "library",
     "require": {
         "php": ">=7.0.0",
-        "phpunit/phpunit": "^8.1",
+        "ext-json": "*",
         "ext-memcached": "*",
+        "phpunit/phpunit": "^8.1",
         "guzzlehttp/psr7": "^1.5",
         "guzzlehttp/guzzle": "~6.0"
     },

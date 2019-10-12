@@ -25,7 +25,7 @@ class ConnectionOptionsValidator implements ValidatorInterface
      * @var array
      */
     protected $required = [
-        'endpoint', 'database', 'user', 'pwd'
+        'endpoint', 'database', 'username', 'password'
     ];
 
     /**
@@ -55,8 +55,8 @@ class ConnectionOptionsValidator implements ValidatorInterface
         return [
             'endpoint' => Rules::uri(),
             'database' => Rules::string(),
-            'user' => Rules::string(),
-            'pwd' => Rules::string(),
+            'username' => Rules::string(),
+            'password' => Rules::string(),
             'connection' => Rules::in(['Close', 'Keep-Alive']),
             'port' => Rules::integer(),
             'timeout' => Rules::integer(),

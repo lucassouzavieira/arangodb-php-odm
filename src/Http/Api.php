@@ -35,7 +35,6 @@ abstract class Api
     const PART_VERTEX = "vertex";
     const PART_EDGE = "vertex";
 
-
     const LOOKUP_BY_KEYS = "/_api/simple/lookup-by_keys";
     const ALL = "/_api/simple/all";
     const ALL_KEYS = "/_api/simple/all";
@@ -58,4 +57,8 @@ abstract class Api
     const ADMIN_STATISTICS_DESCRIPTION = "/_admin/statistics-description";
     const FOXX_INSTALL = "/_admin/foxx/install";
     const FOXX_UNINSTALL = "/_admin/foxx/uninstall";
+
+    const DB = "/_db/";
+    const AUTH_BASE = "/_open/auth";
+    const JWT_AUTH_BASE = "/_open/auth";
 }
