@@ -3,3 +3,4 @@
 .phpunit.result.cache
 sandbox.php
 .env
+.php_cs.cache

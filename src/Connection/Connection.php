@@ -27,7 +27,7 @@ class Connection extends Authenticable
     {
         $validator = new ConnectionOptionsValidator($options);
         $validator->validate();
-        parent::__construct($options);
+        parent::__construct($validator->getConnectionOptions());
     }
 
     /**

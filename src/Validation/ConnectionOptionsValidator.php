@@ -44,6 +44,11 @@ class ConnectionOptionsValidator implements ValidatorInterface
     public function __construct(array $options)
     {
         $this->options = $options;
+
+        // We can use 'host' and 'port' keys to define the endpoint.
+        if (array_key_exists('host', $options) && array_key_exists('port', $options)) {
+            $this->options['endpoint'] = sprintf("%s:%d", $options['host'], $options['port']);
+        }
     }
 
     /**
@@ -58,7 +63,7 @@ class ConnectionOptionsValidator implements ValidatorInterface
             'username' => Rules::string(),
             'password' => Rules::string(),
             'connection' => Rules::in(['Close', 'Keep-Alive']),
-            'port' => Rules::integer(),
+            'port' => Rules::numeric(),
             'timeout' => Rules::integer(),
             'policy' => Rules::in(['error', 'last'])
         ];
@@ -90,5 +95,13 @@ class ConnectionOptionsValidator implements ValidatorInterface
         }
 
         return true;
+    }
+
+    /**
+     * @return array
+     */
+    public function getConnectionOptions(): array
+    {
+        return $this->options;
     }
 }
