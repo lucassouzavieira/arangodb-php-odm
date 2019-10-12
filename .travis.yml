@@ -1,0 +1,27 @@
+language: php
+dist: xenial
+group: edge
+
+php:
+  - 7.2
+  - 7.3
+  - nightly
+
+matrix:
+
+  include:
+    - env: LINT=1
+      php: 7.2
+    - env: COVERAGE=1
+      php: 7.2
+
+  allow_failures:
+    - php: nightly
+
+install:
+  - composer self-update
+  -
+notifications:
+  email:
+    on_success: change
+    on_failure: always
