@@ -14,4 +14,16 @@
             <directory suffix="Test.php">tests/Validation</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src/</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-html"
+             target="build"
+             lowUpperBound="35"
+             highLowerBound="75"/>
+        <log type="coverage-clover" target="build/logs/coverage.xml"/>
+    </logging>
 </phpunit>

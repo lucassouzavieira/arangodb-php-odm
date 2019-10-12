@@ -59,4 +59,20 @@ class ConnectionTest extends TestCase
         $this->assertNotNull($connection);
         $this->assertEquals(sprintf("%s:%d", getenv('ARANGODB_HOST'), getenv('ARANGODB_PORT')), $connection->getBaseUri());
     }
+
+    public function testGetAuthorizationHeader()
+    {
+        $connection = new Connection([
+            'username' => getenv('ARANGODB_USERNAME'),
+            'password' => getenv('ARANGODB_PASSWORD'),
+            'database' => getenv('ARANGODB_DBNAME'),
+            'host' => getenv('ARANGODB_HOST'),
+            'port' => getenv('ARANGODB_PORT')
+        ]);
+
+        $this->assertNotNull($connection);
+        $getAuthorizationHeaders = new \ReflectionMethod(Connection::class, 'getAuthorizationHeader');
+        $getAuthorizationHeaders->setAccessible(true);
+        $this->assertArrayHasKey('Authorization', $getAuthorizationHeaders->invoke($connection));
+    }
 }
