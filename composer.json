@@ -1,0 +1,26 @@
+{
+    "name": "lucassvieira/arangodb-php-odm",
+    "description": "ArangoDB PHP ODM",
+    "type": "library",
+    "require": {
+        "php": ">=7.0.0",
+        "phpunit/phpunit": "^8.1",
+        "ext-memcached": "*",
+        "guzzlehttp/psr7": "^1.5",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lucas S. Vieira",
+            "email": "lucassouzavieiraengcomp@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ArangoDB\\": "src/",
+            "Unit\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable"
+}
