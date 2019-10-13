@@ -7,8 +7,17 @@
         <ini name="error_reporting" value="-1"/>
     </php>
     <testsuites>
+        <testsuite name="Auth">
+            <directory suffix="Test.php">tests/Auth</directory>
+        </testsuite>
         <testsuite name="Connection">
             <directory suffix="Test.php">tests/Connection</directory>
+        </testsuite>
+        <testsuite name="Http">
+            <directory suffix="Test.php">tests/Http</directory>
+        </testsuite>
+        <testsuite name="DataStructures">
+            <directory suffix="Test.php">tests/DataStructures</directory>
         </testsuite>
         <testsuite name="Validation">
             <directory suffix="Test.php">tests/Validation</directory>
