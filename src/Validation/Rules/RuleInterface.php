@@ -1,15 +1,15 @@
 <?php
-
+declare(strict_types=1);
 
 namespace ArangoDB\Validation\Rules;
 
 /**
- * Class Rule
+ * Basic inter
  *
  * @package ArangoDB\Validation\Rules
  * @copyright 2019 Lucas S. Vieira
  */
-abstract class Base
+interface RuleInterface
 {
     /**
      * Check if a given value is valid
@@ -17,5 +17,5 @@ abstract class Base
      * @param $value
      * @return bool
      */
-    abstract public function isValid($value): bool;
+    public function isValid($value): bool;
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace ArangoDB\Validation\Rules;
 
 /**
- * Class Rules
+ * Provides validation rules for inputs data
  *
  * @package ArangoDB\Validation
  * @copyright 2019 Lucas S. Vieira
@@ -13,11 +13,12 @@ abstract class Rules
 {
     /**
      * Is array ?
-     * @return Base
+     * @return RuleInterface
      */
     public static function arr()
     {
-        return new class extends Base {
+        return new class implements RuleInterface
+        {
             /**
              * Check if a given value is valid
              *
@@ -33,11 +34,12 @@ abstract class Rules
 
     /**
      * Is string ?
-     * @return Base
+     * @return RuleInterface
      */
     public static function string()
     {
-        return new class extends Base {
+        return new class implements RuleInterface
+        {
             /**
              * Check if a given value is valid
              *
@@ -53,11 +55,12 @@ abstract class Rules
 
     /**
      * Is numeric ?
-     * @return Base
+     * @return RuleInterface
      */
     public static function numeric()
     {
-        return new class extends Base {
+        return new class implements RuleInterface
+        {
             /**
              * Check if a given value is valid
              *
@@ -73,11 +76,12 @@ abstract class Rules
 
     /**
      * Is integer ?
-     * @return Base
+     * @return RuleInterface
      */
     public static function integer()
     {
-        return new class extends Base {
+        return new class implements RuleInterface
+        {
             /**
              * Check if a given value is valid
              *
@@ -93,11 +97,12 @@ abstract class Rules
 
     /**
      * Is boolean ?
-     * @return Base
+     * @return RuleInterface
      */
     public static function boolean()
     {
-        return new class extends Base {
+        return new class implements RuleInterface
+        {
             /**
              * Check if a given value is valid
              *
@@ -113,11 +118,12 @@ abstract class Rules
 
     /**
      * Is an uri ?
-     * @return Base
+     * @return RuleInterface
      */
     public static function uri()
     {
-        return new class extends Base {
+        return new class implements RuleInterface
+        {
             /**
              * Check if a given value is valid
              *
@@ -135,11 +141,12 @@ abstract class Rules
     /**
      * In - Rule
      * @param array $values
-     * @return Base
+     * @return RuleInterface
      */
     public static function in(array $values)
     {
-        return new class($values) extends Base {
+        return new class($values) implements RuleInterface
+        {
             /**
              * @var array
              */
