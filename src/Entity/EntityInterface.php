@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace ArangoDB\Entity;
 
 use ArangoDB\Connection\Connection;
+use ArangoDB\DataStructures\ArrayList;
 
 /**
  * Handler interface
@@ -21,9 +22,9 @@ interface EntityInterface
     /**
      * Returns all entities available on server
      *
-     * @return array
+     * @return ArrayList[User]
      */
-    public function all(): array;
+    public function all(): ArrayList;
 
     /**
      * Save a entity on server, if possible
@@ -40,6 +41,13 @@ interface EntityInterface
     public function delete(): bool;
 
     /**
+     * Returns a array representation of entity
+     *
+     * @return array
+     */
+    public function toArray(): array;
+
+    /**
      * Set a connection object for the class
      *
      * @param Connection $connection
@@ -50,7 +58,8 @@ interface EntityInterface
      * Make Entity objects from array
      *
      * @param array $data
-     * @return Entity[]
+     * @param bool $isNew
+     * @return ArrayList[Entity]
      */
-    public static function make($data = []): array;
+    public static function make(array $data = [], bool $isNew = false): ArrayList;
 }

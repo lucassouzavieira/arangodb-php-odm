@@ -6,15 +6,15 @@ namespace ArangoDB\Validation\Exceptions;
 use Throwable;
 
 /**
- * AuthException
+ * DuplicateUserException
  *
  * @package ArangoDB\Auth\Exceptions
  * @copyright 2019 Lucas S. Vieira
  */
-class AuthException extends \Exception
+class DuplicateUserException extends \Exception
 {
     /**
-     * AuthException constructor.
+     * DuplicateUserException constructor.
      *
      * @param $message
      * @param Throwable|null $previous
@@ -24,4 +24,5 @@ class AuthException extends \Exception
     {
         parent::__construct($message, $code, $previous);
     }
+
 }

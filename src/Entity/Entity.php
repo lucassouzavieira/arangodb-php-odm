@@ -16,18 +16,18 @@ abstract class Entity implements EntityInterface, \JsonSerializable
     /**
      * @var array
      */
-    private $attributes;
+    protected $attributes;
 
     /**
      * @var Connection
      */
-    private $connection;
+    protected $connection;
 
     /**
      * If the user is not an representation of a existing user, this property is true
      * @var bool
      */
-    private $isNew = false;
+    protected $isNew = false;
 
 
     /**
@@ -95,6 +95,26 @@ abstract class Entity implements EntityInterface, \JsonSerializable
     {
         return $this->isNew;
     }
+
+    /**
+     * Returns a array representation of entity
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @param Connection $connection
+     * @see EntityInterface::setConnection()
+     */
+    public function setConnection(Connection $connection): void
+    {
+        $this->connection = $connection;
+    }
+
 
     /**
      * Specify data which should be serialized to JSON

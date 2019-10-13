@@ -61,4 +61,17 @@ abstract class Api
     const DB = "/_db/";
     const AUTH_BASE = "/_open/auth";
     const JWT_AUTH_BASE = "/_open/auth";
+
+    /**
+     * Builds URIs for access to Arango HTTP Interface
+     *
+     * @param string $baseUri
+     * @param string $database
+     * @param string $apiEndpoint
+     * @return string
+     */
+    public static function buildUri(string $baseUri, string $database, string $apiEndpoint)
+    {
+        return sprintf("%s%s%s", $baseUri . Api::DB, $database, $apiEndpoint);
+    }
 }
