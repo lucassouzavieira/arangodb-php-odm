@@ -91,7 +91,7 @@ abstract class Entity implements EntityInterface, \JsonSerializable
      * Returns true if is a new object
      * @return bool
      */
-    public final function isNew(): bool
+    final public function isNew(): bool
     {
         return $this->isNew;
     }

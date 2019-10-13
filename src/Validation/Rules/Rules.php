@@ -17,8 +17,7 @@ abstract class Rules
      */
     public static function arr()
     {
-        return new class implements RuleInterface
-        {
+        return new class implements RuleInterface {
             /**
              * Check if a given value is valid
              *
@@ -38,8 +37,7 @@ abstract class Rules
      */
     public static function string()
     {
-        return new class implements RuleInterface
-        {
+        return new class implements RuleInterface {
             /**
              * Check if a given value is valid
              *
@@ -59,8 +57,7 @@ abstract class Rules
      */
     public static function numeric()
     {
-        return new class implements RuleInterface
-        {
+        return new class implements RuleInterface {
             /**
              * Check if a given value is valid
              *
@@ -80,8 +77,7 @@ abstract class Rules
      */
     public static function integer()
     {
-        return new class implements RuleInterface
-        {
+        return new class implements RuleInterface {
             /**
              * Check if a given value is valid
              *
@@ -101,8 +97,7 @@ abstract class Rules
      */
     public static function boolean()
     {
-        return new class implements RuleInterface
-        {
+        return new class implements RuleInterface {
             /**
              * Check if a given value is valid
              *
@@ -122,8 +117,7 @@ abstract class Rules
      */
     public static function uri()
     {
-        return new class implements RuleInterface
-        {
+        return new class implements RuleInterface {
             /**
              * Check if a given value is valid
              *
@@ -145,8 +139,7 @@ abstract class Rules
      */
     public static function in(array $values)
     {
-        return new class($values) implements RuleInterface
-        {
+        return new class($values) implements RuleInterface {
             /**
              * @var array
              */
