@@ -2,6 +2,7 @@
 
 namespace Unit;
 
+use Dotenv\Dotenv;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 /**
@@ -11,6 +12,14 @@ use PHPUnit\Framework\TestCase as BaseTestCase;
  */
 abstract class TestCase extends BaseTestCase
 {
+    protected $env;
+
+    public function loadEnvironment()
+    {
+        $this->env = Dotenv::create(dirname(__FILE__) . DIRECTORY_SEPARATOR . '../');
+        $this->env->load();
+    }
+
     public function setUp(): void
     {
         parent::setUp();

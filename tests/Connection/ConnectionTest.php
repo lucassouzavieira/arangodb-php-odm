@@ -2,21 +2,16 @@
 
 namespace Unit\Connection;
 
-use ArangoDB\Exceptions\ConnectionException;
-use ArangoDB\Validation\Exceptions\AuthException;
-use Dotenv\Dotenv;
 use Unit\TestCase;
 use ArangoDB\Connection\Connection;
+use ArangoDB\Exceptions\ConnectionException;
+use ArangoDB\Validation\Exceptions\AuthException;
 
 class ConnectionTest extends TestCase
 {
-    protected $env;
-
     public function setUp(): void
     {
-        $this->env = Dotenv::create(dirname(__FILE__) . DIRECTORY_SEPARATOR . '../../');
-        $this->env->load();
-
+        $this->loadEnvironment();
         parent::setUp();
     }
 
