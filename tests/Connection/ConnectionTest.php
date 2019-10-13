@@ -2,6 +2,8 @@
 
 namespace Unit\Connection;
 
+use ArangoDB\Exceptions\ConnectionException;
+use ArangoDB\Validation\Exceptions\AuthException;
 use Dotenv\Dotenv;
 use Unit\TestCase;
 use ArangoDB\Connection\Connection;
@@ -30,6 +32,41 @@ class ConnectionTest extends TestCase
 
         $this->assertNotNull($connection);
         $this->assertTrue($connection->isAuthenticated());
+    }
+
+    public function testThrowAuthException()
+    {
+        $this->expectException(AuthException::class);
+
+        $connection = new Connection([
+            'username' => getenv('ARANGODB_USERNAME'),
+            'password' => 'someWrongPassword',
+            'database' => getenv('ARANGODB_DBNAME'),
+            'host' => getenv('ARANGODB_HOST'),
+            'port' => getenv('ARANGODB_PORT')
+        ]);
+
+        $this->expectException(AuthException::class);
+
+        $connection = new Connection([
+            'username' => 'usernamenonexistent',
+            'password' => getenv('ARANGODB_PASSWORD'),
+            'database' => getenv('ARANGODB_DBNAME'),
+            'host' => getenv('ARANGODB_HOST'),
+            'port' => getenv('ARANGODB_PORT')
+        ]);
+    }
+
+    public function testThrowConnectionException()
+    {
+        $this->expectException(ConnectionException::class);
+        $connection = new Connection([
+            'username' => getenv('ARANGODB_USERNAME'),
+            'password' => getenv('ARANGODB_PASSWORD'),
+            'database' => getenv('ARANGODB_DBNAME'),
+            'host' => getenv('ARANGODB_HOST'),
+            'port' => rand(8100, 8200) // Wrong port
+        ]);
     }
 
     public function testGetDatabaseName()

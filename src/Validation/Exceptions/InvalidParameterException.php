@@ -6,7 +6,7 @@ namespace ArangoDB\Validation\Exceptions;
 use Throwable;
 
 /**
- * Class MissingParameter
+ * InvalidParameterException
  *
  * @package ArangoDB\Validation\Exceptions
  * @copyright 2019 Lucas S. Vieira

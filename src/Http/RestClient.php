@@ -25,7 +25,7 @@ class RestClient
      * RestClient constructor.
      *
      * @param string $baseUri base URI
-     * @throws InvalidParameterException
+     * @throws InvalidParameterException If the base uri is invalid
      */
     public function __construct(string $baseUri)
     {
@@ -39,6 +39,8 @@ class RestClient
     }
 
     /**
+     * Performs a GET request
+     *
      * @param string $url Url to execute request
      * @param mixed $data Data to send
      * @param array $headers Headers
@@ -46,7 +48,7 @@ class RestClient
      * @return mixed|ResponseInterface
      * @throws GuzzleException
      */
-    public function get($url, $data = [], $headers = [])
+    public function get($url, $data = [], $headers = []): ResponseInterface
     {
         $response = $this->httpClient->request('GET', $url, [
             'headers' => $headers,
@@ -57,15 +59,78 @@ class RestClient
     }
 
     /**
+     * Performs a POST request
+     *
      * @param string $url Url to execute request
      * @param mixed $data Data to send
      * @param array $headers Headers
+     *
      * @return mixed|ResponseInterface
      * @throws GuzzleException
      */
-    public function post($url, $data = [], $headers = [])
+    public function post($url, $data = [], $headers = []): ResponseInterface
     {
         $response = $this->httpClient->request('POST', $url, [
+            'headers' => $headers,
+            'body' => json_encode($data)
+        ]);
+
+        return $response;
+    }
+
+    /**
+     * Performs a PUT request
+     *
+     * @param string $url Url to execute request
+     * @param mixed $data Data to send
+     * @param array $headers Headers
+     *
+     * @return mixed|ResponseInterface
+     * @throws GuzzleException
+     */
+    public function put($url, $data = [], $headers = []): ResponseInterface
+    {
+        $response = $this->httpClient->request('PUT', $url, [
+            'headers' => $headers,
+            'body' => json_encode($data)
+        ]);
+
+        return $response;
+    }
+
+    /**
+     * Performs a PATCH request
+     *
+     * @param string $url Url to execute request
+     * @param mixed $data Data to send
+     * @param array $headers Headers
+     *
+     * @return mixed|ResponseInterface
+     * @throws GuzzleException
+     */
+    public function patch($url, $data = [], $headers = []): ResponseInterface
+    {
+        $response = $this->httpClient->request('PATCH', $url, [
+            'headers' => $headers,
+            'body' => json_encode($data)
+        ]);
+
+        return $response;
+    }
+
+    /**
+     * Performs a DELETE request
+     *
+     * @param string $url Url to execute request
+     * @param mixed $data Data to send
+     * @param array $headers Headers
+     *
+     * @return mixed|ResponseInterface
+     * @throws GuzzleException
+     */
+    public function delete($url, $data = [], $headers = []): ResponseInterface
+    {
+        $response = $this->httpClient->request('DELETE', $url, [
             'headers' => $headers,
             'body' => json_encode($data)
         ]);

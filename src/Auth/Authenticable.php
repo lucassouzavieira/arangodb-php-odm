@@ -8,12 +8,16 @@ use ArangoDB\Http\RestClient;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\ConnectException;
+use ArangoDB\Exceptions\ConnectionException;
+use ArangoDB\Validation\Exceptions\AuthException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
  * Class Authenticable
  *
  * @package ArangoDB\Auth
+ * @copyright 2019 Lucas S. Vieira
  */
 abstract class Authenticable
 {
@@ -36,7 +40,7 @@ abstract class Authenticable
      * Authenticable constructor.
      *
      * @param array $options
-     * @throws InvalidParameterException|GuzzleException
+     * @throws InvalidParameterException|GuzzleException|AuthException
      */
     public function __construct(array $options)
     {
@@ -49,12 +53,21 @@ abstract class Authenticable
      * Authenticates a user on ArangoDB Server
      *
      * @param array $credentials
-     * @throws RequestException|GuzzleException|ClientException
+     * @throws RequestException|AuthException|GuzzleException|ConnectionException
      */
     protected function authenticate(array $credentials): void
     {
-        $response = $this->restClient->post($this->getAuthenticationEndpoint($this->options['database']), $credentials);
-        $this->authToken = json_decode((string)$response->getBody(), true);
+        try {
+            $response = $this->restClient->post($this->getAuthenticationEndpoint($this->options['database']), $credentials);
+            $this->authToken = json_decode((string)$response->getBody(), true);
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $authException = new AuthException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $authException;
+        } catch (ConnectException $exception) {
+            $connectionException = new ConnectionException($exception->getMessage(), $exception);
+            throw $connectionException;
+        }
     }
 
     /**

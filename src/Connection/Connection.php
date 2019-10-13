@@ -3,7 +3,10 @@ declare(strict_types=1);
 
 namespace ArangoDB\Connection;
 
+use ArangoDB\Http\RestClient;
 use ArangoDB\Auth\Authenticable;
+use ArangoDB\Validation\Exceptions\AuthException;
+use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Validation\ConnectionOptionsValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
@@ -21,7 +24,7 @@ class Connection extends Authenticable
      * Connection constructor.
      *
      * @param array $options Connection options
-     * @throws InvalidParameterException|MissingParameterException|GuzzleException
+     * @throws InvalidParameterException|MissingParameterException|GuzzleException|AuthException
      */
     public function __construct(array $options)
     {
@@ -56,5 +59,80 @@ class Connection extends Authenticable
     public function getDatabaseName(): string
     {
         return $this->options['database'];
+    }
+
+    /**
+     * Executes a GET request on server
+     *
+     * @param string $endpoint
+     * @param array $body
+     * @param array $headers
+     *
+     * @return ResponseInterface
+     * @throws GuzzleException
+     */
+    public function get(string $endpoint, array $body = [], array $headers = []): ResponseInterface
+    {
+        return $this->restClient->get($endpoint, $body, array_merge($headers, $this->getAuthorizationHeader()));
+    }
+
+    /**
+     * Executes a POST request on server
+     *
+     * @param string $endpoint
+     * @param array $body
+     * @param array $headers
+     *
+     * @return ResponseInterface
+     * @throws GuzzleException
+     */
+    public function post(string $endpoint, array $body = [], array $headers = []): ResponseInterface
+    {
+        return $this->restClient->post($endpoint, $body, array_merge($headers, $this->getAuthorizationHeader()));
+    }
+
+    /**
+     * Executes a PUT request on server
+     *
+     * @param string $endpoint
+     * @param array $body
+     * @param array $headers
+     *
+     * @return ResponseInterface
+     * @throws GuzzleException
+     */
+    public function put(string $endpoint, array $body = [], array $headers = []): ResponseInterface
+    {
+        return $this->restClient->put($endpoint, $body, array_merge($headers, $this->getAuthorizationHeader()));
+    }
+
+    /**
+     * Executes a PATCH request on server
+     *
+     * @param string $endpoint
+     * @param array $body
+     * @param array $headers
+     *
+     * @return ResponseInterface
+     * @throws GuzzleException
+     */
+    public function patch(string $endpoint, array $body = [], array $headers = []): ResponseInterface
+    {
+        return $this->restClient->patch($endpoint, $body, array_merge($headers, $this->getAuthorizationHeader()));
+    }
+
+    /**
+     * Executes a DELETE request on server
+     *
+     * @param string $endpoint
+     * @param array $body
+     * @param array $headers
+     *
+     * @return ResponseInterface
+     * @throws GuzzleException
+     */
+    public function delete(string $endpoint, array $body = [], array $headers = []): ResponseInterface
+    {
+        return $this->restClient->delete($endpoint, $body, array_merge($headers, $this->getAuthorizationHeader()));
     }
 }
