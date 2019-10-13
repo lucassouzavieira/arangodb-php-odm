@@ -130,41 +130,12 @@ class UserTest extends TestCase
     public function testThrowDuplicatedUserException()
     {
         $user = new User([
-            'user' => 'tester',
-            'password' => 'somePassword',
+            'user' => getenv('ARANGODB_USERNAME'),
+            'password' => getenv('ARANGODB_PASSWORD'),
             'active' => true,
-            'extra' => ['name' => 'Tester']
         ]);
 
-        $user->setConnection($this->getConnectionObject());
-        $result = $user->save();
-
-        $this->assertTrue($result);
-
-        $sndUser = new User([
-            'user' => 'tester',
-            'password' => 'somePassword',
-            'active' => true,
-            'extra' => ['name' => 'Tester']
-        ]);
-
-        $sndUser->setConnection($this->getConnectionObject());
         $this->expectException(DuplicateUserException::class);
-        $result = $sndUser->save();
-
-        $this->assertTrue($user->delete());
-    }
-
-    public function tearDown(): void
-    {
-        $user = new User();
         $user->setConnection($this->getConnectionObject());
-        $users = $user->all();
-
-        foreach ($users as $user) {
-            if ($user->getUsername() === 'tester') {
-                $user->delete();
-            }
-        }
     }
 }
