@@ -3,8 +3,8 @@
 
 namespace Unit\Validation\Rules;
 
-use ArangoDB\Validation\Rules\Rules;
 use Unit\TestCase;
+use ArangoDB\Validation\Rules\Rules;
 
 class RulesTest extends TestCase
 {

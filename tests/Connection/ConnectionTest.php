@@ -2,9 +2,9 @@
 
 namespace Unit\Connection;
 
-use ArangoDB\Connection\Connection;
 use Dotenv\Dotenv;
 use Unit\TestCase;
+use ArangoDB\Connection\Connection;
 
 class ConnectionTest extends TestCase
 {
