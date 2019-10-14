@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace ArangoDB\Validation\Exceptions;
+namespace ArangoDB\Auth\Exceptions;
 
 use Throwable;
 

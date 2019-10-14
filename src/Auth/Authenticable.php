@@ -10,7 +10,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ConnectException;
 use ArangoDB\Exceptions\ConnectionException;
-use ArangoDB\Validation\Exceptions\AuthException;
+use ArangoDB\Auth\Exceptions\AuthException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
@@ -40,7 +40,7 @@ abstract class Authenticable
      * Authenticable constructor.
      *
      * @param array $options
-     * @throws InvalidParameterException|GuzzleException|AuthException
+     * @throws InvalidParameterException|GuzzleException|AuthException|ConnectionException
      */
     public function __construct(array $options)
     {

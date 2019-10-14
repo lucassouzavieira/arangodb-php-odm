@@ -5,10 +5,12 @@ namespace ArangoDB\Auth;
 
 use ArangoDB\Http\Api;
 use ArangoDB\Entity\Entity;
+use ArangoDB\Validation\Rules\Rules;
 use ArangoDB\DataStructures\ArrayList;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
-use ArangoDB\Validation\Exceptions\DuplicateUserException;
+use ArangoDB\Auth\Exceptions\DuplicateUserException;
+use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
  * Represents a user in server
@@ -41,7 +43,7 @@ class User extends Entity
     /**
      * Extra data about the user
      *
-     * @var array
+     * @var array|null
      */
     protected $extra;
 
@@ -56,80 +58,6 @@ class User extends Entity
     {
         $this->initialize(['user', 'password', 'active', 'extra'], $attributes);
         parent::__construct($attributes, $isNew);
-    }
-
-    /**
-     * Returns the username
-     *
-     * @return string
-     */
-    public function getUsername(): string
-    {
-        return $this->attributes['user'];
-    }
-
-
-    /**
-     * @return ArrayList[User]
-     * @throws GuzzleException|\ReflectionException
-     * @see Entity::all()
-     */
-    public function all(): ArrayList
-    {
-        $uri = Api::buildUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::USER);
-        $response = $this->connection->get($uri);
-        $data = json_decode((string)$response->getBody(), true);
-        return User::make($data['result']);
-    }
-
-    /**
-     * @return bool
-     * @throws DuplicateUserException
-     * @throws GuzzleException
-     * @see Entity::save()
-     */
-    public function save(): bool
-    {
-        try {
-            $uri = Api::buildUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::USER);
-            $response = $this->connection->post($uri, $this->toArray());
-            $data = json_decode((string)$response->getBody(), true);
-
-            $this->isNew = false;
-            $this->password = null;
-
-            return true;
-        } catch (ClientException $exception) {
-            $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $duplicatedException = new DuplicateUserException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $duplicatedException;
-        }
-    }
-
-    /**
-     * @return bool
-     * @throws GuzzleException
-     * @see Entity::delete()
-     */
-    public function delete(): bool
-    {
-        try {
-            $uri = Api::buildUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::USER);
-            $response = $this->connection->delete(sprintf("%s/%s", $uri, $this->user), $this->toArray());
-            $data = json_decode((string)$response->getBody(), true);
-
-            $this->isNew = false;
-            $this->password = null;
-
-            return true;
-        } catch (ClientException $exception) {
-            // User not found.
-            if ($exception->getResponse()->getStatusCode() == 404) {
-                return false;
-            }
-
-            throw $exception;
-        }
     }
 
     /**
@@ -160,5 +88,154 @@ class User extends Entity
         }
 
         return $list;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive(): bool
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param bool $active
+     */
+    public function setActive(bool $active): void
+    {
+        $this->active = $active;
+    }
+
+    /**
+     * Returns the username
+     *
+     * @return string
+     */
+    public function getUsername(): string
+    {
+        return $this->attributes['user'];
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getExtra()
+    {
+        return $this->extra;
+    }
+
+    /**
+     * @param array $extra
+     */
+    public function setExtra(array $extra): void
+    {
+        $this->extra = $extra;
+    }
+
+    /**
+     * Returns base uri for handle entity
+     *
+     * @param string|int $parameter
+     * @return string URI for handle entity
+     * @throws InvalidParameterException
+     */
+    protected function getEntityBaseUri($parameter = null): string
+    {
+        $integerValidator = Rules::integer();
+        $stringValidator = Rules::string();
+
+        $uri = Api::buildUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::USER);
+        if (is_null($parameter)) {
+            return $uri;
+        }
+
+        if ($integerValidator->isValid($parameter) || $stringValidator->isValid($parameter)) {
+            return sprintf("%s/%s", $uri, $parameter);
+        }
+
+        throw new InvalidParameterException('parameter', $parameter);
+    }
+
+    /**
+     * @param string $username
+     * @return User
+     * @throws GuzzleException|InvalidParameterException
+     */
+    public function find(string $username): User
+    {
+        try {
+            $response = $this->connection->get($this->getEntityBaseUri($username));
+            $data = json_decode((string)$response->getBody(), true);
+
+            var_dump($data);
+        } catch (ClientException $exception) {
+            // User not found.
+            if ($exception->getResponse()->getStatusCode() == 404) {
+                return null;
+            }
+
+            throw $exception;
+        }
+    }
+
+    /**
+     * @return ArrayList[User]
+     * @throws GuzzleException|\ReflectionException|InvalidParameterException
+     * @see Entity::all()
+     */
+    public function all(): ArrayList
+    {
+        $response = $this->connection->get($this->getEntityBaseUri());
+        $data = json_decode((string)$response->getBody(), true);
+        return User::make($data['result']);
+    }
+
+    /**
+     * @return bool
+     * @throws DuplicateUserException
+     * @throws InvalidParameterException
+     * @see Entity::save()
+     */
+    public function save(): bool
+    {
+        try {
+            $method = $this->isNew() ? 'post' : 'patch';
+            $uri = $this->isNew() ? $this->getEntityBaseUri() : $this->getEntityBaseUri($this->getUsername());
+
+            $this->connection->$method($uri, $this->attributes);
+            $this->isNew = false;
+            $this->password = null;
+
+            return true;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $duplicatedException = new DuplicateUserException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $duplicatedException;
+        }
+    }
+
+    /**
+     * @return bool
+     * @throws GuzzleException|InvalidParameterException
+     * @see Entity::delete()
+     */
+    public function delete(): bool
+    {
+        try {
+            $uri = $this->getEntityBaseUri($this->getUsername());
+            $response = $this->connection->delete($uri, $this->toArray());
+
+            $this->isNew = false;
+            $this->password = null;
+
+            return true;
+        } catch (ClientException $exception) {
+            // User not found.
+            if ($exception->getResponse()->getStatusCode() == 404) {
+                return false;
+            }
+
+            throw $exception;
+        }
     }
 }
