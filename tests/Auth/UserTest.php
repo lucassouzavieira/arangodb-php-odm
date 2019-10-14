@@ -137,5 +137,6 @@ class UserTest extends TestCase
 
         $this->expectException(DuplicateUserException::class);
         $user->setConnection($this->getConnectionObject());
+        $user->save();
     }
 }
