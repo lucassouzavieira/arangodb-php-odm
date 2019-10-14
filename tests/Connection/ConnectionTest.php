@@ -5,7 +5,7 @@ namespace Unit\Connection;
 use Unit\TestCase;
 use ArangoDB\Connection\Connection;
 use ArangoDB\Exceptions\ConnectionException;
-use ArangoDB\Validation\Exceptions\AuthException;
+use ArangoDB\Auth\Exceptions\AuthException;
 
 class ConnectionTest extends TestCase
 {

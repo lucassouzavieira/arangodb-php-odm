@@ -3,11 +3,11 @@
 
 namespace Unit\Auth;
 
-use ArangoDB\DataStructures\ArrayList;
-use ArangoDB\Validation\Exceptions\DuplicateUserException;
 use Unit\TestCase;
 use ArangoDB\Auth\User;
 use ArangoDB\Connection\Connection;
+use ArangoDB\DataStructures\ArrayList;
+use ArangoDB\Auth\Exceptions\DuplicateUserException;
 
 class UserTest extends TestCase
 {
@@ -68,6 +68,58 @@ class UserTest extends TestCase
         ]);
 
         $this->assertEquals('testing_user', $user->getUsername());
+
+        $user = new User();
+        $user->user = 'another_user';
+
+        $this->assertEquals('another_user', $user->getUsername());
+    }
+
+    public function testIsActive()
+    {
+        $user = new User([
+            'user' => 'testing_user',
+            'password' => 'somePassword',
+            'active' => false,
+            'extra' => ['name' => 'Tester']
+        ]);
+
+        $this->assertFalse($user->isActive());
+    }
+
+    public function testSetActive()
+    {
+        $user = new User([
+            'user' => 'testing_user',
+            'password' => 'somePassword',
+            'active' => false,
+            'extra' => ['name' => 'Tester']
+        ]);
+
+        $this->assertFalse($user->isActive());
+        $user->setActive(true);
+        $this->assertTrue($user->isActive());
+    }
+
+    public function testSetExtra()
+    {
+        $user = new User();
+        $user->setExtra(['name' => 'Layla']);
+
+        $this->assertIsArray($user->getExtra());
+        $this->assertArrayHasKey('name', $user->getExtra());
+    }
+
+    public function testGetExtra()
+    {
+        $user = new User([
+            'user' => 'testing_user',
+            'password' => 'somePassword',
+            'active' => true,
+            'extra' => null
+        ]);
+
+        $this->assertNull($user->getExtra());
     }
 
     public function testAll()
@@ -80,7 +132,7 @@ class UserTest extends TestCase
         $this->assertInstanceOf(ArrayList::class, $data);
     }
 
-    public function testSave()
+    public function testCreate()
     {
         $user = new User([
             'user' => 'testing_user',
@@ -94,6 +146,68 @@ class UserTest extends TestCase
 
         $this->assertTrue($result);
         $this->assertTrue($user->delete());
+    }
+
+    public function testFind()
+    {
+        $user = new User([
+            'user' => 'testing_user',
+            'password' => 'somePassword',
+            'active' => true,
+            'extra' => ['name' => 'Tester']
+        ]);
+
+        $user->setConnection($this->getConnectionObject());
+        $result = $user->save();
+
+        $this->assertTrue($result);
+        $otherUserObject = new User();
+        $otherUserObject->setConnection($this->getConnectionObject());
+        $searchedUser = $otherUserObject->find('testing_user');
+
+        $this->assertInstanceOf(User::class, $searchedUser);
+        $this->assertTrue($searchedUser->delete());
+    }
+
+    public function testFindNonExistentUser()
+    {
+        $user = new User();
+        $user->setConnection($this->getConnectionObject());
+        $searchedUser = $user->find('some_user');
+
+        $this->assertNull($searchedUser);
+    }
+
+    public function testUpdate()
+    {
+        $user = new User([
+            'user' => 'testing_user',
+            'password' => 'somePassword',
+            'active' => true,
+            'extra' => ['name' => 'Tester']
+        ]);
+
+        $user->setConnection($this->getConnectionObject());
+        $result = $user->save();
+        $this->assertTrue($result);
+
+        // Update user on server.
+        $user->setActive(false);
+        $user->setExtra(['name' => 'Rafael']);
+        $result = $user->save();
+
+        // Find user.
+        $otherUserObject = new User();
+        $otherUserObject->setConnection($this->getConnectionObject());
+        $searchedUser = $otherUserObject->find('testing_user');
+
+        $this->assertInstanceOf(User::class, $searchedUser);
+
+
+        $this->assertEquals($user->getUsername(), $searchedUser->getUsername());
+        $this->assertEquals($user->isActive(), $searchedUser->isActive());
+        $this->assertEquals('Rafael', $searchedUser->getExtra()['name']);
+        $this->assertTrue($searchedUser->delete());
     }
 
     public function testDelete()

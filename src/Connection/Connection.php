@@ -3,11 +3,11 @@ declare(strict_types=1);
 
 namespace ArangoDB\Connection;
 
-use ArangoDB\Http\RestClient;
 use ArangoDB\Auth\Authenticable;
-use ArangoDB\Validation\Exceptions\AuthException;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\GuzzleException;
+use ArangoDB\Auth\Exceptions\AuthException;
+use ArangoDB\Exceptions\ConnectionException;
 use ArangoDB\Validation\ConnectionOptionsValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
@@ -24,7 +24,7 @@ class Connection extends Authenticable
      * Connection constructor.
      *
      * @param array $options Connection options
-     * @throws InvalidParameterException|MissingParameterException|GuzzleException|AuthException
+     * @throws InvalidParameterException|MissingParameterException|GuzzleException|AuthException|ConnectionException
      */
     public function __construct(array $options)
     {

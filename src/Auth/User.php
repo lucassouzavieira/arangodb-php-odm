@@ -61,41 +61,11 @@ class User extends Entity
     }
 
     /**
-     * @return array
-     * @see Entity::toArray()
-     */
-    public function toArray(): array
-    {
-        return [
-            'user' => $this->user,
-            'active' => $this->active,
-            'extra' => $this->extra
-        ];
-    }
-
-    /**
-     * @param array $data
-     * @param bool $isNew
-     * @return ArrayList[User]
-     * @throws \ReflectionException
-     * @see Entity::save()
-     */
-    public static function make(array $data = [], bool $isNew = false): ArrayList
-    {
-        $list = new ArrayList();
-        foreach ($data as $userData) {
-            $list->put($userData['user'], new User($data, $isNew));
-        }
-
-        return $list;
-    }
-
-    /**
      * @return bool
      */
     public function isActive(): bool
     {
-        return $this->active;
+        return $this->attributes['active'];
     }
 
     /**
@@ -103,7 +73,7 @@ class User extends Entity
      */
     public function setActive(bool $active): void
     {
-        $this->active = $active;
+        $this->attributes['active'] = $active;
     }
 
     /**
@@ -121,7 +91,7 @@ class User extends Entity
      */
     public function getExtra()
     {
-        return $this->extra;
+        return $this->attributes['extra'];
     }
 
     /**
@@ -129,52 +99,42 @@ class User extends Entity
      */
     public function setExtra(array $extra): void
     {
-        $this->extra = $extra;
+        $this->attributes['extra'] = $extra;
     }
 
     /**
-     * Returns base uri for handle entity
-     *
-     * @param string|int $parameter
-     * @return string URI for handle entity
-     * @throws InvalidParameterException
+     * @return array
+     * @see Entity::toArray()
      */
-    protected function getEntityBaseUri($parameter = null): string
+    public function toArray(): array
     {
-        $integerValidator = Rules::integer();
-        $stringValidator = Rules::string();
-
-        $uri = Api::buildUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::USER);
-        if (is_null($parameter)) {
-            return $uri;
-        }
-
-        if ($integerValidator->isValid($parameter) || $stringValidator->isValid($parameter)) {
-            return sprintf("%s/%s", $uri, $parameter);
-        }
-
-        throw new InvalidParameterException('parameter', $parameter);
+        return [
+            'user' => $this->user,
+            'active' => $this->active,
+            'extra' => $this->extra
+        ];
     }
 
     /**
+     * Finds a user on server
+     *
      * @param string $username
-     * @return User
-     * @throws GuzzleException|InvalidParameterException
+     * @return User|null User if exists, null if not
+     * @throws GuzzleException|InvalidParameterException|\ReflectionException
      */
-    public function find(string $username): User
+    public function find(string $username)
     {
         try {
             $response = $this->connection->get($this->getEntityBaseUri($username));
             $data = json_decode((string)$response->getBody(), true);
-
-            var_dump($data);
+            $user = new User($data, false);
+            $user->setConnection($this->connection);
+            return $user;
         } catch (ClientException $exception) {
             // User not found.
             if ($exception->getResponse()->getStatusCode() == 404) {
                 return null;
             }
-
-            throw $exception;
         }
     }
 
@@ -237,5 +197,48 @@ class User extends Entity
 
             throw $exception;
         }
+    }
+
+    /**
+     * Returns base uri for handle entity
+     *
+     * @param string|int $parameter
+     * @return string URI for handle entity
+     * @throws InvalidParameterException
+     */
+    protected function getEntityBaseUri($parameter = null): string
+    {
+        $integerValidator = Rules::integer();
+        $stringValidator = Rules::string();
+
+        $uri = Api::buildUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::USER);
+        if (is_null($parameter)) {
+            return $uri;
+        }
+
+        if ($integerValidator->isValid($parameter) || $stringValidator->isValid($parameter)) {
+            return sprintf("%s/%s", $uri, $parameter);
+        }
+
+        throw new InvalidParameterException('parameter', $parameter);
+    }
+
+    /**
+     * Make a series of User objects
+     *
+     * @param array $data
+     * @param bool $isNew
+     * @return ArrayList[User]
+     * @throws \ReflectionException
+     * @see Entity::save()
+     */
+    public static function make(array $data = [], bool $isNew = false): ArrayList
+    {
+        $list = new ArrayList();
+        foreach ($data as $userData) {
+            $list->put($userData['user'], new User($data, $isNew));
+        }
+
+        return $list;
     }
 }

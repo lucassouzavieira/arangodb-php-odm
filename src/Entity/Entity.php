@@ -29,6 +29,15 @@ abstract class Entity implements EntityInterface, \JsonSerializable
      */
     protected $isNew = false;
 
+    /**
+     * Parameters sent by server, but not used on representation of a entity
+     *
+     * @var array
+     */
+    private $unsetAttributes = [
+        'error',
+        'code'
+    ];
 
     /**
      * Entity constructor.
@@ -39,6 +48,11 @@ abstract class Entity implements EntityInterface, \JsonSerializable
     public function __construct(array $attributes = [], bool $isNew = false)
     {
         $this->isNew = $isNew;
+
+        foreach ($this->unsetAttributes as $key) {
+            unset($attributes[$key]);
+        }
+
         $this->attributes = $attributes;
     }
 
@@ -150,4 +164,10 @@ abstract class Entity implements EntityInterface, \JsonSerializable
             }
         }
     }
+
+    /**
+     * Returns base uri for handle entity
+     * @return string
+     */
+    abstract protected function getEntityBaseUri(): string;
 }

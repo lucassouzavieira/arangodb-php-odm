@@ -34,7 +34,7 @@ class InvalidParameterException extends \Exception
     {
         $this->value = $value;
         $this->parameter = $parameter;
-        $message = "'$parameter' given on " . $this->getFile() . " in line " . $this->getLine() . " is invalid.";
+        $message = "'$parameter' of type " . gettype($value) . " given on " . $this->getFile() . " in line " . $this->getLine() . " is invalid.";
         parent::__construct($message, 0, $previous);
     }
 }
