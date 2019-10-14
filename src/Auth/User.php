@@ -194,8 +194,6 @@ class User extends Entity
             if ($exception->getResponse()->getStatusCode() == 404) {
                 return false;
             }
-
-            throw $exception;
         }
     }
 

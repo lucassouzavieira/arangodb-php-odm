@@ -77,13 +77,14 @@ abstract class Authenticable
      */
     protected function getAuthorizationHeader()
     {
+        $header = [];
         if (is_array($this->authToken)) {
-            return [
+            $header = [
                 'Authorization' => sprintf("Bearer %s", $this->authToken['jwt'])
             ];
         }
 
-        return [];
+        return $header;
     }
 
     /**
