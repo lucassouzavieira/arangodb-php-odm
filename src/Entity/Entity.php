@@ -180,5 +180,5 @@ abstract class Entity implements EntityInterface, \JsonSerializable
      * @param bool $isNew
      * @return ArrayList[Entity]
      */
-    abstract protected static function make(array $data = [], bool $isNew = false): ArrayList;
+    abstract protected function make(array $data = [], bool $isNew = false): ArrayList;
 }

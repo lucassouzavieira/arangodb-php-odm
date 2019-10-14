@@ -139,7 +139,9 @@ class User extends Entity
     }
 
     /**
-     * @return ArrayList[User]
+     * Return all users from server
+     *
+     * @return ArrayList[User] An ArrayList of users
      * @throws GuzzleException|\ReflectionException|InvalidParameterException
      * @see Entity::all()
      */
@@ -147,14 +149,15 @@ class User extends Entity
     {
         $response = $this->connection->get($this->getEntityBaseUri());
         $data = json_decode((string)$response->getBody(), true);
-        return User::make($data['result']);
+        return self::make($data['result']);
     }
 
     /**
-     * @return bool
+     * Saves (or update) a user on server
+     *
+     * @return bool True if user was created or updated on server. Throws an exception if user is duplicated
      * @throws DuplicateUserException
      * @throws InvalidParameterException
-     * @see Entity::save()
      */
     public function save(): bool
     {
@@ -175,7 +178,9 @@ class User extends Entity
     }
 
     /**
-     * @return bool
+     * Removes an user from server
+     *
+     * @return bool True if user was removed, false otherwise (e.g. user not exists)
      * @throws GuzzleException|InvalidParameterException
      * @see Entity::delete()
      */
@@ -230,11 +235,13 @@ class User extends Entity
      * @throws \ReflectionException
      * @see Entity::save()
      */
-    protected static function make(array $data = [], bool $isNew = false): ArrayList
+    protected function make(array $data = [], bool $isNew = false): ArrayList
     {
         $list = new ArrayList();
         foreach ($data as $userData) {
-            $list->put($userData['user'], new User($data, $isNew));
+            $user = new User($data, $isNew);
+            $user->setConnection($this->connection);
+            $list->put($userData['user'], $user);
         }
 
         return $list;
