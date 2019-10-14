@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace ArangoDB\Entity;
 
 use ArangoDB\Connection\Connection;
+use ArangoDB\DataStructures\ArrayList;
 
 /**
  * Entity class
@@ -166,8 +167,18 @@ abstract class Entity implements EntityInterface, \JsonSerializable
     }
 
     /**
-     * Returns base uri for handle entity
+     * Returns base Uri for handle entity
+     *
      * @return string
      */
     abstract protected function getEntityBaseUri(): string;
+
+    /**
+     * Make Entity objects from array
+     *
+     * @param array $data
+     * @param bool $isNew
+     * @return ArrayList[Entity]
+     */
+    abstract protected static function make(array $data = [], bool $isNew = false): ArrayList;
 }

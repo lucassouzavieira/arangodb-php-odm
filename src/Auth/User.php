@@ -232,7 +232,7 @@ class User extends Entity
      * @throws \ReflectionException
      * @see Entity::save()
      */
-    public static function make(array $data = [], bool $isNew = false): ArrayList
+    protected static function make(array $data = [], bool $isNew = false): ArrayList
     {
         $list = new ArrayList();
         foreach ($data as $userData) {

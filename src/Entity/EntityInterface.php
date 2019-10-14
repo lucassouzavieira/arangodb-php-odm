@@ -61,13 +61,4 @@ interface EntityInterface
      * @param Connection $connection
      */
     public function setConnection(Connection $connection): void;
-
-    /**
-     * Make Entity objects from array
-     *
-     * @param array $data
-     * @param bool $isNew
-     * @return ArrayList[Entity]
-     */
-    public static function make(array $data = [], bool $isNew = false): ArrayList;
 }
