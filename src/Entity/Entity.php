@@ -65,7 +65,7 @@ abstract class Entity implements EntityInterface, \JsonSerializable
      */
     public function __get(string $name)
     {
-        if (in_array($name, $this->attributes)) {
+        if (array_key_exists($name, $this->attributes)) {
             return $this->attributes[$name];
         }
 

@@ -75,6 +75,42 @@ class UserTest extends TestCase
         $this->assertEquals('another_user', $user->getUsername());
     }
 
+    public function testGetNonExistentAttribute()
+    {
+        $user = new User([
+            'user' => 'testing_user',
+            'password' => 'somePassword',
+            'active' => true,
+            'extra' => ['name' => 'Tester']
+        ]);
+
+        $this->assertNull($user->somefield);
+    }
+
+    public function testToJson()
+    {
+        $user = new User([
+            'user' => 'testing_user',
+            'password' => 'somePassword',
+            'active' => true,
+            'extra' => ['name' => 'Tester']
+        ]);
+
+        $this->assertJson(json_encode($user));
+    }
+
+    public function testToString()
+    {
+        $user = new User([
+            'user' => 'testing_user',
+            'password' => 'somePassword',
+            'active' => true,
+            'extra' => ['name' => 'Tester']
+        ]);
+
+        $this->assertJson((string)$user);
+    }
+
     public function testIsActive()
     {
         $user = new User([
