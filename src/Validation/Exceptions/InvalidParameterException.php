@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace ArangoDB\Validation\Exceptions;
 
 use Throwable;
+use ArangoDB\Exceptions\BaseException;
 
 /**
  * InvalidParameterException
@@ -11,7 +12,7 @@ use Throwable;
  * @package ArangoDB\Validation\Exceptions
  * @author Lucas S. Vieira
  */
-class InvalidParameterException extends \Exception
+class InvalidParameterException extends BaseException
 {
     /**
      * @var string
@@ -35,6 +36,6 @@ class InvalidParameterException extends \Exception
         $this->value = $value;
         $this->parameter = $parameter;
         $message = "'$parameter'('$value') of type " . gettype($value) . " given on " . $this->getFile() . " in line " . $this->getLine() . " is invalid.";
-        parent::__construct($message, 0, $previous);
+        parent::__construct($message, $previous);
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace ArangoDB\Validation\Exceptions;
 
 use Throwable;
+use ArangoDB\Exceptions\BaseException;
 
 /**
  * MissingParameterException
@@ -11,7 +12,7 @@ use Throwable;
  * @package ArangoDB\Validation\Exceptions
  * @author Lucas S. Vieira
  */
-class MissingParameterException extends \Exception
+class MissingParameterException extends BaseException
 {
     /**
      * @var string
@@ -28,6 +29,6 @@ class MissingParameterException extends \Exception
     {
         $this->parameter = $parameter;
         $message = "Missing '$parameter' on: " . $this->getFile() . " in line " . $this->getLine();
-        parent::__construct($message, 0, $previous);
+        parent::__construct($message, $previous);
     }
 }
