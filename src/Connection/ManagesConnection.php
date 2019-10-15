@@ -3,7 +3,6 @@
 
 namespace ArangoDB\Connection;
 
-
 use ArangoDB\Connection\Connection;
 
 /**

@@ -82,15 +82,21 @@ abstract class DatabaseHandler extends ManagesConnection
      * @param Connection $connection
      *
      * @return ArrayList
-     * @throws GuzzleException
+     * @throws GuzzleException|DatabaseException
      */
     public static function list(Connection $connection): ArrayList
     {
-        $uri = Api::buildSystemUri($connection->getBaseUri(), Api::DATABASE);
-        $response = $connection->get($uri);
-        $data = json_decode((string)$response->getBody(), true);
+        try {
+            $uri = Api::buildSystemUri($connection->getBaseUri(), Api::DATABASE);
+            $response = $connection->get($uri);
+            $data = json_decode((string)$response->getBody(), true);
 
-        return new ArrayList($data['result']);
+            return new ArrayList($data['result']);
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
@@ -99,15 +105,21 @@ abstract class DatabaseHandler extends ManagesConnection
      * @param Connection $connection
      *
      * @return ArrayList
-     * @throws GuzzleException
+     * @throws GuzzleException|DatabaseException
      */
     public static function userDatabases(Connection $connection): ArrayList
     {
-        $uri = Api::buildSystemUri($connection->getBaseUri(), Api::USER_DATABASES);
-        $response = $connection->get($uri);
-        $data = json_decode((string)$response->getBody(), true);
+        try {
+            $uri = Api::buildSystemUri($connection->getBaseUri(), Api::USER_DATABASES);
+            $response = $connection->get($uri);
+            $data = json_decode((string)$response->getBody(), true);
 
-        return new ArrayList($data['result']);
+            return new ArrayList($data['result']);
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
@@ -116,14 +128,21 @@ abstract class DatabaseHandler extends ManagesConnection
      * @param Connection $connection
      *
      * @return array
-     * @throws GuzzleException
+     * @throws GuzzleException|DatabaseException
      */
-    public static function current(Connection $connection): array
+    public
+    static function current(Connection $connection): array
     {
-        $uri = Api::buildSystemUri($connection->getBaseUri(), Api::CURRENT_DATABASE);
-        $response = $connection->get($uri);
-        $data = json_decode((string)$response->getBody(), true);
+        try {
+            $uri = Api::buildSystemUri($connection->getBaseUri(), Api::CURRENT_DATABASE);
+            $response = $connection->get($uri);
+            $data = json_decode((string)$response->getBody(), true);
 
-        return $data['result'];
+            return $data['result'];
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 }

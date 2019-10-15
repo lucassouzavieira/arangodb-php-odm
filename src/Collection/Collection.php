@@ -15,6 +15,41 @@ use ArangoDB\Connection\ManagesConnection;
 class Collection extends ManagesConnection
 {
     /**
+     * Collection ID
+     *
+     * @var integer|string
+     */
+    protected $id;
+
+    /**
+     * Collection name
+     *
+     * @var string
+     */
+    protected $name;
+
+    /**
+     * Collection status
+     *
+     * @var integer
+     */
+    protected $status;
+
+    /**
+     * If is a system collection
+     *
+     * @var bool
+     */
+    protected $isSystem;
+
+    /**
+     * Globally Unique ID
+     *
+     * @var string
+     */
+    protected $globallyUniqueId;
+
+    /**
      * Database object
      *
      * @var Database

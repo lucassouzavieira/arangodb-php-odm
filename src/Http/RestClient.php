@@ -25,9 +25,10 @@ class RestClient
      * RestClient constructor.
      *
      * @param string $baseUri base URI
+     * @param array $options
      * @throws InvalidParameterException If the base uri is invalid
      */
-    public function __construct(string $baseUri)
+    public function __construct(string $baseUri, array $options = [])
     {
         $validator = Rules::uri();
 
@@ -35,7 +36,7 @@ class RestClient
             throw new InvalidParameterException('baseUri', $baseUri);
         }
 
-        $this->httpClient = new Client(['base_uri' => $baseUri]);
+        $this->httpClient = new Client(array_merge(['base_uri' => $baseUri], $options));
     }
 
     /**

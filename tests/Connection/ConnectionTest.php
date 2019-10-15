@@ -79,6 +79,20 @@ class ConnectionTest extends TestCase
         $this->assertEquals(getenv('ARANGODB_DBNAME'), $connection->getDatabaseName());
     }
 
+    public function testGetUsername()
+    {
+        $connection = new Connection([
+            'username' => getenv('ARANGODB_USERNAME'),
+            'password' => getenv('ARANGODB_PASSWORD'),
+            'database' => getenv('ARANGODB_DBNAME'),
+            'host' => getenv('ARANGODB_HOST'),
+            'port' => getenv('ARANGODB_PORT')
+        ]);
+
+        $this->assertNotNull($connection);
+        $this->assertEquals(getenv('ARANGODB_USERNAME'), $connection->getUsername());
+    }
+
     public function testGetDatabase()
     {
         $connection = new Connection([

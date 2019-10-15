@@ -4,6 +4,7 @@
 namespace Unit\Database;
 
 use Unit\TestCase;
+use ArangoDB\Database\Database;
 use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Database\DatabaseHandler;
 use ArangoDB\Exceptions\DatabaseException;
@@ -14,5 +15,11 @@ class DatabaseTest extends TestCase
     {
         $this->loadEnvironment();
         parent::setUp();
+    }
+
+    public function testGetDatabaseName()
+    {
+        $db = new Database($this->getConnectionObject());
+        $this->assertEquals(getenv('ARANGODB_DBNAME'), $db->getDatabaseName());
     }
 }

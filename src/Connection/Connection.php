@@ -5,6 +5,7 @@ namespace ArangoDB\Connection;
 
 use ArangoDB\Auth\Authenticable;
 use ArangoDB\Database\Database;
+use ArangoDB\Exceptions\DatabaseException;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Auth\Exceptions\AuthException;
@@ -58,6 +59,7 @@ class Connection extends Authenticable
      * Return the database object for this connection
      *
      * @return Database
+     * @throws GuzzleException|DatabaseException
      */
     public function getDatabase(): Database
     {

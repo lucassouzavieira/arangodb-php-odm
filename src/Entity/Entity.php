@@ -20,7 +20,7 @@ abstract class Entity extends ManagesConnection implements EntityInterface, \Jso
     protected $attributes;
 
     /**
-     * If the user is not an representation of a existing user, this property is true
+     * If the user is not an representation of a existing user, this property is truelllllll
      * @var bool
      */
     protected $isNew = false;

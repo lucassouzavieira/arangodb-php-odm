@@ -2,8 +2,11 @@
 
 namespace Unit;
 
+use ArangoDB\Http\RestClient;
 use Dotenv\Dotenv;
 use ArangoDB\Connection\Connection;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 /**
@@ -21,15 +24,49 @@ abstract class TestCase extends BaseTestCase
         $this->env->load();
     }
 
-    public function getConnectionObject()
+    /**
+     * @param MockHandler|null $mock
+     * @return Connection
+     * @throws \ArangoDB\Auth\Exceptions\AuthException
+     * @throws \ArangoDB\Exceptions\ConnectionException
+     * @throws \ArangoDB\Validation\Exceptions\InvalidParameterException
+     * @throws \ArangoDB\Validation\Exceptions\MissingParameterException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \ReflectionException
+     */
+    public function getConnectionObject(MockHandler $mock = null)
     {
-        return new Connection([
+        $connection = new Connection([
             'username' => getenv('ARANGODB_USERNAME'),
             'password' => getenv('ARANGODB_PASSWORD'),
             'database' => getenv('ARANGODB_DBNAME'),
             'host' => getenv('ARANGODB_HOST'),
             'port' => getenv('ARANGODB_PORT')
         ]);
+
+        if ($mock) {
+            $handler = HandlerStack::create($mock);
+            $restClient = new RestClient($connection->getBaseUri(), ['handler' => $handler]);
+
+            // Set 'restClient' into Connection
+            $reflection = new \ReflectionClass($connection);
+            $reflectionProperty = $reflection->getProperty('restClient');
+            $reflectionProperty->setAccessible(true);
+            $reflectionProperty->setValue($connection, $restClient);
+            $reflectionProperty->setAccessible(false);
+        }
+
+        return $connection;
+    }
+
+    public function mockServerError()
+    {
+        return [
+            'error' => true,
+            'errorMessage' => random_bytes(10),
+            'errorNum' => 0,
+            'code' => 0
+        ];
     }
 
 

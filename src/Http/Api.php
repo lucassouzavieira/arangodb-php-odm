@@ -88,4 +88,16 @@ abstract class Api
     {
         return sprintf("%s%s", $baseUri, $endpoint);
     }
+
+    /**
+     * Add query
+     *
+     * @param string $baseUri
+     * @param array $data
+     * @return string
+     */
+    public static function buildAddQuery(string $baseUri, array $data = [])
+    {
+        return sprintf("%s?%s", $baseUri, http_build_query($data));
+    }
 }
