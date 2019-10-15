@@ -43,4 +43,22 @@ class ApiTest extends TestCase
         $expected = "http://localhost:8660/_api/database/current";
         $this->assertEquals($expected, Api::buildSystemUri($baseUri, $endpoint));
     }
+
+    public function testAddQuery()
+    {
+        $baseUri = "http://localhost:8660";
+        $db = "testdb";
+
+        $endpoint = Api::DATABASE;
+        $query = ['param' => 'value'];
+        $expected = "http://localhost:8660/_api/database?param=value";
+        $uri = Api::buildSystemUri($baseUri, $endpoint);
+        $this->assertEquals($expected, Api::addQuery($uri, $query));
+
+        $endpoint = Api::CURRENT_DATABASE;
+        $expected = "http://localhost:8660/_api/database/current?pa=a&pb=b";
+        $query = ['pa' => 'a', 'pb' => 'b'];
+        $uri = Api::buildSystemUri($baseUri, $endpoint);
+        $this->assertEquals($expected, Api::addQuery($uri, $query));
+    }
 }

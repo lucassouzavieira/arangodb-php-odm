@@ -163,7 +163,7 @@ class Database extends DatabaseHandler
     {
         try {
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabaseName(), Api::COLLECTION);
-            $uri = Api::buildAddQuery($uri, ['_' => 1571168105383]);
+            $uri = Api::addQuery($uri, ['_' => 1571168105383]);
             $response = $this->connection->get($uri);
             $data = json_decode((string)$response->getBody(), true);
 

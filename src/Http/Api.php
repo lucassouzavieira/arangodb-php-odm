@@ -96,7 +96,7 @@ abstract class Api
      * @param array $data
      * @return string
      */
-    public static function buildAddQuery(string $baseUri, array $data = [])
+    public static function addQuery(string $baseUri, array $data = [])
     {
         return sprintf("%s?%s", $baseUri, http_build_query($data));
     }
