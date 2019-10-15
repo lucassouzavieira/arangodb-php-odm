@@ -5,7 +5,6 @@ namespace ArangoDB\Database;
 
 use ArangoDB\Collection\Collection;
 use ArangoDB\Connection\Connection;
-use ArangoDB\Entity\ManagesConnectionInterface;
 
 /**
  * Represents a database on server

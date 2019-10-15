@@ -10,6 +10,9 @@
         <testsuite name="Auth">
             <directory suffix="Test.php">tests/Auth</directory>
         </testsuite>
+        <testsuite name="Collection">
+            <directory suffix="Test.php">tests/Collection</directory>
+        </testsuite>
         <testsuite name="Connection">
             <directory suffix="Test.php">tests/Connection</directory>
         </testsuite>

@@ -12,17 +12,12 @@ use ArangoDB\DataStructures\ArrayList;
  * @package ArangoDB\Handler
  * @author Lucas S. Vieira
  */
-abstract class Entity implements EntityInterface, ManagesConnectionInterface, \JsonSerializable
+abstract class Entity extends ManagesConnection implements EntityInterface, \JsonSerializable
 {
     /**
      * @var array
      */
     protected $attributes;
-
-    /**
-     * @var Connection
-     */
-    protected $connection;
 
     /**
      * If the user is not an representation of a existing user, this property is true
@@ -122,16 +117,6 @@ abstract class Entity implements EntityInterface, ManagesConnectionInterface, \J
     {
         return $this->attributes;
     }
-
-    /**
-     * @param Connection $connection
-     * @see EntityInterface::setConnection()
-     */
-    public function setConnection(Connection $connection): void
-    {
-        $this->connection = $connection;
-    }
-
 
     /**
      * Specify data which should be serialized to JSON

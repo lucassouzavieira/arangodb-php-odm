@@ -6,6 +6,7 @@ namespace ArangoDB\Database;
 use ArangoDB\Http\Api;
 use ArangoDB\Connection\Connection;
 use ArangoDB\DataStructures\ArrayList;
+use ArangoDB\Entity\ManagesConnection;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Exceptions\DatabaseException;
@@ -16,7 +17,7 @@ use ArangoDB\Exceptions\DatabaseException;
  * @package ArangoDB\Auth
  * @author Lucas S. Vieira
  */
-abstract class DatabaseHandler
+abstract class DatabaseHandler extends ManagesConnection
 {
     /**
      * Creates a new database on server
