@@ -1,7 +1,7 @@
 <?php
 
 
-namespace ArangoDB\Entity;
+namespace ArangoDB\Connection;
 
 
 use ArangoDB\Connection\Connection;

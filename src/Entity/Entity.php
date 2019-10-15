@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace ArangoDB\Entity;
 
-use ArangoDB\Connection\Connection;
 use ArangoDB\DataStructures\ArrayList;
+use ArangoDB\Connection\ManagesConnection;
 
 /**
  * Entity class

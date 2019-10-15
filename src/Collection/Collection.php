@@ -4,7 +4,7 @@
 namespace ArangoDB\Collection;
 
 use ArangoDB\Database\Database;
-use ArangoDB\Entity\ManagesConnection;
+use ArangoDB\Connection\ManagesConnection;
 
 /**
  * Represents a collection of a database
