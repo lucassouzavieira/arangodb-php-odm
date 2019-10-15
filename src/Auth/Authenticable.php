@@ -17,7 +17,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  * Class Authenticable
  *
  * @package ArangoDB\Auth
- * @copyright 2019 Lucas S. Vieira
+ * @author Lucas S. Vieira
  */
 abstract class Authenticable
 {

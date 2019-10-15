@@ -11,7 +11,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Exceptions\DatabaseException;
 
 /**
- * Represents a user in server
+ * Manages databases on Arango server
  *
  * @package ArangoDB\Auth
  * @author Lucas S. Vieira
@@ -83,8 +83,7 @@ abstract class Database
      * @return ArrayList
      * @throws GuzzleException
      */
-    public
-    static function list(Connection $connection): ArrayList
+    public static function list(Connection $connection): ArrayList
     {
         $uri = Api::buildSystemUri($connection->getBaseUri(), Api::DATABASE);
         $response = $connection->get($uri);

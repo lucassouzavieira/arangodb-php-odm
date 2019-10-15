@@ -7,7 +7,7 @@ namespace ArangoDB\Validation\Rules;
  * Provides validation rules for inputs data
  *
  * @package ArangoDB\Validation
- * @copyright 2019 Lucas S. Vieira
+ * @author Lucas S. Vieira
  */
 abstract class Rules
 {

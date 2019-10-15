@@ -9,6 +9,7 @@ use ArangoDB\DataStructures\Contracts\ListInterface;
  * Class ArrayList
  *
  * @package ArangoDB\DataStructures
+ * @author Lucas S. Vieira
  */
 class ArrayList implements ListInterface, \JsonSerializable, \Iterator, \Countable
 {

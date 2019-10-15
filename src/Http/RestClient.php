@@ -12,7 +12,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  * Class RestClient
  *
  * @package ArangoDB\Http
- * @copyright 2019 Lucas S. Vieira
+ * @author Lucas S. Vieira
  */
 class RestClient
 {

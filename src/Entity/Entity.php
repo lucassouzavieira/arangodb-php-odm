@@ -10,7 +10,7 @@ use ArangoDB\DataStructures\ArrayList;
  * Entity class
  *
  * @package ArangoDB\Handler
- * @copyright 2019 Lucas S. Vieira
+ * @author Lucas S. Vieira
  */
 abstract class Entity implements EntityInterface, \JsonSerializable
 {

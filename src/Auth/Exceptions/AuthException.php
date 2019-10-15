@@ -9,7 +9,7 @@ use Throwable;
  * AuthException
  *
  * @package ArangoDB\Auth\Exceptions
- * @copyright 2019 Lucas S. Vieira
+ * @author Lucas S. Vieira
  */
 class AuthException extends \Exception
 {

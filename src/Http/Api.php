@@ -29,6 +29,8 @@ abstract class Api
     const TRAVERSAL = "/_api/traversal";
     const ENDPOINT = "/_api/endpoint";
     const DATABASE = "/_api/database";
+    const CURRENT_DATABASE = "/_api/database/current";
+    const USER_DATABASES = "/_api/database/user";
     const QUERY_CACHE = "/_api/query-cache";
     const UPLOAD = "/_api/upload";
 
@@ -70,8 +72,20 @@ abstract class Api
      * @param string $apiEndpoint
      * @return string
      */
-    public static function buildUri(string $baseUri, string $database, string $apiEndpoint)
+    public static function buildDatabaseUri(string $baseUri, string $database, string $apiEndpoint = '')
     {
         return sprintf("%s%s%s", $baseUri . Api::DB, $database, $apiEndpoint);
+    }
+
+    /**
+     * Builds URIs for access some special endpoints on Arango HTTP Interface
+     *
+     * @param string $baseUri
+     * @param string $endpoint
+     * @return string
+     */
+    public static function buildSystemUri(string $baseUri, string $endpoint)
+    {
+        return sprintf("%s%s", $baseUri, $endpoint);
     }
 }

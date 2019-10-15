@@ -7,7 +7,7 @@ namespace ArangoDB\Validation\Rules;
  * Basic inter
  *
  * @package ArangoDB\Validation\Rules
- * @copyright 2019 Lucas S. Vieira
+ * @author Lucas S. Vieira
  */
 interface RuleInterface
 {

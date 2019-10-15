@@ -9,13 +9,14 @@ use ArangoDB\Validation\Rules\Rules;
 use ArangoDB\DataStructures\ArrayList;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
-use ArangoDB\Auth\Exceptions\DuplicateUserException;
+use ArangoDB\Auth\Exceptions\UserException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
  * Represents a user in server
  *
  * @package ArangoDB\Auth
+ * @author Lucas S. Vieira
  */
 class User extends Entity
 {
@@ -156,7 +157,7 @@ class User extends Entity
      * Saves (or update) a user on server
      *
      * @return bool True if user was created or updated on server. Throws an exception if user is duplicated
-     * @throws DuplicateUserException
+     * @throws UserException
      * @throws InvalidParameterException
      */
     public function save(): bool
@@ -172,7 +173,7 @@ class User extends Entity
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $duplicatedException = new DuplicateUserException($response['errorMessage'], $exception, $response['errorNum']);
+            $duplicatedException = new UserException($response['errorMessage'], $exception, $response['errorNum']);
             throw $duplicatedException;
         }
     }
@@ -214,7 +215,7 @@ class User extends Entity
         $integerValidator = Rules::integer();
         $stringValidator = Rules::string();
 
-        $uri = Api::buildUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::USER);
+        $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::USER);
         if (is_null($parameter)) {
             return $uri;
         }

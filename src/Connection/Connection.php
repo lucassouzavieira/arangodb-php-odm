@@ -8,15 +8,15 @@ use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Auth\Exceptions\AuthException;
 use ArangoDB\Exceptions\ConnectionException;
-use ArangoDB\Validation\ConnectionOptionsValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
+use ArangoDB\Validation\Connection\ConnectionOptionsValidator;
 
 /**
  * Class Connection
  *
  * @package ArangoDB\Connection
- * @copyright 2019 Lucas S. Vieira
+ * @author Lucas S. Vieira
  */
 class Connection extends Authenticable
 {
@@ -45,6 +45,7 @@ class Connection extends Authenticable
 
     /**
      * Return the base endpoint uri
+     *
      * @return string
      */
     public function getBaseUri(): string
@@ -54,11 +55,22 @@ class Connection extends Authenticable
 
     /**
      * Return the name of database handled
+     *
      * @return string
      */
     public function getDatabaseName(): string
     {
         return $this->options['database'];
+    }
+
+    /**
+     * Returns the name of user on server
+     *
+     * @return string
+     */
+    public function getUsername(): string
+    {
+        return $this->options['username'];
     }
 
     /**

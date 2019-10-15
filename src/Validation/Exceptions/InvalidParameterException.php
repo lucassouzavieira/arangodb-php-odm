@@ -9,7 +9,7 @@ use Throwable;
  * InvalidParameterException
  *
  * @package ArangoDB\Validation\Exceptions
- * @copyright 2019 Lucas S. Vieira
+ * @author Lucas S. Vieira
  */
 class InvalidParameterException extends \Exception
 {
@@ -34,7 +34,7 @@ class InvalidParameterException extends \Exception
     {
         $this->value = $value;
         $this->parameter = $parameter;
-        $message = "'$parameter' of type " . gettype($value) . " given on " . $this->getFile() . " in line " . $this->getLine() . " is invalid.";
+        $message = "'$parameter'('$value') of type " . gettype($value) . " given on " . $this->getFile() . " in line " . $this->getLine() . " is invalid.";
         parent::__construct($message, 0, $previous);
     }
 }

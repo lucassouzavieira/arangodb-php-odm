@@ -7,7 +7,7 @@ namespace ArangoDB\Validation;
  * Interface ValidatorInterface
  *
  * @package ArangoDB\Validation
- * @copyright 2019 Lucas S. Vieira
+ * @author Lucas S. Vieira
  */
 interface ValidatorInterface
 {

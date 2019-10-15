@@ -9,7 +9,7 @@ use Throwable;
  * MissingParameterException
  *
  * @package ArangoDB\Validation\Exceptions
- * @copyright 2019 Lucas S. Vieira
+ * @author Lucas S. Vieira
  */
 class MissingParameterException extends \Exception
 {

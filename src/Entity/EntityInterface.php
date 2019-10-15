@@ -10,6 +10,7 @@ use ArangoDB\DataStructures\ArrayList;
  * Handler interface
  *
  * @package ArangoDB\Handler
+ * @author Lucas S. Vieira
  */
 interface EntityInterface
 {

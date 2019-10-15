@@ -7,6 +7,7 @@ namespace ArangoDB\DataStructures\Contracts;
  * ListInterface
  *
  * @package ArangoDB\DataStructures\Contracts
+ * @author Lucas S. Vieira
  */
 interface ListInterface
 {

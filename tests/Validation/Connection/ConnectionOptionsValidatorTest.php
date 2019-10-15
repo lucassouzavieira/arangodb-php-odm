@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Unit\Validation;
+namespace Unit\Validation\Connection;
 
 use Unit\TestCase;
-use ArangoDB\Validation\ConnectionOptionsValidator;
+use ArangoDB\Validation\Connection\ConnectionOptionsValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 

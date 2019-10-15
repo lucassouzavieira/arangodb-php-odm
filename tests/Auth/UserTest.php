@@ -7,7 +7,7 @@ use Unit\TestCase;
 use ArangoDB\Auth\User;
 use ArangoDB\Connection\Connection;
 use ArangoDB\DataStructures\ArrayList;
-use ArangoDB\Auth\Exceptions\DuplicateUserException;
+use ArangoDB\Auth\Exceptions\UserException;
 
 class UserTest extends TestCase
 {
@@ -15,17 +15,6 @@ class UserTest extends TestCase
     {
         $this->loadEnvironment();
         parent::setUp();
-    }
-
-    public function getConnectionObject()
-    {
-        return new Connection([
-            'username' => getenv('ARANGODB_USERNAME'),
-            'password' => getenv('ARANGODB_PASSWORD'),
-            'database' => getenv('ARANGODB_DBNAME'),
-            'host' => getenv('ARANGODB_HOST'),
-            'port' => getenv('ARANGODB_PORT')
-        ]);
     }
 
     public function testNewUserCanHavePassword()
@@ -285,7 +274,7 @@ class UserTest extends TestCase
             'active' => true,
         ]);
 
-        $this->expectException(DuplicateUserException::class);
+        $this->expectException(UserException::class);
         $user->setConnection($this->getConnectionObject());
         $user->save();
     }

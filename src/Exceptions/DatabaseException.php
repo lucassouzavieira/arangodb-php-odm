@@ -1,20 +1,20 @@
 <?php
 declare(strict_types=1);
 
-namespace ArangoDB\Auth\Exceptions;
+namespace ArangoDB\Exceptions;
 
 use Throwable;
 
 /**
- * UserException
+ * DatabaseException
  *
- * @package ArangoDB\Auth\Exceptions
+ * @package ArangoDB\Validation\Exceptions
  * @author Lucas S. Vieira
  */
-class UserException extends \Exception
+class DatabaseException extends \Exception
 {
     /**
-     * UserException constructor.
+     * DatabaseException constructor.
      *
      * @param $message
      * @param Throwable|null $previous

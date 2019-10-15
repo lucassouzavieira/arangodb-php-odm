@@ -1,8 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace ArangoDB\Validation;
+namespace ArangoDB\Validation\Connection;
 
+use ArangoDB\Validation\Validator;
 use ArangoDB\Validation\Rules\Rules;
 
 /**
