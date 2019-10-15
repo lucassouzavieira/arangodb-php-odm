@@ -113,10 +113,12 @@ class Database extends DatabaseHandler
     /**
      * Create a new collection on database
      *
-     * @param string $collection
+     * @param string $collection Collection name
+     * @param array $attributes If you want to specify some custom attribute to collection
+     *
      * @return bool True if operation was successful, false otherwise
      */
-    public function createCollection(string $collection): bool
+    public function createCollection(string $collection, array $attributes = []): bool
     {
         // TODO: Implement createCollection method
     }
