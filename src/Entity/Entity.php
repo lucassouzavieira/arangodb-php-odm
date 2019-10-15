@@ -12,7 +12,7 @@ use ArangoDB\DataStructures\ArrayList;
  * @package ArangoDB\Handler
  * @author Lucas S. Vieira
  */
-abstract class Entity implements EntityInterface, \JsonSerializable
+abstract class Entity implements EntityInterface, ManagesConnectionInterface, \JsonSerializable
 {
     /**
      * @var array
@@ -35,7 +35,7 @@ abstract class Entity implements EntityInterface, \JsonSerializable
      *
      * @var array
      */
-    private $unsetAttributes = [
+    protected $unsetAttributes = [
         'error',
         'code'
     ];
@@ -60,7 +60,7 @@ abstract class Entity implements EntityInterface, \JsonSerializable
     /**
      * Get some attribute
      *
-     * @param $name
+     * @param string $name
      * @return mixed|null
      */
     public function __get(string $name)
@@ -74,8 +74,9 @@ abstract class Entity implements EntityInterface, \JsonSerializable
 
     /**
      * Set a attribute
-     * @param $name
-     * @param $value
+     *
+     * @param string $name
+     * @param mixed $value
      */
     public function __set(string $name, $value)
     {
@@ -104,6 +105,7 @@ abstract class Entity implements EntityInterface, \JsonSerializable
 
     /**
      * Returns true if is a new object
+     *
      * @return bool
      */
     final public function isNew(): bool

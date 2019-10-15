@@ -2,6 +2,7 @@
 
 namespace Unit\Connection;
 
+use ArangoDB\Database\Database;
 use Unit\TestCase;
 use ArangoDB\Connection\Connection;
 use ArangoDB\Exceptions\ConnectionException;
@@ -75,6 +76,22 @@ class ConnectionTest extends TestCase
         ]);
 
         $this->assertNotNull($connection);
+        $this->assertEquals(getenv('ARANGODB_DBNAME'), $connection->getDatabaseName());
+    }
+
+    public function testGetDatabase()
+    {
+        $connection = new Connection([
+            'username' => getenv('ARANGODB_USERNAME'),
+            'password' => getenv('ARANGODB_PASSWORD'),
+            'database' => getenv('ARANGODB_DBNAME'),
+            'host' => getenv('ARANGODB_HOST'),
+            'port' => getenv('ARANGODB_PORT')
+        ]);
+
+        $this->assertNotNull($connection);
+        $this->assertInstanceOf(Database::class, $connection->getDatabase());
+        $this->assertEquals(getenv('ARANGODB_DBNAME'), $connection->getDatabase()->getDatabaseName());
         $this->assertEquals(getenv('ARANGODB_DBNAME'), $connection->getDatabaseName());
     }
 

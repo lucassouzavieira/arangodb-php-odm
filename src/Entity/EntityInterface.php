@@ -7,7 +7,7 @@ use ArangoDB\Connection\Connection;
 use ArangoDB\DataStructures\ArrayList;
 
 /**
- * Handler interface
+ * Entity interface
  *
  * @package ArangoDB\Handler
  * @author Lucas S. Vieira
@@ -55,11 +55,4 @@ interface EntityInterface
      * @return array
      */
     public function toArray(): array;
-
-    /**
-     * Set a connection object for the class
-     *
-     * @param Connection $connection
-     */
-    public function setConnection(Connection $connection): void;
 }
