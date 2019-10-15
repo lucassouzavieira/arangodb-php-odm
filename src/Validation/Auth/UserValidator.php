@@ -26,7 +26,7 @@ class UserValidator extends Validator
      * @var array
      */
     protected $required = [
-        'username', 'password', 'active'
+        'user', 'active'
     ];
 
     /**
@@ -35,7 +35,7 @@ class UserValidator extends Validator
      * @var array
      */
     protected $canHave = [
-        'extra'
+        'password', 'extra'
     ];
 
     /**
@@ -55,8 +55,8 @@ class UserValidator extends Validator
     public function rules(): array
     {
         return [
-            'username' => Rules::string(),
-            'passwd' => Rules::string(),
+            'user' => Rules::string(),
+            'password' => Rules::string(),
             'active' => Rules::boolean(),
             'extra' => Rules::arr()
         ];

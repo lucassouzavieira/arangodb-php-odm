@@ -5,6 +5,8 @@ namespace ArangoDB\Auth;
 
 use ArangoDB\Http\Api;
 use ArangoDB\Entity\Entity;
+use ArangoDB\Validation\Auth\UserValidator;
+use ArangoDB\Validation\Exceptions\MissingParameterException;
 use ArangoDB\Validation\Rules\Rules;
 use ArangoDB\DataStructures\ArrayList;
 use GuzzleHttp\Exception\ClientException;
@@ -233,13 +235,15 @@ class User extends Entity
      * @param array $data
      * @param bool $isNew
      * @return ArrayList[User]
-     * @throws \ReflectionException
+     * @throws \ReflectionException|MissingParameterException|InvalidParameterException
      * @see Entity::save()
      */
     protected function make(array $data = [], bool $isNew = false): ArrayList
     {
         $list = new ArrayList();
         foreach ($data as $userData) {
+            $validator = new UserValidator($userData);
+            $validator->validate();
             $user = new User($data, $isNew);
             $user->setConnection($this->connection);
             $list->put($userData['user'], $user);

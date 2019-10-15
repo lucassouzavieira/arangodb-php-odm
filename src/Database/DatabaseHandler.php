@@ -130,8 +130,7 @@ abstract class DatabaseHandler extends ManagesConnection
      * @return array
      * @throws GuzzleException|DatabaseException
      */
-    public
-    static function current(Connection $connection): array
+    public static function current(Connection $connection): array
     {
         try {
             $uri = Api::buildSystemUri($connection->getBaseUri(), Api::CURRENT_DATABASE);

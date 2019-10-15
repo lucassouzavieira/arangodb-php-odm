@@ -2,7 +2,6 @@
 
 namespace ArangoDB\Exceptions;
 
-
 /**
  * DatabaseException
  *

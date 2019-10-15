@@ -22,4 +22,12 @@ class DatabaseTest extends TestCase
         $db = new Database($this->getConnectionObject());
         $this->assertEquals(getenv('ARANGODB_DBNAME'), $db->getDatabaseName());
     }
+
+    public function testGetInfo()
+    {
+        $db = new Database($this->getConnectionObject());
+        $info = $db->getInfo();
+        $this->assertIsArray($db->getInfo());
+        $this->assertEquals($info['name'], getenv('ARANGODB_DBNAME'));
+    }
 }
