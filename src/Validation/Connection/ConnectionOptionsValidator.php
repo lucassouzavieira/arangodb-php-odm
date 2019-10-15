@@ -4,16 +4,14 @@ declare(strict_types=1);
 namespace ArangoDB\Validation;
 
 use ArangoDB\Validation\Rules\Rules;
-use ArangoDB\Validation\Exceptions\InvalidParameterException;
-use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 /**
  * Class ConnectionOptionsValidator
  *
  * @package ArangoDB\Connection
- * @copyright 2019 Lucas S. Vieira
+ * @author Lucas S. Vieira
  */
-class ConnectionOptionsValidator implements ValidatorInterface
+class ConnectionOptionsValidator extends Validator
 {
     /**
      * @var array
@@ -21,7 +19,8 @@ class ConnectionOptionsValidator implements ValidatorInterface
     protected $options = [];
 
     /**
-     * Mandatory keys in connections arrays
+     * Required keys in connections arrays
+     *
      * @var array
      */
     protected $required = [
@@ -30,6 +29,7 @@ class ConnectionOptionsValidator implements ValidatorInterface
 
     /**
      * The connection array can have these keys
+     *
      * @var array
      */
     protected $canHave = [
@@ -67,34 +67,6 @@ class ConnectionOptionsValidator implements ValidatorInterface
             'timeout' => Rules::integer(),
             'policy' => Rules::in(['error', 'last'])
         ];
-    }
-
-    /**
-     * Validate the Connection options
-     *
-     * @return true if validation is successful, throw an exception otherwise
-     * @throws MissingParameterException|InvalidParameterException
-     */
-    public function validate(): bool
-    {
-        foreach ($this->rules() as $ruleKey => $validator) {
-            // Check for 'must have' keys.
-            if (!array_key_exists($ruleKey, $this->options) && in_array($ruleKey, $this->required)) {
-                throw new MissingParameterException($ruleKey);
-            }
-
-            // Can have keys may be not present.
-            if (!array_key_exists($ruleKey, $this->options)) {
-                continue;
-            }
-
-            // Validate given keys.
-            if (!$validator->isValid($this->options[$ruleKey])) {
-                throw new InvalidParameterException($ruleKey, $this->options[$ruleKey]);
-            }
-        }
-
-        return true;
     }
 
     /**

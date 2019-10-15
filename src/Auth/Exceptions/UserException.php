@@ -9,7 +9,7 @@ use Throwable;
  * DuplicateUserException
  *
  * @package ArangoDB\Auth\Exceptions
- * @copyright 2019 Lucas S. Vieira
+ * @author Lucas S. Vieira
  */
 class DuplicateUserException extends \Exception
 {
