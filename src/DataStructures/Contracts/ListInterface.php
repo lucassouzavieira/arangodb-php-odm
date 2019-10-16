@@ -12,6 +12,20 @@ namespace ArangoDB\DataStructures\Contracts;
 interface ListInterface
 {
     /**
+     * Get the first value of list
+     *
+     * @return mixed
+     */
+    public function first();
+
+    /**
+     * Get the last value of list
+     *
+     * @return mixed
+     */
+    public function last();
+
+    /**
      * Get a value by it's key
      *
      * @param $key

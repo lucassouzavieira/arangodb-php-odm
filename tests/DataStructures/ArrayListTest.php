@@ -1,13 +1,39 @@
 <?php
 declare(strict_types=1);
 
-namespace DataStructures;
+namespace Unit\DataStructures;
 
-use ArangoDB\DataStructures\ArrayList;
 use Unit\TestCase;
+use ArangoDB\DataStructures\ArrayList;
 
 class ArrayListTest extends TestCase
 {
+    public function testFirst()
+    {
+        // Empty list
+        $list = new ArrayList();
+        $this->assertNull($list->first());
+
+        $list = new ArrayList([
+            'uni', 'dos', 'tres'
+        ]);
+
+        $this->assertEquals('uni', $list->first());
+    }
+
+    public function testLast()
+    {
+        // Empty list
+        $list = new ArrayList();
+        $this->assertNull($list->last());
+
+        $list = new ArrayList([
+            'uni', 'dos', 'tres'
+        ]);
+
+        $this->assertEquals('tres', $list->last());
+    }
+
     public function testShouldReturnNullForNonExistingKey()
     {
         $list = new ArrayList();

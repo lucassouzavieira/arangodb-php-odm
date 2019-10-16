@@ -36,6 +36,28 @@ class ArrayList implements ListInterface, \JsonSerializable, \Iterator, \Countab
     }
 
     /**
+     * Get the first value of list
+     *
+     * @return mixed
+     */
+    public function first()
+    {
+        $content = array_values($this->content);
+        return array_shift($content);
+    }
+
+    /**
+     * Get the last value of list
+     *
+     * @return mixed
+     */
+    public function last()
+    {
+        $content = array_values($this->content);
+        return array_pop($content);
+    }
+
+    /**
      * @param $key
      * @return mixed
      * @see ListInterface::get()

@@ -3,12 +3,12 @@
 
 namespace Unit\Collection;
 
-use ArangoDB\Exceptions\DatabaseException;
-use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\Psr7\Response;
 use Unit\TestCase;
+use GuzzleHttp\Psr7\Response;
 use ArangoDB\Database\Database;
 use ArangoDB\Collection\Collection;
+use GuzzleHttp\Handler\MockHandler;
+use ArangoDB\Exceptions\DatabaseException;
 
 class CollectionTest extends TestCase
 {
