@@ -342,7 +342,9 @@ class Collection extends ManagesConnection implements \JsonSerializable
     }
 
     /**
-     * Saves the collection.
+     * Saves or update the collection.
+     * Except for 'waitForSync', 'journalSize' and 'name', a collection can not be modified after creation.
+     * For change 'name', the method 'rename' must be used.
      *
      * @return bool
      * @throws DatabaseException|GuzzleException
@@ -362,15 +364,7 @@ class Collection extends ManagesConnection implements \JsonSerializable
                 return true;
             }
 
-            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
-            $response = $this->connection->put(sprintf("%s%s", $uri, Api::COLLECTION_PROPERTIES), $this->getUpdateParameters());
-            $data = json_decode((string)$response->getBody(), true);
-
-            // Update object.
-            $this->isNew = false;
-            $this->setAttributes($data);
-
-            return true;
+            return $this->update();
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
             $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
@@ -545,6 +539,14 @@ class Collection extends ManagesConnection implements \JsonSerializable
     }
 
     /**
+     * @see \JsonSerializable::jsonSerialize()
+     */
+    public function jsonSerialize()
+    {
+        return $this->getAttributes();
+    }
+
+    /**
      * Return only fields to be sent on a POST request
      *
      * @return array
@@ -566,8 +568,6 @@ class Collection extends ManagesConnection implements \JsonSerializable
 
     /**
      * Return only fields to update this collection.
-     * Except for 'waitForSync', 'journalSize' and 'name', a collection can not be modified after creation.
-     * For change 'name', the method 'rename' must be used.
      *
      * @return array
      * @see Collection::rename()
@@ -581,10 +581,21 @@ class Collection extends ManagesConnection implements \JsonSerializable
     }
 
     /**
-     * @see \JsonSerializable::jsonSerialize()
+     * Update collection.
+     *
+     * @return bool
+     * @throws GuzzleException
      */
-    public function jsonSerialize()
+    protected function update()
     {
-        return $this->getAttributes();
+        $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
+        $response = $this->connection->put(sprintf("%s%s", $uri, Api::COLLECTION_PROPERTIES), $this->getUpdateParameters());
+        $data = json_decode((string)$response->getBody(), true);
+
+        // Update object.
+        $this->isNew = false;
+        $this->setAttributes($data);
+
+        return true;
     }
 }
