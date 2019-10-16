@@ -34,6 +34,13 @@ class Database extends DatabaseHandler
     protected $collections;
 
     /**
+     * Informations about database
+     *
+     * @var array
+     */
+    protected $info;
+
+    /**
      * Connection to use to manage database
      *
      * @var Connection
@@ -50,7 +57,7 @@ class Database extends DatabaseHandler
     {
         $this->connection = $connection;
         $this->database = $this->connection->getDatabaseName();
-        $this->collections = $this->retrieveCollections();
+        $this->sync();
     }
 
     /**
@@ -67,9 +74,11 @@ class Database extends DatabaseHandler
      * Return all collections of database
      *
      * @return ArrayList[Collection]
+     * @throws GuzzleException|DatabaseException
      */
     public function getAllCollections(): ArrayList
     {
+        $this->sync();
         return $this->collections;
     }
 
@@ -103,11 +112,25 @@ class Database extends DatabaseHandler
      * Return the collection object for a given collection
      *
      * @param string $collection
-     * @return Collection Collection object. Throws an exception if collection not exists on database
+     * @return Collection|bool Collection object. Return False if collection not exists on database
+     * @throws DatabaseException|GuzzleException
      */
-    public function getCollection(string $collection): Collection
+    public function getCollection(string $collection)
     {
-        // TODO: Implement getCollection method
+        try {
+            if ($this->hasCollection($collection)) {
+                $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabaseName(), Api::COLLECTION);
+                $response = $this->connection->get(sprintf("%s/%s%s", $uri, $collection, Api::COLLECTION_PROPERTIES));
+                $data = json_decode((string)$response->getBody(), true);
+                return new Collection($data['name'], $this, $data);
+            }
+
+            return false;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
@@ -131,10 +154,16 @@ class Database extends DatabaseHandler
      *
      * @param string $collection
      * @return bool True if operation was successful, false otherwise
+     * @throws DatabaseException|GuzzleException
      */
     public function dropCollection(string $collection): bool
     {
-        // TODO: Implement dropCollection method
+        if (!$this->hasCollection($collection)) {
+            return false;
+        }
+
+        $collection = $this->getCollection($collection);
+        return $collection->drop();
     }
 
     /**
@@ -145,17 +174,23 @@ class Database extends DatabaseHandler
      */
     public function getInfo(): array
     {
-        return self::current($this->connection);
+        return $this->info;
     }
 
     /**
      * Synchronizes the object with database on server
      *
      * @return bool
+     * @throws GuzzleException|DatabaseException
      */
     public function sync(): bool
     {
-        // TODO: Implement sync method
+        // Update database collections;
+        $this->collections = $this->retrieveCollections();
+
+        // Update database info;
+        $this->info = self::current($this->connection);
+        return true;
     }
 
     /**
@@ -168,14 +203,14 @@ class Database extends DatabaseHandler
     {
         try {
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabaseName(), Api::COLLECTION);
-            $uri = Api::addQuery($uri, ['_' => 1571168105383]);
+            $uri = Api::addQuery($uri, ['excludeSystem' => true]);
             $response = $this->connection->get($uri);
             $data = json_decode((string)$response->getBody(), true);
 
             $nonSystemsCollections = [];
             foreach ($data['result'] as $key => $collection) {
                 if (isset($collection['isSystem']) && !$collection['isSystem']) {
-                    $nonSystemsCollections[] = $collection;
+                    $nonSystemsCollections[] = new Collection($collection['name'], $this, $collection);
                 }
             }
 

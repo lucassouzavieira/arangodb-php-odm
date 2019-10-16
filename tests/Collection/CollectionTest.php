@@ -77,6 +77,8 @@ class CollectionTest extends TestCase
 
         $collection->save();
         $this->assertIsString($collection->getId());
+
+        $this->assertTrue($collection->drop());
     }
 
     public function testGetStatus()
@@ -98,5 +100,12 @@ class CollectionTest extends TestCase
 
         $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
         $this->assertTrue($collection->isSystem());
+    }
+
+    public function testGetAttributes()
+    {
+        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $this->assertIsArray($collection->getAttributes());
+        $this->assertTrue($collection->getAttributes()['isSystem']);
     }
 }

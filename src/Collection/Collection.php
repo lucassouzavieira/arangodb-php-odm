@@ -285,10 +285,20 @@ class Collection extends ManagesConnection implements \JsonSerializable
      * Drops the collection on database
      *
      * @return bool
+     * @throws DatabaseException|GuzzleException
      */
     public function drop(): bool
     {
-        // TODO implements drop method
+        try {
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
+            $response = $this->connection->delete(sprintf("%s/%s", $uri, $this->getName()));
+            $data = json_decode((string)$response->getBody(), true);
+            return true;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**

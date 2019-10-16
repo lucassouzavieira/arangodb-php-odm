@@ -24,6 +24,7 @@ abstract class Api
     const QUERY = "/_api/query";
     const TRANSACTION = "/_api/transaction";
     const AQL_USER_FUNCTION = "/_api/aqlfunction";
+    const COLLECTION_PROPERTIES = "/properties";
 
     const USER = "/_api/user";
     const TRAVERSAL = "/_api/traversal";
