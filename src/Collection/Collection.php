@@ -51,7 +51,8 @@ class Collection extends ManagesConnection implements \JsonSerializable
         'isSystem' => false,
         'globallyUniqueId' => null,
         'revision' => 0,
-        'count' => 0
+        'count' => 0,
+        'checksum' => ''
     ];
 
     /**
@@ -272,10 +273,25 @@ class Collection extends ManagesConnection implements \JsonSerializable
      * Return the checksum of collection metadata
      *
      * @return string
+     * @throws DatabaseException|GuzzleException
      */
     public function getChecksum(): string
     {
-        // TODO implements getChecksum method
+        try {
+            if (isset($this->attributes['checksum']) && $this->attributes['checksum']) {
+                return $this->attributes['checksum'];
+            }
+
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
+            $response = $this->connection->get(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_CHECKSUM));
+            $data = json_decode((string)$response->getBody(), true);
+            $this->checksum = sprintf("%d", $data['checksum']);
+            return $this->checksum;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**

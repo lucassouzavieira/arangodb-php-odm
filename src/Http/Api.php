@@ -27,6 +27,7 @@ abstract class Api
     const COLLECTION = "/_api/collection";
     const COLLECTION_LOAD = "/load";
     const COLLECTION_COUNT = "/count";
+    const COLLECTION_CHECKSUM = "/checksum";
     const COLLECTION_UNLOAD = "/unload";
     const COLLECTION_RENAME = "/rename";
     const COLLECTION_TRUNCATE = "/truncate";
