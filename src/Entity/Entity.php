@@ -128,7 +128,7 @@ abstract class Entity extends ManagesConnection implements EntityInterface, \Jso
     public function jsonSerialize()
     {
         // If a handler hasn't a custom serialize method,
-        // by default we serialize your attributes array
+        // by default we serialize your attributes array.
         return $this->attributes;
     }
 

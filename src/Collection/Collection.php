@@ -16,7 +16,7 @@ use ArangoDB\Exceptions\DatabaseException;
  * @package ArangoDB\Auth
  * @author Lucas S. Vieira
  */
-class Collection extends ManagesConnection
+class Collection extends ManagesConnection implements \JsonSerializable
 {
     /**
      * Attributes of collection
@@ -49,7 +49,8 @@ class Collection extends ManagesConnection
         'status' => 0,
         'cacheEnabled' => false,
         'isSystem' => false,
-        'globallyUniqueId' => null
+        'globallyUniqueId' => null,
+        'revision' => 0
     ];
 
     /**
@@ -141,6 +142,30 @@ class Collection extends ManagesConnection
     }
 
     /**
+     * Return the collection attributes on array
+     *
+     * @return array
+     */
+    public function getAttributes(): array
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * Set collection attributes
+     *
+     * @param array $data
+     */
+    public function setAttributes(array $data): void
+    {
+        foreach ($data as $key => $value) {
+            if (array_key_exists($key, $this->attributes)) {
+                $this->attributes[$key] = $value;
+            }
+        }
+    }
+
+    /**
      * Returns the database where collection belongs
      *
      * @return Database
@@ -201,6 +226,27 @@ class Collection extends ManagesConnection
     }
 
     /**
+     * Return the checksum of collection metadata
+     *
+     * @return string
+     */
+    public function getChecksum(): string
+    {
+        // TODO implements getChecksum method
+    }
+
+    /**
+     * Return the revision of collection
+     *
+     * @return string
+     */
+    public function getRevision(): string
+    {
+        // TODO implements getRevision method
+    }
+
+
+    /**
      * Checks if the collection is a system collection
      *
      * @return bool True if is a system collection. False otherwise.
@@ -225,7 +271,7 @@ class Collection extends ManagesConnection
 
             // Update object.
             $this->isNew = false;
-            $this->syncCollectionParameters($data);
+            $this->setAttributes($data);
 
             return true;
         } catch (ClientException $exception) {
@@ -233,6 +279,87 @@ class Collection extends ManagesConnection
             $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
             throw $databaseException;
         }
+    }
+
+    /**
+     * Drops the collection on database
+     *
+     * @return bool
+     */
+    public function drop(): bool
+    {
+        // TODO implements drop method
+    }
+
+    /**
+     * Truncate the collection
+     *
+     * @return bool
+     */
+    public function truncate(): bool
+    {
+        // TODO implements truncate method
+    }
+
+    /**
+     * Loads the collection on server
+     *
+     * @return bool
+     */
+    public function load(): bool
+    {
+        // TODO implements load method
+    }
+
+    /**
+     * Unload the collection on server
+     *
+     * @return bool
+     */
+    public function unload(): bool
+    {
+        // TODO implements unload method
+    }
+
+    /**
+     * Rotate journal of collection
+     *
+     * @return bool
+     */
+    public function rotate(): bool
+    {
+        // TODO implements unload method
+    }
+
+    /**
+     * Return the number of documents in a collection
+     *
+     * @return int
+     */
+    public function count(): int
+    {
+        // TODO implements count method
+    }
+
+    /**
+     * Recalculates the document count of a collection, if it ever becomes inconsistent.
+     *
+     * @return bool
+     */
+    public function recalculateCount(): bool
+    {
+        // TODO implements recalculateCount method
+    }
+
+    /**
+     * Renames the collection
+     *
+     * @param string $newName
+     * @return bool
+     */
+    public function rename(string $newName): bool
+    {
+        // TODO implements rename method
     }
 
     /**
@@ -256,16 +383,10 @@ class Collection extends ManagesConnection
     }
 
     /**
-     * Sync parameters of Collection object after the save or update operation
-     *
-     * @param array $data
+     * @see \JsonSerializable::jsonSerialize()
      */
-    protected function syncCollectionParameters(array $data): void
+    public function jsonSerialize()
     {
-        foreach ($data as $key => $value) {
-            if (array_key_exists($key, $this->attributes)) {
-                $this->attributes[$key] = $value;
-            }
-        }
+        return $this->getAttributes();
     }
 }

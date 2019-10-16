@@ -145,7 +145,7 @@ class User extends Entity
      * Return all users from server
      *
      * @return ArrayList[User] An ArrayList of users
-     * @throws GuzzleException|\ReflectionException|InvalidParameterException
+     * @throws GuzzleException|\ReflectionException|InvalidParameterException|MissingParameterException
      * @see Entity::all()
      */
     public function all(): ArrayList
