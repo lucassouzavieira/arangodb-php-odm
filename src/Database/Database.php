@@ -116,11 +116,14 @@ class Database extends DatabaseHandler
      * @param string $collection Collection name
      * @param array $attributes If you want to specify some custom attribute to collection
      *
-     * @return bool True if operation was successful, false otherwise
+     * @return Collection A Collection object if operation was successful, throws an exception otherwise
+     * @throws DatabaseException|GuzzleException
      */
-    public function createCollection(string $collection, array $attributes = []): bool
+    public function createCollection(string $collection, array $attributes = []): Collection
     {
-        // TODO: Implement createCollection method
+        $collection = new Collection($collection, $this, $attributes);
+        $collection->save();
+        return $collection;
     }
 
     /**

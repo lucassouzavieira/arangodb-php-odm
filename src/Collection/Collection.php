@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace ArangoDB\Collection;
 
+use ArangoDB\Http\Api;
 use ArangoDB\Database\Database;
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Connection\ManagesConnection;
 use ArangoDB\Exceptions\DatabaseException;
@@ -16,41 +18,6 @@ use ArangoDB\Exceptions\DatabaseException;
  */
 class Collection extends ManagesConnection
 {
-    /**
-     * Collection ID
-     *
-     * @var integer|string
-     */
-    protected $id;
-
-    /**
-     * Collection name
-     *
-     * @var string
-     */
-    protected $name;
-
-    /**
-     * Collection status
-     *
-     * @var integer
-     */
-    protected $status;
-
-    /**
-     * If is a system collection
-     *
-     * @var bool
-     */
-    protected $isSystem;
-
-    /**
-     * Globally Unique ID
-     *
-     * @var string
-     */
-    protected $globallyUniqueId;
-
     /**
      * Attributes of collection
      *
@@ -71,6 +38,36 @@ class Collection extends ManagesConnection
     protected $database;
 
     /**
+     * Fields to be set directly
+     *
+     * @var array
+     */
+    protected $descriptorAttributes = [
+        'objectId' => null,
+        'name' => '',
+        'type' => 2,
+        'status' => 0,
+        'cacheEnabled' => false,
+        'isSystem' => false,
+        'globallyUniqueId' => null
+    ];
+
+    /**
+     * Status strings
+     *
+     * @var array
+     */
+    protected $statusStrings = [
+        0 => 'unknown',
+        1 => 'unknown',
+        2 => 'unloaded',
+        3 => 'loaded',
+        4 => 'unloading',
+        5 => 'deleted',
+        6 => 'loading'
+    ];
+
+    /**
      * Default values when creating collections
      *
      * @var array
@@ -81,11 +78,16 @@ class Collection extends ManagesConnection
         'waitForSync' => false,
         'doCompact' => true,
         'shardingStrategy' => 'community-compat',
-        'isVolatile' => true,
+        'isVolatile' => false,
         'shardKeys' => ["_key"],
         'numberOfShards' => 1,
         'isSystem' => false,
         'type' => 2,
+        'keyOptions' => [
+            'allowUserKeys' => true,
+            'type' => 'traditional',
+            'lastValue' => 0
+        ],
         'indexBuckets' => 16
     ];
 
@@ -99,9 +101,8 @@ class Collection extends ManagesConnection
      */
     public function __construct(string $name, Database $database, array $attributes = [])
     {
-        $this->name = $name;
         $this->database = $database;
-        $this->attributes = array_merge($this->defaults, $attributes, ['name' => $name]);
+        $this->attributes = array_merge($this->defaults, $this->descriptorAttributes, $attributes, ['name' => $name]);
         $this->connection = $database->getConnection();
         $this->isNew = !$database->hasCollection($name);
     }
@@ -130,7 +131,7 @@ class Collection extends ManagesConnection
      */
     public function __set(string $name, $value)
     {
-        // Allow only one of defaults attributes to be set.
+        // Allow defaults attributes to be set.
         if (array_key_exists($name, $this->attributes)) {
             $this->attributes[$name] = $value;
             return;
@@ -150,11 +151,121 @@ class Collection extends ManagesConnection
     }
 
     /**
-     * Saves the collection. When
+     * Return the name of collection
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->attributes['name'];
+    }
+
+    /**
+     * Return the ID of collection
+     *
+     * @return string|null String if collection exists on database. Null if not.
+     */
+    public function getId()
+    {
+        return $this->attributes['objectId'];
+    }
+
+    /**
+     * Return the globally Unique ID of collection
+     *
+     * @return string
+     */
+    public function getGloballyUniqueId(): string
+    {
+        return $this->attributes['globallyUniqueId'];
+    }
+
+    /**
+     * Return the status of collection
+     *
+     * @return int A integer between 0 and 6
+     */
+    public function getStatus(): int
+    {
+        return $this->attributes['status'];
+    }
+
+    /**
+     * Return a string description of status
+     *
+     * @return string
+     */
+    public function getStatusDescription(): string
+    {
+        return $this->statusStrings[$this->getStatus()];
+    }
+
+    /**
+     * Checks if the collection is a system collection
+     *
+     * @return bool True if is a system collection. False otherwise.
+     */
+    public function isSystem(): bool
+    {
+        return $this->attributes['isSystem'];
+    }
+
+    /**
+     * Saves the collection.
      *
      * @return bool
+     * @throws DatabaseException|GuzzleException
      */
     public function save(): bool
     {
+        try {
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
+            $response = $this->connection->post($uri, $this->getCreateParameters());
+            $data = json_decode((string)$response->getBody(), true);
+
+            // Update object.
+            $this->isNew = false;
+            $this->syncCollectionParameters($data);
+
+            return true;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
+    }
+
+    /**
+     * Return only fields to be sent on a POST request
+     *
+     * @return array
+     */
+    protected function getCreateParameters(): array
+    {
+        $arr = [];
+        foreach ($this->attributes as $key => $attribute) {
+            if (array_key_exists($key, $this->defaults)) {
+                $arr[$key] = $attribute;
+            }
+        }
+
+        // Name is required.
+        $arr['name'] = $this->attributes['name'];
+
+        return $arr;
+    }
+
+    /**
+     * Sync parameters of Collection object after the save or update operation
+     *
+     * @param array $data
+     */
+    protected function syncCollectionParameters(array $data): void
+    {
+        foreach ($data as $key => $value) {
+            if (array_key_exists($key, $this->attributes)) {
+                $this->attributes[$key] = $value;
+            }
+        }
     }
 }

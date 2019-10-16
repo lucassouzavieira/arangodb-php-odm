@@ -3,6 +3,7 @@
 
 namespace Unit\Database;
 
+use ArangoDB\Collection\Collection;
 use Unit\TestCase;
 use ArangoDB\Database\Database;
 use ArangoDB\DataStructures\ArrayList;
@@ -29,5 +30,13 @@ class DatabaseTest extends TestCase
         $info = $db->getInfo();
         $this->assertIsArray($db->getInfo());
         $this->assertEquals($info['name'], getenv('ARANGODB_DBNAME'));
+    }
+
+    public function testCreateCollection()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = $db->createCollection('my_new_collection');
+        $this->assertInstanceOf(Collection::class, $collection);
+        $this->assertNotEmpty($collection->getGloballyUniqueId());
     }
 }

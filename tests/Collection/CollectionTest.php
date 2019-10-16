@@ -35,6 +35,7 @@ class CollectionTest extends TestCase
 
         $this->assertFalse($collection->waitForSync);
         $this->assertTrue($collection->doCompact);
+        $this->assertNull($collection->id);
 
         $this->assertNull($collection->randomProperty);
     }
@@ -47,6 +48,7 @@ class CollectionTest extends TestCase
         $collection->doCompact = false;
         $collection->name = 'newAny';
 
+        $this->assertNull($collection->id);
         $this->assertTrue($collection->waitForSync);
         $this->assertFalse($collection->doCompact);
         $this->assertEquals('newAny', $collection->name);
@@ -59,5 +61,42 @@ class CollectionTest extends TestCase
         $collection = new Collection('any', $this->getConnectionObject()->getDatabase());
         $this->expectException(\Exception::class);
         $collection->randomProperty = true;
+    }
+
+    public function testGetName()
+    {
+        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase());
+        $this->assertEquals('we_are_the_champions', $collection->getName());
+        $this->assertEquals($collection->name, $collection->getName());
+    }
+
+    public function testGetId()
+    {
+        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase());
+        $this->assertNull($collection->getId());
+
+        $collection->save();
+        $this->assertIsString($collection->getId());
+    }
+
+    public function testGetStatus()
+    {
+        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase());
+        $this->assertEquals(0, $collection->getStatus());
+    }
+
+    public function testGetDescription()
+    {
+        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase());
+        $this->assertEquals('unknown', $collection->getStatusDescription());
+    }
+
+    public function testIsSystem()
+    {
+        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase());
+        $this->assertFalse($collection->isSystem());
+
+        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $this->assertTrue($collection->isSystem());
     }
 }
