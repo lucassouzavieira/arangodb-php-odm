@@ -427,4 +427,23 @@ class CollectionTest extends TestCase
         $this->expectException(DatabaseException::class);
         $this->assertEquals('0', $collection->getRevision());
     }
+
+    public function testIsNew()
+    {
+        $db = new Database($this->getConnectionObject());
+        $coll1 = $db->createCollection('test_first');
+        $coll2 = new Collection('test_snd', $db);
+
+        // Check 'isNew' returns
+        $this->assertFalse($coll1->isNew());
+        $this->assertTrue($coll2->isNew());
+
+        $this->assertTrue($coll2->save());
+
+        // After creations, 'isNew' must be false.
+        $this->assertFalse($coll2->isNew());
+
+        $this->assertTrue($coll1->drop());
+        $this->assertTrue($coll2->drop());
+    }
 }

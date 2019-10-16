@@ -26,6 +26,8 @@ class Collection extends ManagesConnection implements \JsonSerializable
     protected $attributes;
 
     /**
+     * If the collection is a new one or a representation of an existing collection on server
+     *
      * @var bool
      */
     protected $isNew;
@@ -319,7 +321,6 @@ class Collection extends ManagesConnection implements \JsonSerializable
         }
     }
 
-
     /**
      * Checks if the collection is a system collection
      *
@@ -331,6 +332,16 @@ class Collection extends ManagesConnection implements \JsonSerializable
     }
 
     /**
+     * Returns true if is a new object
+     *
+     * @return bool
+     */
+    public function isNew(): bool
+    {
+        return $this->isNew;
+    }
+
+    /**
      * Saves the collection.
      *
      * @return bool
@@ -339,8 +350,20 @@ class Collection extends ManagesConnection implements \JsonSerializable
     public function save(): bool
     {
         try {
+            // If the collection is a new one, we will create this collection on server.
+            if ($this->isNew()) {
+                $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
+                $response = $this->connection->post($uri, $this->getCreateParameters());
+                $data = json_decode((string)$response->getBody(), true);
+
+                // Update object.
+                $this->isNew = false;
+                $this->setAttributes($data);
+                return true;
+            }
+
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
-            $response = $this->connection->post($uri, $this->getCreateParameters());
+            $response = $this->connection->put(sprintf("%s%s", $uri, Api::COLLECTION_PROPERTIES), $this->getUpdateParameters());
             $data = json_decode((string)$response->getBody(), true);
 
             // Update object.
@@ -539,6 +562,22 @@ class Collection extends ManagesConnection implements \JsonSerializable
         $arr['name'] = $this->attributes['name'];
 
         return $arr;
+    }
+
+    /**
+     * Return only fields to update this collection.
+     * Except for 'waitForSync', 'journalSize' and 'name', a collection can not be modified after creation.
+     * For change 'name', the method 'rename' must be used.
+     *
+     * @return array
+     * @see Collection::rename()
+     */
+    protected function getUpdateParameters(): array
+    {
+        return [
+            'waitForSync' => $this->attributes['waitForSync'],
+            'journalSize' => $this->attributes['journalSize']
+        ];
     }
 
     /**
