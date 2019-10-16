@@ -58,7 +58,17 @@ class Collection extends ManagesConnection implements \JsonSerializable
     ];
 
     /**
-     * Status strings
+     * Type descriptions
+     *
+     * @var array
+     */
+    protected $typeStrings = [
+        2 => 'document',
+        3 => 'graph'
+    ];
+
+    /**
+     * Status descriptions
      *
      * @var array
      */
@@ -152,6 +162,16 @@ class Collection extends ManagesConnection implements \JsonSerializable
         $this->attributes = array_merge($this->defaults, $this->descriptorAttributes, $attributes, ['name' => $name]);
         $this->connection = $database->getConnection();
         $this->isNew = !$database->hasCollection($name);
+    }
+
+    /**
+     * Return an string representation of document
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return print_r($this->toArray(), true);
     }
 
     /**
@@ -272,6 +292,16 @@ class Collection extends ManagesConnection implements \JsonSerializable
     }
 
     /**
+     * Return the collection type
+     *
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->typeStrings[$this->attributes['type']];
+    }
+
+    /**
      * Return the checksum of collection metadata
      *
      * @return string
@@ -339,6 +369,19 @@ class Collection extends ManagesConnection implements \JsonSerializable
     public function isNew(): bool
     {
         return $this->isNew;
+    }
+
+    /**
+     * Return an array representation of collection
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        $attributes = $this->getAttributes();
+        $attributes['type'] = $this->getType();
+        $attributes['status'] = $this->getStatusDescription();
+        return $attributes;
     }
 
     /**

@@ -94,12 +94,35 @@ class DocumentTest extends TestCase
         $this->assertNotEquals($this->getAttributes()['good_music'], $document->good_music);
         $this->assertIsArray($document->good_music);
     }
-//
-//    public function testSetterThrowException()
-//    {
-//        $collection = new Collection('any', $this->getConnectionObject()->getDatabase());
-//        $this->expectException(\Exception::class);
-//        $collection->randomProperty = true;
-//    }
 
+    public function testSetterThrowException()
+    {
+        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $document = new Document($collection, $this->getAttributes());
+
+        $this->expectException(InvalidParameterException::class);
+        $document->doc_list = new ArrayList([]);
+
+        $this->assertEquals($this->getAttributes()['good_music'], $document->good_music);
+    }
+
+    public function testToString()
+    {
+        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $document = new Document($collection, $this->getAttributes());
+        $this->assertIsString((string)$document);
+    }
+
+    public function testIsNew()
+    {
+        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $document = new Document($collection, $this->getAttributes());
+
+        // Check 'isNew' returns
+        $this->assertTrue($document->isNew());
+
+        // After creations, 'isNew' must be false.
+        // $this->assertFalse($document->isNew());
+        // TODO add the test after save method
+    }
 }

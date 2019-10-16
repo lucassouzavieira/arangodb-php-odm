@@ -66,6 +66,12 @@ class CollectionTest extends TestCase
         $collection->randomProperty = true;
     }
 
+    public function testToString()
+    {
+        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $this->assertIsString((string)$collection);
+    }
+
     public function testGetName()
     {
         $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase());

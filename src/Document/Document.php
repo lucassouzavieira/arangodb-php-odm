@@ -79,9 +79,20 @@ class Document implements \JsonSerializable, EntityInterface
         $documentValidator = new DocumentValidator($attributes);
         $documentValidator->validate();
 
+        $this->isNew = true;
         $this->attributes = $attributes;
         $this->collection = $collection;
         $this->validator = new DocumentValidator();
+    }
+
+    /**
+     * Return an string representation of document
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return print_r($this->toArray(), true);
     }
 
     /**
@@ -114,7 +125,6 @@ class Document implements \JsonSerializable, EntityInterface
             $this->attributes[$name] = $value;
         }
     }
-
 
     /**
      * Returns true if is a new object
