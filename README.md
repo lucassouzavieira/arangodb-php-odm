@@ -12,7 +12,7 @@ use ArangoDB\Connection\Connection;
 
 // Set a new Connection
 $connection = new Connection([
-    'endpoint' => 'ssl://myarangohost:8529',
+    'endpoint' => 'http://myarangohost:8529',
     'username' => 'YourUserName',
     'password' => 'YourSecretPasswd',
     'database' => 'YourDatabase',
@@ -42,6 +42,19 @@ $connection = new Connection([
 #### Managing databases
 With connection, you already set an Database. You can get the database instance.
 ```php
+use ArangoDB\Database\Database;
+use ArangoDB\Collection\Collection;
+use ArangoDB\Connection\Connection;
+
+// Set up a connection
+$connection = new Connection([
+    'endpoint' => 'http://myarangohost',
+    'port' => 8529,
+    'username' => 'YourUserName',
+    'password' => 'YourSecretPasswd',
+    'database' => 'YourDatabase',
+]);
+
 $database = $connection->getDatabase();
 
 // With database object, we can retrive informations about it.
@@ -59,6 +72,43 @@ $collection = $database->createCollection('my_new_colletion');
 
 // Or retrieve existing collections
 $collection = $database->getCollection('my_existing_collection');
+
+// With Database class we can create and drop databases
+
+// Lists the databases on server
+$dbList = Database::list($connection);
+
+// You can create a new database using the existing connection
+$result = Database::create($connection, 'my_database_name');
+
+// And drop databases
+$result = Database::drop($connection, 'db_to_drop');
+```
+
+#### Collections
+You can also work with collections objects directly.
+
+```php
+use ArangoDB\Collection\Collection;
+use ArangoDB\Connection\Connection;
+
+$connection = new Connection([
+    'endpoint' => 'http://myarangohost',
+    'port' => 8529,
+    'username' => 'YourUserName',
+    'password' => 'YourSecretPasswd',
+    'database' => 'YourDatabase',
+    'connection' => 'Keep-Alive',
+    'timeout' => 30
+]);
+
+$database = $connection->getDatabase();
+
+// If collection exists on database, the object will be a representation of it.
+$collection = new Collection('my_collection_name', $database);
+
+// If collection not exists, you can create it with method 'save'
+$collection->save();
 ```
 ## Documentation
 
