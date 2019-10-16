@@ -7,7 +7,7 @@
 
 ## Usage
 #### Setting up a new connection
-```(php)
+```php
 use ArangoDB\Connection\Connection;
 
 // Set a new Connection
@@ -38,8 +38,10 @@ $connection = new Connection([
     'timeout' => 30
 ]);
 ```
+
+#### Managing databases
 With connection, you already set an Database. You can get the database instance.
-```(php)
+```php
 $database = $connection->getDatabase();
 
 // With database object, we can retrive informations about it.
