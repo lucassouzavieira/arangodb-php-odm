@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 
 namespace ArangoDB\Document;
 
@@ -13,5 +13,4 @@ namespace ArangoDB\Document;
  */
 abstract class Document implements \JsonSerializable
 {
-
 }

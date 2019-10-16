@@ -48,6 +48,7 @@ class RestClient
      *
      * @return mixed|ResponseInterface
      * @throws GuzzleException
+     * @todo remove Content-Length on get requests
      */
     public function get($url, $data = [], $headers = []): ResponseInterface
     {

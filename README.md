@@ -6,7 +6,7 @@
 ## Installation
 #### Using composer
 Run the command bellow on your project root.  
-`composer require lucassvieira/arangodb-php-odm`
+`composer require lvieira/arangodb-php-odm`
 
 ## Usage
 #### Setting up a new connection

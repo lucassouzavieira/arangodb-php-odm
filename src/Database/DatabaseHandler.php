@@ -1,14 +1,14 @@
 <?php
-
+declare(strict_types=1);
 
 namespace ArangoDB\Database;
 
 use ArangoDB\Http\Api;
 use ArangoDB\Connection\Connection;
 use ArangoDB\DataStructures\ArrayList;
-use ArangoDB\Connection\ManagesConnection;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
+use ArangoDB\Connection\ManagesConnection;
 use ArangoDB\Exceptions\DatabaseException;
 
 /**

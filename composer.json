@@ -1,9 +1,24 @@
 {
-    "name": "lucassvieira/arangodb-php-odm",
+    "name": "lvieira/arangodb-php-odm",
     "description": "ArangoDB PHP ODM",
     "type": "library",
+    "keywords": [
+        "nosql",
+        "database",
+        "odm",
+        "graphs"
+    ],
+    "homepage": "https://github.com/lucassouzavieira/arangodb-php-odm",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lucas S. Vieira",
+            "email": "lucassouzavieiraengcomp@gmail.com",
+            "homepage": "https://github.com/lucassouzavieira"
+        }
+    ],
     "require": {
-        "php": ">=7.0.0",
+        "php": ">=7.1.0",
         "ext-json": "*",
         "ext-memcached": "*",
         "guzzlehttp/psr7": "^1.5",
@@ -16,13 +31,6 @@
         "squizlabs/php_codesniffer": "~3.0",
         "friendsofphp/php-cs-fixer": "~2.5"
     },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Lucas S. Vieira",
-            "email": "lucassouzavieiraengcomp@gmail.com"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "ArangoDB\\": "src/",
