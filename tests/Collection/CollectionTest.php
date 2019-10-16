@@ -391,4 +391,40 @@ class CollectionTest extends TestCase
         $this->expectException(DatabaseException::class);
         $this->assertEquals('0', $collection->getChecksum());
     }
+
+    public function testGetRevision()
+    {
+        $db = new Database($this->getConnectionObject());
+        $coll1 = new Collection('test_first', $db, ['revision' => '7854980051561']);
+        $coll2 = new Collection('test_snd', $db);
+
+        // Check if collection is created.
+        // After creation, ArangoDB server usually loads the collection
+        $this->assertTrue($coll1->save());
+        $this->assertTrue($coll2->save());
+
+        // Get checksum
+        $this->assertEquals("7854980051561", $coll1->getRevision()); // Empty collection.
+        $this->assertEquals("0", $coll2->getRevision()); // Empty collection.
+
+        $this->assertTrue($coll1->drop());
+        $this->assertTrue($coll2->drop());
+    }
+
+    public function testGetRevisionThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = new Database($this->getConnectionObject($mock));
+        $collection = new Collection('test_first_name', $db);
+
+        // Get checksum
+        $this->expectException(DatabaseException::class);
+        $this->assertEquals('0', $collection->getRevision());
+    }
 }

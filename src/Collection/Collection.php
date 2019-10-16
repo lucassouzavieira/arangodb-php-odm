@@ -298,10 +298,25 @@ class Collection extends ManagesConnection implements \JsonSerializable
      * Return the revision of collection
      *
      * @return string
+     * @throws DatabaseException|GuzzleException
      */
     public function getRevision(): string
     {
-        // TODO implements getRevision method
+        try {
+            if (isset($this->attributes['revision']) && $this->attributes['revision']) {
+                return $this->attributes['revision'];
+            }
+
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
+            $response = $this->connection->get(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_REVISION));
+            $data = json_decode((string)$response->getBody(), true);
+            $this->revision = sprintf("%d", $data['revision']);
+            return $this->revision;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
 
