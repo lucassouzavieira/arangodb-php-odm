@@ -13,11 +13,13 @@ abstract class Rules
 {
     /**
      * Is array ?
+     *
      * @return RuleInterface
      */
     public static function arr()
     {
-        return new class implements RuleInterface {
+        return new class implements RuleInterface
+        {
             /**
              * Check if a given value is valid
              *
@@ -33,11 +35,13 @@ abstract class Rules
 
     /**
      * Is string ?
+     *
      * @return RuleInterface
      */
     public static function string()
     {
-        return new class implements RuleInterface {
+        return new class implements RuleInterface
+        {
             /**
              * Check if a given value is valid
              *
@@ -53,11 +57,13 @@ abstract class Rules
 
     /**
      * Is numeric ?
+     *
      * @return RuleInterface
      */
     public static function numeric()
     {
-        return new class implements RuleInterface {
+        return new class implements RuleInterface
+        {
             /**
              * Check if a given value is valid
              *
@@ -73,11 +79,13 @@ abstract class Rules
 
     /**
      * Is integer ?
+     *
      * @return RuleInterface
      */
     public static function integer()
     {
-        return new class implements RuleInterface {
+        return new class implements RuleInterface
+        {
             /**
              * Check if a given value is valid
              *
@@ -93,11 +101,13 @@ abstract class Rules
 
     /**
      * Is boolean ?
+     *
      * @return RuleInterface
      */
     public static function boolean()
     {
-        return new class implements RuleInterface {
+        return new class implements RuleInterface
+        {
             /**
              * Check if a given value is valid
              *
@@ -112,12 +122,40 @@ abstract class Rules
     }
 
     /**
+     * Is a primitive type ?
+     *
+     * @return RuleInterface
+     */
+    public static function isPrimitive()
+    {
+        return new class implements RuleInterface
+        {
+            /**
+             * Check if a given value is valid
+             *
+             * @param $value
+             * @return bool
+             */
+            public function isValid($value): bool
+            {
+                if (is_object($value) || is_callable($value)) {
+                    return false;
+                }
+
+                return is_null($value) || is_int($value) || is_string($value) || is_bool($value) || is_float($value);
+            }
+        };
+    }
+
+    /**
      * Is an uri ?
+     *
      * @return RuleInterface
      */
     public static function uri()
     {
-        return new class implements RuleInterface {
+        return new class implements RuleInterface
+        {
             /**
              * Check if a given value is valid
              *
@@ -134,12 +172,14 @@ abstract class Rules
 
     /**
      * In - Rule
+     *
      * @param array $values
      * @return RuleInterface
      */
     public static function in(array $values)
     {
-        return new class($values) implements RuleInterface {
+        return new class($values) implements RuleInterface
+        {
             /**
              * @var array
              */

@@ -36,6 +36,16 @@ class ArrayList implements ListInterface, \JsonSerializable, \Iterator, \Countab
     }
 
     /**
+     * String representation of ArrayList
+     *
+     * @return false|string
+     */
+    public function __toString()
+    {
+        return json_encode($this);
+    }
+
+    /**
      * Get the first value of list
      *
      * @return mixed
@@ -122,7 +132,7 @@ class ArrayList implements ListInterface, \JsonSerializable, \Iterator, \Countab
      */
     public function jsonSerialize()
     {
-        return json_encode($this->content);
+        return $this->content;
     }
 
     /**

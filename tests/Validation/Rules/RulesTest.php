@@ -19,6 +19,16 @@ class RulesTest extends TestCase
         $this->assertFalse($validator->isValid(45.5));
     }
 
+    public function testIsPrimitiveRule()
+    {
+        $validator = Rules::isPrimitive();
+        $this->assertTrue($validator->isValid(false));
+        $this->assertTrue($validator->isValid("Pass some string"));
+        $this->assertTrue($validator->isValid(rand(1, 100)));
+        $this->assertTrue($validator->isValid(45.5));
+        $this->assertFalse($validator->isValid(new \stdClass()));
+    }
+
     public function testStringRule()
     {
         $validator = Rules::string();

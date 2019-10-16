@@ -8,8 +8,9 @@ use ArangoDB\Validation\Rules\Rules;
 
 /**
  * Class ConnectionOptionsValidator
+ * Validate the connection options to access the database
  *
- * @package ArangoDB\Connection
+ * @package ArangoDB\Validation\Connection
  * @author Lucas S. Vieira
  */
 class ConnectionOptionsValidator extends Validator

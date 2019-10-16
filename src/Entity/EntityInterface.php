@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace ArangoDB\Entity;
 
-use ArangoDB\DataStructures\ArrayList;
-
 /**
  * Entity interface
  *
@@ -18,21 +16,6 @@ interface EntityInterface
      * @return bool
      */
     public function isNew(): bool;
-
-    /**
-     * Finds a instance of entity on server
-     *
-     * @param string $id
-     * @return EntityInterface|null EntityInterface object or null if not found on server
-     */
-    public function find(string $id);
-
-    /**
-     * Returns all entities available on server
-     *
-     * @return ArrayList[User]
-     */
-    public function all(): ArrayList;
 
     /**
      * Save a entity on server, if possible
