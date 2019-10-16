@@ -11,7 +11,7 @@ use ArangoDB\Connection\ManagesConnection;
 use ArangoDB\Exceptions\DatabaseException;
 
 /**
- * Represents a collection of a database
+ * Represents an ArangoDB collection
  *
  * @package ArangoDB\Auth
  * @author Lucas S. Vieira

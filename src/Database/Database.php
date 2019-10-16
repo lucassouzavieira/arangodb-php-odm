@@ -12,7 +12,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Exceptions\DatabaseException;
 
 /**
- * Represents a database on server
+ * Represents an ArangoDB database
  *
  * @package ArangoDB\Auth
  * @author Lucas S. Vieira
