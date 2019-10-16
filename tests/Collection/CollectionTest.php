@@ -3,6 +3,9 @@
 
 namespace Unit\Collection;
 
+use ArangoDB\Exceptions\DatabaseException;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\Psr7\Response;
 use Unit\TestCase;
 use ArangoDB\Database\Database;
 use ArangoDB\Collection\Collection;
@@ -107,5 +110,74 @@ class CollectionTest extends TestCase
         $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
         $this->assertIsArray($collection->getAttributes());
         $this->assertTrue($collection->getAttributes()['isSystem']);
+    }
+
+    public function testJsonSerialize()
+    {
+        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $this->assertJson(json_encode($collection));
+    }
+
+    public function testSave()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        // Check if collection is created.
+        $this->assertNull($collection->getId());
+
+        $this->assertTrue($collection->save());
+        $this->assertIsString($collection->getId());
+        $this->assertTrue($collection->drop());
+    }
+
+    public function testSaveThrowDatabaseException()
+    {
+        // Mock error
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = new Database($this->getConnectionObject($mock));
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->expectException(DatabaseException::class);
+        $collection->save();
+    }
+
+    public function testDrop()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        // Create.
+        $this->assertNull($collection->getId());
+        $collection->save();
+        $this->assertIsString($collection->getId());
+
+        $this->assertTrue($db->hasCollection('test_save_coll'));
+        // drop
+        $collection->drop();
+        $this->assertFalse($db->hasCollection('test_save_coll'));
+    }
+
+    public function testDropThrowDatabaseException()
+    {
+        // Mock error
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = new Database($this->getConnectionObject($mock));
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->expectException(DatabaseException::class);
+        $collection->drop();
     }
 }
