@@ -5,6 +5,8 @@ namespace ArangoDB\Document;
 
 use ArangoDB\Collection\Collection;
 use ArangoDB\Entity\EntityInterface;
+use ArangoDB\Validation\Rules\RuleInterface;
+use ArangoDB\Validation\Rules\Rules;
 use ArangoDB\Validation\Document\DocumentValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
@@ -18,6 +20,7 @@ class Document implements \JsonSerializable, EntityInterface
 {
     /**
      * Document ID
+     *
      * @var string
      */
     protected $id;
@@ -58,6 +61,13 @@ class Document implements \JsonSerializable, EntityInterface
     protected $collection;
 
     /**
+     * Validate primitive types
+     *
+     * @var RuleInterface
+     */
+    protected $validator;
+
+    /**
      * Document constructor.
      *
      * @param Collection $collection
@@ -66,10 +76,12 @@ class Document implements \JsonSerializable, EntityInterface
      */
     public function __construct(Collection $collection, array $attributes = [])
     {
-        $validator = new DocumentValidator($attributes);
-        $validator->validate();
+        $documentValidator = new DocumentValidator($attributes);
+        $documentValidator->validate();
+
         $this->attributes = $attributes;
         $this->collection = $collection;
+        $this->validator = new DocumentValidator();
     }
 
     /**
@@ -92,11 +104,13 @@ class Document implements \JsonSerializable, EntityInterface
      *
      * @param string $name
      * @param mixed $value
+     * @throws InvalidParameterException
      */
     public function __set(string $name, $value)
     {
-        // Allow defaults attributes to be set.
-        if (array_key_exists($name, $this->attributes)) {
+        $this->validator->setData($value);
+
+        if ($this->validator->validate()) {
             $this->attributes[$name] = $value;
         }
     }

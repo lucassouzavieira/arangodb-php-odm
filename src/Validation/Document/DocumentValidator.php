@@ -27,9 +27,24 @@ class DocumentValidator extends Validator
      *
      * @param array $attributes
      */
-    public function __construct(array $attributes)
+    public function __construct(array $attributes = [])
     {
         $this->attributes = $attributes;
+    }
+
+    /**
+     * Set the data for validation
+     *
+     * @param array $attributes
+     */
+    public function setData($attributes)
+    {
+        if (is_array($attributes)) {
+            $this->attributes = $attributes;
+        }
+
+        // Must be in array form for validation.
+        $this->attributes = [$attributes];
     }
 
     /**

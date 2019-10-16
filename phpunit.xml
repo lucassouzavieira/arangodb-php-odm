@@ -13,6 +13,9 @@
         <testsuite name="Collection">
             <directory suffix="Test.php">tests/Collection</directory>
         </testsuite>
+        <testsuite name="Document">
+            <directory suffix="Test.php">tests/Document</directory>
+        </testsuite>
         <testsuite name="Connection">
             <directory suffix="Test.php">tests/Connection</directory>
         </testsuite>
