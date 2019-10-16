@@ -14,7 +14,6 @@ abstract class Api
     const EDGE = "/_api/document";
     const EDGES = "/_api/edges";
     const GRAPH = "/_api/gharial";
-    const COLLECTION = "/_api/collection";
     const INDEX = "/_api/index";
     const CURSOR = "/_api/cursor";
     const IMPORT = "/_api/import";
@@ -24,7 +23,15 @@ abstract class Api
     const QUERY = "/_api/query";
     const TRANSACTION = "/_api/transaction";
     const AQL_USER_FUNCTION = "/_api/aqlfunction";
+
+    const COLLECTION = "/_api/collection";
+    const COLLECTION_LOAD = "/load";
+    const COLLECTION_COUNT = "/count";
+    const COLLECTION_UNLOAD = "/unload";
+    const COLLECTION_RENAME = "/rename";
+    const COLLECTION_TRUNCATE = "/truncate";
     const COLLECTION_PROPERTIES = "/properties";
+    const COLLECTION_RECALCULATE_COUNT = "/recalculateCount";
 
     const USER = "/_api/user";
     const TRAVERSAL = "/_api/traversal";

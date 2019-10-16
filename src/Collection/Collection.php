@@ -50,7 +50,8 @@ class Collection extends ManagesConnection implements \JsonSerializable
         'cacheEnabled' => false,
         'isSystem' => false,
         'globallyUniqueId' => null,
-        'revision' => 0
+        'revision' => 0,
+        'count' => 0
     ];
 
     /**
@@ -67,6 +68,48 @@ class Collection extends ManagesConnection implements \JsonSerializable
         5 => 'deleted',
         6 => 'loading'
     ];
+
+    /**
+     * Unknown status of collection
+     *
+     * @var int
+     */
+    protected static $unknownStatus = 1;
+
+    /**
+     * Unloaded status of collection
+     *
+     * @var int
+     */
+    protected static $unloadedStatus = 2;
+
+    /**
+     * Loaded status of collection
+     *
+     * @var int
+     */
+    protected static $loadedStatus = 3;
+
+    /**
+     * Deleted status of collection
+     *
+     * @var int
+     */
+    protected static $deletedStatus = 5;
+
+    /**
+     * Loading status of collection
+     *
+     * @var int
+     */
+    protected static $loadingStatus = 6;
+
+    /**
+     * Unloading status of collection
+     *
+     * @var int
+     */
+    protected static $unloadingStatus = 4;
 
     /**
      * Default values when creating collections
@@ -305,36 +348,70 @@ class Collection extends ManagesConnection implements \JsonSerializable
      * Truncate the collection
      *
      * @return bool
+     * @throws DatabaseException|GuzzleException
      */
     public function truncate(): bool
     {
-        // TODO implements truncate method
+        try {
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
+            $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_TRUNCATE));
+            $data = json_decode((string)$response->getBody(), true);
+            return true;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
      * Loads the collection on server
      *
+     * @param bool $count
      * @return bool
+     * @throws DatabaseException|GuzzleException
      */
-    public function load(): bool
+    public function load(bool $count = true): bool
     {
-        // TODO implements load method
+        try {
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
+            $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_LOAD), ['count' => $count]);
+            $data = json_decode((string)$response->getBody(), true);
+            $this->status = (int)$data['status'];
+            return $this->status === self::$loadedStatus;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
      * Unload the collection on server
      *
      * @return bool
+     * @throws DatabaseException|GuzzleException
      */
     public function unload(): bool
     {
-        // TODO implements unload method
+        try {
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
+            $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_UNLOAD));
+            $data = json_decode((string)$response->getBody(), true);
+            $this->status = (int)$data['status'];
+            return $data['status'] === self::$unloadedStatus;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
      * Rotate journal of collection
      *
      * @return bool
+     * @throws DatabaseException|GuzzleException
      */
     public function rotate(): bool
     {
@@ -345,20 +422,41 @@ class Collection extends ManagesConnection implements \JsonSerializable
      * Return the number of documents in a collection
      *
      * @return int
+     * @throws DatabaseException|GuzzleException
      */
     public function count(): int
     {
-        // TODO implements count method
+        try {
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
+            $response = $this->connection->get(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_COUNT));
+            $data = json_decode((string)$response->getBody(), true);
+
+            return (int)$data['count'];
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
      * Recalculates the document count of a collection, if it ever becomes inconsistent.
      *
      * @return bool
+     * @throws DatabaseException|GuzzleException
      */
     public function recalculateCount(): bool
     {
-        // TODO implements recalculateCount method
+        try {
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
+            $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_RECALCULATE_COUNT));
+            $data = json_decode((string)$response->getBody(), true);
+            return (bool)$data['result'];
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
@@ -366,10 +464,21 @@ class Collection extends ManagesConnection implements \JsonSerializable
      *
      * @param string $newName
      * @return bool
+     * @throws DatabaseException|GuzzleException
      */
     public function rename(string $newName): bool
     {
-        // TODO implements rename method
+        try {
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
+            $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_RENAME), ['name' => $newName]);
+            $data = json_decode((string)$response->getBody(), true);
+            $this->attributes['name'] = $newName;
+            return !$data['error'];
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**

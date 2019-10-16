@@ -180,4 +180,179 @@ class CollectionTest extends TestCase
         $this->expectException(DatabaseException::class);
         $collection->drop();
     }
+
+    public function testRename()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_first_name', $db);
+
+        // Check if collection is created.
+        $this->assertTrue($collection->save());
+
+        // Rename
+        $this->assertTrue($collection->rename('test_snd_name'));
+
+        // Check rename
+        $this->assertFalse($db->hasCollection('test_first_name'));
+        $this->assertTrue($db->hasCollection('test_snd_name'));
+
+        $collection = $db->getCollection('test_snd_name');
+        $this->assertEquals('test_snd_name', $collection->getName());
+        $this->assertTrue($collection->drop());
+    }
+
+    public function testRenameThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = new Database($this->getConnectionObject($mock));
+        $collection = new Collection('test_first_name', $db);
+
+        // Check if collection is created.
+        $this->assertTrue($collection->save());
+
+        // Rename
+        $this->expectException(DatabaseException::class);
+        $this->assertTrue($collection->rename('test_snd_name'));
+    }
+
+    public function testRecalculateCount()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_first_name', $db);
+
+        // Check if collection is created.
+        $this->assertTrue($collection->save());
+
+        // Recalculate
+        $this->assertIsBool($collection->recalculateCount());
+        $this->assertTrue($collection->drop());
+    }
+
+    public function testRecalculateCountThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = new Database($this->getConnectionObject($mock));
+        $collection = new Collection('test_first_name', $db);
+
+        // Check if collection is created.
+        $this->assertTrue($collection->save());
+
+        // Recalculate
+        $this->expectException(DatabaseException::class);
+        $this->assertIsBool($collection->recalculateCount());
+    }
+
+    public function testCount()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_first_name', $db);
+
+        // Check if collection is created.
+        $this->assertTrue($collection->save());
+
+        // Count
+        $this->assertEquals(0, $collection->count());
+        $this->assertTrue($collection->drop());
+
+        // TODO Make tests add with documents
+    }
+
+    public function testCountThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = new Database($this->getConnectionObject($mock));
+        $collection = new Collection('test_first_name', $db);
+
+        // Recalculate
+        $this->expectException(DatabaseException::class);
+        $this->assertIsBool($collection->count());
+    }
+
+    public function testLoad()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_first_name', $db, ['status' => 2]);
+
+        $this->assertEquals(2, $collection->getStatus());
+
+        // Check if collection is created.
+        // After creation, ArangoDB server usually loads the collection
+        $this->assertTrue($collection->save());
+
+        // Load
+        $this->assertTrue($collection->load());
+        $this->assertEquals(3, $collection->getStatus()); // Check loaded status.
+
+        $this->assertTrue($collection->drop());
+    }
+
+    public function testLoadThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = new Database($this->getConnectionObject($mock));
+        $collection = new Collection('test_first_name', $db);
+
+        // Load
+        $this->expectException(DatabaseException::class);
+        $this->assertTrue($collection->load());
+    }
+
+    public function testUnload()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_first_name', $db);
+
+        // Check if collection is created.
+        // After creation, ArangoDB server usually loads the collection
+        $this->assertTrue($collection->save());
+
+        // Load
+        $this->assertTrue($collection->unload());
+        $this->assertEquals(2, $collection->getStatus()); // Check loaded status.
+
+        $this->assertTrue($collection->drop());
+    }
+
+    public function testUnloadThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = new Database($this->getConnectionObject($mock));
+        $collection = new Collection('test_first_name', $db);
+
+        // Load
+        $this->expectException(DatabaseException::class);
+        $this->assertTrue($collection->unload());
+    }
 }
