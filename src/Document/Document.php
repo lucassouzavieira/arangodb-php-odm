@@ -3,10 +3,16 @@ declare(strict_types=1);
 
 namespace ArangoDB\Document;
 
+use ArangoDB\Connection\Connection;
+use ArangoDB\Http\Api;
 use ArangoDB\Collection\Collection;
 use ArangoDB\Entity\EntityInterface;
-use ArangoDB\Validation\Rules\RuleInterface;
 use ArangoDB\Validation\Rules\Rules;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\ClientException;
+use ArangoDB\Connection\ManagesConnection;
+use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Validation\Rules\RuleInterface;
 use ArangoDB\Validation\Document\DocumentValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
@@ -16,7 +22,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  * @package ArangoDB\Auth
  * @author Lucas S. Vieira
  */
-class Document implements \JsonSerializable, EntityInterface
+class Document extends ManagesConnection implements \JsonSerializable, EntityInterface
 {
     /**
      * Document ID
@@ -54,6 +60,13 @@ class Document implements \JsonSerializable, EntityInterface
     protected $attributes;
 
     /**
+     * Connection to be used
+     *
+     * @var Connection
+     */
+    protected $connection;
+
+    /**
      * Collection where document belongs
      *
      * @var Collection
@@ -82,6 +95,7 @@ class Document implements \JsonSerializable, EntityInterface
         $this->isNew = true;
         $this->attributes = $attributes;
         $this->collection = $collection;
+        $this->connection = $this->collection->getConnection();
         $this->validator = new DocumentValidator();
     }
 
@@ -127,6 +141,28 @@ class Document implements \JsonSerializable, EntityInterface
     }
 
     /**
+     * Return the collection attributes on array
+     *
+     * @return array
+     */
+    public function getAttributes(): array
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * Set collection attributes
+     *
+     * @param array $data
+     */
+    public function setAttributes(array $data): void
+    {
+        foreach ($data as $key => $value) {
+            $this->{$key} = $value;
+        }
+    }
+
+    /**
      * Returns true if is a new object
      * @return bool
      */
@@ -136,13 +172,30 @@ class Document implements \JsonSerializable, EntityInterface
     }
 
     /**
-     * Save a entity on server, if possible
+     * Save or update the document, if possible
      *
-     * @return bool true if operation was successful, false otherwise
+     * @return bool true if operation was successful. Throws an exceptions otherwise
+     * @throws DatabaseException|GuzzleException
      */
     public function save(): bool
     {
-        // TODO: Implement save() method.
+        try {
+            // If the collection is a new one, we will create this collection on server.
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::DOCUMENT);
+            $response = $this->connection->post(sprintf("%s/%s", $uri, $this->collection->getName()), $this->attributes);
+            $data = json_decode((string)$response->getBody(), true);
+
+            $this->isNew = false;
+            $this->id = $data['_id'];
+            $this->key = $data['_key'];
+            $this->revision = $data['_rev'];
+
+            return true;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**

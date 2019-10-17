@@ -632,7 +632,7 @@ class Collection extends ManagesConnection implements \JsonSerializable
     protected function update()
     {
         $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
-        $response = $this->connection->put(sprintf("%s%s", $uri, Api::COLLECTION_PROPERTIES), $this->getUpdateParameters());
+        $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_PROPERTIES), $this->getUpdateParameters());
         $data = json_decode((string)$response->getBody(), true);
 
         // Update object.
