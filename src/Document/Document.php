@@ -18,7 +18,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 /**
  * Represents an ArangoDB document
  *
- * @package ArangoDB\Auth
+ * @package ArangoDB\Document
  * @author Lucas S. Vieira
  */
 class Document extends ManagesConnection implements \JsonSerializable, EntityInterface

@@ -5,9 +5,9 @@ namespace ArangoDB\Connection;
 
 use ArangoDB\Auth\Authenticable;
 use ArangoDB\Database\Database;
-use ArangoDB\Exceptions\DatabaseException;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\GuzzleException;
+use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Auth\Exceptions\AuthException;
 use ArangoDB\Exceptions\ConnectionException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;

@@ -16,20 +16,13 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 class DocumentValidator extends Validator
 {
     /**
-     * Document data
-     *
-     * @var array
-     */
-    protected $attributes = [];
-
-    /**
      * DocumentValidator constructor.
      *
      * @param array $attributes
      */
     public function __construct(array $attributes = [])
     {
-        $this->attributes = $attributes;
+        $this->data = $attributes;
     }
 
     /**
@@ -40,11 +33,11 @@ class DocumentValidator extends Validator
     public function setData($attributes)
     {
         if (is_array($attributes)) {
-            $this->attributes = $attributes;
+            $this->data = $attributes;
         }
 
         // Must be in array form for validation.
-        $this->attributes = [$attributes];
+        $this->data = [$attributes];
     }
 
     /**
@@ -81,7 +74,7 @@ class DocumentValidator extends Validator
             }
         };
 
-        $callback($this->attributes);
+        $callback($this->data);
         return true;
     }
 }

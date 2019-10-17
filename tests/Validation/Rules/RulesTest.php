@@ -103,4 +103,14 @@ class RulesTest extends TestCase
         $this->assertFalse($validator->isValid($string));
         $this->assertFalse($validator->isValid(['pass', 'an', 'array']));
     }
+
+    public function testEqualsOrGreaterThan()
+    {
+        $validator = Rules::equalsOrGreaterThan(5);
+
+        $this->assertTrue($validator->isValid(5));
+        $this->assertTrue($validator->isValid(rand(6, 100)));
+        $this->assertFalse($validator->isValid(rand(-10, 4)));
+        $this->assertFalse($validator->isValid(new \stdClass()));
+    }
 }

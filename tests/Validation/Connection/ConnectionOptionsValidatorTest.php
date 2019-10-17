@@ -4,9 +4,9 @@
 namespace Unit\Validation\Connection;
 
 use Unit\TestCase;
-use ArangoDB\Validation\Connection\ConnectionOptionsValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
+use ArangoDB\Validation\Connection\ConnectionOptionsValidator;
 
 class ConnectionOptionsValidatorTest extends TestCase
 {

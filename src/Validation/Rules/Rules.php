@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace ArangoDB\Validation\Rules;
 
+use phpDocumentor\Reflection\Types\Integer;
+
 /**
  * Provides validation rules for inputs data
  *
@@ -137,6 +139,49 @@ abstract class Rules
                 }
 
                 return is_null($value) || is_int($value) || is_string($value) || is_bool($value) || is_float($value);
+            }
+        };
+    }
+
+    /**
+     * If a value is equals to or greater than some given value
+     *
+     * @param int $reference
+     * @return RuleInterface
+     */
+    public static function equalsOrGreaterThan(int $reference)
+    {
+        return new class($reference) implements RuleInterface {
+            /**
+             * Reference value
+             *
+             * @var integer
+             */
+            protected $reference = 0;
+
+            /**
+             * equalsOrGreaterThan Rule constructor.
+             *
+             * @param int $reference
+             */
+            public function __construct(int $reference)
+            {
+                $this->reference = $reference;
+            }
+
+            /**
+             * Check if a given value is valid
+             *
+             * @param $value
+             * @return bool
+             */
+            public function isValid($value): bool
+            {
+                if (!is_int($value)) {
+                    return false;
+                }
+
+                return ($value >= $this->reference);
             }
         };
     }

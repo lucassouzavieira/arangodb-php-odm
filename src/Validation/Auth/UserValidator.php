@@ -16,11 +16,6 @@ use ArangoDB\Validation\Rules\Rules;
 class UserValidator extends Validator
 {
     /**
-     * @var array
-     */
-    protected $options = [];
-
-    /**
      * Mandatory keys in users arrays
      *
      * @var array
@@ -45,7 +40,7 @@ class UserValidator extends Validator
      */
     public function __construct(array $options)
     {
-        $this->options = $options;
+        $this->data = $options;
     }
 
     /**

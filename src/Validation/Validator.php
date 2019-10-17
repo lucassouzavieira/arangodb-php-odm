@@ -15,6 +15,27 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 abstract class Validator implements ValidatorInterface
 {
     /**
+     * Data to validate
+     *
+     * @var array
+     */
+    protected $data = [];
+
+    /**
+     * Required keys
+     *
+     * @var array
+     */
+    protected $required = [];
+
+    /**
+     * Optional keys
+     *
+     * @var array
+     */
+    protected $canHave = [];
+
+    /**
      * Validate user data
      *
      * @return true if validation is successful, throw an exception otherwise
@@ -23,19 +44,19 @@ abstract class Validator implements ValidatorInterface
     public function validate(): bool
     {
         foreach ($this->rules() as $ruleKey => $validator) {
-            // Check for 'must have' keys.
-            if (!array_key_exists($ruleKey, $this->options) && in_array($ruleKey, $this->required)) {
+            // Check for required keys.
+            if (!array_key_exists($ruleKey, $this->data) && in_array($ruleKey, $this->required)) {
                 throw new MissingParameterException($ruleKey);
             }
 
             // Can have keys may be not present.
-            if (!array_key_exists($ruleKey, $this->options)) {
+            if (!array_key_exists($ruleKey, $this->data)) {
                 continue;
             }
 
             // Validate given keys.
-            if (!$validator->isValid($this->options[$ruleKey])) {
-                throw new InvalidParameterException($ruleKey, $this->options[$ruleKey]);
+            if (!$validator->isValid($this->data[$ruleKey])) {
+                throw new InvalidParameterException($ruleKey, $this->data[$ruleKey]);
             }
         }
 

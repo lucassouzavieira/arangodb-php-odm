@@ -96,7 +96,7 @@ use ArangoDB\Collection\Collection;
 use ArangoDB\Connection\Connection;
 
 $connection = new Connection([
-    'endpoint' => 'http://myarangohost',
+    'host' => 'http://myarangohost',
     'port' => 8529,
     'username' => 'YourUserName',
     'password' => 'YourSecretPasswd',

@@ -16,11 +16,6 @@ use ArangoDB\Validation\Rules\Rules;
 class ConnectionOptionsValidator extends Validator
 {
     /**
-     * @var array
-     */
-    protected $options = [];
-
-    /**
      * Required keys in connections arrays
      *
      * @var array
@@ -45,11 +40,11 @@ class ConnectionOptionsValidator extends Validator
      */
     public function __construct(array $options)
     {
-        $this->options = $options;
+        $this->data = $options;
 
         // We can use 'host' and 'port' keys to define the endpoint.
         if (array_key_exists('host', $options) && array_key_exists('port', $options)) {
-            $this->options['endpoint'] = sprintf("%s:%d", $options['host'], $options['port']);
+            $this->data['endpoint'] = sprintf("%s:%d", $options['host'], $options['port']);
         }
     }
 
@@ -76,6 +71,6 @@ class ConnectionOptionsValidator extends Validator
      */
     public function getConnectionOptions(): array
     {
-        return $this->options;
+        return $this->data;
     }
 }

@@ -5,13 +5,13 @@ namespace ArangoDB\Auth;
 
 use ArangoDB\Http\Api;
 use ArangoDB\Entity\Entity;
-use ArangoDB\Validation\Auth\UserValidator;
-use ArangoDB\Validation\Exceptions\MissingParameterException;
 use ArangoDB\Validation\Rules\Rules;
 use ArangoDB\DataStructures\ArrayList;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
+use ArangoDB\Validation\Auth\UserValidator;
 use ArangoDB\Auth\Exceptions\UserException;
+use ArangoDB\Validation\Exceptions\MissingParameterException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
