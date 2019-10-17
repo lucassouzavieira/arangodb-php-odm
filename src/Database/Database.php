@@ -207,14 +207,12 @@ class Database extends DatabaseHandler
             $response = $this->connection->get($uri);
             $data = json_decode((string)$response->getBody(), true);
 
-            $nonSystemsCollections = [];
+            $collectionList = new ArrayList();
             foreach ($data['result'] as $key => $collection) {
-                if (isset($collection['isSystem']) && !$collection['isSystem']) {
-                    $nonSystemsCollections[] = new Collection($collection['name'], $this, $collection);
-                }
+                $collectionList->push(new Collection($collection['name'], $this, $collection));
             }
 
-            return new ArrayList($nonSystemsCollections);
+            return $collectionList;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
             $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);

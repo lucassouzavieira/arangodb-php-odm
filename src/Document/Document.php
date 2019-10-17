@@ -3,11 +3,10 @@ declare(strict_types=1);
 
 namespace ArangoDB\Document;
 
-use ArangoDB\Connection\Connection;
 use ArangoDB\Http\Api;
+use ArangoDB\Connection\Connection;
 use ArangoDB\Collection\Collection;
 use ArangoDB\Entity\EntityInterface;
-use ArangoDB\Validation\Rules\Rules;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ClientException;
 use ArangoDB\Connection\ManagesConnection;
@@ -89,14 +88,13 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
      */
     public function __construct(Collection $collection, array $attributes = [])
     {
-        $documentValidator = new DocumentValidator($attributes);
-        $documentValidator->validate();
+        $this->validator = new DocumentValidator($attributes);
+        $this->validator->validate();
 
         $this->isNew = true;
         $this->attributes = $attributes;
         $this->collection = $collection;
         $this->connection = $this->collection->getConnection();
-        $this->validator = new DocumentValidator();
     }
 
     /**
@@ -137,28 +135,6 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
 
         if ($this->validator->validate()) {
             $this->attributes[$name] = $value;
-        }
-    }
-
-    /**
-     * Return the collection attributes on array
-     *
-     * @return array
-     */
-    public function getAttributes(): array
-    {
-        return $this->attributes;
-    }
-
-    /**
-     * Set collection attributes
-     *
-     * @param array $data
-     */
-    public function setAttributes(array $data): void
-    {
-        foreach ($data as $key => $value) {
-            $this->{$key} = $value;
         }
     }
 
