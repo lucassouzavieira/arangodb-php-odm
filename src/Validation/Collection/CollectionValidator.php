@@ -3,11 +3,11 @@
 
 namespace ArangoDB\Validation\Collection;
 
-use ArangoDB\Validation\Rules\Rules;
 use ArangoDB\Validation\Validator;
+use ArangoDB\Validation\Rules\Rules;
 
 /**
- * Class DocumentValidator
+ * Class CollectionValidator
  * Validate the document values
  *
  * @package ArangoDB\Validation\Collection

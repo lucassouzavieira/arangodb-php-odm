@@ -5,6 +5,9 @@ namespace ArangoDB\Collection;
 
 use ArangoDB\Http\Api;
 use ArangoDB\Database\Database;
+use ArangoDB\Validation\Collection\CollectionValidator;
+use ArangoDB\Validation\Exceptions\InvalidParameterException;
+use ArangoDB\Validation\Exceptions\MissingParameterException;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Connection\ManagesConnection;
@@ -154,12 +157,19 @@ class Collection extends ManagesConnection implements \JsonSerializable
      * @param string $name
      * @param Database $database
      * @param array $attributes
-     * @throws DatabaseException|GuzzleException
+     * @throws DatabaseException|GuzzleException|MissingParameterException|InvalidParameterException
      */
     public function __construct(string $name, Database $database, array $attributes = [])
     {
+        $attributes = array_merge($this->defaults, $this->descriptorAttributes, $attributes, ['name' => $name]);
+
+        // Validate collection parameters.
+        $validator = new CollectionValidator($attributes);
+        $validator->validate();
+
+        // Parameters are Ok.
         $this->database = $database;
-        $this->attributes = array_merge($this->defaults, $this->descriptorAttributes, $attributes, ['name' => $name]);
+        $this->attributes = $attributes;
         $this->connection = $database->getConnection();
         $this->isNew = !$database->hasCollection($name);
     }
