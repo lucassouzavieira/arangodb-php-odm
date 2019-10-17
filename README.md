@@ -23,7 +23,7 @@ $connection = new Connection([
 
 // Alternatively, you can set an host and a port to connect
 $connection = new Connection([
-    'endpoint' => 'http://myarangohost',
+    'host' => 'http://myarangohost',
     'port' => 8529,
     'username' => 'YourUserName',
     'password' => 'YourSecretPasswd',
@@ -32,7 +32,7 @@ $connection = new Connection([
 
 // Or set more custom options like 'connection' type and timeout
 $connection = new Connection([
-    'endpoint' => 'http://myarangohost',
+    'host' => 'http://myarangohost',
     'port' => 8529,
     'username' => 'YourUserName',
     'password' => 'YourSecretPasswd',
@@ -51,7 +51,7 @@ use ArangoDB\Connection\Connection;
 
 // Set up a connection
 $connection = new Connection([
-    'endpoint' => 'http://myarangohost',
+    'host' => 'http://myarangohost',
     'port' => 8529,
     'username' => 'YourUserName',
     'password' => 'YourSecretPasswd',
