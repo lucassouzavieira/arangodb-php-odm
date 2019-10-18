@@ -9,7 +9,7 @@ namespace ArangoDB\DataStructures\Contracts;
  * @package ArangoDB\DataStructures\Contracts
  * @author Lucas S. Vieira
  */
-interface ListInterface
+interface ListInterface extends \Iterator, \JsonSerializable, \Countable
 {
     /**
      * Get the first value of list

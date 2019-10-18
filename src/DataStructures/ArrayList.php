@@ -11,7 +11,7 @@ use ArangoDB\DataStructures\Contracts\ListInterface;
  * @package ArangoDB\DataStructures
  * @author Lucas S. Vieira
  */
-class ArrayList implements ListInterface, \JsonSerializable, \Iterator, \Countable
+class ArrayList implements ListInterface
 {
     /**
      * List of data
