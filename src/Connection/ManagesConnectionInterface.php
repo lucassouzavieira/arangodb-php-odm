@@ -1,9 +1,7 @@
 <?php
-
+declare(strict_types=1);
 
 namespace ArangoDB\Connection;
-
-use ArangoDB\Connection\Connection;
 
 /**
  * Interface for classes that use the Connection object

@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace ArangoDB\Connection;
 
-use ArangoDB\Connection\Connection;
-
 /**
  * Class ManagesConnection
  *

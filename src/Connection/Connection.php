@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace ArangoDB\Connection;
 
-use ArangoDB\Auth\Authenticable;
 use ArangoDB\Database\Database;
+use ArangoDB\Auth\Authenticable;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Exceptions\DatabaseException;

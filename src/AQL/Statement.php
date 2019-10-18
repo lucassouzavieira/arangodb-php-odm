@@ -3,10 +3,11 @@ declare(strict_types=1);
 
 namespace ArangoDB\AQL;
 
-use ArangoDB\AQL\Exceptions\StatementException;
 use ArangoDB\Validation\Rules\Rules;
 use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Validation\ValidatorInterface;
+use ArangoDB\AQL\Contracts\StatementInterface;
+use ArangoDB\AQL\Exceptions\StatementException;
 
 /**
  * Represents an prepared AQL Statement
@@ -40,7 +41,7 @@ class Statement implements StatementInterface
     /**
      * Contains all references calling 'bindValue' method
      *
-     * @var ArrayList
+     * @var BindContainer
      */
     protected $valuesContainer;
 

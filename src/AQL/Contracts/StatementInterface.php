@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace ArangoDB\AQL;
+namespace ArangoDB\AQL\Contracts;
 
 /**
  * Interface StatementInterface
