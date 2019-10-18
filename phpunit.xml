@@ -7,6 +7,9 @@
         <ini name="error_reporting" value="-1"/>
     </php>
     <testsuites>
+        <testsuite name="AQL">
+            <directory suffix="Test.php">tests/AQL</directory>
+        </testsuite>
         <testsuite name="Auth">
             <directory suffix="Test.php">tests/Auth</directory>
         </testsuite>

@@ -33,7 +33,7 @@ class BindContainer extends ArrayList
 
     /**
      * Add validation to value being set.
-     * All values must be primitives data types (or conversible for them)
+     * All values must be primitives data types
      *
      * @param int|string $key
      * @param mixed $value

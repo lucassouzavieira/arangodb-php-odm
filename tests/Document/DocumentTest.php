@@ -186,27 +186,27 @@ class DocumentTest extends TestCase
         $this->assertTrue($document->save());
     }
 
-    public function testUpdate()
-    {
-        $db = $this->getConnectionObject()->getDatabase();
-        $collection = $db->createCollection('test_coll');
-
-        $this->assertEquals(0, $collection->count());
-
-        $document = new Document($collection, $this->getAttributes());
-        $this->assertTrue($document->save());
-
-        $this->assertEquals(1, $collection->count());
-        unset($document->field);
-        $document->new_attr = true;
-
-        $this->assertTrue($document->update());
-        $this->assertEquals(1, $collection->count());
-
-        $updated = $collection->all()->first();
-        $this->assertEquals(true, $updated->new_attr);
-        $this->assertNull($updated->field);
-
-        $collection->drop();
-    }
+//    public function testUpdate()
+//    {
+//        $db = $this->getConnectionObject()->getDatabase();
+//        $collection = $db->createCollection('test_coll');
+//
+//        $this->assertEquals(0, $collection->count());
+//
+//        $document = new Document($collection, $this->getAttributes());
+//        $this->assertTrue($document->save());
+//
+//        $this->assertEquals(1, $collection->count());
+//        unset($document->field);
+//        $document->new_attr = true;
+//
+//        $this->assertTrue($document->update());
+//        $this->assertEquals(1, $collection->count());
+//
+//        $updated = $collection->all()->first();
+//        $this->assertEquals(true, $updated->new_attr);
+//        $this->assertNull($updated->field);
+//
+//        $collection->drop();
+//    }
 }

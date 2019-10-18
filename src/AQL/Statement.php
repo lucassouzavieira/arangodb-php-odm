@@ -65,7 +65,7 @@ class Statement implements StatementInterface
     public function __construct(string $query)
     {
         $this->query = $query;
-        $this->processQueryStr();
+        $this->processQueryParameters();
         $this->validator = Rules::isPrimitive();
         $this->container = new BindContainer();
     }
@@ -115,14 +115,9 @@ class Statement implements StatementInterface
      *
      * @param string $parameter
      * @return string
-     * @throws StatementException
      */
     protected function output(string $parameter)
     {
-        if (!$this->container->has($parameter)) {
-            throw new StatementException("Parameter ($parameter) was not defined for this statement");
-        }
-
         $value = $this->container->get($parameter);
         $format = $this->formats[gettype($value)];
 
@@ -150,7 +145,7 @@ class Statement implements StatementInterface
      *
      * @return void
      */
-    protected function processQueryStr(): void
+    protected function processQueryParameters(): void
     {
         $matches = [];
         $regex = '~(@\w+)~';
