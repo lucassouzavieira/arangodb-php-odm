@@ -128,6 +128,14 @@ class ArrayList implements ListInterface, \JsonSerializable, \Iterator, \Countab
     }
 
     /**
+     * @see ListInterface::values()
+     */
+    public function values(): array
+    {
+        return array_values($this->content);
+    }
+
+    /**
      * @see \JsonSerializable::jsonSerialize()
      */
     public function jsonSerialize()

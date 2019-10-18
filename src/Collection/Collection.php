@@ -5,13 +5,13 @@ namespace ArangoDB\Collection;
 
 use ArangoDB\Http\Api;
 use ArangoDB\Database\Database;
-use ArangoDB\Validation\Collection\CollectionValidator;
-use ArangoDB\Validation\Exceptions\InvalidParameterException;
-use ArangoDB\Validation\Exceptions\MissingParameterException;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Connection\ManagesConnection;
 use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Validation\Collection\CollectionValidator;
+use ArangoDB\Validation\Exceptions\InvalidParameterException;
+use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 /**
  * Represents an ArangoDB collection

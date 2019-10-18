@@ -4,9 +4,12 @@
 namespace Unit\Document;
 
 use Unit\TestCase;
+use GuzzleHttp\Psr7\Response;
 use ArangoDB\Document\Document;
+use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\Collection\Collection;
 use ArangoDB\DataStructures\ArrayList;
+use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 class DocumentTest extends TestCase
@@ -106,6 +109,27 @@ class DocumentTest extends TestCase
         $this->assertEquals($this->getAttributes()['good_music'], $document->good_music);
     }
 
+    public function testIsset()
+    {
+        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $document = new Document($collection, $this->getAttributes());
+
+        $this->assertTrue(isset($document->field));
+        $this->assertFalse(isset($document->randomProp));
+    }
+
+    public function testUnset()
+    {
+        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $document = new Document($collection, $this->getAttributes());
+
+        $this->assertTrue(isset($document->field));
+
+        unset($document->field);
+
+        $this->assertFalse(isset($document->field));
+    }
+
     public function testToString()
     {
         $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
@@ -124,5 +148,65 @@ class DocumentTest extends TestCase
         // After creations, 'isNew' must be false.
         // $this->assertFalse($document->isNew());
         // TODO add the test after save method
+    }
+
+    public function testSave()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $collection = $db->createCollection('test_coll');
+
+        $this->assertEquals(0, $collection->count());
+
+        $document = new Document($collection, $this->getAttributes());
+        $this->assertTrue($document->save());
+
+        $this->assertEquals(1, $collection->count());
+
+        $collection->drop();
+    }
+
+    public function testSaveThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => [], 'count' => 0])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = $this->getConnectionObject($mock)->getDatabase();
+        $collection = $db->createCollection('test_coll');
+
+        $this->assertEquals(0, $collection->count());
+
+        $document = new Document($collection, $this->getAttributes());
+        $this->expectException(DatabaseException::class);
+        $this->assertTrue($document->save());
+    }
+
+    public function testUpdate()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $collection = $db->createCollection('test_coll');
+
+        $this->assertEquals(0, $collection->count());
+
+        $document = new Document($collection, $this->getAttributes());
+        $this->assertTrue($document->save());
+
+        $this->assertEquals(1, $collection->count());
+        unset($document->field);
+        $document->new_attr = true;
+
+        $this->assertTrue($document->update());
+        $this->assertEquals(1, $collection->count());
+
+        $updated = $collection->all()->first();
+        $this->assertEquals(true, $updated->new_attr);
+        $this->assertNull($updated->field);
+
+        $collection->drop();
     }
 }

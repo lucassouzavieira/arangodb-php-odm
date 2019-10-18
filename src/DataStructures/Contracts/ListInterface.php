@@ -70,4 +70,11 @@ interface ListInterface
      * @return array
      */
     public function toArray(): array;
+
+    /**
+     * Return an array with list values only
+     *
+     * @return array
+     */
+    public function values(): array;
 }
