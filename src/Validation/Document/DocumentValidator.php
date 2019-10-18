@@ -28,7 +28,7 @@ class DocumentValidator extends Validator
     /**
      * Set the data for validation
      *
-     * @param array $attributes
+     * @param mixed $attributes
      */
     public function setData($attributes)
     {
@@ -52,7 +52,7 @@ class DocumentValidator extends Validator
     }
 
     /**
-     * Validate user data
+     * Validate document data
      *
      * @return true if validation is successful, throw an exception otherwise
      * @throws InvalidParameterException

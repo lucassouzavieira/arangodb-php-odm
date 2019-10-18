@@ -4,10 +4,10 @@ declare(strict_types=1);
 namespace ArangoDB\AQL;
 
 use ArangoDB\Validation\Rules\Rules;
-use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Validation\ValidatorInterface;
 use ArangoDB\AQL\Contracts\StatementInterface;
 use ArangoDB\AQL\Exceptions\StatementException;
+use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
  * Represents an prepared AQL Statement
@@ -43,7 +43,7 @@ class Statement implements StatementInterface
      *
      * @var BindContainer
      */
-    protected $valuesContainer;
+    protected $container;
 
     /**
      * Formats to format output string
@@ -67,7 +67,7 @@ class Statement implements StatementInterface
         $this->query = $query;
         $this->processQueryStr();
         $this->validator = Rules::isPrimitive();
-        $this->valuesContainer = new ArrayList();
+        $this->container = new BindContainer();
     }
 
     /**
@@ -77,15 +77,12 @@ class Statement implements StatementInterface
      * @param $value
      *
      * @return bool
+     * @throws InvalidParameterException
      */
     public function bindValue(string $parameter, $value): bool
     {
         if ($this->hasParam($parameter)) {
-            if (is_array($value)) {
-                $value = json_encode($value);
-            }
-
-            $this->valuesContainer->put($parameter, $value);
+            $this->container->put($parameter, $value);
             return true;
         }
 
@@ -97,21 +94,43 @@ class Statement implements StatementInterface
      *
      * @return string
      * @throws StatementException
-     * @todo escape strings
      */
     public function toAql(): string
     {
         $query = $this->query;
 
         foreach ($this->queryParameters as $parameter) {
-            if (!$this->valuesContainer->has($parameter)) {
+            if (!$this->container->has($parameter)) {
                 throw new StatementException("Parameter ($parameter) was not defined for this statement");
             }
 
-            $query = str_replace($parameter, $this->formats[gettype($this->valuesContainer->get($parameter))], $query);
+            $query = str_replace($parameter, $this->output($parameter), $query);
         }
 
-        return sprintf($query, ...$this->valuesContainer->values());
+        return addslashes($query);
+    }
+
+    /**
+     * Returns the proper output formatted given parameter
+     *
+     * @param string $parameter
+     * @return string
+     * @throws StatementException
+     */
+    protected function output(string $parameter)
+    {
+        if (!$this->container->has($parameter)) {
+            throw new StatementException("Parameter ($parameter) was not defined for this statement");
+        }
+
+        $value = $this->container->get($parameter);
+        $format = $this->formats[gettype($value)];
+
+        if (is_bool($value)) {
+            $value = $value ? 'true' : 'false';
+        }
+
+        return sprintf($format, $value);
     }
 
     /**
