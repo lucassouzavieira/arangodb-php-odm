@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace ArangoDB\Auth\Exceptions;
 
 use Throwable;
+use ArangoDB\Exceptions\BaseException;
 
 /**
  * AuthException
@@ -11,7 +12,7 @@ use Throwable;
  * @package ArangoDB\Auth\Exceptions
  * @author Lucas S. Vieira
  */
-class AuthException extends \Exception
+class AuthException extends BaseException
 {
     /**
      * AuthException constructor.
@@ -22,6 +23,6 @@ class AuthException extends \Exception
      */
     public function __construct($message, Throwable $previous = null, $code = 0)
     {
-        parent::__construct($message, $code, $previous);
+        parent::__construct($message, $previous, $code);
     }
 }
