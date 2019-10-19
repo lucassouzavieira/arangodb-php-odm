@@ -41,7 +41,7 @@ class BindContainer extends ArrayList
      */
     public function put($key, $value): void
     {
-        $this->validator->setData($value);
+        $this->validator->setAttributes($value);
         if ($this->validator->validate()) {
             // Arrays are seen as subdocuments.
             if (is_array($value)) {
@@ -50,5 +50,21 @@ class BindContainer extends ArrayList
 
             parent::put($key, $value);
         }
+    }
+
+    /**
+     * Get the stored vars
+     *
+     * @return array
+     */
+    public function getAll(): array
+    {
+        $vars = [];
+        foreach ($this->content as $variable => $value) {
+            $variable = str_replace('@', '', $variable);
+            $vars[$variable] = $value;
+        }
+
+        return $vars;
     }
 }

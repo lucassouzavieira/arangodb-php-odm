@@ -5,6 +5,7 @@ namespace ArangoDB\Cursor;
 
 use ArangoDB\Connection\Connection;
 use ArangoDB\DataStructures\ArrayList;
+use ArangoDB\Cursor\Contracts\CursorInterface;
 
 /**
  * Base class for Cursors
@@ -12,7 +13,7 @@ use ArangoDB\DataStructures\ArrayList;
  * @package ArangoDB\Cursor
  * @author Lucas S. Vieira
  */
-abstract class Base
+abstract class Base implements CursorInterface
 {
     /**
      * Cursor id
@@ -89,14 +90,14 @@ abstract class Base
      *
      * @var int
      */
-    protected $fetches = 1;
+    protected $fetches = 0;
 
     /**
      * If the result query was served from cached results
      *
      * @var bool
      */
-    protected $cached;
+    protected $cached = false;
 
     /**
      * Number of documents in cursor,
@@ -131,6 +132,11 @@ abstract class Base
     protected const STATS = 'stats';
 
     /**
+     * Cursor count entry
+     */
+    protected const COUNT = 'count';
+
+    /**
      * Cursor fullCount entry
      */
     protected const FULL_COUNT = 'fullCount';
@@ -159,4 +165,29 @@ abstract class Base
      * Cursor sanitize option
      */
     protected const SANITIZE = '_sanitize';
+
+    /**
+     * @return bool
+     */
+    public function isCached(): bool
+    {
+        return $this->cached;
+    }
+
+    /**
+     * Returns the cursor ID
+     *
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Fetch more results from the server
+     *
+     * @return void
+     */
+    abstract protected function fetch(): void;
 }

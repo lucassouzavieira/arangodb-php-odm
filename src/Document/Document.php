@@ -31,21 +31,21 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
      *
      * @var string
      */
-    protected $id;
+    protected $id = '';
 
     /**
      * Document key
      *
      * @var string
      */
-    protected $key;
+    protected $key = '';
 
     /**
      * Document revision
      *
      * @var string
      */
-    protected $revision;
+    protected $revision = '';
 
     /**
      * If document is a new one or a representation of existing document
@@ -122,7 +122,18 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
         $this->validator->validate();
 
         $this->isNew = true;
-        $this->attributes = $attributes;
+
+        // If document is a old one, must contain the descriptors.
+        if ($this->validator->hasDescriptors()) {
+            $this->setDescriptors($this->validator->getDescriptorsAttributes());
+        }
+
+        // If document is an representation of a existing one.
+        if ($this->getId() || $this->getKey() || $this->getRevision()) {
+            $this->isNew = false;
+        }
+
+        $this->attributes = $this->validator->getAttributes();
         $this->collection = $collection;
         $this->connection = $this->collection->getConnection();
     }
@@ -161,7 +172,7 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
      */
     public function __set(string $name, $value)
     {
-        $this->validator->setData($value);
+        $this->validator->setAttributes($value);
 
         if ($this->validator->validate()) {
             $this->attributes[$name] = $value;
@@ -250,8 +261,8 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
                 return true;
             }
 
-            return $this->update($this->updateDefaultOptions);
-        } catch (ClientException $exception) {
+            return false;
+        } catch (GuzzleException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
             $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
             throw $databaseException;
@@ -261,10 +272,10 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
     /**
      * Update the document.
      *
-     * @todo finish this method
      * @param array $options
      * @return bool
      * @throws DatabaseException|GuzzleException|MissingParameterException|InvalidParameterException
+     * @todo finish this method
      */
     public function update(array $options = []): bool
     {
@@ -298,10 +309,10 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
     /**
      * Patch the document.
      *
-     * @todo finish this method
      * @param array $options
      * @return bool
      * @throws DatabaseException|GuzzleException|MissingParameterException|InvalidParameterException
+     * @todo finish this method
      */
     public function patch(array $options = []): bool
     {
@@ -365,5 +376,17 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
     public function jsonSerialize()
     {
         return $this->toArray();
+    }
+
+    /**
+     * Set document descriptors
+     *
+     * @param array $descriptors
+     */
+    protected function setDescriptors(array $descriptors): void
+    {
+        $this->id = isset($descriptors['_id']) ? $descriptors['_id'] : $this->id;
+        $this->key = isset($descriptors['_key']) ? $descriptors['_key'] : $this->key;
+        $this->revision = isset($descriptors['_rev']) ? $descriptors['_rev'] : $this->revision;
     }
 }

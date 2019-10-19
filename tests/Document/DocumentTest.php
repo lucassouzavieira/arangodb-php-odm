@@ -20,9 +20,15 @@ class DocumentTest extends TestCase
         parent::setUp();
     }
 
-    public function getAttributes()
+    public function getAttributes($withDescriptors = false)
     {
-        return [
+        $descriptors = [
+            '_id' => 'sd/178538',
+            '_rev' => '_ZcQ9yh----',
+            '_key' => '178538'
+        ];
+
+        $fake = [
             'field' => 'of soccer',
             'good_music' => [
                 'Queen',
@@ -36,6 +42,12 @@ class DocumentTest extends TestCase
             'percent' => 45.4,
             'quantity' => 40
         ];
+
+        if ($withDescriptors) {
+            return array_merge($descriptors, $fake);
+        }
+
+        return $fake;
     }
 
     public function testConstructorThrowInvalidParameterException()
@@ -61,6 +73,18 @@ class DocumentTest extends TestCase
         $this->assertArrayHasKey('_rev', $docArray);
         $this->assertArrayHasKey('status', $docArray);
         $this->assertFalse($docArray['status']);
+    }
+
+    public function testConstructOldDocument()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $collection = new Collection('doc_tests', $db);
+
+        $document = new Document($collection, $this->getAttributes(true));
+        $this->assertFalse($document->isNew());
+        $this->assertIsString($document->getId());
+        $this->assertIsString($document->getKey());
+        $this->assertIsString($document->getRevision());
     }
 
     public function testJsonSerialize()
@@ -159,6 +183,9 @@ class DocumentTest extends TestCase
 
         $document = new Document($collection, $this->getAttributes());
         $this->assertTrue($document->save());
+
+        // We cannot save the document twice. Must return false on second call.
+        $this->assertFalse($document->save());
 
         $this->assertEquals(1, $collection->count());
 

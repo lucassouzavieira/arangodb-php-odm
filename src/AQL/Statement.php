@@ -54,7 +54,8 @@ class Statement implements StatementInterface
         'float' => "%F",
         'integer' => "%d",
         'string' => "'%s'",
-        'boolean' => "%s"
+        'boolean' => "%s",
+        'collection' => "%s"
     ];
 
     /**
@@ -68,6 +69,16 @@ class Statement implements StatementInterface
         $this->processQueryParameters();
         $this->validator = Rules::isPrimitive();
         $this->container = new BindContainer();
+    }
+
+    /**
+     * String representation of query
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getQuery();
     }
 
     /**
@@ -90,6 +101,36 @@ class Statement implements StatementInterface
     }
 
     /**
+     * If the query has some alias on it to receive an value after through binding
+     *
+     * @return bool
+     */
+    public function hasAliases(): bool
+    {
+        return (bool)count($this->queryParameters);
+    }
+
+    /**
+     * Returns the query string
+     *
+     * @return string
+     */
+    public function getQuery(): string
+    {
+        return $this->query;
+    }
+
+    /**
+     * Get the bind vars
+     *
+     * @return array
+     */
+    public function getBindVars(): array
+    {
+        return $this->container->getAll();
+    }
+
+    /**
      * 'Resolves' the query, returning the string after bind all params and values
      *
      * @return string
@@ -107,7 +148,7 @@ class Statement implements StatementInterface
             $query = str_replace($parameter, $this->output($parameter), $query);
         }
 
-        return addslashes($query);
+        return $query;
     }
 
     /**
@@ -120,6 +161,10 @@ class Statement implements StatementInterface
     {
         $value = $this->container->get($parameter);
         $format = $this->formats[gettype($value)];
+
+        if ($parameter === '@collection') {
+            $format = $this->formats['collection'];
+        }
 
         if (is_bool($value)) {
             $value = $value ? 'true' : 'false';

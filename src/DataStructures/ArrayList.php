@@ -17,13 +17,13 @@ class ArrayList implements ListInterface
      * List of data
      * @var array
      */
-    private $content;
+    protected $content;
 
     /**
      * Current index
      * @var int
      */
-    private $position = 0;
+    protected $position = 0;
 
     /**
      * ArrayList constructor.
@@ -133,6 +133,18 @@ class ArrayList implements ListInterface
     public function values(): array
     {
         return array_values($this->content);
+    }
+
+    /**
+     * Appends a array list to another.
+     *
+     * @param ArrayList $list
+     */
+    public function append(ArrayList $list)
+    {
+        foreach ($list as $item) {
+            $this->push($item);
+        }
     }
 
     /**

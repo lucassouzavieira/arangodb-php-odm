@@ -3,7 +3,6 @@
 
 namespace ArangoDB\Document;
 
-
 /**
  * Represents an ArangoDB Edge document
  *
@@ -12,5 +11,4 @@ namespace ArangoDB\Document;
  */
 class Edge extends Document
 {
-
 }

@@ -30,7 +30,7 @@ class DocumentValidator extends Validator
      *
      * @param mixed $attributes
      */
-    public function setData($attributes)
+    public function setAttributes($attributes)
     {
         if (is_array($attributes)) {
             $this->data = $attributes;
@@ -38,6 +38,42 @@ class DocumentValidator extends Validator
 
         // Must be in array form for validation.
         $this->data = [$attributes];
+    }
+
+    /**
+     * Return document data
+     *
+     * @return array
+     */
+    public function getAttributes()
+    {
+        $attributes = $this->data;
+        unset($attributes['_id'], $attributes['_rev'], $attributes['_key']);
+        return $attributes;
+    }
+
+    /**
+     * Returns if the given document validator has document descriptors
+     *
+     * @return bool
+     */
+    public function hasDescriptors()
+    {
+        return (isset($this->data['_id']) || isset($this->data['_key']) || isset($this->data['_rev']));
+    }
+
+    /**
+     * Return document descriptors attributes
+     *
+     * @return array|null
+     */
+    public function getDescriptorsAttributes()
+    {
+        return [
+            '_id' => isset($this->data['_id']) ? $this->data['_id'] : null,
+            '_rev' => isset($this->data['_rev']) ? $this->data['_rev'] : null,
+            '_key' => isset($this->data['_key']) ? $this->data['_key'] : null,
+        ];
     }
 
     /**
