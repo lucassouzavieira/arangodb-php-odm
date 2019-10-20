@@ -56,7 +56,20 @@ class DocumentTest extends TestCase
         $collection = new Collection('doc_tests', $db);
 
         $this->expectException(InvalidParameterException::class);
-        $document = new Document($collection, ['field' => new ArrayList()]);
+        $document = new Document(['field' => new ArrayList()]);
+    }
+
+    public function testGetCollectionAndSetCollection()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $collection = new Collection('doc_tests', $db);
+
+        $document = new Document($this->getAttributes());
+        $this->assertNull($document->getCollection());
+
+        $document->setCollection($collection);
+
+        $this->assertInstanceOf(Collection::class, $document->getCollection());
     }
 
     public function testToArray()
@@ -64,7 +77,7 @@ class DocumentTest extends TestCase
         $db = $this->getConnectionObject()->getDatabase();
         $collection = new Collection('doc_tests', $db);
 
-        $document = new Document($collection, $this->getAttributes());
+        $document = new Document($this->getAttributes(), $collection);
         $docArray = $document->toArray();
 
         $this->assertIsArray($docArray);
@@ -80,7 +93,7 @@ class DocumentTest extends TestCase
         $db = $this->getConnectionObject()->getDatabase();
         $collection = new Collection('doc_tests', $db);
 
-        $document = new Document($collection, $this->getAttributes(true));
+        $document = new Document($this->getAttributes(true), $collection);
         $this->assertFalse($document->isNew());
         $this->assertIsString($document->getId());
         $this->assertIsString($document->getKey());
@@ -89,16 +102,16 @@ class DocumentTest extends TestCase
 
     public function testJsonSerialize()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
-        $document = new Document($collection, $this->getAttributes());
+        $collection = new Collection('document_test_coll', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $document = new Document($this->getAttributes(), $collection);
 
         $this->assertJson(json_encode($document));
     }
 
     public function testGetter()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
-        $document = new Document($collection, $this->getAttributes());
+        $collection = new Collection('document_test_coll', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $document = new Document($this->getAttributes(), $collection);
 
         $this->assertEquals('Queen', $document->good_music[0]);
         $this->assertFalse($document->status);
@@ -109,8 +122,8 @@ class DocumentTest extends TestCase
 
     public function testSetter()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
-        $document = new Document($collection, $this->getAttributes());
+        $collection = new Collection('document_test_coll', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $document = new Document($this->getAttributes(), $collection);
 
         $this->assertEquals($this->getAttributes()['good_music'], $document->good_music);
 
@@ -124,8 +137,8 @@ class DocumentTest extends TestCase
 
     public function testSetterThrowException()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
-        $document = new Document($collection, $this->getAttributes());
+        $collection = new Collection('document_test_coll', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $document = new Document($this->getAttributes(), $collection);
 
         $this->expectException(InvalidParameterException::class);
         $document->doc_list = new ArrayList([]);
@@ -135,8 +148,8 @@ class DocumentTest extends TestCase
 
     public function testIsset()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
-        $document = new Document($collection, $this->getAttributes());
+        $collection = new Collection('document_test_coll', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $document = new Document($this->getAttributes(), $collection);
 
         $this->assertTrue(isset($document->field));
         $this->assertFalse(isset($document->randomProp));
@@ -144,8 +157,8 @@ class DocumentTest extends TestCase
 
     public function testUnset()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
-        $document = new Document($collection, $this->getAttributes());
+        $collection = new Collection('document_test_coll', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $document = new Document($this->getAttributes(), $collection);
 
         $this->assertTrue(isset($document->field));
 
@@ -156,22 +169,25 @@ class DocumentTest extends TestCase
 
     public function testToString()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
-        $document = new Document($collection, $this->getAttributes());
+        $collection = new Collection('document_test_coll', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $document = new Document($this->getAttributes(), $collection);
         $this->assertIsString((string)$document);
     }
 
     public function testIsNew()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
-        $document = new Document($collection, $this->getAttributes());
+        $db = $this->getConnectionObject()->getDatabase();
+        $collection = $db->createCollection('document_test_coll');
+        $document = new Document($this->getAttributes(), $collection);
 
         // Check 'isNew' returns
         $this->assertTrue($document->isNew());
 
+        $this->assertTrue($document->save());
+
         // After creations, 'isNew' must be false.
-        // $this->assertFalse($document->isNew());
-        // TODO add the test after save method
+        $this->assertFalse($document->isNew());
+        $collection->drop();
     }
 
     public function testSave()
@@ -181,11 +197,8 @@ class DocumentTest extends TestCase
 
         $this->assertEquals(0, $collection->count());
 
-        $document = new Document($collection, $this->getAttributes());
+        $document = new Document($this->getAttributes(), $collection);
         $this->assertTrue($document->save());
-
-        // We cannot save the document twice. Must return false on second call.
-        $this->assertFalse($document->save());
 
         $this->assertEquals(1, $collection->count());
 
@@ -208,7 +221,7 @@ class DocumentTest extends TestCase
 
         $this->assertEquals(0, $collection->count());
 
-        $document = new Document($collection, $this->getAttributes());
+        $document = new Document($this->getAttributes(), $collection);
         $this->expectException(DatabaseException::class);
         $this->assertTrue($document->save());
     }
@@ -220,18 +233,18 @@ class DocumentTest extends TestCase
 
         $this->assertEquals(0, $collection->count());
 
-        $document = new Document($collection, $this->getAttributes());
+        $document = new Document($this->getAttributes(), $collection);
         $this->assertTrue($document->save());
 
         $this->assertEquals(1, $collection->count());
         unset($document->field);
         $document->new_attr = true;
 
-        $this->assertTrue($document->update());
+        $this->assertTrue($document->save());
         $this->assertEquals(1, $collection->count());
 
         $updated = $collection->all()->current();
-        $updated = new Document($collection, $updated);
+        $updated = new Document($updated);
         $this->assertEquals(true, $updated->new_attr);
         $this->assertNull($updated->field);
 
@@ -254,9 +267,9 @@ class DocumentTest extends TestCase
 
         $this->assertEquals(0, $collection->count());
 
-        $document = new Document($collection, $this->getAttributes());
+        $document = new Document($this->getAttributes(), $collection);
         $this->expectException(DatabaseException::class);
-        $document->update();
+        $document->save();
     }
 
     public function testUpdateThrowDatabaseExceptionOnConnectionFail()
@@ -282,11 +295,11 @@ class DocumentTest extends TestCase
 
         $this->assertEquals(0, $collection->count());
 
-        $document = new Document($collection, $this->getAttributes());
+        $document = new Document($this->getAttributes(), $collection);
         $this->assertTrue($document->save());
 
         $this->expectException(DatabaseException::class);
-        $document->update();
+        $document->save();
     }
 
     public function testDelete()
@@ -296,7 +309,7 @@ class DocumentTest extends TestCase
 
         $this->assertEquals(0, $collection->count());
 
-        $document = new Document($collection, $this->getAttributes());
+        $document = new Document($this->getAttributes(), $collection);
         $this->assertTrue($document->save());
 
         $this->assertEquals(1, $collection->count());
@@ -313,7 +326,7 @@ class DocumentTest extends TestCase
         $collection = $db->createCollection('test_coll');
 
         $this->assertEquals(0, $collection->count());
-        $document = new Document($collection, $this->getAttributes());
+        $document = new Document($this->getAttributes(), $collection);
         $this->assertEquals(0, $collection->count());
 
         $this->assertFalse($document->delete());
@@ -343,7 +356,7 @@ class DocumentTest extends TestCase
 
         $this->assertEquals(0, $collection->count());
 
-        $document = new Document($collection, $this->getAttributes());
+        $document = new Document($this->getAttributes(), $collection);
         $this->assertTrue($document->save());
 
         $this->expectException(DatabaseException::class);

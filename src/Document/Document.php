@@ -13,7 +13,6 @@ use ArangoDB\Connection\ManagesConnection;
 use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Validation\Rules\RuleInterface;
 use ArangoDB\Validation\Document\DocumentValidator;
-use ArangoDB\Validation\Document\PatchOptionsValidator;
 use ArangoDB\Validation\Document\UpdateOptionsValidator;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
@@ -112,11 +111,11 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
     /**
      * Document constructor.
      *
-     * @param Collection $collection
-     * @param array $attributes
+     * @param array $attributes Document attributes
+     * @param Collection $collection Collection to add this document
      * @throws InvalidParameterException
      */
-    public function __construct(Collection $collection, array $attributes = [])
+    public function __construct(array $attributes = [], Collection $collection = null)
     {
         $this->validator = new DocumentValidator($attributes);
         $this->validator->validate();
@@ -134,8 +133,10 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
         }
 
         $this->attributes = $this->validator->getAttributes();
-        $this->collection = $collection;
-        $this->connection = $this->collection->getConnection();
+
+        if ($collection) {
+            $this->setCollection($collection);
+        }
     }
 
     /**
@@ -240,12 +241,34 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
     }
 
     /**
+     * Returns the document collection
+     *
+     * @return Collection|null Collection object if is set. Null otherwise.
+     */
+    public function getCollection()
+    {
+        return $this->collection;
+    }
+
+    /**
+     * Sets the collection to add this document
+     *
+     * @param Collection $collection
+     */
+    public function setCollection(Collection $collection): void
+    {
+        $this->collection = $collection;
+        $this->connection = $collection->getConnection();
+    }
+
+    /**
      * Save or update the document, if possible
      *
+     * @param array $options Optional array of options. Only used on update operations.
      * @return bool true if operation was successful. Throws an exceptions otherwise
-     * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
+     * @throws DatabaseException|InvalidParameterException|MissingParameterException
      */
-    public function save(): bool
+    public function save(array $options = []): bool
     {
         try {
             if ($this->isNew()) {
@@ -261,7 +284,7 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
                 return true;
             }
 
-            return false;
+            return $this->update($options);
         } catch (GuzzleException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
             $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
@@ -276,17 +299,12 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
      * @return bool
      * @throws DatabaseException|GuzzleException|MissingParameterException|InvalidParameterException
      */
-    public function update(array $options = []): bool
+    protected function update(array $options = []): bool
     {
         $validator = new UpdateOptionsValidator($options);
         $validator->validate();
 
         try {
-            if ($this->isNew()) {
-                // New document cannot be updated. Throw an exception.
-                throw new DatabaseException("New document cannot be updated.");
-            }
-
             $attributes = array_merge($this->attributes, ['_key' => $this->key]);
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::DOCUMENT);
             $this->connection->put(sprintf("%s/%s/%s", $uri, $this->collection->getName(), $this->getKey()), $attributes);

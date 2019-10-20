@@ -157,14 +157,14 @@ $documentAttributes = [
 ];
 
 // Create the document object
-$document = new Document($collection, $documentAttributes);
+$document = new Document($documentAttributes, $collection);
 
 // Save the document on collection.
 $document->save();
 
 // Add or change document attributes to update document
 $document->status = 'active';
-$document->save(); // Or you can use $document->update() method;
+$document->save(); // Will update your document on server;
 
 // Delete document from collection.
 $document->delete();
