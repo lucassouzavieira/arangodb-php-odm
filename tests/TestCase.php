@@ -2,11 +2,11 @@
 
 namespace Unit;
 
-use ArangoDB\Http\RestClient;
 use Dotenv\Dotenv;
+use GuzzleHttp\HandlerStack;
+use ArangoDB\Http\RestClient;
 use ArangoDB\Connection\Connection;
 use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\HandlerStack;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 /**

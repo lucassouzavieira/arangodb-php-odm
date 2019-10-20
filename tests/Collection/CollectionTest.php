@@ -3,14 +3,14 @@
 
 namespace Unit\Collection;
 
-use ArangoDB\Cursor\Contracts\CursorInterface;
-use ArangoDB\Document\Document;
 use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Database\Database;
+use ArangoDB\Document\Document;
 use ArangoDB\Collection\Collection;
 use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Cursor\Contracts\CursorInterface;
 
 class CollectionTest extends TestCase
 {

@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace ArangoDB\Cursor\Contracts;
 
-use ArangoDB\Document\Document;
-
 /**
  * Common interface for Cursors
  *
