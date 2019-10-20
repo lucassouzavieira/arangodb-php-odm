@@ -136,11 +136,10 @@ class ArrayList implements ListInterface
     }
 
     /**
-     * Appends a array list to another.
-     *
-     * @param ArrayList $list
+     * @param ListInterface $list
+     * @see ListInterface::append()
      */
-    public function append(ArrayList $list)
+    public function append(ListInterface $list): void
     {
         foreach ($list as $item) {
             $this->push($item);

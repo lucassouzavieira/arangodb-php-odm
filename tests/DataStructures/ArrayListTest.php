@@ -123,6 +123,21 @@ class ArrayListTest extends TestCase
         $this->assertFalse(array_key_exists(10, $values));
     }
 
+    public function testAppend()
+    {
+        $list = new ArrayList([
+            's' => 'Sun', 'm' => 'Mars', 10 => new \stdClass()
+        ]);
+
+        $toAppend = new ArrayList(['Rainbow', 'Deep Purple']);
+
+        $this->assertCount(3, $list);
+        $list->append($toAppend);
+        $this->assertCount(5, $list);
+        $this->assertTrue(in_array('Rainbow', $list->values()));
+        $this->assertTrue(in_array('Deep Purple', $list->values()));
+    }
+
     public function testJsonSerializable()
     {
         $list = new ArrayList([

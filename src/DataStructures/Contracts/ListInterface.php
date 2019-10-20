@@ -77,4 +77,12 @@ interface ListInterface extends \Iterator, \JsonSerializable, \Countable
      * @return array
      */
     public function values(): array;
+
+    /**
+     * Appends a list to another.
+     *
+     * @param ListInterface $list
+     */
+    public function append(ListInterface $list): void;
+
 }
