@@ -3,9 +3,8 @@
 
 namespace Unit\Validation\Document;
 
-use ArangoDB\DataStructures\ArrayList;
-use ArangoDB\Validation\Rules\Rules;
 use Unit\TestCase;
+use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Validation\Document\DocumentValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
