@@ -3,12 +3,16 @@ declare(strict_types=1);
 
 namespace ArangoDB\Collection;
 
+use ArangoDB\AQL\Statement;
+use ArangoDB\Cursor\Cursor;
+use ArangoDB\Cursor\Exceptions\CursorException;
 use ArangoDB\Http\Api;
 use ArangoDB\Database\Database;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Connection\ManagesConnection;
 use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Cursor\Contracts\CursorInterface;
 use ArangoDB\Validation\Collection\CollectionValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
@@ -215,6 +219,23 @@ class Collection extends ManagesConnection implements \JsonSerializable
         }
 
         throw new \Exception("Non-default collection property with name: ($name)");
+    }
+
+    /**
+     * Returns a cursor for access all documents on this Collection
+     *
+     * @return CursorInterface|bool Cursor if collection exists on database. False otherwise.
+     * @throws GuzzleException|InvalidParameterException|CursorException
+     */
+    public function all()
+    {
+        if (!$this->isNew()) {
+            $statement = new Statement("FOR doc IN @collection RETURN doc");
+            $statement->bindValue('@collection', $this->getName());
+            return new Cursor($this->connection, $statement);
+        }
+
+        return false;
     }
 
     /**

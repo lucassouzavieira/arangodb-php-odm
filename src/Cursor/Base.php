@@ -62,7 +62,7 @@ abstract class Base implements CursorInterface
      *
      * @var int
      */
-    protected $position;
+    protected $position = 0;
 
     /**
      * Total length of current set

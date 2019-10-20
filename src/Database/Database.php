@@ -10,6 +10,8 @@ use ArangoDB\DataStructures\ArrayList;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Validation\Exceptions\InvalidParameterException;
+use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 /**
  * Represents an ArangoDB database
@@ -113,7 +115,7 @@ class Database extends DatabaseHandler
      *
      * @param string $collection
      * @return Collection|bool Collection object. Return False if collection not exists on database
-     * @throws DatabaseException|GuzzleException
+     * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
      */
     public function getCollection(string $collection)
     {
@@ -140,7 +142,7 @@ class Database extends DatabaseHandler
      * @param array $attributes If you want to specify some custom attribute to collection
      *
      * @return Collection A Collection object if operation was successful, throws an exception otherwise
-     * @throws DatabaseException|GuzzleException
+     * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
      */
     public function createCollection(string $collection, array $attributes = []): Collection
     {

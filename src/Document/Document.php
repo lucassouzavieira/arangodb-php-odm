@@ -275,7 +275,6 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
      * @param array $options
      * @return bool
      * @throws DatabaseException|GuzzleException|MissingParameterException|InvalidParameterException
-     * @todo finish this method
      */
     public function update(array $options = []): bool
     {
@@ -290,14 +289,7 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
 
             $attributes = array_merge($this->attributes, ['_key' => $this->key]);
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::DOCUMENT);
-            $response = $this->connection->put(sprintf("%s/%s/%s", $uri, $this->collection->getName(), $this->getKey()), $attributes);
-            $data = json_decode((string)$response->getBody(), true);
-
-            $this->isNew = false;
-            $this->id = $data['_id'];
-            $this->key = $data['_key'];
-            $this->revision = $data['_rev'];
-
+            $this->connection->put(sprintf("%s/%s/%s", $uri, $this->collection->getName(), $this->getKey()), $attributes);
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
@@ -307,52 +299,26 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
     }
 
     /**
-     * Patch the document.
-     *
-     * @param array $options
-     * @return bool
-     * @throws DatabaseException|GuzzleException|MissingParameterException|InvalidParameterException
-     * @todo finish this method
-     */
-    public function patch(array $options = []): bool
-    {
-        $validator = new PatchOptionsValidator($options);
-        $validator->validate();
-
-        $options = array_merge($this->patchDefaultOptions, $options);
-
-        try {
-            if ($this->isNew()) {
-                // New document cannot be updated. Throw an exception.
-                throw new DatabaseException("New document cannot be updated.");
-            }
-
-            $attributes = array_merge($this->attributes, ['_key' => $this->key]);
-            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::DOCUMENT);
-            $response = $this->connection->put(sprintf("%s/%s/%s", $uri, $this->collection->getName(), $this->getKey()), $attributes);
-            $data = json_decode((string)$response->getBody(), true);
-
-            $this->isNew = false;
-            $this->id = $data['_id'];
-            $this->key = $data['_key'];
-            $this->revision = $data['_rev'];
-
-            return true;
-        } catch (ClientException $exception) {
-            $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
-        }
-    }
-
-    /**
-     * Removes a entity on server, if possible
+     * Removes a document on server, if possible
      *
      * @return bool true if operation was successful, false otherwise
+     * @throws DatabaseException|GuzzleException
      */
     public function delete(): bool
     {
-        // TODO: Implement delete() method.
+        try {
+            if ($this->isNew()) {
+                return false;
+            }
+
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::DOCUMENT);
+            $this->connection->delete(sprintf("%s/%s/%s", $uri, $this->collection->getName(), $this->getKey()));
+            return true;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
