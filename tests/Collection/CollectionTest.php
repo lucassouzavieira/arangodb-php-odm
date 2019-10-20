@@ -3,6 +3,7 @@
 
 namespace Unit\Collection;
 
+use ArangoDB\Document\Document;
 use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Database\Database;
@@ -185,6 +186,47 @@ class CollectionTest extends TestCase
 
         $this->expectException(DatabaseException::class);
         $collection->drop();
+    }
+
+    public function testTruncate()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        // Create.
+        $this->assertNull($collection->getId());
+        $this->assertTrue($collection->save());
+
+        $this->assertEquals(0, $collection->count());
+
+        $doc1 = new Document(['hello' => 'Brazil'], $collection);
+        $doc2 = new Document(['hello' => 'Germany'], $collection);
+        $doc1->save();
+        $doc2->save();
+
+        $this->assertEquals(2, $collection->count());
+        // Truncate
+        $this->assertTrue($collection->truncate());
+        $this->assertEquals(0, $collection->count());
+        $collection->drop();
+        $this->assertFalse($db->hasCollection('test_save_coll'));
+    }
+
+    public function testTruncateThrowDatabaseException()
+    {
+        // Mock error
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = new Database($this->getConnectionObject($mock));
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->expectException(DatabaseException::class);
+        $collection->truncate();
     }
 
     public function testRename()
