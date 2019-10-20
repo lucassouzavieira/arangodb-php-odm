@@ -297,7 +297,7 @@ class Collection extends ManagesConnection implements \JsonSerializable
      *
      * @return string
      */
-    public function getGloballyUniqueId(): string
+    public function getGloballyUniqueId()
     {
         return $this->attributes['globallyUniqueId'];
     }
@@ -528,27 +528,7 @@ class Collection extends ManagesConnection implements \JsonSerializable
             throw $databaseException;
         }
     }
-
-    /**
-     * Rotate journal of collection
-     *
-     * @return bool
-     * @throws DatabaseException|GuzzleException
-     */
-    public function rotate(): bool
-    {
-        try {
-            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
-            $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_ROTATE));
-            $data = json_decode((string)$response->getBody(), true);
-            return $data['result'];
-        } catch (ClientException $exception) {
-            $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
-        }
-    }
-
+    
     /**
      * Return the number of documents in a collection
      *

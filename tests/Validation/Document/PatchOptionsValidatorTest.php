@@ -18,7 +18,8 @@ class PatchOptionsValidatorTest extends TestCase
             'ignoreRevs' => false,
             'returnOld' => false,
             'returnNew' => true
-        ];;
+        ];
+        ;
 
         $validator = new PatchOptionsValidator($attributes);
         $this->assertTrue($validator->validate());

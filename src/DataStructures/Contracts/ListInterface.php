@@ -84,5 +84,4 @@ interface ListInterface extends \Iterator, \JsonSerializable, \Countable
      * @param ListInterface $list
      */
     public function append(ListInterface $list): void;
-
 }

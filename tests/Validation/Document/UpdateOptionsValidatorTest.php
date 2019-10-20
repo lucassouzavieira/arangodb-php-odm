@@ -16,7 +16,8 @@ class UpdateOptionsValidatorTest extends TestCase
             'ignoreRevs' => false,
             'returnOld' => false,
             'returnNew' => true
-        ];;
+        ];
+        ;
 
         $validator = new UpdateOptionsValidator($attributes);
         $this->assertTrue($validator->validate());

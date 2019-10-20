@@ -3,6 +3,7 @@
 
 namespace Unit\Collection;
 
+use ArangoDB\Cursor\Contracts\CursorInterface;
 use ArangoDB\Document\Document;
 use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
@@ -123,6 +124,31 @@ class CollectionTest extends TestCase
     {
         $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
         $this->assertJson(json_encode($collection));
+    }
+
+    public function testGetGloballyUniqueId()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        // Check if collection is created.
+        $this->assertNull($collection->getGloballyUniqueId());
+
+        $this->assertTrue($collection->save());
+
+        $this->assertIsString($collection->getGloballyUniqueId());
+        $this->assertTrue($collection->drop());
+    }
+
+    public function testAll()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        // False for new born collections
+        $this->assertFalse($collection->all());
+        $this->assertTrue($collection->save());
+        $this->assertInstanceOf(CursorInterface::class, $collection->all());
     }
 
     public function testSave()
