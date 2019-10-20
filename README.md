@@ -6,6 +6,7 @@
 ## Installation
 #### Using composer
 Run the command bellow on your project root.  
+  
 `composer require lvieira/arangodb-php-odm`
 
 ## Usage
@@ -43,7 +44,7 @@ $connection = new Connection([
 ```
 
 #### Managing databases
-With connection, you already set an Database. You can get the database instance.
+With connection, you already set a database. You can get the database instance.
 ```php
 use ArangoDB\Database\Database;
 use ArangoDB\Collection\Collection;
@@ -112,6 +113,61 @@ $collection = new Collection('my_collection_name', $database);
 
 // If collection not exists, you can create it with method 'save'
 $collection->save();
+
+// Get all documents from collection
+foreach ($collection->all() as $document){
+    // Do something.
+}
+```
+
+#### Documents
+```php
+use ArangoDB\Document\Document;
+use ArangoDB\Connection\Connection;
+
+// Set up a connection
+$connection = new Connection([
+    'host' => 'http://myarangohost',
+    'port' => 8529,
+    'username' => 'YourUserName',
+    'password' => 'YourSecretPasswd',
+    'database' => 'YourDatabase',
+]);
+
+// Check if database has a collection called 'awesome_bands'. If not, create it.
+$db = $connection->getDatabase();
+if (!$db->hasCollection('awesome_bands')) {
+    $db->createCollection('awesome_bands');
+}
+
+// Get the collection object
+$collection = $db->getCollection('awesome_bands');
+
+$documentAttributes = [
+    'band' => 'Quiet Riot',
+    'members' => [
+        'Kevin DuBrow',
+        'Rudy Sarzo',
+        'Carlos Cavazo',
+        'Frankie Banali'
+    ],
+    'active_since' => 1975,
+    'city' => 'Los Angeles',
+    'country' => 'USA'
+];
+
+// Create the document object
+$document = new Document($collection, $documentAttributes);
+
+// Save the document on collection.
+$document->save();
+
+// Add or change document attributes to update document
+$document->status = 'active';
+$document->save(); // Or you can use $document->update() method;
+
+// Delete document from collection.
+$document->delete();
 ```
 ## Documentation
 
