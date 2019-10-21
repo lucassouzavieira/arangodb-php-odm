@@ -59,7 +59,7 @@ class Connection extends Authenticable
      * Return the database object for this connection
      *
      * @return Database
-     * @throws GuzzleException|DatabaseException
+     * @throws GuzzleException|DatabaseException|InvalidParameterException|MissingParameterException
      */
     public function getDatabase(): Database
     {
