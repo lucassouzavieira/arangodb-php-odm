@@ -21,6 +21,9 @@ class AQLTest extends TestCase
     {
         $statement = new Statement("FOR i IN my_collection RETURN i");
         $this->assertTrue(AQL::validateQuery($statement, $this->getConnectionObject()));
+
+        $statement = new Statement("FOR i IN @collection RETURN i");
+        $this->assertTrue(AQL::validateQuery($statement, $this->getConnectionObject()));
     }
 
     public function testValidateQueryForInvalidQuery()

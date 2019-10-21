@@ -29,7 +29,7 @@ abstract class AQL
     public static function validateQuery(StatementInterface $statement, Connection $connection): bool
     {
         try {
-            $response = $connection->post(sprintf(Api::QUERY), ['query' => $statement->toAql()]);
+            $response = $connection->post(sprintf(Api::QUERY), ['query' => $statement->getQuery()]);
             $data = json_decode((string)$response->getBody(), true);
             return !$data['error'];
         } catch (ClientException $exception) {
