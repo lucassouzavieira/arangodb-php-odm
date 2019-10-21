@@ -11,7 +11,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\AQL\Contracts\StatementInterface;
 
 /**
- * Represents an prepared AQL Statement
+ * Manages some AQL features
  *
  * @package ArangoDB\AQL
  * @author Lucas S. Vieira
