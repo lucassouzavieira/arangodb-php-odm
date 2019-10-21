@@ -5,3 +5,4 @@ sandbox.php
 .env
 .php_cs.cache
 build/
+coverage.xml

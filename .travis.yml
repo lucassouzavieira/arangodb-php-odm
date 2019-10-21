@@ -43,7 +43,10 @@ before_script:
   - sleep 30
 
 script:
-  - vendor/bin/phpunit -c phpunit.xml
+  - vendor/bin/phpunit -c phpunit.xml --coverage-clover=coverage.xml
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 notifications:
   email:
