@@ -37,7 +37,7 @@ before_script:
   - phpenv config-rm xdebug.ini
   - composer self-update
   - composer install --no-interaction
-  - docker pull arangodb/arangodb:3.5.1
+  - docker pull arangodb/arangodb:3.3.23
   - docker run -d -p 8529:8529 -e ARANGO_ROOT_PASSWORD=testing arangodb/arangodb:3.5.1
   - docker ps -a
   - sleep 30
