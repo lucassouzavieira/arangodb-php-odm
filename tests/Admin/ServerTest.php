@@ -32,4 +32,30 @@ class ServerTest extends TestCase
         $this->expectException(ServerException::class);
         $version = Server::version($this->getConnectionObject($mock));
     }
+
+    public function testIsAvailable()
+    {
+        $status = Server::isAvailable($this->getConnectionObject());
+        $this->assertTrue($status);
+
+        $mock = new MockHandler([
+            new Response(503, [], json_encode([]))
+        ]);
+
+        $status = Server::isAvailable($this->getConnectionObject($mock));
+        $this->assertFalse($status);
+    }
+
+    public function testIsAvailableThrowServerException()
+    {
+        $status = Server::isAvailable($this->getConnectionObject());
+        $this->assertTrue($status);
+
+        $mock = new MockHandler([
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $this->expectException(ServerException::class);
+        $status = Server::isAvailable($this->getConnectionObject($mock));
+    }
 }
