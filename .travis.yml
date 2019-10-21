@@ -9,17 +9,9 @@ services:
 php:
   - 7.2
   - 7.3
-  - nightly
 
-matrix:
-  include:
-    - env: LINT=1
-      php: 7.3
-    - env: COVERAGE=1
-      php: 7.3
-
-  allow_failures:
-    - php: nightly
+allow_failures:
+  - php: nightly
 
 install:
   - composer self-update
@@ -29,7 +21,10 @@ before_script:
   - phpenv config-rm xdebug.ini
   - composer self-update
   - composer install --no-interaction
-  - docker run -p 8529:8529 -e ARANGO_ROOT_PASSWORD=testing --name=arangodb3sbx arangodb/arangodb:3.5.1
+  - docker pull arangodb/arangodb:3.5.1
+  - docker run -d -p 8529:8529 -e ARANGO_ROOT_PASSWORD=testing arangodb/arangodb:3.5.1
+  - docker ps -a
+  - sleep 30
 
 script:
   - vendor/bin/phpunit -c phpunit.xml
