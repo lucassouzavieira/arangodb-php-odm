@@ -1,7 +1,14 @@
+3.3 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=v3.3+)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
+3.4 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=v3.4+)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
+develop [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=develop)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
+
 # ArangoDB PHP ODM
 ![ArangoDB](https://www.arangodb.com/wp-content/uploads/2016/05/ArangoDB_logo_@2.png)
 
 ### A new PHP driver for ArangoDB
+
+### Status
+
 
 ## Installation
 #### Using composer
