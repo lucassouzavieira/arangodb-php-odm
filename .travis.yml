@@ -11,6 +11,14 @@ php:
   - 7.3
   - nightly
 
+branches:
+  only:
+    - master
+    - develop
+    - v3.3+
+    - v3.4+
+    - v3.5+
+
 matrix:
   include:
     - env: LINT=1
@@ -33,7 +41,6 @@ before_script:
   - docker run -d -p 8529:8529 -e ARANGO_ROOT_PASSWORD=testing arangodb/arangodb:3.5.1
   - docker ps -a
   - sleep 30
-
 
 script:
   - vendor/bin/phpunit -c phpunit.xml
