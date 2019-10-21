@@ -1,6 +1,10 @@
+sudo: required
 language: php
 dist: xenial
 group: edge
+
+services:
+  - docker
 
 php:
   - 7.2
@@ -8,19 +12,24 @@ php:
   - nightly
 
 matrix:
-
   include:
     - env: LINT=1
-      php: 7.2
+      php: 7.3
     - env: COVERAGE=1
-      php: 7.2
+      php: 7.3
 
   allow_failures:
     - php: nightly
 
 install:
   - composer self-update
-  -
+
+before_script:
+  - cp .env.testing .env
+  - phpenv config-rm xdebug.ini
+  - composer self-update
+  - composer install --no-interaction  - docker run -p 8529:8529 -e ARANGO_ROOT_PASSWORD=testing --name=arangodb3sbx arangodb/arangodb:3.5.1
+
 notifications:
   email:
     on_success: change
