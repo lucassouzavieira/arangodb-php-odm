@@ -63,7 +63,7 @@ abstract class TestCase extends BaseTestCase
     {
         return [
             'error' => true,
-            'errorMessage' => random_bytes(10),
+            'errorMessage' => 'Mocked error',
             'errorNum' => 0,
             'code' => 0
         ];
