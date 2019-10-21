@@ -20,7 +20,6 @@
     "require": {
         "php": ">=7.1.0",
         "ext-json": "*",
-        "ext-memcached": "*",
         "guzzlehttp/psr7": "^1.5",
         "guzzlehttp/guzzle": "~6.0"
     },
