@@ -89,6 +89,18 @@ abstract class Api
     }
 
     /**
+     * Add an Uri param to a Uri
+     *
+     * @param string $baseUri
+     * @param $param
+     * @return string
+     */
+    public static function addUriParam(string $baseUri, $param)
+    {
+        return sprintf("%s/%s", $baseUri, $param);
+    }
+
+    /**
      * Builds URIs for access some special endpoints on Arango HTTP Interface
      *
      * @param string $baseUri

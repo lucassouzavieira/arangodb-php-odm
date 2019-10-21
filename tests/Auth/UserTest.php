@@ -5,7 +5,6 @@ namespace Unit\Auth;
 
 use Unit\TestCase;
 use ArangoDB\Auth\User;
-use ArangoDB\Connection\Connection;
 use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Auth\Exceptions\UserException;
 
@@ -97,7 +96,7 @@ class UserTest extends TestCase
             'extra' => ['name' => 'Tester']
         ]);
 
-        $this->assertJson((string)$user);
+        $this->assertIsString((string)$user);
     }
 
     public function testIsActive()
@@ -145,16 +144,6 @@ class UserTest extends TestCase
         ]);
 
         $this->assertNull($user->getExtra());
-    }
-
-    public function testAll()
-    {
-        $connection = $this->getConnectionObject();
-        $user = new User();
-        $user->setConnection($connection);
-        $data = $user->all();
-
-        $this->assertInstanceOf(ArrayList::class, $data);
     }
 
     public function testCreate()

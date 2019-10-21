@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace ArangoDB\Auth;
 
+use ArangoDB\Entity\EntityInterface;
 use ArangoDB\Http\Api;
 use ArangoDB\Entity\Entity;
 use ArangoDB\Validation\Rules\Rules;
@@ -51,6 +52,13 @@ class User extends Entity
     protected $extra;
 
     /**
+     * If user is a new User or an existing one
+     *
+     * @var bool
+     */
+    protected $isNew;
+
+    /**
      * User constructor.
      *
      * @param array $attributes
@@ -59,8 +67,18 @@ class User extends Entity
      */
     public function __construct(array $attributes = [], bool $isNew = true)
     {
-        $this->initialize(['user', 'password', 'active', 'extra'], $attributes);
+        $this->setAttributes(['user', 'password', 'active', 'extra'], $attributes);
         parent::__construct($attributes, $isNew);
+    }
+
+    /**
+     * String representation of User object
+     *
+     * @return false|mixed|string
+     */
+    public function __toString()
+    {
+        return print_r($this->toArray(), true);
     }
 
     /**
@@ -69,6 +87,16 @@ class User extends Entity
     public function isActive(): bool
     {
         return $this->attributes['active'];
+    }
+
+    /**
+     * Returns true if is a new user
+     *
+     * @return bool
+     */
+    public function isNew(): bool
+    {
+        return $this->isNew;
     }
 
     /**
@@ -128,7 +156,10 @@ class User extends Entity
     public function find(string $username)
     {
         try {
-            $response = $this->connection->get($this->getEntityBaseUri($username));
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::USER);
+            $uri = Api::addUriParam($uri, $username);
+
+            $response = $this->connection->get($uri);
             $data = json_decode((string)$response->getBody(), true);
             $user = new User($data, false);
             $user->setConnection($this->connection);
@@ -142,31 +173,19 @@ class User extends Entity
     }
 
     /**
-     * Return all users from server
-     *
-     * @return ArrayList[User] An ArrayList of users
-     * @throws GuzzleException|\ReflectionException|InvalidParameterException|MissingParameterException
-     * @see Entity::all()
-     */
-    public function all(): ArrayList
-    {
-        $response = $this->connection->get($this->getEntityBaseUri());
-        $data = json_decode((string)$response->getBody(), true);
-        return self::make($data['result']);
-    }
-
-    /**
      * Saves (or update) a user on server
      *
      * @return bool True if user was created or updated on server. Throws an exception if user is duplicated
      * @throws UserException
-     * @throws InvalidParameterException
+     * @see EntityInterface::save()
      */
     public function save(): bool
     {
         try {
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::USER);
+
             $method = $this->isNew() ? 'post' : 'patch';
-            $uri = $this->isNew() ? $this->getEntityBaseUri() : $this->getEntityBaseUri($this->getUsername());
+            $uri = $this->isNew() ? $uri : Api::addUriParam($uri, $this->getUsername());
 
             $this->connection->$method($uri, $this->attributes);
             $this->isNew = false;
@@ -185,12 +204,14 @@ class User extends Entity
      *
      * @return bool True if user was removed, false otherwise (e.g. user not exists)
      * @throws GuzzleException|InvalidParameterException
-     * @see Entity::delete()
+     * @see EntityInterface::delete()
      */
     public function delete(): bool
     {
         try {
-            $uri = $this->getEntityBaseUri($this->getUsername());
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::USER);
+            $uri = Api::addUriParam($uri, $this->getUsername());
+
             $response = $this->connection->delete($uri, $this->toArray());
 
             $this->isNew = false;
@@ -203,30 +224,6 @@ class User extends Entity
                 return false;
             }
         }
-    }
-
-    /**
-     * Returns base uri for handle entity
-     *
-     * @param string|int $parameter
-     * @return string URI for handle entity
-     * @throws InvalidParameterException
-     */
-    protected function getEntityBaseUri($parameter = null): string
-    {
-        $integerValidator = Rules::integer();
-        $stringValidator = Rules::string();
-
-        $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::USER);
-        if (is_null($parameter)) {
-            return $uri;
-        }
-
-        if ($integerValidator->isValid($parameter) || $stringValidator->isValid($parameter)) {
-            return sprintf("%s/%s", $uri, $parameter);
-        }
-
-        throw new InvalidParameterException('parameter', $parameter);
     }
 
     /**
@@ -250,5 +247,26 @@ class User extends Entity
         }
 
         return $list;
+    }
+
+    /**
+     * Initialize a handler object with given attributes
+     *
+     * @param array $attributesNames
+     * @param array $attributes
+     * @throws \ReflectionException
+     */
+    protected function setAttributes(array $attributesNames, array $attributes = [])
+    {
+        foreach ($attributesNames as $attribute) {
+            $reflection = new \ReflectionClass($this);
+
+            if (array_key_exists($attribute, $attributes)) {
+                $reflectionProperty = $reflection->getProperty($attribute);
+                $reflectionProperty->setAccessible(true);
+                $reflectionProperty->setValue($this, $attributes[$attribute]);
+                $reflectionProperty->setAccessible(false);
+            }
+        }
     }
 }

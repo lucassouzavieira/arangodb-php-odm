@@ -53,7 +53,7 @@ class Database extends DatabaseHandler
      * Database constructor.
      *
      * @param Connection $connection Connection to use
-     * @throws GuzzleException|DatabaseException
+     * @throws GuzzleException|DatabaseException|InvalidParameterException|MissingParameterException
      */
     public function __construct(Connection $connection)
     {
@@ -76,7 +76,7 @@ class Database extends DatabaseHandler
      * Return all collections of database
      *
      * @return ArrayList[Collection]
-     * @throws GuzzleException|DatabaseException
+     * @throws GuzzleException|DatabaseException|InvalidParameterException|MissingParameterException
      */
     public function getAllCollections(): ArrayList
     {
@@ -172,7 +172,6 @@ class Database extends DatabaseHandler
      * Returns information about the current database
      *
      * @return array
-     * @throws GuzzleException|DatabaseException
      */
     public function getInfo(): array
     {
@@ -183,7 +182,7 @@ class Database extends DatabaseHandler
      * Synchronizes the object with database on server
      *
      * @return bool
-     * @throws GuzzleException|DatabaseException
+     * @throws GuzzleException|DatabaseException|InvalidParameterException|MissingParameterException
      */
     public function sync(): bool
     {
@@ -199,7 +198,7 @@ class Database extends DatabaseHandler
      * Retrieve a list of collections of database
      *
      * @return ArrayList
-     * @throws DatabaseException|GuzzleException
+     * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
      */
     protected function retrieveCollections(): ArrayList
     {

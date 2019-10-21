@@ -99,16 +99,6 @@ abstract class Entity extends ManagesConnection implements EntityInterface, \Jso
     }
 
     /**
-     * Returns true if is a new object
-     *
-     * @return bool
-     */
-    final public function isNew(): bool
-    {
-        return $this->isNew;
-    }
-
-    /**
      * Returns a array representation of entity
      *
      * @return array
@@ -119,11 +109,7 @@ abstract class Entity extends ManagesConnection implements EntityInterface, \Jso
     }
 
     /**
-     * Specify data which should be serialized to JSON
-     * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
-     * @since 5.4.0
+     * @see \JsonSerializable::jsonSerialize()
      */
     public function jsonSerialize()
     {
@@ -131,34 +117,6 @@ abstract class Entity extends ManagesConnection implements EntityInterface, \Jso
         // by default we serialize your attributes array.
         return $this->attributes;
     }
-
-    /**
-     * Initialize a handler object with given attributes
-     *
-     * @param array $attributesNames
-     * @param array $attributes
-     * @throws \ReflectionException
-     */
-    protected function initialize(array $attributesNames, array $attributes = [])
-    {
-        foreach ($attributesNames as $attribute) {
-            $reflection = new \ReflectionClass($this);
-
-            if (array_key_exists($attribute, $attributes)) {
-                $reflectionProperty = $reflection->getProperty($attribute);
-                $reflectionProperty->setAccessible(true);
-                $reflectionProperty->setValue($this, $attributes[$attribute]);
-                $reflectionProperty->setAccessible(false);
-            }
-        }
-    }
-
-    /**
-     * Returns base Uri for handle entity
-     *
-     * @return string
-     */
-    abstract protected function getEntityBaseUri(): string;
 
     /**
      * Make Entity objects from array
