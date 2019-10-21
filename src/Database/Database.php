@@ -156,7 +156,7 @@ class Database extends DatabaseHandler
      *
      * @param string $collection
      * @return bool True if operation was successful, false otherwise
-     * @throws DatabaseException|GuzzleException
+     * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
      */
     public function dropCollection(string $collection): bool
     {

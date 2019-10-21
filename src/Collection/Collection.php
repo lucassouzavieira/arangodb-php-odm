@@ -462,6 +462,11 @@ class Collection extends ManagesConnection implements \JsonSerializable
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
             $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            // Collection not found.
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                return false;
+            }
+
             throw $databaseException;
         }
     }

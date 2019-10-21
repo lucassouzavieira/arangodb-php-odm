@@ -197,6 +197,13 @@ class CollectionTest extends TestCase
         $this->assertFalse($db->hasCollection('test_save_coll'));
     }
 
+    public function testDropReturnFalse()
+    {
+        $db = new Database($this->getConnectionObject());
+        // drop
+        $this->assertFalse($db->dropCollection('coll_to_frop'));
+    }
+
     public function testDropThrowDatabaseException()
     {
         // Mock error

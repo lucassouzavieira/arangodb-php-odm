@@ -130,7 +130,7 @@ class Cursor extends Base
      */
     public function count()
     {
-        return $this->fullCount;
+        return $this->result->count();
     }
 
     /**
@@ -191,7 +191,7 @@ class Cursor extends Base
      * @return void
      * @throws CursorException
      */
-    protected function fetch(): void
+    public function fetch(): void
     {
         try {
             if (!is_null($this->id)) {
