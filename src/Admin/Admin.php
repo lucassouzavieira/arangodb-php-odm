@@ -11,5 +11,4 @@ namespace ArangoDB\Admin;
  */
 abstract class Admin
 {
-
 }
