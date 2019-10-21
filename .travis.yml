@@ -38,12 +38,15 @@ before_script:
   - composer self-update
   - composer install --no-interaction
   - docker pull arangodb/arangodb:3.4.8
-  - docker run -d -p 8529:8529 -e ARANGO_ROOT_PASSWORD=testing arangodb/arangodb:3.5.1
+  - docker run -d -p 8529:8529 -e ARANGO_ROOT_PASSWORD=testing arangodb/arangodb:3.4.8
   - docker ps -a
   - sleep 30
 
 script:
-  - vendor/bin/phpunit -c phpunit.xml
+  - vendor/bin/phpunit -c phpunit.xml --coverage-clover=coverage.xml
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 notifications:
   email:

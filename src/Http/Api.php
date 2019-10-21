@@ -63,6 +63,7 @@ abstract class Api
 
     const ADMIN_VERSION = "/_api/version";
     const ADMIN_SERVER_ROLE = "/_admin/server/role";
+    const ADMIN_SERVER_AVAILABILITY = "/_admin/server/availability";
     const ADMIN_TIME = "/_admin/time";
     const ADMIN_LOG = "/_admin/log";
     const ADMIN_ROUTING_RELOAD = "/_admin/routing/reload";
