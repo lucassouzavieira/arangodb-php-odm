@@ -15,12 +15,16 @@ use ArangoDB\Connection\ManagesConnection;
 abstract class Entity extends ManagesConnection implements EntityInterface, \JsonSerializable
 {
     /**
+     * Attributes of entity
+     *
      * @var array
      */
     protected $attributes;
 
     /**
-     * If the user is not an representation of a existing user, this property is truelllllll
+     * If the entity is not an representation of a existing object on server,
+     * this property is true.
+     *
      * @var bool
      */
     protected $isNew = false;
@@ -79,16 +83,6 @@ abstract class Entity extends ManagesConnection implements EntityInterface, \Jso
     }
 
     /**
-     * String representation for object
-     *
-     * @return false|string
-     */
-    public function __toString()
-    {
-        return json_encode($this);
-    }
-
-    /**
      * Default handling for discarding objects
      *
      * @return void
@@ -96,16 +90,6 @@ abstract class Entity extends ManagesConnection implements EntityInterface, \Jso
     public function __destruct()
     {
         unset($this->connection);
-    }
-
-    /**
-     * Returns a array representation of entity
-     *
-     * @return array
-     */
-    public function toArray(): array
-    {
-        return $this->attributes;
     }
 
     /**
@@ -117,13 +101,4 @@ abstract class Entity extends ManagesConnection implements EntityInterface, \Jso
         // by default we serialize your attributes array.
         return $this->attributes;
     }
-
-    /**
-     * Make Entity objects from array
-     *
-     * @param array $data
-     * @param bool $isNew
-     * @return ArrayList[Entity]
-     */
-    abstract protected function make(array $data = [], bool $isNew = false): ArrayList;
 }

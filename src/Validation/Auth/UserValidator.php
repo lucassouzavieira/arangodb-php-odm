@@ -53,7 +53,7 @@ class UserValidator extends Validator
             'user' => Rules::string(),
             'password' => Rules::string(),
             'active' => Rules::boolean(),
-            'extra' => Rules::arr()
+            'extra' => Rules::isPrimitive()
         ];
     }
 }

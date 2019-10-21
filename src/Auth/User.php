@@ -227,29 +227,6 @@ class User extends Entity
     }
 
     /**
-     * Make a series of User objects
-     *
-     * @param array $data
-     * @param bool $isNew
-     * @return ArrayList[User]
-     * @throws \ReflectionException|MissingParameterException|InvalidParameterException
-     * @see Entity::save()
-     */
-    protected function make(array $data = [], bool $isNew = false): ArrayList
-    {
-        $list = new ArrayList();
-        foreach ($data as $userData) {
-            $validator = new UserValidator($userData);
-            $validator->validate();
-            $user = new User($data, $isNew);
-            $user->setConnection($this->connection);
-            $list->put($userData['user'], $user);
-        }
-
-        return $list;
-    }
-
-    /**
      * Initialize a handler object with given attributes
      *
      * @param array $attributesNames

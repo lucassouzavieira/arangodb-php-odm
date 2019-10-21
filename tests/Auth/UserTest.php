@@ -5,7 +5,6 @@ namespace Unit\Auth;
 
 use Unit\TestCase;
 use ArangoDB\Auth\User;
-use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Auth\Exceptions\UserException;
 
 class UserTest extends TestCase
