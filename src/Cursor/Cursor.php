@@ -126,14 +126,6 @@ class Cursor extends Base
     }
 
     /**
-     * @see \Countable::count()
-     */
-    public function count()
-    {
-        return $this->result->count();
-    }
-
-    /**
      * Deletes the cursor and frees the resources associated with it.
      *
      * @return bool
@@ -202,7 +194,7 @@ class Cursor extends Base
                 $this->cached = $data[self::CACHED];
                 $this->hasMore = $data[self::HAS_MORE];
                 $this->appendResults($data[self::RESULT]);
-                $this->length = count($data[self::RESULT]);
+                $this->length += count($data[self::RESULT]);
                 return;
             }
 

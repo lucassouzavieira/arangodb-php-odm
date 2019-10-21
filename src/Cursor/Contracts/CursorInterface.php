@@ -9,7 +9,7 @@ namespace ArangoDB\Cursor\Contracts;
  * @package ArangoDB\Cursor\Contracts
  * @author Lucas S. Vieira
  */
-interface CursorInterface extends \Iterator, \Countable
+interface CursorInterface extends \Iterator
 {
     /**
      * Deletes the cursor and frees the resources associated with it.

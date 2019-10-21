@@ -45,6 +45,18 @@ class CursorTest extends TestCase
         return $collection;
     }
 
+    public function getMockArray($quantity = 500)
+    {
+        $results = [];
+        $planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupyter', 'Saturn', 'Uranus', 'Neptune'];
+        // Create 1000 documents
+        for ($i = 0; $i < $quantity; $i++) {
+            $results[] = ['hello' => $planets[rand(0, 7)]];
+        }
+
+        return $results;
+    }
+
     public function testConstructorThrowCursorException()
     {
         $mock = new MockHandler([
@@ -67,16 +79,32 @@ class CursorTest extends TestCase
 
     public function testFetch()
     {
-        $collection = $this->getCollection(2500);
+        $defaults = ['extra' => [], 'cached' => false];
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => [], 'name' => 'test_cursor_coll'])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(array_merge(['result' => $this->getMockArray(1000), 'id' => '154875', 'hasMore' => true], $defaults))),
+            new Response(200, [], json_encode(array_merge(['result' => $this->getMockArray(1000), 'id' => '154875', 'hasMore' => true], $defaults))),
+            new Response(200, [], json_encode((array_merge(['result' => $this->getMockArray(500), 'id' => '154875', 'hasMore' => false], $defaults)))),
+        ]);
+
+        $connection = $this->getConnectionObject($mock)->getDatabase()->createCollection('test_cursor_coll');
+        $collection = $connection->getDatabase()->getCollection('test_cursor_coll');
+
         $cursor = $collection->all();
         $counter = 0;
 
-        // Iterate over cursor and force a 'fetch' call
+        // Iterate over cursor
         foreach ($cursor as $value) {
             $counter++;
         }
 
-        $this->assertEquals(2500, $counter);
+        $this->assertEquals((2500 - 1), $counter); // Counter starts at 0.
     }
 
     public function testFetchingThrowCursorException()
@@ -119,12 +147,20 @@ class CursorTest extends TestCase
 
     public function testGetId()
     {
-        // Small sets of data haven't an Id.
-        $collection = $this->getCollection(1250);
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => [], 'name' => 'test_cursor_coll'])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => [], 'id' => '154875', 'hasMore' => true])),
+        ]);
 
-        $statement = new Statement("FOR u IN @collection RETURN u");
-        $statement->bindValue('@collection', $collection->getName());
-        $cursor = new Cursor($this->getConnectionObject(), $statement);
+        $connection = $this->getConnectionObject($mock)->getDatabase()->createCollection('test_cursor_coll');
+        $collection = $connection->getDatabase()->getCollection('test_cursor_coll');
+        $cursor = $collection->all();
 
         $this->assertIsString($cursor->getId());
     }
