@@ -3,8 +3,11 @@ declare(strict_types=1);
 
 namespace ArangoDB\Transaction;
 
+use ArangoDB\Http\Api;
 use ArangoDB\Connection\Connection;
+use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Exceptions\TransactionException;
+use GuzzleHttp\Exception\BadResponseException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 use ArangoDB\Validation\Transaction\TransactionOptionsValidator;
@@ -69,6 +72,28 @@ class JavascriptTransaction
         $validator = new TransactionOptionsValidator($options);
         if ($validator->validate()) {
             $this->options = $options;
+        }
+    }
+
+    /**
+     * Execute the transaction.
+     * Throws an exception if any error is detected.
+     *
+     * @return mixed The result value of transaction
+     * @throws TransactionException|GuzzleException
+     */
+    public function execute()
+    {
+        try {
+            $options = array_merge($this->options, ['action' => $this->action]);
+            $response = $this->connection->post(sprintf(Api::TRANSACTION), $options);
+            $data = json_decode((string)$response->getBody(), true);
+            return $data['result'];
+        } catch (BadResponseException $exception) {
+            // An error was returned from server.
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $transactionException = new TransactionException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $transactionException;
         }
     }
 }
