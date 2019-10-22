@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace ArangoDB\Entity;
 
-use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Connection\ManagesConnection;
 
 /**
