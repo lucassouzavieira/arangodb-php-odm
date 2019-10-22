@@ -1,9 +1,8 @@
 <?php
 
 
-namespace Cursor;
+namespace Unit\Cursor;
 
-use Unit\TestCase;
 use ArangoDB\AQL\Statement;
 use ArangoDB\Cursor\Cursor;
 use GuzzleHttp\Psr7\Response;
@@ -11,52 +10,8 @@ use ArangoDB\Document\Document;
 use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\Cursor\Exceptions\CursorException;
 
-class CursorTest extends TestCase
+class CursorTest extends CursorTestCase
 {
-    public function setUp(): void
-    {
-        $this->loadEnvironment();
-        parent::setUp();
-    }
-
-    public function tearDown(): void
-    {
-        $this->getConnectionObject()->getDatabase()->dropCollection('test_cursor_coll');
-        parent::tearDown();
-    }
-
-    public function getCollection($quantity = 500)
-    {
-        $db = $this->getConnectionObject()->getDatabase();
-
-        if (!$db->hasCollection('test_cursor_coll')) {
-            $db->createCollection('test_cursor_coll');
-        }
-
-        $collection = $db->getCollection('test_cursor_coll');
-        $planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupyter', 'Saturn', 'Uranus', 'Neptune'];
-
-        // Create 1000 documents
-        for ($i = 0; $i < $quantity; $i++) {
-            $document = new Document(['hello' => $planets[rand(0, 7)]], $collection);
-            $document->save();
-        }
-
-        return $collection;
-    }
-
-    public function getMockArray($quantity = 500)
-    {
-        $results = [];
-        $planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupyter', 'Saturn', 'Uranus', 'Neptune'];
-        // Create 1000 documents
-        for ($i = 0; $i < $quantity; $i++) {
-            $results[] = ['hello' => $planets[rand(0, 7)]];
-        }
-
-        return $results;
-    }
-
     public function testConstructorThrowCursorException()
     {
         $mock = new MockHandler([
@@ -74,7 +29,7 @@ class CursorTest extends TestCase
         $collection = $connection->getDatabase()->getCollection('test_cursor_coll');
 
         $this->expectException(CursorException::class);
-        $cursor = $collection->all();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
     }
 
     public function testFetch()
@@ -96,7 +51,7 @@ class CursorTest extends TestCase
         $connection = $this->getConnectionObject($mock)->getDatabase()->createCollection('test_cursor_coll');
         $collection = $connection->getDatabase()->getCollection('test_cursor_coll');
 
-        $cursor = $collection->all();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
         $counter = 0;
 
         // Iterate over cursor
@@ -110,7 +65,7 @@ class CursorTest extends TestCase
     public function testFetchingThrowCursorException()
     {
         $collection = $this->getCollection(10);
-        $cursor = $collection->all();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
 
         $this->expectException(CursorException::class);
         $cursor->fetch();
@@ -133,7 +88,7 @@ class CursorTest extends TestCase
         $connection = $this->getConnectionObject($mock)->getDatabase()->createCollection('test_cursor_coll');
         $collection = $connection->getDatabase()->getCollection('test_cursor_coll');
 
-        $cursor = $collection->all();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
         $this->expectException(CursorException::class);
         $cursor->fetch();
     }
@@ -141,7 +96,7 @@ class CursorTest extends TestCase
     public function testToString()
     {
         $collection = $this->getCollection(10);
-        $cursor = $collection->all();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
         $this->assertIsString((string)$cursor);
     }
 
@@ -160,7 +115,7 @@ class CursorTest extends TestCase
 
         $connection = $this->getConnectionObject($mock)->getDatabase()->createCollection('test_cursor_coll');
         $collection = $connection->getDatabase()->getCollection('test_cursor_coll');
-        $cursor = $collection->all();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
 
         $this->assertIsString($cursor->getId());
     }
@@ -170,7 +125,7 @@ class CursorTest extends TestCase
         // Small sets of data haven't an Id.
         $collection = $this->getCollection(1250);
 
-        $cursor = $collection->all();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
         $this->assertIsString($cursor->getId());
         $this->assertTrue($cursor->delete());
     }
@@ -181,7 +136,7 @@ class CursorTest extends TestCase
         // So the delete method will return false.
         $collection = $this->getCollection(5);
 
-        $cursor = $collection->all();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
         $this->assertFalse($cursor->delete());
     }
 
@@ -204,7 +159,7 @@ class CursorTest extends TestCase
         $connection = $this->getConnectionObject($mock)->getDatabase()->createCollection('test_cursor_coll');
         $collection = $connection->getDatabase()->getCollection('test_cursor_coll');
 
-        $cursor = $collection->all();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
         $this->expectException(CursorException::class);
         $this->assertFalse($cursor->delete());
     }
@@ -212,7 +167,7 @@ class CursorTest extends TestCase
     public function testIterable()
     {
         $collection = $this->getCollection(10);
-        $cursor = $collection->all();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
         $this->assertIsIterable($cursor);
     }
 
@@ -223,7 +178,8 @@ class CursorTest extends TestCase
         $doc->save();
 
         $collection = $this->getCollection();
-        $current = $collection->all()->current();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
+        $current = $cursor->current();
 
         $this->assertIsArray($current);
         $this->assertEquals('Sun', $current['hello']);
@@ -240,7 +196,7 @@ class CursorTest extends TestCase
         $doc->save();
 
         $collection = $this->getCollection();
-        $cursor = $collection->all();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
         $this->assertEquals(0, $cursor->key());
 
         $cursor->next();
@@ -253,7 +209,7 @@ class CursorTest extends TestCase
     public function testKey()
     {
         $collection = $this->getCollection(10);
-        $cursor = $collection->all();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
         $this->assertIsIterable($cursor);
 
         $cursor->next();
@@ -265,7 +221,7 @@ class CursorTest extends TestCase
     public function testValidIfKeyIsValid()
     {
         $collection = $this->getCollection(5);
-        $cursor = $collection->all();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
         $this->assertIsIterable($cursor);
 
         $cursor->next();
@@ -277,7 +233,7 @@ class CursorTest extends TestCase
     public function testValidIfKeyIsInvalid()
     {
         $collection = $this->getCollection(5);
-        $cursor = $collection->all();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
         $this->assertIsIterable($cursor);
 
         $cursor->next();
@@ -291,7 +247,7 @@ class CursorTest extends TestCase
     public function testRewind()
     {
         $collection = $this->getCollection(5);
-        $cursor = $collection->all();
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
         $this->assertIsIterable($cursor);
 
         $cursor->next();

@@ -46,7 +46,7 @@ abstract class Base implements CursorInterface
     /**
      * Result set
      *
-     * @var array
+     * @var ArrayList
      */
     protected $result;
 

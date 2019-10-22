@@ -3,16 +3,12 @@ declare(strict_types=1);
 
 namespace ArangoDB\Auth;
 
-use ArangoDB\Entity\EntityInterface;
 use ArangoDB\Http\Api;
 use ArangoDB\Entity\Entity;
-use ArangoDB\Validation\Rules\Rules;
-use ArangoDB\DataStructures\ArrayList;
+use ArangoDB\Entity\EntityInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
-use ArangoDB\Validation\Auth\UserValidator;
 use ArangoDB\Auth\Exceptions\UserException;
-use ArangoDB\Validation\Exceptions\MissingParameterException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
@@ -151,7 +147,7 @@ class User extends Entity
      *
      * @param string $username
      * @return User|null User if exists, null if not
-     * @throws \ReflectionException
+     * @throws GuzzleException|\ReflectionException
      */
     public function find(string $username)
     {
