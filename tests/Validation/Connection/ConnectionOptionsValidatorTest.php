@@ -34,6 +34,20 @@ class ConnectionOptionsValidatorTest extends TestCase
         $this->assertTrue($connectionOptions->validate());
     }
 
+    public function testConvertsHostAndPortToEndpoint()
+    {
+        $connectionOptions = new ConnectionOptionsValidator([
+            'host' => 'http://localhost',
+            'port' => 8529,
+            'database' => '_system',
+            'username' => 'someUser',
+            'password' => 'somePasswd',
+        ]);
+
+        $this->assertTrue($connectionOptions->validate());
+        $this->assertArrayHasKey('endpoint', $connectionOptions->getConnectionOptions());
+    }
+
     public function testThrowMissingParameterExceptionForRequired()
     {
         $connectionOptions = new ConnectionOptionsValidator([
