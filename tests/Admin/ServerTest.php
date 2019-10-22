@@ -48,14 +48,45 @@ class ServerTest extends TestCase
 
     public function testIsAvailableThrowServerException()
     {
-        $status = Server::isAvailable($this->getConnectionObject());
-        $this->assertTrue($status);
-
         $mock = new MockHandler([
             new Response(403, [], json_encode($this->mockServerError()))
         ]);
 
         $this->expectException(ServerException::class);
         $status = Server::isAvailable($this->getConnectionObject($mock));
+    }
+
+    public function testEngine()
+    {
+        $engine = Server::engine($this->getConnectionObject());
+        $this->assertIsString($engine);
+        $this->assertTrue(in_array($engine, ['mmfiles', 'rocksdb']));
+    }
+
+    public function testEngineThrowServerException()
+    {
+        $mock = new MockHandler([
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $this->expectException(ServerException::class);
+        $engine = Server::engine($this->getConnectionObject($mock));
+    }
+
+    public function testRole()
+    {
+        $role = Server::role($this->getConnectionObject());
+        $this->assertIsString($role);
+        $this->assertTrue(in_array($role, ['single', 'coordinator', 'primary', 'secondary', 'agent', 'undefined']));
+    }
+
+    public function testRoleThrowServerException()
+    {
+        $mock = new MockHandler([
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $this->expectException(ServerException::class);
+        $role = Server::role($this->getConnectionObject($mock));
     }
 }

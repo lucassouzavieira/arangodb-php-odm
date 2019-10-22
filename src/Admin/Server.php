@@ -40,6 +40,53 @@ abstract class Server
     }
 
     /**
+     * Returns the storage engine the server is configured to use
+     * (mmfiles or rocksdb)
+     *
+     * @param Connection $connection
+     * @return string
+     * @throws GuzzleException|ServerException
+     */
+    public static function engine(Connection $connection): string
+    {
+        try {
+            $response = $connection->get(sprintf(Api::ADMIN_ENGINE));
+            $data = json_decode((string)$response->getBody(), true);
+            return $data['name'];
+        } catch (\Exception $exception) {
+            // Unknown error.
+            $serverException = new ServerException($exception->getMessage(), $exception, $exception->getCode());
+            throw $serverException;
+        }
+    }
+
+    /**
+     * Returns the role of a server in a cluster
+     * 'single' for standalone servers
+     * 'coordinator' if server is a coordinator in a cluster
+     * 'primary' if the server is a DBServer in a cluster
+     * 'secondary' a not used role
+     * 'agent' if the server is an Agency node in a cluster
+     * 'undefined' if the role cannot be determined
+     *
+     * @param Connection $connection
+     * @return string
+     * @throws GuzzleException|ServerException
+     */
+    public static function role(Connection $connection): string
+    {
+        try {
+            $response = $connection->get(sprintf(Api::ADMIN_SERVER_ROLE));
+            $data = json_decode((string)$response->getBody(), true);
+            return strtolower($data['role']);
+        } catch (\Exception $exception) {
+            // Unknown error.
+            $serverException = new ServerException($exception->getMessage(), $exception, $exception->getCode());
+            throw $serverException;
+        }
+    }
+
+    /**
      * Checks if the Arango server is available for arbitrary operations
      * (e.g Is not set to read-only mode and isn't a follower on failover setups)
      * If server during startup or during shutdown returns false
