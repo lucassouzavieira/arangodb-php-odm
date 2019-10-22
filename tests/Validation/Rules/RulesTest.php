@@ -113,4 +113,19 @@ class RulesTest extends TestCase
         $this->assertFalse($validator->isValid(rand(-10, 4)));
         $this->assertFalse($validator->isValid(new \stdClass()));
     }
+
+    public function testCallbackValidation()
+    {
+        // Function to check if value is positive
+        $fn = function ($value) {
+            return $value >= 0;
+        };
+        
+        $validator = Rules::callbackValidation($fn);
+
+        $this->assertTrue($validator->isValid(5));
+        $this->assertTrue($validator->isValid(0));
+        $this->assertFalse($validator->isValid(-4));
+        $this->assertFalse($validator->isValid(-1));
+    }
 }

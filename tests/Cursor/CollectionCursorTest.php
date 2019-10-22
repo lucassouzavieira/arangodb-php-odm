@@ -75,5 +75,4 @@ class CollectionCursorTest extends CursorTestCase
         $this->assertFalse($current->isNew());
         $this->assertEquals('Sun', $current->toArray()['hello']);
     }
-
 }
