@@ -58,6 +58,7 @@ class Collection implements \JsonSerializable
      * @var array
      */
     protected $descriptorAttributes = [
+        'id' => null,
         'objectId' => null,
         'name' => '',
         'type' => 2,
@@ -293,7 +294,7 @@ class Collection implements \JsonSerializable
      */
     public function getId()
     {
-        return $this->attributes['objectId'];
+        return is_null($this->attributes['objectId']) ? $this->attributes['id'] : $this->attributes['objectId'];
     }
 
     /**
@@ -530,7 +531,9 @@ class Collection implements \JsonSerializable
             $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_UNLOAD));
             $data = json_decode((string)$response->getBody(), true);
             $this->status = (int)$data['status'];
-            return $data['status'] === self::$unloadedStatus;
+
+            // Collection must be unloaded or being unloaded by server
+            return $data['status'] === self::$unloadedStatus || $data['status'] === self::$unloadingStatus;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
             $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);

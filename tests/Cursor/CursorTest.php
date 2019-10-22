@@ -59,7 +59,7 @@ class CursorTest extends CursorTestCase
             $counter++;
         }
 
-        $this->assertEquals((2500 - 1), $counter); // Counter starts at 0.
+        $this->assertEquals(2500, $counter); // Counter starts at 0.
     }
 
     public function testFetchingThrowCursorException()
@@ -174,11 +174,13 @@ class CursorTest extends CursorTestCase
     public function testCurrent()
     {
         $this->getConnectionObject()->getDatabase()->createCollection('test_cursor_coll');
+        // Save 2 documents
         $doc = new Document(['hello' => 'Sun'], $this->getConnectionObject()->getDatabase()->getCollection('test_cursor_coll'));
         $doc->save();
+        $doc = new Document(['hello' => 'Proxima Centauri'], $this->getConnectionObject()->getDatabase()->getCollection('test_cursor_coll'));
+        $doc->save();
 
-        $collection = $this->getCollection();
-        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
+        $cursor = new Cursor($this->getConnectionObject(), new Statement("FOR u IN test_cursor_coll RETURN u"));
         $current = $cursor->current();
 
         $this->assertIsArray($current);
@@ -195,7 +197,7 @@ class CursorTest extends CursorTestCase
         $doc = new Document(['hello' => 'Proxima Centauri'], $this->getConnectionObject()->getDatabase()->getCollection('test_cursor_coll'));
         $doc->save();
 
-        $collection = $this->getCollection();
+        $collection = $this->getConnectionObject()->getDatabase()->getCollection('test_cursor_coll');
         $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
         $this->assertEquals(0, $cursor->key());
 
@@ -236,6 +238,7 @@ class CursorTest extends CursorTestCase
         $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
         $this->assertIsIterable($cursor);
 
+        $cursor->next();
         $cursor->next();
         $cursor->next();
         $cursor->next();

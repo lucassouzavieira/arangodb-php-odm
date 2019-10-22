@@ -16,6 +16,7 @@ class CursorTestCase extends TestCase
     public function tearDown(): void
     {
         $this->getConnectionObject()->getDatabase()->dropCollection('test_cursor_coll');
+        $this->getConnectionObject()->getDatabase()->dropCollection('solar_system_coll');
         parent::tearDown();
     }
 

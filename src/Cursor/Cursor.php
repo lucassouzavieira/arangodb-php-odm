@@ -104,7 +104,7 @@ class Cursor extends Base
     public function valid()
     {
         // We still have results.
-        if ($this->position < ($this->length - 1)) {
+        if ($this->position <= ($this->length - 1)) {
             return true;
         }
 

@@ -3,13 +3,13 @@
 
 namespace Unit\Collection;
 
-use ArangoDB\Cursor\CollectionCursor;
 use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Database\Database;
 use ArangoDB\Document\Document;
 use ArangoDB\Collection\Collection;
 use GuzzleHttp\Handler\MockHandler;
+use ArangoDB\Cursor\CollectionCursor;
 use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Cursor\Contracts\CursorInterface;
 
@@ -71,59 +71,58 @@ class CollectionTest extends TestCase
 
     public function testToString()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
         $this->assertIsString((string)$collection);
     }
 
     public function testGetName()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase());
-        $this->assertEquals('we_are_the_champions', $collection->getName());
+        $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase());
+        $this->assertEquals('testing_collection_coll', $collection->getName());
         $this->assertEquals($collection->name, $collection->getName());
     }
 
     public function testGetId()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase());
+        $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase());
         $this->assertNull($collection->getId());
 
         $collection->save();
         $this->assertIsString($collection->getId());
-
         $this->assertTrue($collection->drop());
     }
 
     public function testGetStatus()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase());
+        $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase());
         $this->assertEquals(0, $collection->getStatus());
     }
 
     public function testGetDescription()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase());
+        $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase());
         $this->assertEquals('unknown', $collection->getStatusDescription());
     }
 
     public function testIsSystem()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase());
+        $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase());
         $this->assertFalse($collection->isSystem());
 
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
         $this->assertTrue($collection->isSystem());
     }
 
     public function testGetAttributes()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
         $this->assertIsArray($collection->getAttributes());
         $this->assertTrue($collection->getAttributes()['isSystem']);
     }
 
     public function testJsonSerialize()
     {
-        $collection = new Collection('we_are_the_champions', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
+        $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
         $this->assertJson(json_encode($collection));
     }
 
@@ -413,10 +412,11 @@ class CollectionTest extends TestCase
         // Check if collection is created.
         // After creation, ArangoDB server usually loads the collection
         $this->assertTrue($collection->save());
+        $this->assertTrue($collection->load()); // Loads the collection
 
         // Unload
         $this->assertTrue($collection->unload());
-        $this->assertEquals(2, $collection->getStatus()); // Check loaded status.
+        $this->assertTrue(in_array($collection->getStatus(), [2, 4])); // Check collection status.
 
         $this->assertTrue($collection->drop());
     }

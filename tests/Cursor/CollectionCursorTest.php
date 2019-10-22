@@ -58,7 +58,7 @@ class CollectionCursorTest extends CursorTestCase
             $counter++;
         }
 
-        $this->assertEquals((2500 - 1), $counter); // Counter starts at 0.
+        $this->assertEquals(2500, $counter); // Counter starts at 0.
     }
 
     public function testCurrent()
@@ -67,7 +67,7 @@ class CollectionCursorTest extends CursorTestCase
         $doc = new Document(['hello' => 'Sun'], $this->getConnectionObject()->getDatabase()->getCollection('test_cursor_coll'));
         $doc->save();
 
-        $collection = $this->getCollection();
+        $collection = $this->getConnectionObject()->getDatabase()->getCollection('test_cursor_coll');
         $cursor = new CollectionCursor($collection);
         $current = $cursor->current();
 
