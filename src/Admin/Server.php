@@ -98,7 +98,7 @@ abstract class Server
     public static function isAvailable(Connection $connection): bool
     {
         try {
-            $response = $connection->get(sprintf(Api::ADMIN_SERVER_AVAILABILITY));
+            $connection->get(sprintf(Api::ADMIN_SERVER_AVAILABILITY));
             return true;
         } catch (BadResponseException $exception) {
             if ($exception->getResponse()->getStatusCode() === 503) {
