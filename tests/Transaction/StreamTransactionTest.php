@@ -3,10 +3,9 @@
 
 namespace Unit\Transaction;
 
-use ArangoDB\Transaction\StreamTransaction;
 use Unit\TestCase;
+use ArangoDB\Transaction\StreamTransaction;
 use ArangoDB\Exceptions\TransactionException;
-use ArangoDB\Transaction\JavascriptTransaction;
 
 class StreamTransactionTest extends TestCase
 {
