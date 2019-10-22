@@ -200,8 +200,9 @@ class CollectionTest extends TestCase
     public function testDropReturnFalse()
     {
         $db = new Database($this->getConnectionObject());
+        $collection = new Collection('coll_to_drop', $db);
         // drop
-        $this->assertFalse($db->dropCollection('coll_to_frop'));
+        $this->assertFalse($collection->drop());
     }
 
     public function testDropThrowDatabaseException()
