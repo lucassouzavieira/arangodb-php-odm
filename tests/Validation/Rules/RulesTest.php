@@ -120,7 +120,7 @@ class RulesTest extends TestCase
         $fn = function ($value) {
             return $value >= 0;
         };
-        
+
         $validator = Rules::callbackValidation($fn);
 
         $this->assertTrue($validator->isValid(5));

@@ -33,9 +33,9 @@ class InvalidParameterException extends BaseException
      */
     public function __construct($parameter, $value, Throwable $previous = null)
     {
-        $this->value = $value;
+        $this->value = is_array($value) ? json_encode($value) : $value;
         $this->parameter = $parameter;
-        $message = "'$parameter'('$value') of type " . gettype($value) . " given on " . $this->getFile() . " in line " . $this->getLine() . " is invalid.";
+        $message = "'$parameter'('$this->value') of type " . gettype($value) . " given on " . $this->getFile() . " in line " . $this->getLine() . " is invalid.";
         parent::__construct($message, $previous);
     }
 }
