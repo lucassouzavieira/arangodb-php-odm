@@ -244,4 +244,42 @@ abstract class Rules
             }
         };
     }
+
+    /**
+     * Validate through a callback
+     *
+     * @param callable $callback
+     * @return RuleInterface
+     */
+    public static function callbackValidation(callable $callback)
+    {
+        return new class($callback) implements RuleInterface {
+            /**
+             * @var callable
+             */
+            protected $callback;
+
+            /**
+             * Callback validation constructor.
+             *
+             * @param callable $callback
+             */
+            public function __construct(callable $callback)
+            {
+                $this->callback = $callback;
+            }
+
+            /**
+             * Check if a given value is valid
+             *
+             * @param $value
+             * @return bool
+             */
+            public function isValid($value): bool
+            {
+                $fn = $this->callback;
+                return $fn($value);
+            }
+        };
+    }
 }

@@ -36,6 +36,5 @@ abstract class Admin
             $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
             throw $serverException;
         }
-
     }
 }
