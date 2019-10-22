@@ -3,6 +3,7 @@
 namespace ArangoDB\Http;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
 use ArangoDB\Validation\Rules\Rules;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\GuzzleException;
@@ -16,6 +17,13 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  */
 class RestClient
 {
+    /**
+     * Base uri string
+     *
+     * @var string
+     */
+    protected $baseUri;
+
     /**
      * @var Client
      */
@@ -36,7 +44,8 @@ class RestClient
             throw new InvalidParameterException('baseUri', $baseUri);
         }
 
-        $this->httpClient = new Client(array_merge(['base_uri' => $baseUri], $options));
+        $this->baseUri = $baseUri;
+        $this->httpClient = new Client(array_merge(['base_uri' => $baseUri, 'headers' => null], $options));
     }
 
     /**
@@ -48,16 +57,11 @@ class RestClient
      *
      * @return mixed|ResponseInterface
      * @throws GuzzleException
-     * @todo remove Content-Length on get requests
      */
     public function get($url, $data = [], $headers = []): ResponseInterface
     {
-        $response = $this->httpClient->request('GET', $url, [
-            'headers' => $headers,
-            'body' => json_encode($data)
-        ]);
-
-        return $response;
+        $request = new Request('GET', $url, $headers, json_encode($data));
+        return $this->httpClient->send($request->withoutHeader('content-length'));
     }
 
     /**
@@ -72,12 +76,8 @@ class RestClient
      */
     public function post($url, $data = [], $headers = []): ResponseInterface
     {
-        $response = $this->httpClient->request('POST', $url, [
-            'headers' => $headers,
-            'body' => json_encode($data)
-        ]);
-
-        return $response;
+        $request = new Request('POST', $url, $headers, json_encode($data));
+        return $this->httpClient->send($request);
     }
 
     /**
@@ -92,12 +92,8 @@ class RestClient
      */
     public function put($url, $data = [], $headers = []): ResponseInterface
     {
-        $response = $this->httpClient->request('PUT', $url, [
-            'headers' => $headers,
-            'body' => json_encode($data)
-        ]);
-
-        return $response;
+        $request = new Request('PUT', $url, $headers, json_encode($data));
+        return $this->httpClient->send($request);
     }
 
     /**
@@ -112,12 +108,8 @@ class RestClient
      */
     public function patch($url, $data = [], $headers = []): ResponseInterface
     {
-        $response = $this->httpClient->request('PATCH', $url, [
-            'headers' => $headers,
-            'body' => json_encode($data)
-        ]);
-
-        return $response;
+        $request = new Request('PATCH', $url, $headers, json_encode($data));
+        return $this->httpClient->send($request);
     }
 
     /**
@@ -132,11 +124,7 @@ class RestClient
      */
     public function delete($url, $data = [], $headers = []): ResponseInterface
     {
-        $response = $this->httpClient->request('DELETE', $url, [
-            'headers' => $headers,
-            'body' => json_encode($data)
-        ]);
-
-        return $response;
+        $request = new Request('DELETE', $url, $headers, json_encode($data));
+        return $this->httpClient->send($request);
     }
 }

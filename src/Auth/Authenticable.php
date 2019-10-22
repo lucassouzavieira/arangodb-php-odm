@@ -5,12 +5,12 @@ namespace ArangoDB\Auth;
 
 use ArangoDB\Http\Api;
 use ArangoDB\Http\RestClient;
-use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ConnectException;
-use ArangoDB\Exceptions\ConnectionException;
 use ArangoDB\Auth\Exceptions\AuthException;
+use ArangoDB\Exceptions\ConnectionException;
+use GuzzleHttp\Exception\BadResponseException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
@@ -60,7 +60,7 @@ abstract class Authenticable
         try {
             $response = $this->restClient->post($this->getAuthenticationEndpoint($this->options['database']), $credentials);
             $this->authToken = json_decode((string)$response->getBody(), true);
-        } catch (ClientException $exception) {
+        } catch (BadResponseException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
             $authException = new AuthException($response['errorMessage'], $exception, $response['errorNum']);
             throw $authException;
