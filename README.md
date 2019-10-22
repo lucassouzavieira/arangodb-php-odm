@@ -175,6 +175,37 @@ $document->save(); // Will update your document on server;
 // Delete document from collection.
 $document->delete();
 ```
+
+#### Transactions
+You can also perform transactions on ArangoDB Server. 
+```php
+use ArangoDB\Exceptions\TransactionException;
+use ArangoDB\Transaction\JavascriptTransaction;
+
+// Define collections to perform write and read operations.
+$options = [
+    'collections' => [
+        'read' => [
+            'fighter_jets'
+        ],
+        'write' => [
+            'fighter_jets'
+        ]
+    ]
+];
+
+// Your JS action to execute.
+$action = "function () { var db = require('@arangodb').db; db.fighter_jets.save({});  return db.fighter_jets.count(); }";
+
+try {
+    $transaction = new JavascriptTransaction($this->getConnectionObject(), $action, $options);
+    $result = $transaction->execute(); // Will return 1.
+} catch (TransactionException $transactionException) {
+    // Throws an TransactionException in case of error.
+    return $transactionException->getMessage();
+}
+```
+
 ## Documentation
 
 ## Contributing
