@@ -243,7 +243,7 @@ class DocumentTest extends TestCase
         $this->assertTrue($document->save());
         $this->assertEquals(1, $collection->count());
 
-        $updated = $collection->all()->current();
+        $updated = $collection->all()->current()->toArray();
         $updated = new Document($updated);
         $this->assertEquals(true, $updated->new_attr);
         $this->assertNull($updated->field);

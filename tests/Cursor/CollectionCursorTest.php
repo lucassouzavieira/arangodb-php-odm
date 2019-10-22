@@ -72,6 +72,7 @@ class CollectionCursorTest extends CursorTestCase
         $current = $cursor->current();
 
         $this->assertInstanceOf(Document::class, $current);
+        $this->assertFalse($current->isNew());
         $this->assertEquals('Sun', $current->toArray()['hello']);
     }
 

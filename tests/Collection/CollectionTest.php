@@ -3,6 +3,7 @@
 
 namespace Unit\Collection;
 
+use ArangoDB\Cursor\CollectionCursor;
 use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Database\Database;
@@ -148,7 +149,7 @@ class CollectionTest extends TestCase
         // False for new born collections
         $this->assertFalse($collection->all());
         $this->assertTrue($collection->save());
-        $this->assertInstanceOf(CursorInterface::class, $collection->all());
+        $this->assertInstanceOf(CollectionCursor::class, $collection->all());
     }
 
     public function testSave()
