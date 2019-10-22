@@ -7,9 +7,9 @@ use ArangoDB\Http\Api;
 use ArangoDB\AQL\Statement;
 use ArangoDB\Cursor\Cursor;
 use ArangoDB\Database\Database;
+use ArangoDB\Connection\Connection;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
-use ArangoDB\Connection\ManagesConnection;
 use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Cursor\Contracts\CursorInterface;
 use ArangoDB\Cursor\Exceptions\CursorException;
@@ -23,7 +23,7 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
  * @package ArangoDB\Auth
  * @author Lucas S. Vieira
  */
-class Collection extends ManagesConnection implements \JsonSerializable
+class Collection implements \JsonSerializable
 {
     /**
      * Attributes of collection
@@ -45,6 +45,13 @@ class Collection extends ManagesConnection implements \JsonSerializable
      * @var Database
      */
     protected $database;
+
+    /**
+     * Connection object
+     *
+     * @var Connection
+     */
+    protected $connection;
 
     /**
      * Fields to be set directly

@@ -9,7 +9,6 @@ use ArangoDB\Collection\Collection;
 use ArangoDB\Entity\EntityInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ClientException;
-use ArangoDB\Connection\ManagesConnection;
 use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Validation\Rules\RuleInterface;
 use ArangoDB\Validation\Document\DocumentValidator;
@@ -23,7 +22,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  * @package ArangoDB\Document
  * @author Lucas S. Vieira
  */
-class Document extends ManagesConnection implements \JsonSerializable, EntityInterface
+class Document implements \JsonSerializable, EntityInterface
 {
     /**
      * Document ID
@@ -258,7 +257,7 @@ class Document extends ManagesConnection implements \JsonSerializable, EntityInt
     public function setCollection(Collection $collection): void
     {
         $this->collection = $collection;
-        $this->connection = $collection->getConnection();
+        $this->connection = $collection->getDatabase()->getConnection();
     }
 
     /**

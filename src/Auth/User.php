@@ -151,7 +151,7 @@ class User extends Entity
      *
      * @param string $username
      * @return User|null User if exists, null if not
-     * @throws GuzzleException|InvalidParameterException|\ReflectionException
+     * @throws \ReflectionException
      */
     public function find(string $username)
     {

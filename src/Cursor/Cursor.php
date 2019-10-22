@@ -23,7 +23,7 @@ class Cursor extends Base
      *
      * @var StatementInterface
      */
-    public $statement;
+    protected $statement;
 
     /**
      * Default options query for the cursor

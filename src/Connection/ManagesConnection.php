@@ -34,7 +34,7 @@ abstract class ManagesConnection implements ManagesConnectionInterface
      *
      * @return Connection
      */
-    protected function getConnection(): Connection
+    public function getConnection(): Connection
     {
         return $this->connection;
     }
