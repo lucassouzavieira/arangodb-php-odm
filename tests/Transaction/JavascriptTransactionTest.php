@@ -52,6 +52,26 @@ class JavascriptTransactionTest extends TestCase
         $this->assertEquals(0, $result);
     }
 
+    public function testExecuteWithoutReturnStatement()
+    {
+        $this->getConnectionObject()->getDatabase()->createCollection('fighter_jets');
+        $options = [
+            'collections' => [
+                'read' => [
+                    'fighter_jets'
+                ],
+                'write' => [
+                    'fighter_jets'
+                ]
+            ]
+        ];
+
+        $action = "function () { var db = require('@arangodb').db; db.fighter_jets.count(); }";
+        $transaction = new JavascriptTransaction($this->getConnectionObject(), $action, $options);
+        $result = $transaction->execute();
+        $this->assertEquals(null, $result);
+    }
+
     public function testExecuteThrowFromAction()
     {
         $this->getConnectionObject()->getDatabase()->createCollection('fighter_jets');

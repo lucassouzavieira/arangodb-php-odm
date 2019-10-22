@@ -88,7 +88,7 @@ class JavascriptTransaction
             $options = array_merge($this->options, ['action' => $this->action]);
             $response = $this->connection->post(sprintf(Api::TRANSACTION), $options);
             $data = json_decode((string)$response->getBody(), true);
-            return $data['result'];
+            return $data['result'] === 'NULL' ? null : $data['result'];
         } catch (BadResponseException $exception) {
             // An error was returned from server.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
