@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 
 namespace ArangoDB\Cursor;
 
@@ -10,7 +10,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Represents an ArangoDB cursor for an Collection
+ * Represents an ArangoDB cursor for a collection
  *
  * @package ArangoDB\Cursor
  * @author Lucas S. Vieira

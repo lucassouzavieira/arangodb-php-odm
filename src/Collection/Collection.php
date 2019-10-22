@@ -4,10 +4,9 @@ declare(strict_types=1);
 namespace ArangoDB\Collection;
 
 use ArangoDB\Http\Api;
-use ArangoDB\AQL\Statement;
-use ArangoDB\Cursor\Cursor;
 use ArangoDB\Database\Database;
 use ArangoDB\Connection\Connection;
+use ArangoDB\Cursor\CollectionCursor;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Exceptions\DatabaseException;
@@ -237,9 +236,7 @@ class Collection implements \JsonSerializable
     public function all()
     {
         if (!$this->isNew()) {
-            $statement = new Statement("FOR doc IN @collection RETURN doc");
-            $statement->bindValue('@collection', $this->getName());
-            return new Cursor($this->connection, $statement);
+            return new CollectionCursor($this);
         }
 
         return false;
