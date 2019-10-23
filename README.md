@@ -22,7 +22,7 @@ use ArangoDB\Connection\Connection;
 
 // Set a new Connection
 $connection = new Connection([
-    'endpoint' => 'http://myarangohost:8529',
+    'endpoint' => 'http://yourarangohost:8529',
     'username' => 'YourUserName',
     'password' => 'YourSecretPasswd',
     'database' => 'YourDatabase',
@@ -30,7 +30,7 @@ $connection = new Connection([
 
 // Alternatively, you can set an host and a port to connect
 $connection = new Connection([
-    'host' => 'http://myarangohost',
+    'host' => 'http://yourarangohost',
     'port' => 8529,
     'username' => 'YourUserName',
     'password' => 'YourSecretPasswd',
@@ -39,7 +39,7 @@ $connection = new Connection([
 
 // Or set more custom options like 'connection' type and timeout
 $connection = new Connection([
-    'host' => 'http://myarangohost',
+    'host' => 'http://yourarangohost',
     'port' => 8529,
     'username' => 'YourUserName',
     'password' => 'YourSecretPasswd',
@@ -58,7 +58,7 @@ use ArangoDB\Connection\Connection;
 
 // Set up a connection
 $connection = new Connection([
-    'host' => 'http://myarangohost',
+    'host' => 'http://yourarangohost',
     'port' => 8529,
     'username' => 'YourUserName',
     'password' => 'YourSecretPasswd',
@@ -103,7 +103,7 @@ use ArangoDB\Collection\Collection;
 use ArangoDB\Connection\Connection;
 
 $connection = new Connection([
-    'host' => 'http://myarangohost',
+    'host' => 'http://yourarangohost',
     'port' => 8529,
     'username' => 'YourUserName',
     'password' => 'YourSecretPasswd',
@@ -133,7 +133,7 @@ use ArangoDB\Connection\Connection;
 
 // Set up a connection
 $connection = new Connection([
-    'host' => 'http://myarangohost',
+    'host' => 'http://yourarangohost',
     'port' => 8529,
     'username' => 'YourUserName',
     'password' => 'YourSecretPasswd',
@@ -177,7 +177,7 @@ $document->delete();
 ```
 
 #### Transactions
-You can also perform transactions on ArangoDB Server. 
+You can perform transactions on ArangoDB Server sending JavaScript code. 
 ```php
 use ArangoDB\Exceptions\TransactionException;
 use ArangoDB\Transaction\JavascriptTransaction;
@@ -195,7 +195,7 @@ $options = [
 ];
 
 // Your JS action to execute.
-$action = "function () { var db = require('@arangodb').db; db.fighter_jets.save({});  return db.fighter_jets.count(); }";
+$action = "function(){ var db = require('@arangodb').db; db.fighter_jets.save({});  return db.fighter_jets.count(); }";
 
 try {
     $transaction = new JavascriptTransaction($this->getConnectionObject(), $action, $options);
@@ -205,7 +205,57 @@ try {
     return $transactionException->getMessage();
 }
 ```
+You can also perform transactions directly from PHP.
 
+```php
+use ArangoDB\Document\Document;
+use ArangoDB\Connection\Connection;
+use ArangoDB\Transaction\StreamTransaction as Transaction;
+
+$connection = new Connection([
+    'host' => 'http://yourarangohost',
+    'port' => 8529,
+    'username' => 'YourUserName',
+    'password' => 'YourSecretPasswd',
+    'database' => 'YourDatabase',
+]);
+
+$db = $connection->getDatabase();
+if (!$db->hasCollection('fighter_jets')) {
+    $db->createCollection('fighter_jets');
+}
+
+// Define collections to perform write and read operations.
+$options = [
+    'collections' => [
+        'write' => [
+            'fighter_jets'
+        ]
+    ]
+];
+
+// Declare a new transaction.
+$transaction = new Transaction($connection, $options);
+
+try {
+    // Start transaction.
+    $transaction->begin();
+
+    // Perfome some operations.
+    $collection = $db->getCollection('fighter_jets');
+    $viper = new Document(['model' => 'F-16 Viper', 'status' => 'In service', 'origin' => 'USA'], $collection);
+    $gripen = new Document(['model' => 'JAS 39 Gripen', 'status' => 'In service', 'origin' => 'Sweden'], $collection);
+
+    $viper->save();
+    $gripen->save();
+
+    // Commit the operations.
+    $transaction->commit();
+} catch (\Exception $exception) {
+    // Some error occurred. Abort transaction.
+    $transaction->abort();
+}
+```
 ## Documentation
 
 ## Contributing
