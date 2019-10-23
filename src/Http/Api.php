@@ -22,6 +22,7 @@ abstract class Api
     const BATCH = "/_api/batch";
     const QUERY = "/_api/query";
     const TRANSACTION = "/_api/transaction";
+    const TRANSACTION_BEGIN = "/_api/transaction/begin";
     const AQL_USER_FUNCTION = "/_api/aqlfunction";
 
     const COLLECTION = "/_api/collection";

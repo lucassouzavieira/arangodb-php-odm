@@ -42,7 +42,6 @@ class ConnectionTest extends TestCase
 
         $this->assertIsArray($connection->getDefaultHeaders());
         $this->assertCount(0, $connection->getDefaultHeaders());
-
     }
 
     public function testSetDefaultHeaders()
