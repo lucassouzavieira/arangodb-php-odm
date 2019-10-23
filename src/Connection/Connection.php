@@ -23,6 +23,13 @@ use ArangoDB\Validation\Connection\ConnectionOptionsValidator;
 class Connection extends Authenticable
 {
     /**
+     * Default headers to send to server
+     *
+     * @var array
+     */
+    protected $defaultHeaders = [];
+
+    /**
      * Connection constructor.
      *
      * @param array $options Connection options
@@ -43,6 +50,26 @@ class Connection extends Authenticable
     public function isAuthenticated(): bool
     {
         return is_array($this->authToken);
+    }
+
+    /**
+     * Return the connection default headers
+     *
+     * @return array
+     */
+    public function getDefaultHeaders(): array
+    {
+        return $this->defaultHeaders;
+    }
+
+    /**
+     * Set the connection default headers
+     *
+     * @param array $headers
+     */
+    public function setDefaultHeaders(array $headers)
+    {
+        $this->defaultHeaders = $headers;
     }
 
     /**
@@ -98,7 +125,7 @@ class Connection extends Authenticable
      */
     public function get(string $endpoint, array $body = [], array $headers = []): ResponseInterface
     {
-        return $this->restClient->get($endpoint, $body, array_merge($headers, $this->getAuthorizationHeader()));
+        return $this->restClient->get($endpoint, $body, array_merge($headers, $this->getDefaultHeaders(), $this->getAuthorizationHeader()));
     }
 
     /**
@@ -113,7 +140,7 @@ class Connection extends Authenticable
      */
     public function post(string $endpoint, array $body = [], array $headers = []): ResponseInterface
     {
-        return $this->restClient->post($endpoint, $body, array_merge($headers, $this->getAuthorizationHeader()));
+        return $this->restClient->post($endpoint, $body, array_merge($headers, $this->getDefaultHeaders(), $this->getAuthorizationHeader()));
     }
 
     /**
@@ -128,7 +155,7 @@ class Connection extends Authenticable
      */
     public function put(string $endpoint, array $body = [], array $headers = []): ResponseInterface
     {
-        return $this->restClient->put($endpoint, $body, array_merge($headers, $this->getAuthorizationHeader()));
+        return $this->restClient->put($endpoint, $body, array_merge($headers, $this->getDefaultHeaders(), $this->getAuthorizationHeader()));
     }
 
     /**
@@ -143,7 +170,7 @@ class Connection extends Authenticable
      */
     public function patch(string $endpoint, array $body = [], array $headers = []): ResponseInterface
     {
-        return $this->restClient->patch($endpoint, $body, array_merge($headers, $this->getAuthorizationHeader()));
+        return $this->restClient->patch($endpoint, $body, array_merge($headers, $this->getDefaultHeaders(), $this->getAuthorizationHeader()));
     }
 
     /**
@@ -158,6 +185,6 @@ class Connection extends Authenticable
      */
     public function delete(string $endpoint, array $body = [], array $headers = []): ResponseInterface
     {
-        return $this->restClient->delete($endpoint, $body, array_merge($headers, $this->getAuthorizationHeader()));
+        return $this->restClient->delete($endpoint, $body, array_merge($headers, $this->getDefaultHeaders(), $this->getAuthorizationHeader()));
     }
 }

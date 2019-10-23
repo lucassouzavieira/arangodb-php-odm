@@ -30,6 +30,40 @@ class ConnectionTest extends TestCase
         $this->assertTrue($connection->isAuthenticated());
     }
 
+    public function testGetDefaultHeaders()
+    {
+        $connection = new Connection([
+            'username' => getenv('ARANGODB_USERNAME'),
+            'password' => getenv('ARANGODB_PASSWORD'),
+            'database' => getenv('ARANGODB_DBNAME'),
+            'host' => getenv('ARANGODB_HOST'),
+            'port' => getenv('ARANGODB_PORT')
+        ]);
+
+        $this->assertIsArray($connection->getDefaultHeaders());
+        $this->assertCount(0, $connection->getDefaultHeaders());
+
+    }
+
+    public function testSetDefaultHeaders()
+    {
+        $connection = new Connection([
+            'username' => getenv('ARANGODB_USERNAME'),
+            'password' => getenv('ARANGODB_PASSWORD'),
+            'database' => getenv('ARANGODB_DBNAME'),
+            'host' => getenv('ARANGODB_HOST'),
+            'port' => getenv('ARANGODB_PORT')
+        ]);
+
+        // Set one header
+        $connection->setDefaultHeaders(['foo' => 'bar']);
+
+        $this->assertIsArray($connection->getDefaultHeaders());
+        $this->assertCount(1, $connection->getDefaultHeaders());
+        $this->assertArrayHasKey('foo', $connection->getDefaultHeaders());
+        $this->assertEquals('bar', $connection->getDefaultHeaders()['foo']);
+    }
+
     public function testThrowAuthException()
     {
         $this->expectException(AuthException::class);
