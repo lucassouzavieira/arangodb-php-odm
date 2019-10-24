@@ -34,16 +34,6 @@ class UserValidator extends Validator
     ];
 
     /**
-     * UserValidator constructor.
-     *
-     * @param array $options
-     */
-    public function __construct(array $options)
-    {
-        $this->data = $options;
-    }
-
-    /**
      * Rules for connection
      * @return array
      */

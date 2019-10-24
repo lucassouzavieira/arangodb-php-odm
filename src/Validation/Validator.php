@@ -36,6 +36,16 @@ abstract class Validator implements ValidatorInterface
     protected $canHave = [];
 
     /**
+     * Validator constructor.
+     *
+     * @param array $options
+     */
+    public function __construct(array $options)
+    {
+        $this->data = $options;
+    }
+
+    /**
      * Validate user data
      *
      * @return true if validation is successful, throw an exception otherwise

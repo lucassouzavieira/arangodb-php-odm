@@ -34,16 +34,6 @@ class TransactionOptionsValidator extends Validator
     ];
 
     /**
-     * TransactionOptionsValidator constructor.
-     *
-     * @param array $options
-     */
-    public function __construct(array $options)
-    {
-        $this->data = $options;
-    }
-
-    /**
      * Rules for connection
      * @return array
      */
