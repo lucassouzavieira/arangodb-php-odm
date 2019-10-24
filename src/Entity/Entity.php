@@ -11,7 +11,7 @@ use ArangoDB\Connection\ManagesConnection;
  * @package ArangoDB\Handler
  * @author Lucas S. Vieira
  */
-abstract class Entity extends ManagesConnection implements EntityInterface, \JsonSerializable
+abstract class Entity extends ManagesConnection implements EntityInterface
 {
     /**
      * Attributes of entity

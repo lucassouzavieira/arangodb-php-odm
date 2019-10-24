@@ -22,7 +22,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  * @package ArangoDB\Document
  * @author Lucas S. Vieira
  */
-class Document implements \JsonSerializable, EntityInterface
+class Document implements EntityInterface
 {
     /**
      * Document ID
