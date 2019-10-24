@@ -3,8 +3,8 @@
 
 namespace Unit\Http;
 
-use ArangoDB\Http\Api;
 use Unit\TestCase;
+use ArangoDB\Http\Api;
 
 class ApiTest extends TestCase
 {
