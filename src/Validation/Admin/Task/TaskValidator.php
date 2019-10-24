@@ -48,7 +48,7 @@ class TaskValidator extends Validator
             'period' => Rules::equalsOrGreaterThan(1),
             'type' => Rules::in(['periodic', 'timed']),
             'database' => Rules::string(),
-            'created' => Rules::string()
+            'created' => Rules::numeric()
         ];
     }
 

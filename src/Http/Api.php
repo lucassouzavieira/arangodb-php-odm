@@ -62,6 +62,7 @@ abstract class Api
     const REMOVE_BY_EXAMPLE = "/_api/simple/remove-by-example";
     const REPLACE_BY_EXAMPLE = "/_api/simple/replace-by-example";
 
+    const ADMIN_TASKS = "/_api/tasks";
     const ADMIN_VERSION = "/_api/version";
     const ADMIN_ENGINE = "/_api/engine";
     const ADMIN_SERVER_ROLE = "/_admin/server/role";
