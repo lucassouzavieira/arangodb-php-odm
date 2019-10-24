@@ -46,7 +46,7 @@ abstract class Admin
      * Returns all tasks of server information.
      *
      * @param Connection $connection
-     * @return ArrayList ArrayList with all tasks from  server
+     * @return ArrayList[Task] ArrayList with all tasks from  server
      * @throws ServerException|GuzzleException|InvalidParameterException|MissingParameterException
      */
     public static function tasks(Connection $connection): ArrayList
