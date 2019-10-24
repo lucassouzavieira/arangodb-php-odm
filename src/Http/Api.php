@@ -87,7 +87,7 @@ abstract class Api
      * @param string $apiEndpoint
      * @return string
      */
-    public static function buildDatabaseUri(string $baseUri, string $database, string $apiEndpoint = '')
+    public static function buildDatabaseUri(string $baseUri, string $database, string $apiEndpoint = ''): string
     {
         return sprintf("%s%s%s", $baseUri . Api::DB, $database, $apiEndpoint);
     }
@@ -99,7 +99,7 @@ abstract class Api
      * @param $param
      * @return string
      */
-    public static function addUriParam(string $baseUri, $param)
+    public static function addUriParam(string $baseUri, $param): string
     {
         return sprintf("%s/%s", $baseUri, $param);
     }
@@ -111,7 +111,7 @@ abstract class Api
      * @param string $endpoint
      * @return string
      */
-    public static function buildSystemUri(string $baseUri, string $endpoint)
+    public static function buildSystemUri(string $baseUri, string $endpoint): string
     {
         return sprintf("%s%s", $baseUri, $endpoint);
     }
@@ -123,7 +123,7 @@ abstract class Api
      * @param array $data
      * @return string
      */
-    public static function addQuery(string $baseUri, array $data = [])
+    public static function addQuery(string $baseUri, array $data = []): string
     {
         return sprintf("%s?%s", $baseUri, http_build_query($data));
     }

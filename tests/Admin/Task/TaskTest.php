@@ -24,6 +24,8 @@ class TaskTest extends TestCase
         foreach ($tasks as $task) {
             $task->delete();
         }
+
+        parent::tearDown();
     }
 
     public function getOptions()
