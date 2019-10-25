@@ -22,7 +22,7 @@ class HashIndexTest extends TestCase
         $this->assertEquals("hash", $index->getType());
     }
 
-    public function testGetGeoJSON()
+    public function testIsDeduplicate()
     {
         $index = new HashIndex(['my_hash_attr'], false, false, false);
         $this->assertFalse($index->isUnique());

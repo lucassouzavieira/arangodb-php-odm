@@ -22,7 +22,7 @@ class SkipListIndexTest extends TestCase
         $this->assertEquals("skiplist", $index->getType());
     }
 
-    public function testGetGeoJSON()
+    public function testIsDeduplicate()
     {
         $index = new SkipListIndex(['my_skiplist_attr'], false, false, false);
         $this->assertFalse($index->isUnique());

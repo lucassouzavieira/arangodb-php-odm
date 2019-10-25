@@ -490,9 +490,9 @@ class Collection implements \JsonSerializable
     public function dropIndex(IndexInterface $index): bool
     {
         try {
-            // If the collection is a new one,
-            // we cannot drop indexes on server.
-            if ($this->isNew()) {
+            // If the collection is a new one, or the index,
+            // we cannot drop it on server.
+            if ($this->isNew() || $index->isNew()) {
                 return false;
             }
 

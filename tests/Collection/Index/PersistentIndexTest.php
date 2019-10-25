@@ -22,13 +22,6 @@ class PersistentIndexTest extends TestCase
         $this->assertEquals("persistent", $index->getType());
     }
 
-    public function testGetGeoJSON()
-    {
-        $index = new PersistentIndex(['my_persistent_attr'], false, false);
-        $this->assertFalse($index->isUnique());
-        $this->assertFalse($index->isSparse());
-    }
-
     public function testGetCreateData()
     {
         $index = new PersistentIndex(['my_persistent_attr']);
