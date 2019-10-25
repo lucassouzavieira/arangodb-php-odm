@@ -9,9 +9,15 @@ use ArangoDB\Database\Database;
 use ArangoDB\Document\Document;
 use ArangoDB\Collection\Collection;
 use GuzzleHttp\Handler\MockHandler;
-use ArangoDB\Cursor\CollectionCursor;
-use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Collection\Index\Index;
+use ArangoDB\Cursor\CollectionCursor;
+use ArangoDB\Collection\Index\TTLIndex;
+use ArangoDB\Collection\Index\HashIndex;
+use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Collection\Index\FullTextIndex;
+use ArangoDB\Collection\Index\SkipListIndex;
+use ArangoDB\Collection\Index\PersistentIndex;
+use ArangoDB\Collection\Index\GeoSpatialIndex;
 
 class CollectionTest extends TestCase
 {
@@ -148,7 +154,7 @@ class CollectionTest extends TestCase
         $this->assertTrue($collection->drop());
     }
 
-    public function testAddIndex()
+    public function testAddFullTextIndex()
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -156,11 +162,115 @@ class CollectionTest extends TestCase
         $this->assertTrue($collection->save());
         $this->assertCount(1, $collection->getIndexes());
 
-        $index = new Index('fulltext', ['complicated'], 3);
+        $index = new FullTextIndex(['complicated'], 3);
         $this->assertTrue($collection->addIndex($index));
 
         $this->assertCount(2, $collection->getIndexes());
         $this->assertEquals('fulltext', $collection->getIndexes()->last()->getType());
+    }
+
+    public function testAddGeoSpatialIndex()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertTrue($collection->save());
+        $this->assertCount(1, $collection->getIndexes());
+
+        $index = new GeoSpatialIndex(['complicated'], true);
+        $this->assertTrue($collection->addIndex($index));
+
+        $this->assertCount(2, $collection->getIndexes());
+        $this->assertEquals('geo', $collection->getIndexes()->last()->getType());
+    }
+
+    public function testAddHashIndex()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertTrue($collection->save());
+        $this->assertCount(1, $collection->getIndexes());
+
+        $index = new HashIndex(['complicated']);
+        $this->assertTrue($collection->addIndex($index));
+
+        $this->assertCount(2, $collection->getIndexes());
+        $this->assertEquals('hash', $collection->getIndexes()->last()->getType());
+    }
+
+    public function testAddPersistentIndex()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertTrue($collection->save());
+        $this->assertCount(1, $collection->getIndexes());
+
+        $index = new PersistentIndex(['complicated']);
+        $this->assertTrue($collection->addIndex($index));
+
+        $this->assertCount(2, $collection->getIndexes());
+        $this->assertEquals('persistent', $collection->getIndexes()->last()->getType());
+    }
+
+    public function testAddSkipListIndex()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertTrue($collection->save());
+        $this->assertCount(1, $collection->getIndexes());
+
+        $index = new SkipListIndex(['complicated']);
+        $this->assertTrue($collection->addIndex($index));
+
+        $this->assertCount(2, $collection->getIndexes());
+        $this->assertEquals('skiplist', $collection->getIndexes()->last()->getType());
+    }
+
+    public function testAddTTLIndex()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertTrue($collection->save());
+        $this->assertCount(1, $collection->getIndexes());
+
+        $index = new TTLIndex(['complicated']);
+        $this->assertTrue($collection->addIndex($index));
+
+        $this->assertCount(2, $collection->getIndexes());
+        $this->assertEquals('ttl', $collection->getIndexes()->last()->getType());
+    }
+
+    public function testAddIndexThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = new Database($this->getConnectionObject($mock));
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertTrue($collection->save());
+
+        $index = new TTLIndex(['complicated']);
+        $this->expectException(DatabaseException::class);
+        $collection->addIndex($index);
+    }
+
+    public function testAddIndexOnNewCollectionReturnFalse()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $index = new FullTextIndex(['complicated'], 3);
+        $this->assertFalse($collection->addIndex($index));
     }
 
     public function testDropIndex()
@@ -168,6 +278,129 @@ class CollectionTest extends TestCase
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
 
+        $this->assertTrue($collection->save());
+        $this->assertCount(1, $collection->getIndexes());
+
+        $index = new FullTextIndex(['complicated'], 3);
+        $this->assertTrue($collection->addIndex($index));
+
+        $list = $collection->getIndexes();
+        $this->assertCount(2, $collection->getIndexes());
+        $this->assertEquals('fulltext', $list->last()->getType());
+
+        // Drop
+        $fulltext = $list->last();
+        $this->assertTrue($collection->dropIndex($fulltext));
+
+        // Must have only 'primary' index
+        $this->assertCount(1, $collection->getIndexes());
+    }
+
+    public function testDropIndexOnNewCollectionReturnFalse()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $index = new FullTextIndex(['complicated'], 3);
+        $this->assertFalse($collection->dropIndex($index));
+    }
+
+    public function testDropNewIndexReturnFalse()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertTrue($collection->save());
+        $this->assertCount(1, $collection->getIndexes());
+
+        // Index not created before
+        $index = new FullTextIndex(['complicated'], 3);
+        $this->assertFalse($collection->dropIndex($index));
+    }
+
+
+    public function testDropNonExistentIndexReturnFalse()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertTrue($collection->save());
+
+        $index = new FullTextIndex(['complicated'], 3);
+        $collection->addIndex($index);
+
+        $list = $collection->getIndexes();
+        // Drop
+        $fulltext = $list->last();
+        $this->assertTrue($collection->dropIndex($fulltext));
+
+        // Try to drop an non-existent index
+        $this->assertFalse($collection->dropIndex($fulltext));
+    }
+
+    public function testDropIndexThrowDatabaseException()
+    {
+        $index = new FullTextIndex(['complicated'], 3);
+        $mocked = [
+            'indexes' => [
+                [
+                    'id' => 'coll/1',
+                    'name' => 'primary',
+                    'type' => 'primary',
+                    'sparse' => false,
+                    'unique' => true,
+                    'fields' => [
+                        '_key'
+                    ]
+                ],
+                [
+                    'id' => 'coll/2',
+                    'name' => 'idx_1646382074382254082',
+                    'type' => 'fulltext',
+                    'sparse' => true,
+                    'unique' => true,
+                    'fields' => [
+                        'complicated'
+                    ]
+
+                ]
+            ]
+        ];
+
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode($mocked)),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = new Database($this->getConnectionObject($mock));
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertTrue($collection->save());
+
+        $collection->addIndex($index);
+
+        $list = $collection->getIndexes();
+
+        // Try to drop an non-existent index
+        $this->expectException(DatabaseException::class);
+        $collection->dropIndex($list->last());
+    }
+
+    public function testGetIndexes()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        // On new collections return an empty array list
+        $list = $collection->getIndexes();
+        $this->assertCount(0, $list);
+
+        // Save collection
         $this->assertTrue($collection->save());
         $this->assertCount(1, $collection->getIndexes());
 
@@ -184,20 +417,6 @@ class CollectionTest extends TestCase
 
         // Must have only 'primary' index
         $this->assertCount(1, $collection->getIndexes());
-    }
-
-    public function testGetIndexes()
-    {
-        $db = new Database($this->getConnectionObject());
-        $collection = new Collection('test_save_coll', $db);
-
-        $this->assertCount(0, $collection->getIndexes());
-
-        $this->assertTrue($collection->save());
-
-        // Check if collection index is created.
-        $this->assertCount(1, $collection->getIndexes());
-        $this->assertInstanceOf(Index::class, $collection->getIndexes()->first());
     }
 
     public function testGetIndexesThrowDatabaseException()

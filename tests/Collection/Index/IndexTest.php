@@ -44,7 +44,7 @@ class IndexTest extends TestCase
     public function testConstructorThrowInvalidParameterExceptionForInvalidKey()
     {
         $this->expectException(InvalidParameterException::class);
-        $index = new Index("easy", [new \stdClass()], 3);
+        $index = new Index("fulltext", [154], 3);
     }
 
     public function testToString()
@@ -91,5 +91,12 @@ class IndexTest extends TestCase
         $index = $collection->getIndexes()->first();
         $this->assertIsArray($index->getFields());
         $this->assertEquals("_key", $index->getFields()[0]);
+    }
+
+    public function testGetCreateData()
+    {
+        $index = new Index("skiplist", ['custom_field'], 3);
+        $this->assertIsArray($index->getCreateData());
+        $this->assertArrayHasKey("type", $index->getCreateData());
     }
 }
