@@ -12,7 +12,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  * @package ArangoDB\Collection\Index
  * @author Lucas S. Vieira
  */
-final class HashIndex extends Index
+class HashIndex extends Index
 {
     /**
      * If set to false, the deduplication of array values is turned off
