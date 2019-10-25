@@ -21,6 +21,14 @@ class CollectionTest extends TestCase
         parent::setUp();
     }
 
+    public function tearDown(): void
+    {
+        $this->getConnectionObject()->getDatabase()->dropCollection('test_coll');
+        $this->getConnectionObject()->getDatabase()->dropCollection('test_save_coll');
+        $this->getConnectionObject()->getDatabase()->dropCollection('testing_collection_coll');
+        parent::tearDown();
+    }
+
     public function testConstructor()
     {
         $collection = new Collection('any', $this->getConnectionObject()->getDatabase());
@@ -138,6 +146,35 @@ class CollectionTest extends TestCase
 
         $this->assertIsString($collection->getGloballyUniqueId());
         $this->assertTrue($collection->drop());
+    }
+
+    public function testGetIndexes()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertCount(0, $collection->getIndexes());
+
+        $this->assertTrue($collection->save());
+
+        // Check if collection index is created.
+        $this->assertCount(1, $collection->getIndexes());
+    }
+
+    public function testGetIndexesThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = new Database($this->getConnectionObject($mock));
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->expectException(DatabaseException::class);
+        $indexes = $collection->getIndexes();
     }
 
     public function testAll()

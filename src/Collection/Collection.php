@@ -7,6 +7,7 @@ use ArangoDB\Http\Api;
 use ArangoDB\Database\Database;
 use ArangoDB\Connection\Connection;
 use ArangoDB\Cursor\CollectionCursor;
+use ArangoDB\DataStructures\ArrayList;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Exceptions\DatabaseException;
@@ -355,6 +356,30 @@ class Collection implements \JsonSerializable
             $data = json_decode((string)$response->getBody(), true);
             $this->checksum = sprintf("%d", $data['checksum']);
             return $this->checksum;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
+    }
+
+    /**
+     * Return all indexes of collection
+     *
+     * @return ArrayList
+     * @throws DatabaseException|GuzzleException
+     */
+    public function getIndexes(): ArrayList
+    {
+        try {
+            if ($this->isNew()) {
+                return new ArrayList();
+            }
+
+            $uri = Api::addQuery(Api::INDEX, ['collection' => $this->getName()]);
+            $response = $this->connection->get($uri);
+            $data = json_decode((string)$response->getBody(), true);
+            return new ArrayList($data['indexes']);
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
             $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
