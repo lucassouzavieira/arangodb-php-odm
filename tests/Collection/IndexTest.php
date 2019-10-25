@@ -69,4 +69,27 @@ class IndexTest extends TestCase
         $index = $collection->getIndexes()->first();
         $this->assertJson(json_encode($index));
     }
+
+    public function testIsNew()
+    {
+        $index = new Index("skiplist", ['custom_field'], 3);
+        $this->assertTrue($index->isNew());
+
+        // Already existent index
+        $collection = $this->getConnectionObject()->getDatabase()->createCollection('index_coll');
+        $index = $collection->getIndexes()->first();
+        $this->assertFalse($index->isNew());
+    }
+    
+    public function testGetFields()
+    {
+        $index = new Index("skiplist", ['custom_field'], 3);
+        $this->assertIsArray($index->getFields());
+
+        // Already existent index
+        $collection = $this->getConnectionObject()->getDatabase()->createCollection('index_coll');
+        $index = $collection->getIndexes()->first();
+        $this->assertIsArray($index->getFields());
+        $this->assertEquals("_key", $index->getFields()[0]);
+    }
 }

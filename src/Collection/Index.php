@@ -275,6 +275,7 @@ class Index
             }
         }
 
+        $index->isNew = false;
         $index->setCollection($collection);
         return $index;
     }
