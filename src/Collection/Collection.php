@@ -339,6 +339,39 @@ class Collection implements \JsonSerializable
     }
 
     /**
+     * Checks if the collection is a system collection
+     *
+     * @return bool True if is a system collection. False otherwise.
+     */
+    public function isSystem(): bool
+    {
+        return $this->attributes['isSystem'];
+    }
+
+    /**
+     * Returns true if is a new object
+     *
+     * @return bool
+     */
+    public function isNew(): bool
+    {
+        return $this->isNew;
+    }
+
+    /**
+     * Return an array representation of collection
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        $attributes = $this->getAttributes();
+        $attributes['type'] = $this->getType();
+        $attributes['status'] = $this->getStatusDescription();
+        return $attributes;
+    }
+
+    /**
      * Return the checksum of collection metadata
      *
      * @return string
@@ -418,36 +451,62 @@ class Collection implements \JsonSerializable
     }
 
     /**
-     * Checks if the collection is a system collection
-     *
-     * @return bool True if is a system collection. False otherwise.
-     */
-    public function isSystem(): bool
-    {
-        return $this->attributes['isSystem'];
-    }
-
-    /**
-     * Returns true if is a new object
+     * Create a index for collection
+     * @param Index $index
      *
      * @return bool
+     * @throws DatabaseException|GuzzleException
      */
-    public function isNew(): bool
+    public function addIndex(Index $index): bool
     {
-        return $this->isNew;
+        try {
+            // If the collection is a new one,
+            // we cannot add indexes on server.
+            if ($this->isNew()) {
+                return false;
+            }
+
+            $uri = Api::addQuery(Api::INDEX, ['collection' => $this->getName()]);
+            $response = $this->connection->post($uri, [
+                'type' => $index->getType(),
+                'fields' => $index->getFields(),
+                'minLength' => $index->getMinLength()
+            ]);
+
+            $data = json_decode((string)$response->getBody(), true);
+            return true;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
-     * Return an array representation of collection
+     * Drops a index of collection
+     * @param Index $index
      *
-     * @return array
+     * @return bool
+     * @throws DatabaseException|GuzzleException
      */
-    public function toArray(): array
+    public function dropIndex(Index $index): bool
     {
-        $attributes = $this->getAttributes();
-        $attributes['type'] = $this->getType();
-        $attributes['status'] = $this->getStatusDescription();
-        return $attributes;
+        try {
+            // If the collection is a new one,
+            // we cannot drop indexes on server.
+            if ($this->isNew()) {
+                return false;
+            }
+
+            $uri = Api::addUriParam(Api::INDEX, $index->getId());
+            $response = $this->connection->delete($uri);
+            $data = json_decode((string)$response->getBody(), true);
+            return !$data['error'];
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**

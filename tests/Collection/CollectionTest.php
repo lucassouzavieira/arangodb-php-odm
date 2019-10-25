@@ -148,6 +148,44 @@ class CollectionTest extends TestCase
         $this->assertTrue($collection->drop());
     }
 
+    public function testAddIndex()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertTrue($collection->save());
+        $this->assertCount(1, $collection->getIndexes());
+
+        $index = new Index('fulltext', ['complicated'], 3);
+        $this->assertTrue($collection->addIndex($index));
+
+        $this->assertCount(2, $collection->getIndexes());
+        $this->assertEquals('fulltext', $collection->getIndexes()->last()->getType());
+    }
+
+    public function testDropIndex()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertTrue($collection->save());
+        $this->assertCount(1, $collection->getIndexes());
+
+        $index = new Index('fulltext', ['complicated'], 3);
+        $this->assertTrue($collection->addIndex($index));
+
+        $list = $collection->getIndexes();
+        $this->assertCount(2, $collection->getIndexes());
+        $this->assertEquals('fulltext', $list->last()->getType());
+
+        // Drop
+        $fulltext = $list->last();
+        $this->assertTrue($collection->dropIndex($fulltext));
+
+        // Must have only 'primary' index
+        $this->assertCount(1, $collection->getIndexes());
+    }
+
     public function testGetIndexes()
     {
         $db = new Database($this->getConnectionObject());

@@ -79,6 +79,13 @@ class Index
     protected $isNew;
 
     /**
+     * If false, the deduplication of array values is turned off
+     *
+     * @var bool
+     */
+    protected $deduplicate;
+
+    /**
      * Valid indexes types
      *
      * @var array

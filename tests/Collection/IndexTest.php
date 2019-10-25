@@ -80,7 +80,7 @@ class IndexTest extends TestCase
         $index = $collection->getIndexes()->first();
         $this->assertFalse($index->isNew());
     }
-    
+
     public function testGetFields()
     {
         $index = new Index("skiplist", ['custom_field'], 3);
