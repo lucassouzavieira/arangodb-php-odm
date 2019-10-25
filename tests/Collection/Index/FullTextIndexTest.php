@@ -34,6 +34,12 @@ class FullTextIndexTest extends TestCase
         $this->assertEquals(3, $index->getMinLength());
     }
 
+    public function testToArray()
+    {
+        $index = new FullTextIndex(['my_text_attr'], 3);
+        $this->assertArrayHasKey('minLength', $index->toArray());
+    }
+
     public function testGetCreateData()
     {
         $index = new FullTextIndex(['my_text_attr']);

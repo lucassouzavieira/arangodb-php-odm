@@ -63,4 +63,16 @@ final class FullTextIndex extends Index
 
         return $data;
     }
+
+    /**
+     * Returns a array representation of index
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        $values = parent::toArray();
+        $values['minLength'] = $this->getMinLength();
+        return $values;
+    }
 }

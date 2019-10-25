@@ -27,7 +27,7 @@ final class GeoSpatialIndex extends Index
     /**
      * GeoSpatialIndex constructor.
      *
-     * @param array $fields
+     * @param array $fields An array of attribute names.
      * @param bool $geoJson
      *
      * @throws InvalidParameterException
@@ -58,5 +58,17 @@ final class GeoSpatialIndex extends Index
             'geoJson' => $this->getGeoJson(),
             'fields' => $this->getFields()
         ];
+    }
+
+    /**
+     * Returns a array representation of index
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        $values = parent::toArray();
+        $values['geoJson'] = $this->getGeoJson();
+        return $values;
     }
 }
