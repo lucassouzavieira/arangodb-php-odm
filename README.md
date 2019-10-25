@@ -4,6 +4,7 @@
 ### A new PHP driver for ArangoDB
 
 #### Build Status
+- 3.4 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=v3.4)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
 - 3.5 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=v3.5+)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)  
 - develop [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=develop)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)  
 - master [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=master)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)  
