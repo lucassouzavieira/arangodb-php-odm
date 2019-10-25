@@ -367,7 +367,7 @@ class Collection implements \JsonSerializable
      * Return all indexes of collection
      *
      * @return ArrayList
-     * @throws DatabaseException|GuzzleException
+     * @throws DatabaseException|GuzzleException|InvalidParameterException
      */
     public function getIndexes(): ArrayList
     {
@@ -379,7 +379,12 @@ class Collection implements \JsonSerializable
             $uri = Api::addQuery(Api::INDEX, ['collection' => $this->getName()]);
             $response = $this->connection->get($uri);
             $data = json_decode((string)$response->getBody(), true);
-            return new ArrayList($data['indexes']);
+            $indexes = new ArrayList();
+            foreach ($data['indexes'] as $index) {
+                $indexes->push(Index::make($index, $this));
+            }
+
+            return $indexes;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
             $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);

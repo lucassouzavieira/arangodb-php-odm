@@ -5,13 +5,13 @@ namespace Unit\Collection;
 
 use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
+use ArangoDB\Collection\Index;
 use ArangoDB\Database\Database;
 use ArangoDB\Document\Document;
 use ArangoDB\Collection\Collection;
 use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\Cursor\CollectionCursor;
 use ArangoDB\Exceptions\DatabaseException;
-use ArangoDB\Cursor\Contracts\CursorInterface;
 
 class CollectionTest extends TestCase
 {
@@ -159,6 +159,7 @@ class CollectionTest extends TestCase
 
         // Check if collection index is created.
         $this->assertCount(1, $collection->getIndexes());
+        $this->assertInstanceOf(Index::class, $collection->getIndexes()->first());
     }
 
     public function testGetIndexesThrowDatabaseException()

@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace ArangoDB\Collection;
 
-use ArangoDB\Entity\EntityInterface;
+use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
  * Class Index
@@ -12,7 +12,7 @@ use ArangoDB\Entity\EntityInterface;
  * @package ArangoDB\Collection
  * @author Lucas S. Vieira
  */
-class Index implements EntityInterface
+class Index
 {
     /**
      * Index Id
@@ -77,6 +77,57 @@ class Index implements EntityInterface
      * @var bool
      */
     protected $isNew;
+
+    /**
+     * Valid indexes types
+     *
+     * @var array
+     */
+    protected static $indexTypes = [
+        'fulltext', 'general', 'geo', 'hash', 'persistent', 'skiplist', 'ttl', 'primary'
+    ];
+
+    /**
+     * Index constructor.
+     *
+     * @param string $type The index type. Must be one of following values: 'fulltext', 'general', 'geo', 'hash', 'persistent', 'skiplist' or 'ttl'
+     * @param array $fields An array of attribute names. Normally with just one attribute.
+     *
+     * @param int $minLength Minimum character length to index. Will default to a server-defined value if 0 is set.
+     *
+     * @throws InvalidParameterException
+     */
+    public function __construct(string $type, array $fields, int $minLength = 0)
+    {
+        if (!in_array($type, self::$indexTypes)) {
+            throw new InvalidParameterException("type", $type);
+        }
+
+        foreach ($fields as $key => $field) {
+            if (!is_string($field)) {
+                throw new InvalidParameterException("fields[$key]", $field);
+            }
+        }
+
+        $this->type = $type;
+        $this->fields = $fields;
+        $this->minLength = $minLength;
+
+        // Default values;
+        $this->name = $this->id = '';
+        $this->unique = $this->sparse = false;
+        $this->isNew = true;
+    }
+
+    /**
+     * String representation of index
+     *
+     * @return mixed
+     */
+    public function __toString()
+    {
+        return print_r($this->toArray(), true);
+    }
 
     /**
      * @return bool True if is a new object. False otherwise.
@@ -158,23 +209,23 @@ class Index implements EntityInterface
     }
 
     /**
-     * Saves the index on server, if possible
-     * @return bool true if operation was successful, false otherwise
-     * @see EntityInterface::save()
+     * Returns the collection where index belong to
+     *
+     * @return Collection|null A collection object or null if the index was not set to an collection yet
      */
-    public function save(): bool
+    public function getCollection()
     {
-        return false;
+        return $this->collection;
     }
 
     /**
-     * Removes a entity on server, if possible
+     * Set the collection where the index belongs to
      *
-     * @return bool true if operation was successful, false otherwise
+     * @param Collection $collection
      */
-    public function delete(): bool
+    public function setCollection(Collection $collection): void
     {
-        return false;
+        $this->collection = $collection;
     }
 
     /**
@@ -201,5 +252,30 @@ class Index implements EntityInterface
     public function jsonSerialize()
     {
         return $this->toArray();
+    }
+
+    /**
+     * Static creation of an Index object
+     *
+     * @param array $attributes
+     * @param Collection $collection
+     * @return Index
+     *
+     * @throws InvalidParameterException
+     */
+    public static function make(array $attributes, Collection $collection): Index
+    {
+        $minLength = isset($attributes['minLength']) ? $attributes['minLength'] : 0;
+        $index = new self($attributes['type'], $attributes['fields'], $minLength);
+        $fields = ['id', 'name', 'sparse', 'type', 'unique'];
+
+        foreach ($fields as $field) {
+            if (isset($attributes[$field])) {
+                $index->{$field} = $attributes[$field];
+            }
+        }
+
+        $index->setCollection($collection);
+        return $index;
     }
 }
