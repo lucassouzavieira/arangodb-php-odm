@@ -1,11 +1,9 @@
 <?php
 
-namespace Unit\Collection\GeneralIndex;
+namespace Unit\Collection\Index;
 
 use Unit\TestCase;
-use ArangoDB\Collection\Collection;
 use ArangoDB\Collection\Index\FullTextIndex;
-use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 class FullTextIndexTest extends TestCase
 {

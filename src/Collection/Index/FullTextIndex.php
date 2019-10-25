@@ -12,7 +12,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  * @package ArangoDB\Collection\Index
  * @author Lucas S. Vieira
  */
-class FullTextIndex extends Index
+final class FullTextIndex extends Index
 {
     /**
      * Minimum length of index
