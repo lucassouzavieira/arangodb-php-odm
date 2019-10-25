@@ -8,6 +8,7 @@ use ArangoDB\Admin\Task\Task;
 use ArangoDB\Connection\Connection;
 use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Exceptions\ServerException;
+use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
@@ -102,6 +103,43 @@ abstract class Admin
             $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
             throw $serverException;
         }
+    }
 
+    /**
+     * Retrieves the configuration of the write-ahead log.
+     * The result is a array with the following keys:
+     * 'allowOversizeEntries': whether or not operations that are bigger than a single logfile can be executed and stored
+     * 'logfileSize': the size of each write-ahead logfile
+     * 'historicLogfiles': the maximum number of historic logfiles to keep
+     * 'reserveLogfiles': the maximum number of reserve logfiles that ArangoDB allocates in the background
+     * 'syncInterval': the interval for automatic synchronization of not-yet synchronized write-ahead log data (in milliseconds)
+     * 'throttleWait': the maximum wait time that operations will wait before they get aborted if case of write-throttling (in milliseconds)
+     * 'throttleWhenPending': the number of unprocessed garbage-collection operations that, when reached, will activate write-throttling.
+     * A value of 0 means that write-throttling will not be triggered.
+     *
+     * @param Connection $connection
+     * @return array
+     *
+     * @throws ServerException|GuzzleException
+     */
+    public static function walProperties(Connection $connection): array
+    {
+        try {
+            $response = $connection->get(Api::ADMIN_WAL_PROPERTIES);
+            $data = json_decode((string)$response->getBody(), true);
+            return $data;
+        } catch (BadResponseException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $message = isset($response['errorMessage']) ? $response['errorMessage'] : "Unknown error";
+            $code = isset($response['errorNum']) ? $response['errorNum'] : $exception->getResponse()->getStatusCode();
+
+            // Not implemented on server.
+            if ($exception->getResponse()->getStatusCode() === 501) {
+                $message = "Not Implemented";
+            }
+
+            $serverException = new ServerException($message, $exception, $code);
+            throw $serverException;
+        }
     }
 }
