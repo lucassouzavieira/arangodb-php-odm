@@ -48,4 +48,20 @@ class AdminTest extends TestCase
         $this->expectException(ServerException::class);
         $tasks = Admin::tasks($this->getConnectionObject($mock));
     }
+
+    public function testFlushWal()
+    {
+        $result = Admin::flushWal($this->getConnectionObject());
+        $this->assertIsBool($result);
+    }
+
+    public function testFlushWalThrowServerException()
+    {
+        $mock = new MockHandler([
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $this->expectException(ServerException::class);
+        $tasks = Admin::flushWal($this->getConnectionObject($mock));
+    }
 }

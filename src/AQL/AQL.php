@@ -77,6 +77,5 @@ abstract class AQL
             $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
             throw $serverException;
         }
-
     }
 }

@@ -136,6 +136,5 @@ abstract class Server
             $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
             throw $serverException;
         }
-
     }
 }

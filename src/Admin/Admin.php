@@ -26,6 +26,7 @@ abstract class Admin
      *
      * @param Connection $connection
      * @return array Array with statistics information about server
+     *
      * @throws ServerException|GuzzleException
      */
     public static function statistics(Connection $connection)
@@ -47,6 +48,7 @@ abstract class Admin
      *
      * @param Connection $connection
      * @return ArrayList[Task] ArrayList with all tasks from  server
+     *
      * @throws ServerException|GuzzleException|InvalidParameterException|MissingParameterException
      */
     public static function tasks(Connection $connection): ArrayList
@@ -68,5 +70,38 @@ abstract class Admin
             $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
             throw $serverException;
         }
+    }
+
+    /**
+     * Flushes the write-ahead log. By flushing the currently active write-ahead
+     * logfile, the data in it can be transferred to collection journals and
+     * datafiles. This is useful to ensure that all data for a collection is
+     * present in the collection journals and datafiles, for example, when dumping
+     * the data of a collection.
+     *
+     * @param Connection $connection
+     * @param bool $waitForSync If true, the operation should block until the not-yet synchronized data in the write-ahead log was synchronized to disk.
+     * @param bool $waitForCollector If true, the operation should block until the data in the flushed log has been collected by the write-ahead log garbage collector.
+     * @return bool True if operation was successful. False otherwise.
+     *
+     * @throws ServerException|GuzzleException
+     */
+    public static function flushWal(Connection $connection, bool $waitForSync = true, bool $waitForCollector = true): bool
+    {
+        try {
+            $options = [
+                'waitForSync' => $waitForSync,
+                'waitForCollector' => $waitForCollector
+            ];
+
+            $connection->put(Api::ADMIN_FLUSH_WAL, $options);
+            return true;
+        } catch (ClientException $exception) {
+            // Unknown error.
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $serverException;
+        }
+
     }
 }
