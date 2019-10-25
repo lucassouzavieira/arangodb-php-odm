@@ -1,8 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace ArangoDB\Collection;
+namespace ArangoDB\Collection\Index;
 
+use ArangoDB\Collection\Collection;
+use ArangoDB\Collection\Contracts\IndexInterface;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
@@ -12,7 +14,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  * @package ArangoDB\Collection
  * @author Lucas S. Vieira
  */
-class Index
+class Index implements IndexInterface
 {
     /**
      * Index Id
@@ -77,13 +79,6 @@ class Index
      * @var bool
      */
     protected $isNew;
-
-    /**
-     * If false, the deduplication of array values is turned off
-     *
-     * @var bool
-     */
-    protected $deduplicate;
 
     /**
      * Valid indexes types

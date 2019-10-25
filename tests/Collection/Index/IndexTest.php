@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Unit\Collection;
+namespace Unit\Collection\GeneralIndex;
 
-use ArangoDB\Collection\Collection;
 use Unit\TestCase;
-use ArangoDB\Collection\Index;
+use ArangoDB\Collection\Collection;
+use ArangoDB\Collection\Index\Index;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 class IndexTest extends TestCase

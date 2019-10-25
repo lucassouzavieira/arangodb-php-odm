@@ -5,13 +5,13 @@ namespace Unit\Collection;
 
 use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
-use ArangoDB\Collection\Index;
 use ArangoDB\Database\Database;
 use ArangoDB\Document\Document;
 use ArangoDB\Collection\Collection;
 use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\Cursor\CollectionCursor;
 use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Collection\Index\Index;
 
 class CollectionTest extends TestCase
 {

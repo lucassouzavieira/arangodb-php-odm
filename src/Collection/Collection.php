@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace ArangoDB\Collection;
 
+use ArangoDB\Collection\Index\Index;
 use ArangoDB\Http\Api;
 use ArangoDB\Database\Database;
 use ArangoDB\Connection\Connection;
@@ -13,6 +14,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Cursor\Contracts\CursorInterface;
 use ArangoDB\Cursor\Exceptions\CursorException;
+use ArangoDB\Collection\Contracts\IndexInterface;
 use ArangoDB\Validation\Collection\CollectionValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
@@ -452,12 +454,12 @@ class Collection implements \JsonSerializable
 
     /**
      * Create a index for collection
-     * @param Index $index
+     * @param IndexInterface $index
      *
      * @return bool
      * @throws DatabaseException|GuzzleException
      */
-    public function addIndex(Index $index): bool
+    public function addIndex(IndexInterface $index): bool
     {
         try {
             // If the collection is a new one,
@@ -484,12 +486,12 @@ class Collection implements \JsonSerializable
 
     /**
      * Drops a index of collection
-     * @param Index $index
+     * @param IndexInterface $index
      *
      * @return bool
      * @throws DatabaseException|GuzzleException
      */
-    public function dropIndex(Index $index): bool
+    public function dropIndex(IndexInterface $index): bool
     {
         try {
             // If the collection is a new one,
