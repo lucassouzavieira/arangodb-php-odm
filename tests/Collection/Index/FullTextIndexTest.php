@@ -13,12 +13,6 @@ class FullTextIndexTest extends TestCase
         parent::setUp();
     }
 
-    public function tearDown(): void
-    {
-        $this->getConnectionObject()->getDatabase()->dropCollection('fulltext_coll');
-        parent::tearDown();
-    }
-
     public function testConstructor()
     {
         $index = new FullTextIndex(['my_text_attr'], 3);

@@ -13,12 +13,6 @@ class GeoSpatialIndexTest extends TestCase
         parent::setUp();
     }
 
-    public function tearDown(): void
-    {
-        $this->getConnectionObject()->getDatabase()->dropCollection('geospatial_coll');
-        parent::tearDown();
-    }
-
     public function testConstructor()
     {
         $index = new GeoSpatialIndex(['my_geo_attr']);
