@@ -63,6 +63,22 @@ class AdminTest extends TestCase
         $tasks = Admin::tasks($this->getConnectionObject($mock));
     }
 
+    public function testTime()
+    {
+        $time = Admin::time($this->getConnectionObject());
+        $this->assertIsFloat($time);
+    }
+
+    public function testTimeThrowServerException()
+    {
+        $mock = new MockHandler([
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $this->expectException(ServerException::class);
+        $time = Admin::time($this->getConnectionObject($mock));
+    }
+
     public function testFlushWal()
     {
         $result = Admin::flushWal($this->getConnectionObject());

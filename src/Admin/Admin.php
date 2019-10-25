@@ -45,6 +45,28 @@ abstract class Admin
     }
 
     /**
+     * Returns the system time.
+     *
+     * @param Connection $connection
+     * @return int Unix timestamp from server
+     *
+     * @throws ServerException|GuzzleException
+     */
+    public static function time(Connection $connection): float
+    {
+        try {
+            $response = $connection->get(Api::ADMIN_TIME);
+            $data = json_decode((string)$response->getBody(), true);
+            return $data['time'];
+        } catch (ClientException $exception) {
+            // Unknown error.
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $serverException;
+        }
+    }
+
+    /**
      * Returns all tasks of server information.
      *
      * @param Connection $connection
