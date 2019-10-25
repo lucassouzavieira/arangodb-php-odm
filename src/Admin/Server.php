@@ -23,6 +23,7 @@ abstract class Server
      *
      * @param Connection $connection
      * @return string
+     *
      * @throws ServerException|GuzzleException
      */
     public static function version(Connection $connection): string
@@ -45,6 +46,7 @@ abstract class Server
      *
      * @param Connection $connection
      * @return string
+     *
      * @throws GuzzleException|ServerException
      */
     public static function engine(Connection $connection): string
@@ -71,6 +73,7 @@ abstract class Server
      *
      * @param Connection $connection
      * @return string
+     *
      * @throws GuzzleException|ServerException
      */
     public static function role(Connection $connection): string
@@ -93,6 +96,7 @@ abstract class Server
      *
      * @param Connection $connection
      * @return boolean True if server is available. False if not.
+     *
      * @throws ServerException|GuzzleException
      */
     public static function isAvailable(Connection $connection): bool
@@ -111,5 +115,27 @@ abstract class Server
             $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
             throw $serverException;
         }
+    }
+
+    /**
+     * Returns the server's current log level settings.
+     *
+     * @param Connection $connection
+     * @return array An array with the log topics being the object keys, and the log levels being the object values.
+     *
+     * @throws ServerException|GuzzleException
+     */
+    public static function logLevel(Connection $connection): array
+    {
+        try {
+            $response = $connection->get(sprintf(Api::ADMIN_LOG_LEVEL));
+            $data = json_decode((string)$response->getBody(), true);
+            return $data;
+        } catch (BadResponseException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $serverException;
+        }
+
     }
 }

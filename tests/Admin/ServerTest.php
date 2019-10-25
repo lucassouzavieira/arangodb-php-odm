@@ -89,4 +89,20 @@ class ServerTest extends TestCase
         $this->expectException(ServerException::class);
         $role = Server::role($this->getConnectionObject($mock));
     }
+
+    public function testLogLevel()
+    {
+        $logConfiguration = Server::logLevel($this->getConnectionObject());
+        $this->assertIsArray($logConfiguration);
+    }
+
+    public function testLogLevelThrowServerException()
+    {
+        $mock = new MockHandler([
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $this->expectException(ServerException::class);
+        $logConfiguration = Server::logLevel($this->getConnectionObject($mock));
+    }
 }

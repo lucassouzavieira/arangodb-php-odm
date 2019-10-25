@@ -69,6 +69,7 @@ abstract class Api
     const ADMIN_SERVER_AVAILABILITY = "/_admin/server/availability";
     const ADMIN_TIME = "/_admin/time";
     const ADMIN_LOG = "/_admin/log";
+    const ADMIN_LOG_LEVEL = "/_admin/log/level";
     const ADMIN_ROUTING_RELOAD = "/_admin/routing/reload";
     const ADMIN_STATISTICS = "/_admin/statistics";
     const ADMIN_STATISTICS_DESCRIPTION = "/_admin/statistics-description";
