@@ -56,6 +56,13 @@ interface IndexInterface extends \JsonSerializable
     public function getType(): string;
 
     /**
+     * Return data for create index on server
+     *
+     * @return array
+     */
+    public function getCreateData(): array;
+
+    /**
      * Returns the collection where the index belongs to
      *
      * @return Collection|null A collection object or null if the index was not set to an collection yet

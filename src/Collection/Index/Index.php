@@ -59,13 +59,6 @@ class Index implements IndexInterface
     protected $fields;
 
     /**
-     * Minimum length of index
-     *
-     * @var int
-     */
-    protected $minLength;
-
-    /**
      * Collection where the index belongs to
      *
      * @var Collection
@@ -95,11 +88,9 @@ class Index implements IndexInterface
      * @param string $type The index type. Must be one of following values: 'fulltext', 'general', 'geo', 'hash', 'persistent', 'skiplist' or 'ttl'
      * @param array $fields An array of attribute names. Normally with just one attribute.
      *
-     * @param int $minLength Minimum character length to index. Will default to a server-defined value if 0 is set.
-     *
      * @throws InvalidParameterException
      */
-    public function __construct(string $type, array $fields, int $minLength = 0)
+    public function __construct(string $type, array $fields)
     {
         if (!in_array($type, self::$indexTypes)) {
             throw new InvalidParameterException("type", $type);
@@ -113,7 +104,6 @@ class Index implements IndexInterface
 
         $this->type = $type;
         $this->fields = $fields;
-        $this->minLength = $minLength;
 
         // Default values;
         $this->name = $this->id = '';
@@ -201,16 +191,6 @@ class Index implements IndexInterface
     }
 
     /**
-     * Return index minimum length
-     *
-     * @return int
-     */
-    public function getMinLength(): int
-    {
-        return $this->minLength;
-    }
-
-    /**
      * Returns the collection where index belong to
      *
      * @return Collection|null A collection object or null if the index was not set to an collection yet
@@ -244,8 +224,17 @@ class Index implements IndexInterface
             'type' => $this->getType(),
             'unique' => $this->isUnique(),
             'fields' => $this->getFields(),
-            'minLength' => $this->getMinLength()
         ];
+    }
+
+    /**
+     * Return data for create index on server
+     *
+     * @return array
+     */
+    public function getCreateData(): array
+    {
+        return $this->toArray();
     }
 
     /**

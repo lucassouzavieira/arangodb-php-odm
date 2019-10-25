@@ -469,11 +469,7 @@ class Collection implements \JsonSerializable
             }
 
             $uri = Api::addQuery(Api::INDEX, ['collection' => $this->getName()]);
-            $response = $this->connection->post($uri, [
-                'type' => $index->getType(),
-                'fields' => $index->getFields(),
-                'minLength' => $index->getMinLength()
-            ]);
+            $response = $this->connection->post($uri, $index->getCreateData());
 
             $data = json_decode((string)$response->getBody(), true);
             return true;
