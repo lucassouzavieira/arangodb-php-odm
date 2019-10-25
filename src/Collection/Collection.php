@@ -19,7 +19,7 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 /**
  * Represents an ArangoDB collection
  *
- * @package ArangoDB\Auth
+ * @package ArangoDB\Collection
  * @author Lucas S. Vieira
  */
 class Collection implements \JsonSerializable
