@@ -57,6 +57,13 @@ class Index implements EntityInterface
     protected $fields;
 
     /**
+     * Minimum length of index
+     *
+     * @var int
+     */
+    protected $minLength;
+
+    /**
      * Collection where the index belongs to
      *
      * @var Collection
@@ -81,6 +88,8 @@ class Index implements EntityInterface
     }
 
     /**
+     * If index has 'unique' constraint
+     *
      * @return bool
      */
     public function isUnique(): bool
@@ -89,6 +98,8 @@ class Index implements EntityInterface
     }
 
     /**
+     * If the index is sparse
+     *
      * @return bool
      */
     public function isSparse(): bool
@@ -97,6 +108,8 @@ class Index implements EntityInterface
     }
 
     /**
+     * Index Id
+     *
      * @return string
      */
     public function getId(): string
@@ -105,6 +118,8 @@ class Index implements EntityInterface
     }
 
     /**
+     * Returns index name
+     *
      * @return string
      */
     public function getName(): string
@@ -113,6 +128,8 @@ class Index implements EntityInterface
     }
 
     /**
+     * Returns index type
+     *
      * @return string
      */
     public function getType(): string
@@ -121,6 +138,8 @@ class Index implements EntityInterface
     }
 
     /**
+     * Returns index fields
+     *
      * @return array
      */
     public function getFields(): array
@@ -128,6 +147,15 @@ class Index implements EntityInterface
         return $this->fields;
     }
 
+    /**
+     * Return index minimum length
+     *
+     * @return int
+     */
+    public function getMinLength(): int
+    {
+        return $this->minLength;
+    }
 
     /**
      * Saves the index on server, if possible
@@ -163,7 +191,7 @@ class Index implements EntityInterface
             'type' => $this->getType(),
             'unique' => $this->isUnique(),
             'fields' => $this->getFields(),
-            'minLength' => $this->minLength()
+            'minLength' => $this->getMinLength()
         ];
     }
 
