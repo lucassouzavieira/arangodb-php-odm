@@ -187,4 +187,20 @@ class Connection extends Authenticable
     {
         return $this->restClient->delete($endpoint, $body, array_merge($headers, $this->getDefaultHeaders(), $this->getAuthorizationHeader()));
     }
+
+    /**
+     * Makes a custom request
+     *
+     * @param string $method
+     * @param string $url
+     * @param string $body
+     * @param array $headers
+     *
+     * @return ResponseInterface
+     * @throws GuzzleException
+     */
+    public function customHttpRequest(string $method, string $url, string $body = "", array $headers = []): ResponseInterface
+    {
+        return $this->restClient->customHttpRequest($method, $url, $body, array_merge($headers, $this->getDefaultHeaders(), $this->getAuthorizationHeader()));
+    }
 }
