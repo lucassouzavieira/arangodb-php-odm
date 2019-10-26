@@ -16,6 +16,9 @@
         <testsuite name="Auth">
             <directory suffix="Test.php">tests/Auth</directory>
         </testsuite>
+        <testsuite name="Batch">
+            <directory suffix="Test.php">tests/Batch</directory>
+        </testsuite>
         <testsuite name="Cursor">
             <directory suffix="Test.php">tests/Cursor</directory>
         </testsuite>
