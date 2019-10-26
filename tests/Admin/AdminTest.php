@@ -136,4 +136,37 @@ class AdminTest extends TestCase
         $this->expectException(ServerException::class);
         $tasks = Admin::walProperties($this->getConnectionObject($mock));
     }
+
+    public function testWalTransactions()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode([
+                'runningTransactions' => 0,
+                'minLastCollected' => null,
+                'minLastSealed' => null
+            ]))
+        ]);
+
+        $result = Admin::walTransactions($this->getConnectionObject($mock));
+        $this->assertIsArray($result);
+        $this->assertArrayHasKey('runningTransactions', $result);
+        $this->assertArrayHasKey('minLastCollected', $result);
+        $this->assertArrayHasKey('minLastSealed', $result);
+    }
+
+    public function testWalTransactionsThrowServerException()
+    {
+        $mock = new MockHandler([
+            new Response(405, [], json_encode($this->mockServerError()))
+        ]);
+
+        $this->expectException(ServerException::class);
+        $tasks = Admin::walTransactions($this->getConnectionObject($mock));
+    }
+
+    public function testWalTransactionsWhenNotImplemented()
+    {
+        $this->expectException(ServerException::class);
+        $tasks = Admin::walProperties($this->getConnectionObject());
+    }
 }
