@@ -19,6 +19,13 @@ use ArangoDB\Cursor\Exceptions\CursorException;
 class Cursor extends Base
 {
     /**
+     * URI to manage de cursor
+     *
+     * @var string
+     */
+    protected $uri = Api::CURSOR;
+
+    /**
      * Statement to query
      *
      * @var StatementInterface
@@ -40,9 +47,9 @@ class Cursor extends Base
     /**
      * Cursor constructor.
      *
-     * @param Connection $connection
-     * @param StatementInterface $statement
-     * @param array $options
+     * @param Connection $connection Connection object to use
+     * @param StatementInterface $statement Statement to perform on server
+     * @param array $options Options for cursor
      *
      * @throws CursorException|GuzzleException
      */
@@ -135,7 +142,7 @@ class Cursor extends Base
     {
         try {
             if (!is_null($this->id)) {
-                $response = $this->connection->delete(sprintf(Api::CURSOR . "/%s", $this->getId()));
+                $response = $this->connection->delete(sprintf($this->uri . "/%s", $this->getId()));
                 $data = json_decode((string)$response->getBody(), true);
                 $this->id = null;
                 $this->hasMore = false;
@@ -158,7 +165,7 @@ class Cursor extends Base
     protected function create(): void
     {
         try {
-            $response = $this->connection->post(sprintf(Api::CURSOR), $this->getBody());
+            $response = $this->connection->post(sprintf($this->uri), $this->getBody());
             $data = json_decode((string)$response->getBody(), true);
             $this->fetches++;
             $this->hasMore = $data[self::HAS_MORE];
@@ -187,7 +194,7 @@ class Cursor extends Base
     {
         try {
             if (!is_null($this->id)) {
-                $response = $this->connection->put(sprintf(Api::CURSOR . "/%s", $this->getId()));
+                $response = $this->connection->put(sprintf($this->uri . "/%s", $this->getId()));
                 $data = json_decode((string)$response->getBody(), true);
                 $this->fetches++;
                 $this->extra = $data[self::EXTRA];

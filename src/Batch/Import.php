@@ -13,7 +13,6 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 /**
- * Class Import
  * Allow import multiple documents to a collection
  *
  * @package ArangoDB\Batch

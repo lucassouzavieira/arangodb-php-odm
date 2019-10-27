@@ -6,7 +6,8 @@
         "nosql",
         "database",
         "odm",
-        "graphs"
+        "graphs",
+        "arangodb"
     ],
     "homepage": "https://github.com/lucassouzavieira/arangodb-php-odm",
     "license": "MIT",
@@ -18,7 +19,7 @@
         }
     ],
     "require": {
-        "php": ">=7.1.0",
+        "php": ">=7.2.0",
         "ext-json": "*",
         "guzzlehttp/psr7": "^1.5",
         "guzzlehttp/guzzle": "~6.0"
