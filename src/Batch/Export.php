@@ -47,6 +47,6 @@ abstract class Export
      */
     public static function collection(Connection $connection, string $collection, array $options = []): CursorInterface
     {
-        return new ExportCursor($connection, $collection, $options);
+        return new ExportCursor($connection, $collection, array_merge(self::$defaultExportOptions, $options));
     }
 }
