@@ -127,4 +127,21 @@ class RestClient
         $request = new Request('DELETE', $url, $headers, json_encode($data));
         return $this->httpClient->send($request);
     }
+
+    /**
+     * Makes a custom request
+     *
+     * @param string $method
+     * @param string $url
+     * @param string $body
+     * @param array $headers
+     *
+     * @return ResponseInterface
+     * @throws GuzzleException
+     */
+    public function customHttpRequest(string $method, string $url, string $body = "", array $headers = []): ResponseInterface
+    {
+        $request = new Request($method, $url, $headers, $body);
+        return $this->httpClient->send($request);
+    }
 }

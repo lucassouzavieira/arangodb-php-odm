@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace ArangoDB\AQL\Contracts;
 
 use ArangoDB\Cursor\Base;
+use ArangoDB\Cursor\Contracts\CursorInterface;
 
 /**
  * Interface QueryInterface
@@ -26,7 +27,6 @@ interface QueryInterface
      *
      * @param StatementInterface $statement
      * @return Base
-     * @todo check review. Must be a cursor class
      */
-    public function execute(StatementInterface $statement): Base;
+    public function execute(StatementInterface $statement): CursorInterface;
 }

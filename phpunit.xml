@@ -16,17 +16,23 @@
         <testsuite name="Auth">
             <directory suffix="Test.php">tests/Auth</directory>
         </testsuite>
+        <testsuite name="Batch">
+            <directory suffix="Test.php">tests/Batch</directory>
+        </testsuite>
         <testsuite name="Cursor">
             <directory suffix="Test.php">tests/Cursor</directory>
         </testsuite>
         <testsuite name="Collection">
             <directory suffix="Test.php">tests/Collection</directory>
         </testsuite>
+        <testsuite name="Connection">
+            <directory suffix="Test.php">tests/Connection</directory>
+        </testsuite>
         <testsuite name="Document">
             <directory suffix="Test.php">tests/Document</directory>
         </testsuite>
-        <testsuite name="Connection">
-            <directory suffix="Test.php">tests/Connection</directory>
+        <testsuite name="Foxx">
+            <directory suffix="Test.php">tests/Foxx</directory>
         </testsuite>
         <testsuite name="Database">
             <directory suffix="Test.php">tests/Database</directory>

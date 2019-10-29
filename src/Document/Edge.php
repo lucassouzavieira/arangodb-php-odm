@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 
 namespace ArangoDB\Document;
 
@@ -11,4 +11,17 @@ namespace ArangoDB\Document;
  */
 class Edge extends Document
 {
+    /**
+     * The edges 'to' attribute
+     *
+     * @var string
+     */
+    protected $to;
+
+    /**
+     * The edges 'from' attribute
+     *
+     * @var string
+     */
+    protected $from;
 }

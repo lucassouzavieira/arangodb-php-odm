@@ -71,12 +71,13 @@ abstract class Api
     const ADMIN_LOG = "/_admin/log";
     const ADMIN_FLUSH_WAL = "/_admin/wal/flush";
     const ADMIN_WAL_PROPERTIES = "_admin/wal/properties";
+    const ADMIN_WAL_TRANSACTIONS = "_admin/wal/transactions";
     const ADMIN_LOG_LEVEL = "/_admin/log/level";
     const ADMIN_ROUTING_RELOAD = "/_admin/routing/reload";
     const ADMIN_STATISTICS = "/_admin/statistics";
     const ADMIN_STATISTICS_DESCRIPTION = "/_admin/statistics-description";
-    const FOXX_INSTALL = "/_admin/foxx/install";
-    const FOXX_UNINSTALL = "/_admin/foxx/uninstall";
+    const FOXX = "/_api/foxx";
+    const FOXX_SERVICE = "/_api/foxx/service";
 
     const DB = "/_db/";
     const AUTH_BASE = "/_open/auth";

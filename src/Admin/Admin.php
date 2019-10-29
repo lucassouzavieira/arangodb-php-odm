@@ -8,9 +8,9 @@ use ArangoDB\Admin\Task\Task;
 use ArangoDB\Connection\Connection;
 use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Exceptions\ServerException;
-use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\BadResponseException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 
@@ -48,7 +48,7 @@ abstract class Admin
      * Returns the system time.
      *
      * @param Connection $connection
-     * @return int Unix timestamp from server
+     * @return float Unix timestamp from server
      *
      * @throws ServerException|GuzzleException
      */
@@ -160,6 +160,32 @@ abstract class Admin
                 $message = "Not Implemented";
             }
 
+            $serverException = new ServerException($message, $exception, $code);
+            throw $serverException;
+        }
+    }
+
+    /**
+     * Returns information about the currently running transactions.
+     *
+     * @param Connection $connection
+     * @return array An array with the following parameters:
+     *  'runningTransactions': number of currently running transactions
+     *  'minLastCollected': minimum id of the last collected logfile (at the start of each running transaction). This is null if no transaction is running.
+     *  'minLastSealed': minimum id of the last sealed logfile (at the start of each running transaction). This is null if no transaction is running.
+     *
+     * @throws ServerException|GuzzleException
+     */
+    public static function walTransactions(Connection $connection): array
+    {
+        try {
+            $response = $connection->get(Api::ADMIN_WAL_TRANSACTIONS);
+            $data = json_decode((string)$response->getBody(), true);
+            return $data;
+        } catch (BadResponseException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $message = isset($response['errorMessage']) ? $response['errorMessage'] : "Unknown error";
+            $code = isset($response['errorNum']) ? $response['errorNum'] : $exception->getResponse()->getStatusCode();
             $serverException = new ServerException($message, $exception, $code);
             throw $serverException;
         }

@@ -14,7 +14,6 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 /**
- * Class Task
  * Represents an user defined task on server
  *
  * @package ArangoDB\Admin\Task

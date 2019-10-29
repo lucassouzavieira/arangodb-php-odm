@@ -1,0 +1,21 @@
+{"year": 1930, "host": "Uruguay", "winners": "Uruguay" }
+{"year": 1934, "host": "Italy", "winners": "Italy"}
+{"year": 1938, "host": "France", "winners": "Italy"}
+{"year": 1950, "host": "Brazil", "winners": "Uruguay"}
+{"year": 1954, "host": "Switzerland", "winners": "Germany"}
+{"year": 1958, "host": "Sweden", "winners": "Brazil"}
+{"year": 1962, "host": "Chile", "winners": "Brazil"}
+{"year": 1966, "host": "England", "winners": "England"}
+{"year": 1970, "host": "Mexico", "winners": "Brazil"}
+{"year": 1974, "host": "Germany", "winners": "Germany"}
+{"year": 1978, "host": "Argentina", "winners": "Argentina"}
+{"year": 1982, "host": "Spain", "winners": "Italy"}
+{"year": 1986, "host": "Mexico", "winners": "Argentina"}
+{"year": 1990, "host": "Italy", "winners": "Germany"}
+{"year": 1994, "host": "United States", "winners": "Brazil"}
+{"year": 1998, "host": "France", "winners": "France"}
+{"year": 2002, "host": ["Japan", "South Korea"], "winners": "Brazil"}
+{"year": 2006, "host": "Germany", "winners": "Italy"}
+{"year": 2010, "host": "South Africa", "winners": "Spain"}
+{"year": 2014, "host": "Brazil", "winners": "Germany"}
+{"year": 2018, "host": "Russia", "winners": "France"}
