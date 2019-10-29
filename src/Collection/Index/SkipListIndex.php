@@ -6,7 +6,6 @@ namespace ArangoDB\Collection\Index;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Class SkipListIndex
  * Represents a skip-list index on a collection
  *
  * @package ArangoDB\Collection\Index
