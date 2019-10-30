@@ -88,9 +88,10 @@ class Index implements IndexInterface
      * @param string $type The index type. Must be one of following values: 'fulltext', 'general', 'geo', 'hash', 'persistent', 'skiplist' or 'ttl'
      * @param array $fields An array of attribute names. Normally with just one attribute.
      *
+     * @param array $attributes
      * @throws InvalidParameterException
      */
-    public function __construct(string $type, array $fields)
+    public function __construct(string $type, array $fields, array $attributes = [])
     {
         if (!in_array($type, self::$indexTypes)) {
             throw new InvalidParameterException("type", $type);
@@ -106,9 +107,11 @@ class Index implements IndexInterface
         $this->fields = $fields;
 
         // Default values;
-        $this->name = $this->id = '';
-        $this->unique = $this->sparse = false;
-        $this->isNew = true;
+        $this->id = isset($attributes['id']) ? $attributes['id'] : '';
+        $this->name = isset($attributes['name']) ? $attributes['name'] : '';
+        $this->unique = isset($attributes['unique']) ? $attributes['unique'] : false;
+        $this->sparse = isset($attributes['sparse']) ? $attributes['sparse'] : false;
+        $this->isNew = !isset($attributes['id']);
     }
 
     /**
@@ -257,7 +260,7 @@ class Index implements IndexInterface
     public static function make(array $attributes, Collection $collection): Index
     {
         $minLength = isset($attributes['minLength']) ? $attributes['minLength'] : 0;
-        $index = new self($attributes['type'], $attributes['fields'], $minLength);
+        $index = new self($attributes['type'], $attributes['fields'], $attributes);
         $fields = ['id', 'name', 'sparse', 'type', 'unique'];
 
         foreach ($fields as $field) {

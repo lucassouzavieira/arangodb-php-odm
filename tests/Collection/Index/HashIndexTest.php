@@ -24,7 +24,7 @@ class HashIndexTest extends TestCase
 
     public function testIsDeduplicate()
     {
-        $index = new HashIndex(['my_hash_attr'], false, false, false);
+        $index = new HashIndex(['my_hash_attr'], ['unique' => false, 'sparse' => false, 'deduplicate' => false]);
         $this->assertFalse($index->isUnique());
         $this->assertFalse($index->isSparse());
         $this->assertFalse($index->isDeduplicate());
@@ -32,7 +32,7 @@ class HashIndexTest extends TestCase
 
     public function testToArray()
     {
-        $index = new HashIndex(['my_hash_attr'], false);
+        $index = new HashIndex(['my_hash_attr']);
         $this->assertArrayHasKey('deduplicate', $index->toArray());
     }
 

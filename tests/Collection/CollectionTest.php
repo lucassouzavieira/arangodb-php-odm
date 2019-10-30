@@ -404,7 +404,7 @@ class CollectionTest extends TestCase
         $this->assertTrue($collection->save());
         $this->assertCount(1, $collection->getIndexes());
 
-        $index = new Index('fulltext', ['complicated'], 3);
+        $index = new Index('fulltext', ['complicated']);
         $this->assertTrue($collection->addIndex($index));
 
         $list = $collection->getIndexes();

@@ -11,17 +11,18 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  * @package ArangoDB\Collection\Index
  * @author Lucas S. Vieira
  */
-class EdgeIndex extends PrimaryIndex
+final class EdgeIndex extends PrimaryIndex
 {
     /**
      * EdgeIndex constructor.
      *
      * @param array $fields
+     * @param array $attributes
      * @throws InvalidParameterException
      */
-    public function __construct(array $fields)
+    public function __construct(array $fields, array $attributes = [])
     {
-        parent::__construct($fields);
+        parent::__construct($fields, $attributes);
         $this->type = "edge";
     }
 }

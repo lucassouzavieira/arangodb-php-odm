@@ -29,13 +29,14 @@ final class GeoSpatialIndex extends Index
      *
      * @param array $fields An array of attribute names.
      * @param bool $geoJson
+     * @param array $attributes
      *
      * @throws InvalidParameterException
      */
-    public function __construct(array $fields, bool $geoJson = true)
+    public function __construct(array $fields, bool $geoJson = true, array $attributes = [])
     {
         $this->geoJson = $geoJson;
-        parent::__construct("geo", $fields);
+        parent::__construct("geo", $fields, $attributes);
     }
 
     /**

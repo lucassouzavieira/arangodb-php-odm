@@ -24,7 +24,7 @@ class IndexTest extends TestCase
 
     public function testConstructor()
     {
-        $index = new Index("geo", ['location'], 3);
+        $index = new Index("geo", ['location']);
 
         $this->assertFalse($index->isSparse());
         $this->assertFalse($index->isUnique());
@@ -38,25 +38,25 @@ class IndexTest extends TestCase
     public function testConstructorThrowInvalidParameterExceptionForInvalidType()
     {
         $this->expectException(InvalidParameterException::class);
-        $index = new Index("easy", ['location'], 3);
+        $index = new Index("easy", ['location']);
     }
 
     public function testConstructorThrowInvalidParameterExceptionForInvalidKey()
     {
         $this->expectException(InvalidParameterException::class);
-        $index = new Index("fulltext", [154], 3);
+        $index = new Index("fulltext", [154]);
     }
 
     public function testToString()
     {
-        $index = new Index("skiplist", ['custom_field'], 3);
+        $index = new Index("skiplist", ['custom_field']);
         $this->assertIsString((string)$index);
     }
 
     public function testGetAndSetCollection()
     {
         $collection = $this->getConnectionObject()->getDatabase()->createCollection('index_coll');
-        $index = new Index("skiplist", ['custom_field'], 3);
+        $index = new Index("skiplist", ['custom_field']);
         $this->assertNull($index->getCollection());
 
         $index->setCollection($collection);
@@ -72,7 +72,7 @@ class IndexTest extends TestCase
 
     public function testIsNew()
     {
-        $index = new Index("skiplist", ['custom_field'], 3);
+        $index = new Index("skiplist", ['custom_field']);
         $this->assertTrue($index->isNew());
 
         // Already existent index
@@ -83,7 +83,7 @@ class IndexTest extends TestCase
 
     public function testGetFields()
     {
-        $index = new Index("skiplist", ['custom_field'], 3);
+        $index = new Index("skiplist", ['custom_field']);
         $this->assertIsArray($index->getFields());
 
         // Already existent index
@@ -95,7 +95,7 @@ class IndexTest extends TestCase
 
     public function testGetCreateData()
     {
-        $index = new Index("skiplist", ['custom_field'], 3);
+        $index = new Index("skiplist", ['custom_field']);
         $this->assertIsArray($index->getCreateData());
         $this->assertArrayHasKey("type", $index->getCreateData());
     }

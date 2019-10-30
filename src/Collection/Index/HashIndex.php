@@ -22,21 +22,29 @@ class HashIndex extends Index
     protected $deduplicate;
 
     /**
+     * Default options for hash index
+     *
+     * @var array
+     */
+    protected $defaultsOptions = [
+        'unique' => true,
+        'sparse' => true,
+        'deduplicate' => true
+    ];
+
+    /**
      * HashIndex constructor.
      *
      * @param array $fields An array of attribute names.
-     * @param bool $unique If true, then create an unique index
-     * @param bool $sparse If true, then create a sparse index
-     * @param bool $deduplicate If true, turn on the deduplication of array values
+     * @param array $attributes
      *
      * @throws InvalidParameterException
      */
-    public function __construct(array $fields, bool $unique = true, bool $sparse = true, bool $deduplicate = true)
+    public function __construct(array $fields, array $attributes = [])
     {
+        $attributes = array_merge($this->defaultsOptions, $attributes);
         parent::__construct("hash", $fields);
-        $this->unique = $unique;
-        $this->sparse = $sparse;
-        $this->deduplicate = $deduplicate;
+        $this->deduplicate = isset($attributes['deduplicate']) ? $attributes['deduplicate'] : true;
     }
 
     /**

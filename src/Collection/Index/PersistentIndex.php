@@ -6,7 +6,6 @@ namespace ArangoDB\Collection\Index;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Class PersistentIndex
  * Represents a persistent index on a collection
  *
  * @package ArangoDB\Collection\Index
@@ -15,19 +14,27 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 final class PersistentIndex extends Index
 {
     /**
+     * Default options for persistent index
+     *
+     * @var array
+     */
+    protected $defaultsOptions = [
+        'unique' => true,
+        'sparse' => true,
+    ];
+
+    /**
      * PersistentIndex constructor.
      *
      * @param array $fields
-     * @param bool $unique
-     * @param bool $sparse
+     * @param array $attributes
      *
      * @throws InvalidParameterException
      */
-    public function __construct(array $fields, bool $unique = true, bool $sparse = true)
+    public function __construct(array $fields, array $attributes = [])
     {
-        parent::__construct("persistent", $fields);
-        $this->unique = $unique;
-        $this->sparse = $sparse;
+        $attributes = array_merge($this->defaultsOptions, $attributes);
+        parent::__construct("persistent", $fields, $attributes);
     }
 
     /**

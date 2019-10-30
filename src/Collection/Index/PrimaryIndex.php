@@ -18,11 +18,12 @@ class PrimaryIndex extends Index
      * PrimaryIndex constructor.
      *
      * @param array $fields
+     * @param array $attributes
      * @throws InvalidParameterException
      */
-    public function __construct(array $fields)
+    public function __construct(array $fields, array $attributes = [])
     {
-        parent::__construct("primary", $fields);
+        parent::__construct("primary", $fields, $attributes);
     }
 
     /**

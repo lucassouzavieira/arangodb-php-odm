@@ -6,7 +6,6 @@ namespace ArangoDB\Collection\Index;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Class FullTextIndex
  * Represents a fulltext index
  *
  * @package ArangoDB\Collection\Index
@@ -26,13 +25,14 @@ final class FullTextIndex extends Index
      *
      * @param array $fields An array of attribute names. Normally with just one attribute.
      * @param int $minLength Minimum character length to index. Will default to a server-defined value if 0 is set.
+     * @param array $attributes
      *
      * @throws InvalidParameterException
      */
-    public function __construct(array $fields, int $minLength = 0)
+    public function __construct(array $fields, int $minLength = 0, array $attributes = [])
     {
         $this->minLength = $minLength;
-        parent::__construct("fulltext", $fields);
+        parent::__construct("fulltext", $fields, $attributes);
     }
 
     /**

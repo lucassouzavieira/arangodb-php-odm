@@ -12,7 +12,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  * @package ArangoDB\Collection\Index
  * @author Lucas S. Vieira
  */
-class TTLIndex extends Index
+final class TTLIndex extends Index
 {
     /**
      * Time (in seconds) after a document's creation after which the documents counts as expired
@@ -26,13 +26,14 @@ class TTLIndex extends Index
      *
      * @param array $fields An array of attribute names.
      * @param int $expireAfter Time (in seconds) to expire a document
+     * @param array $attributes
      *
      * @throws InvalidParameterException
      */
-    public function __construct(array $fields, int $expireAfter = 60)
+    public function __construct(array $fields, int $expireAfter = 60, array $attributes = [])
     {
         $this->expiresAfter = $expireAfter;
-        parent::__construct("ttl", $fields);
+        parent::__construct("ttl", $fields, $attributes);
     }
 
     /**

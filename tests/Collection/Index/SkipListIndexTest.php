@@ -24,7 +24,7 @@ class SkipListIndexTest extends TestCase
 
     public function testIsDeduplicate()
     {
-        $index = new SkipListIndex(['my_skiplist_attr'], false, false, false);
+        $index = new SkipListIndex(['my_skiplist_attr'], ['unique' => false, 'sparse' => false, 'deduplicate' => false]);
         $this->assertFalse($index->isUnique());
         $this->assertFalse($index->isSparse());
         $this->assertFalse($index->isDeduplicate());
@@ -32,7 +32,7 @@ class SkipListIndexTest extends TestCase
 
     public function testToArray()
     {
-        $index = new SkipListIndex(['my_skiplist_attr', 'another_skiplist_attr'], false);
+        $index = new SkipListIndex(['my_skiplist_attr', 'another_skiplist_attr']);
         $this->assertArrayHasKey('deduplicate', $index->toArray());
     }
 
