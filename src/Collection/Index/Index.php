@@ -79,7 +79,7 @@ class Index implements IndexInterface
      * @var array
      */
     protected static $indexTypes = [
-        'fulltext', 'general', 'geo', 'hash', 'persistent', 'skiplist', 'ttl', 'primary'
+        'fulltext', 'general', 'geo', 'hash', 'persistent', 'skiplist', 'ttl', 'primary', 'edge'
     ];
 
     /**

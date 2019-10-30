@@ -1,7 +1,10 @@
 <?php
-
+declare(strict_types=1);
 
 namespace ArangoDB\Collection\Index;
+
+use ArangoDB\Exceptions\IndexException;
+use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
  * Represents a primary index on a collection
@@ -11,4 +14,26 @@ namespace ArangoDB\Collection\Index;
  */
 class PrimaryIndex extends Index
 {
+    /**
+     * PrimaryIndex constructor.
+     *
+     * @param array $fields
+     * @throws InvalidParameterException
+     */
+    public function __construct(array $fields)
+    {
+        parent::__construct("primary", $fields);
+    }
+
+    /**
+     * This type of Index cannot be create/deleted explicitly by user.
+     * Throws an exception if an attempt of create one is made
+     *
+     * @return array
+     * @throws IndexException
+     */
+    public function getCreateData(): array
+    {
+        throw new IndexException("Cannot create an index of type $this->type explicitly");
+    }
 }
