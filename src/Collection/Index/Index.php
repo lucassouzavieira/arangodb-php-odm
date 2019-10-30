@@ -247,30 +247,4 @@ class Index implements IndexInterface
     {
         return $this->toArray();
     }
-
-    /**
-     * Static creation of an Index object
-     *
-     * @param array $attributes
-     * @param Collection $collection
-     * @return Index
-     *
-     * @throws InvalidParameterException
-     */
-    public static function make(array $attributes, Collection $collection): Index
-    {
-        $minLength = isset($attributes['minLength']) ? $attributes['minLength'] : 0;
-        $index = new self($attributes['type'], $attributes['fields'], $attributes);
-        $fields = ['id', 'name', 'sparse', 'type', 'unique'];
-
-        foreach ($fields as $field) {
-            if (isset($attributes[$field])) {
-                $index->{$field} = $attributes[$field];
-            }
-        }
-
-        $index->isNew = false;
-        $index->setCollection($collection);
-        return $index;
-    }
 }

@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace ArangoDB\Collection;
 
+use ArangoDB\Collection\Index\Factory;
 use ArangoDB\Collection\Index\Index;
+use ArangoDB\Exceptions\IndexException;
 use ArangoDB\Http\Api;
 use ArangoDB\Database\Database;
 use ArangoDB\Connection\Connection;
@@ -402,7 +404,7 @@ class Collection implements \JsonSerializable
      * Return all indexes of collection
      *
      * @return ArrayList
-     * @throws DatabaseException|GuzzleException|InvalidParameterException
+     * @throws DatabaseException|GuzzleException|InvalidParameterException|IndexException|MissingParameterException
      */
     public function getIndexes(): ArrayList
     {
@@ -416,7 +418,7 @@ class Collection implements \JsonSerializable
             $data = json_decode((string)$response->getBody(), true);
             $indexes = new ArrayList();
             foreach ($data['indexes'] as $index) {
-                $indexes->push(Index::make($index, $this));
+                $indexes->push(Factory::factory($index));
             }
 
             return $indexes;

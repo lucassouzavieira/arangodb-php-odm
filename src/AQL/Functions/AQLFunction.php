@@ -11,7 +11,6 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 
 /**
- * Class AQLFunction
  * Represents an user defined task on server
  *
  * @package ArangoDB\AQL\Functions

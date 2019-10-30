@@ -357,6 +357,7 @@ class CollectionTest extends TestCase
                     'id' => 'coll/2',
                     'name' => 'idx_1646382074382254082',
                     'type' => 'fulltext',
+                    'minLength' => 3,
                     'sparse' => true,
                     'unique' => true,
                     'fields' => [
