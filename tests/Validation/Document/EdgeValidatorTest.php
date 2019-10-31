@@ -47,7 +47,6 @@ class EdgeValidatorTest extends TestCase
         $validator = new EdgeValidator($attributes);
         $this->expectException(MissingParameterException::class);
         $validator->validate();
-
     }
 
     public function testValidatorThrowMissingParameterExceptionForFromParam()

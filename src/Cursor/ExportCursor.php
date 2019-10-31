@@ -50,6 +50,7 @@ class ExportCursor extends CollectionCursor
             throw new DatabaseException("Collection ($collection) doesn't exists.");
         }
 
+        $this->collection = $connection->getDatabase()->getCollection($collection);
         $this->uri = Api::addQuery(Api::EXPORT, ['collection' => $collection]);
         $this->connection = $connection;
         $this->result = new ArrayList();

@@ -19,7 +19,7 @@ class CollectionCursorTest extends CursorTestCase
             new Response(200, [], json_encode(['result' => []])),
             new Response(200, [], json_encode(['result' => []])),
             new Response(200, [], json_encode(['result' => []])),
-            new Response(200, [], json_encode(['result' => [], 'name' => 'test_cursor_coll'])),
+            new Response(200, [], json_encode($this->getMockedCollection())),
             new Response(200, [], json_encode(['result' => []])),
             new Response(403, [], json_encode($this->mockServerError()))
         ]);
@@ -40,7 +40,7 @@ class CollectionCursorTest extends CursorTestCase
             new Response(200, [], json_encode(['result' => []])),
             new Response(200, [], json_encode(['result' => []])),
             new Response(200, [], json_encode(['result' => []])),
-            new Response(200, [], json_encode(['result' => [], 'name' => 'test_cursor_coll'])),
+            new Response(200, [], json_encode($this->getMockedCollection())),
             new Response(200, [], json_encode(['result' => []])),
             new Response(200, [], json_encode(array_merge(['result' => $this->getMockArray(1000), 'id' => '154875', 'hasMore' => true], $defaults))),
             new Response(200, [], json_encode(array_merge(['result' => $this->getMockArray(1000), 'id' => '154875', 'hasMore' => true], $defaults))),

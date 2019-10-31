@@ -20,6 +20,29 @@ class CursorTestCase extends TestCase
         parent::tearDown();
     }
 
+    public function getMockedCollection(string $name = 'test_cursor_coll')
+    {
+        return [
+            'error' => false,
+            'code' => 200,
+            'type' => 2,
+            'status' => 3,
+            'statusString' => 'loaded',
+            'id' => 156487,
+            'waitForSync' => false,
+            'objectId' => "359808",
+            'cacheEnabled' => false,
+            'isSystem' => false,
+            'globallyUniqueId' => 'hD2468C4BDA19/359806',
+            'keyOptions' => [
+                'allowUserKeys' => true,
+                'type' => "traditional",
+                'lastValue' => 0
+            ],
+            'name' => $name
+        ];
+    }
+
     public function getCollection($quantity = 500)
     {
         $db = $this->getConnectionObject()->getDatabase();
