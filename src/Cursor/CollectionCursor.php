@@ -4,8 +4,10 @@ declare(strict_types=1);
 namespace ArangoDB\Cursor;
 
 use ArangoDB\AQL\Statement;
+use ArangoDB\Document\Edge;
 use ArangoDB\Document\Document;
 use ArangoDB\Collection\Collection;
+use ArangoDB\Validation\Exceptions\MissingParameterException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
@@ -41,11 +43,15 @@ class CollectionCursor extends Cursor
 
     /**
      * @return Document|mixed
-     * @throws InvalidParameterException
+     * @throws InvalidParameterException|MissingParameterException
      * @see \Iterator::current()
      */
     public function current()
     {
+        if ($this->collection->isGraph()) {
+            return new Edge($this->result->get($this->position), $this->collection);
+        }
+
         return new Document($this->result->get($this->position), $this->collection);
     }
 }
