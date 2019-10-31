@@ -362,6 +362,16 @@ class Collection implements \JsonSerializable
     }
 
     /**
+     * Return if the collection is a graph collection
+     *
+     * @return bool
+     */
+    public function isGraph(): bool
+    {
+        return $this->getType() === "graph";
+    }
+
+    /**
      * Return an array representation of collection
      *
      * @return array

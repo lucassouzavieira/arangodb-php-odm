@@ -825,4 +825,21 @@ class CollectionTest extends TestCase
         $this->assertTrue($coll1->drop());
         $this->assertTrue($coll2->drop());
     }
+
+    public function testIsGraph()
+    {
+        $db = new Database($this->getConnectionObject());
+        $coll = $db->createCollection('test_graph');
+
+        $this->assertFalse($coll->isGraph());
+
+        $this->assertTrue($coll->drop());
+
+        $db = new Database($this->getConnectionObject());
+        $coll = $db->createCollection('test_graph', ['type' => 3]);
+
+        $this->assertTrue($coll->isGraph());
+
+        $this->assertTrue($coll->drop());
+    }
 }
