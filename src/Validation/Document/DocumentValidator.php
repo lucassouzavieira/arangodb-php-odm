@@ -7,7 +7,6 @@ use ArangoDB\Validation\Rules\Rules;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Class DocumentValidator
  * Validate the document values
  *
  * @package ArangoDB\Validation\Document

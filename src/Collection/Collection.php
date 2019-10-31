@@ -3,14 +3,13 @@ declare(strict_types=1);
 
 namespace ArangoDB\Collection;
 
-use ArangoDB\Collection\Index\Factory;
-use ArangoDB\Collection\Index\Index;
-use ArangoDB\Exceptions\IndexException;
 use ArangoDB\Http\Api;
 use ArangoDB\Database\Database;
 use ArangoDB\Connection\Connection;
 use ArangoDB\Cursor\CollectionCursor;
+use ArangoDB\Collection\Index\Factory;
 use ArangoDB\DataStructures\ArrayList;
+use ArangoDB\Exceptions\IndexException;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Exceptions\DatabaseException;
