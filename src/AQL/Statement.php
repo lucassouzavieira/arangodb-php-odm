@@ -25,6 +25,15 @@ class Statement implements StatementInterface
     protected $query;
 
     /**
+     * If the statement use an alias for collection,
+     * store the alias here
+     * (e.g "@collection", "@coll")
+     *
+     * @var string
+     */
+    protected $collectionAlias = '';
+
+    /**
      * Validator for binding values or params
      *
      * @var ValidatorInterface
@@ -162,7 +171,7 @@ class Statement implements StatementInterface
         $value = $this->container->get($parameter);
         $format = $this->formats[gettype($value)];
 
-        if ($parameter === '@collection') {
+        if ($this->isCollectionAlias($parameter)) {
             $format = $this->formats['collection'];
         }
 
@@ -192,9 +201,33 @@ class Statement implements StatementInterface
      */
     protected function processQueryParameters(): void
     {
+        // Check if a collection alias was defined
         $matches = [];
-        $regex = '~(@\w+)~';
-        preg_match_all($regex, $this->query, $matches, PREG_PATTERN_ORDER);
+        preg_match_all('~(IN @\w+)~', $this->query, $matches, PREG_PATTERN_ORDER);
+        $matches = array_pop($matches);
+
+        if (count($matches)) {
+            // Stores if found.
+            $collection = [];
+            $match = array_pop($matches);
+            preg_match_all('~(@\w+)~', $match, $collection, PREG_PATTERN_ORDER);
+            $occurrence = array_shift($collection);
+            $this->collectionAlias = array_pop($occurrence);
+        }
+
+        $matches = [];
+        preg_match_all('~(@\w+)~', $this->query, $matches, PREG_PATTERN_ORDER);
         $this->queryParameters = array_pop($matches);
+    }
+
+    /**
+     * Verify if an alias is defined for collection aliasing
+     *
+     * @param string $alias
+     * @return bool
+     */
+    protected function isCollectionAlias(string $alias = '@collection'): bool
+    {
+        return $this->collectionAlias === $alias;
     }
 }
