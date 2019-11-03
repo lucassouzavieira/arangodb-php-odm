@@ -447,6 +447,51 @@ class CollectionTest extends TestCase
         $this->assertInstanceOf(CollectionCursor::class, $collection->all());
     }
 
+    public function testFind()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertTrue($collection->save());
+        $document = new Document(['document' => 'testing'], $collection);
+        $document->save();
+
+        $id = $document->getId();
+        $doc = $collection->find($id);
+
+        $this->assertArrayHasKey('document', $doc->toArray());
+        $this->assertEquals('testing', $doc->toArray()['document']);
+    }
+
+    public function testFindReturnFalse()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertTrue($collection->save());
+        $document = new Document(['document' => 'testing'], $collection);
+        $document->save();
+
+        $id = $document->getId();
+        $doc = $collection->find("test_save_coll/unknown");
+        $this->assertFalse($doc);
+    }
+
+    public function testFindThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = new Database($this->getConnectionObject($mock));
+        $collection = new Collection('test_save_coll', $db);
+        $this->expectException(DatabaseException::class);
+        $doc = $collection->find("test_save_coll/unknown");
+    }
+
     public function testSave()
     {
         $db = new Database($this->getConnectionObject());

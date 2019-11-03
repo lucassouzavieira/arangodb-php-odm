@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace ArangoDB\Collection;
 
 use ArangoDB\Http\Api;
+use ArangoDB\Document\Edge;
+use ArangoDB\Document\Document;
 use ArangoDB\Database\Database;
 use ArangoDB\Connection\Connection;
 use ArangoDB\Cursor\CollectionCursor;
@@ -616,6 +618,34 @@ class Collection implements \JsonSerializable
             return $this->status === self::$loadedStatus;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
+    }
+
+    /**
+     * Find a document
+     *
+     * @param $id
+     * @return Document|false
+     * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
+     */
+    public function find($id)
+    {
+        try {
+            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::DOCUMENT);
+            $response = $this->connection->get(sprintf("%s/%s", $uri, $id));
+            $data = json_decode((string)$response->getBody(), true);
+            $document = $this->isGraph() ? new Edge($data, $this) : new Document($data, $this);
+            return $document;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+
+            // Document not found.
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                return false;
+            }
+
             $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
             throw $databaseException;
         }
