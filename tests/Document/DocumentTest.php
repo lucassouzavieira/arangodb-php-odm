@@ -3,7 +3,6 @@
 
 namespace Unit\Document;
 
-use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Document\Document;
 use GuzzleHttp\Handler\MockHandler;
@@ -12,44 +11,8 @@ use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
-class DocumentTest extends TestCase
+class DocumentTest extends DocumentTestCase
 {
-    public function setUp(): void
-    {
-        $this->loadEnvironment();
-        parent::setUp();
-    }
-
-    public function getAttributes($withDescriptors = false)
-    {
-        $descriptors = [
-            '_id' => 'sd/178538',
-            '_rev' => '_ZcQ9yh----',
-            '_key' => '178538'
-        ];
-
-        $fake = [
-            'field' => 'of soccer',
-            'good_music' => [
-                'Queen',
-                'Motorhead',
-                'Anthrax',
-                'Metallica',
-            ],
-            'status' => false,
-            'dreamers' => null,
-            'value' => 1.5,
-            'percent' => 45.4,
-            'quantity' => 40
-        ];
-
-        if ($withDescriptors) {
-            return array_merge($descriptors, $fake);
-        }
-
-        return $fake;
-    }
-
     public function testConstructorThrowInvalidParameterException()
     {
         $db = $this->getConnectionObject()->getDatabase();
@@ -57,6 +20,18 @@ class DocumentTest extends TestCase
 
         $this->expectException(InvalidParameterException::class);
         $document = new Document(['field' => new ArrayList()]);
+    }
+
+    public function testConstructOldDocument()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $collection = new Collection('doc_tests', $db);
+
+        $document = new Document($this->getAttributes(true), $collection);
+        $this->assertFalse($document->isNew());
+        $this->assertIsString($document->getId());
+        $this->assertIsString($document->getKey());
+        $this->assertIsString($document->getRevision());
     }
 
     public function testGetCollectionAndSetCollection()
@@ -86,18 +61,6 @@ class DocumentTest extends TestCase
         $this->assertArrayHasKey('_rev', $docArray);
         $this->assertArrayHasKey('status', $docArray);
         $this->assertFalse($docArray['status']);
-    }
-
-    public function testConstructOldDocument()
-    {
-        $db = $this->getConnectionObject()->getDatabase();
-        $collection = new Collection('doc_tests', $db);
-
-        $document = new Document($this->getAttributes(true), $collection);
-        $this->assertFalse($document->isNew());
-        $this->assertIsString($document->getId());
-        $this->assertIsString($document->getKey());
-        $this->assertIsString($document->getRevision());
     }
 
     public function testJsonSerialize()

@@ -5,7 +5,7 @@ namespace Unit\Cursor;
 use Unit\TestCase;
 use ArangoDB\Document\Document;
 
-class CursorTestCase extends TestCase
+abstract class CursorTestCase extends TestCase
 {
     public function setUp(): void
     {
