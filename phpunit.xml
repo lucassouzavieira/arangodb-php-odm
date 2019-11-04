@@ -31,6 +31,9 @@
         <testsuite name="Document">
             <directory suffix="Test.php">tests/Document</directory>
         </testsuite>
+        <testsuite name="Graph">
+            <directory suffix="Test.php">tests/Graph</directory>
+        </testsuite>
         <testsuite name="Foxx">
             <directory suffix="Test.php">tests/Foxx</directory>
         </testsuite>
