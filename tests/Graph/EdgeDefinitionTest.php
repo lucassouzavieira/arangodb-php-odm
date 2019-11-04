@@ -3,8 +3,8 @@
 
 namespace Unit\Graph;
 
-use ArangoDB\Graph\EdgeDefinition;
 use Unit\TestCase;
+use ArangoDB\Graph\EdgeDefinition;
 
 class EdgeDefinitionTest extends TestCase
 {
