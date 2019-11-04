@@ -447,7 +447,7 @@ class CollectionTest extends TestCase
         $this->assertInstanceOf(CollectionCursor::class, $collection->all());
     }
 
-    public function testFind()
+    public function testFindByKey()
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -456,14 +456,14 @@ class CollectionTest extends TestCase
         $document = new Document(['document' => 'testing'], $collection);
         $document->save();
 
-        $id = $document->getId();
-        $doc = $collection->find($id);
+        $key = $document->getKey();
+        $doc = $collection->findByKey($key);
 
         $this->assertArrayHasKey('document', $doc->toArray());
         $this->assertEquals('testing', $doc->toArray()['document']);
     }
 
-    public function testFindReturnFalse()
+    public function testFindByKeyReturnFalse()
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -473,11 +473,11 @@ class CollectionTest extends TestCase
         $document->save();
 
         $id = $document->getId();
-        $doc = $collection->find("test_save_coll/unknown");
+        $doc = $collection->findByKey("unknown");
         $this->assertFalse($doc);
     }
 
-    public function testFindThrowDatabaseException()
+    public function testFindByKeyThrowDatabaseException()
     {
         $mock = new MockHandler([
             new Response(200, [], json_encode(['result' => []])),
@@ -489,7 +489,7 @@ class CollectionTest extends TestCase
         $db = new Database($this->getConnectionObject($mock));
         $collection = new Collection('test_save_coll', $db);
         $this->expectException(DatabaseException::class);
-        $doc = $collection->find("test_save_coll/unknown");
+        $doc = $collection->findByKey("unknown");
     }
 
     public function testSave()

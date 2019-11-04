@@ -57,7 +57,7 @@ class Edge extends Document
      */
     public function to()
     {
-        return $this->collection->find($this->to);
+        return $this->collection->findByKey($this->to);
     }
 
     /**
@@ -68,6 +68,6 @@ class Edge extends Document
      */
     public function from()
     {
-        return $this->collection->find($this->from);
+        return $this->collection->findByKey($this->from);
     }
 }

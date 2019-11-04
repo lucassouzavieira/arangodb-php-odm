@@ -624,17 +624,18 @@ class Collection implements \JsonSerializable
     }
 
     /**
-     * Find a document
+     * Find a document by it's key
      *
-     * @param $id
+     * @param $key Document key
      * @return Document|false
      * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
      */
-    public function find($id)
+    public function findByKey($key)
     {
         try {
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::DOCUMENT);
-            $response = $this->connection->get(sprintf("%s/%s", $uri, $id));
+            $handle = sprintf("%s/%s", $this->getName(), $key);
+            $response = $this->connection->get(sprintf("%s/%s", $uri, $handle));
             $data = json_decode((string)$response->getBody(), true);
             $document = $this->isGraph() ? new Edge($data, $this) : new Document($data, $this);
             return $document;
