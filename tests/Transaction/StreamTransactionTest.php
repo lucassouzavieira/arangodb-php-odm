@@ -122,7 +122,7 @@ class StreamTransactionTest extends TestCase
         $this->assertEquals('F-16 Fighting Falcon', $cursor->current()->model);
     }
 
-    public function testCommitThrowTransactionExceptionWithouCallToBegin()
+    public function testCommitThrowTransactionExceptionWithoutCallToBegin()
     {
         $this->getConnectionObject()->getDatabase()->createCollection('fighter_jets');
         $options = [
@@ -239,7 +239,7 @@ class StreamTransactionTest extends TestCase
         $this->assertEquals(0, $collection->count());
     }
 
-    public function testAbortThrowTransactionExceptionWithouCallToBegin()
+    public function testAbortThrowTransactionExceptionWithoutCallToBegin()
     {
         $this->getConnectionObject()->getDatabase()->createCollection('fighter_jets');
         $options = [

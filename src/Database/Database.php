@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace ArangoDB\Database;
 
+use ArangoDB\Graph\Graph;
 use ArangoDB\Http\Api;
 use ArangoDB\Collection\Collection;
 use ArangoDB\Connection\Connection;
@@ -36,7 +37,7 @@ class Database extends DatabaseHandler
     protected $collections;
 
     /**
-     * Informations about database
+     * Information about database
      *
      * @var array
      */
@@ -128,6 +129,30 @@ class Database extends DatabaseHandler
             }
 
             return false;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
+    }
+
+    /**
+     * Lists all graphs stored in this database.
+     *
+     * @throws DatabaseException|GuzzleException
+     */
+    public function getGraphs(): ArrayList
+    {
+        try {
+            $uri = Api::buildSystemUri($this->connection->getBaseUri(), Api::GRAPH);
+            $response = $this->connection->get($uri);
+            $data = json_decode((string)$response->getBody(), true);
+            $graphs = new ArrayList();
+            foreach ($data['graphs'] as $graphData) {
+                $graphs->push(new Graph($graphData['_key'], $graphData));
+            }
+
+            return $graphs;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
             $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);

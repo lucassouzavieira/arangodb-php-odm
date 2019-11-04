@@ -13,6 +13,7 @@ interface EntityInterface extends \JsonSerializable
 {
     /**
      * Returns true if is a new object
+     *
      * @return bool
      */
     public function isNew(): bool;
