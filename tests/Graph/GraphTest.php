@@ -21,10 +21,19 @@ class GraphTest extends TestCase
         parent::setUp();
     }
 
+    public function tearDown(): void
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $db->dropCollection('coll_a');
+        $db->dropCollection('coll_b');
+        $db->dropCollection('edge_coll');
+        parent::tearDown();
+    }
+
     public function mockEdgeDefinitions()
     {
         return [
-            'collection' => 'myEdgeCollection',
+            'collection' => 'edge_coll',
             'from' => [
                 'coll_a'
             ],
@@ -209,11 +218,9 @@ class GraphTest extends TestCase
         $db = $this->getConnectionObject()->getDatabase();
         $collA = new Collection("coll_a", $db);
         $collB = new Collection("coll_b", $db);
-        $edgeColl = new Collection("edge_coll", $db, ['type' => 3]);
 
         $collA->save();
         $collB->save();
-        $edgeColl->save();
 
         $graph = new Graph("my_graph", ['edgeDefinitions' => [$this->mockEdgeDefinitions()]], $db);
         $this->assertTrue($graph->save());
@@ -228,11 +235,9 @@ class GraphTest extends TestCase
         $db = $this->getConnectionObject()->getDatabase();
         $collA = new Collection("coll_a", $db);
         $collB = new Collection("coll_b", $db);
-        $edgeColl = new Collection("edge_coll", $db, ['type' => 3]);
 
         $collA->save();
         $collB->save();
-        $edgeColl->save();
 
         $graph = new Graph("my_graph", ['edgeDefinitions' => [$this->mockEdgeDefinitions()]], $db);
         $this->assertTrue($graph->save());
@@ -250,11 +255,9 @@ class GraphTest extends TestCase
         $db = $this->getConnectionObject()->getDatabase();
         $collA = new Collection("coll_a", $db);
         $collB = new Collection("coll_b", $db);
-        $edgeColl = new Collection("edge_coll", $db, ['type' => 3]);
 
         $collA->save();
         $collB->save();
-        $edgeColl->save();
 
         $graph = new Graph("my_graph", [], $db);
         $this->expectException(ArangoException::class);
@@ -283,5 +286,117 @@ class GraphTest extends TestCase
         $this->expectException(DatabaseException::class);
         $this->expectExceptionMessage("Database not defined");
         $graph->save();
+    }
+
+    public function testDelete()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $collA = new Collection("coll_a", $db);
+        $collB = new Collection("coll_b", $db);
+        $edgeColl = new Collection("edge_coll", $db, ['type' => 3]);
+
+        $collA->save();
+        $collB->save();
+        $edgeColl->save();
+
+        // Our database starts with 0 graphs
+        $graphList = $db->getGraphs();
+        $this->assertCount(0, $graphList);
+
+        $graph = new Graph("my_graph", ['edgeDefinitions' => [$this->mockEdgeDefinitions()]], $db);
+        $this->assertTrue($graph->save());
+
+        // Now must have 1 graph
+        $graphList = $db->getGraphs();
+        $this->assertCount(1, $graphList);
+
+
+        $this->assertTrue($graph->delete());
+
+        // And now must have 0 graphs again
+        $graphList = $db->getGraphs();
+        $this->assertCount(0, $graphList);
+    }
+
+    public function testDeleteReturnFalse()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $collA = new Collection("coll_a", $db);
+        $collB = new Collection("coll_b", $db);
+
+        $collA->save();
+        $collB->save();
+
+        $graph = new Graph("my_graph", ['edgeDefinitions' => [$this->mockEdgeDefinitions()]], $db);
+        $this->assertFalse($graph->delete());
+    }
+
+    public function testDeleteThrowException()
+    {
+        $graph = new Graph("my_graph", []);
+        $this->expectException(DatabaseException::class);
+        $this->expectExceptionMessage("Database not defined");
+        $graph->delete();
+    }
+
+    public function testDeleteThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = $this->getConnectionObject($mock)->getDatabase();
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(true), $db);
+        $this->expectException(DatabaseException::class);
+        $this->expectExceptionMessage("Mocked error");
+        $graph->delete();
+    }
+
+    public function testDeleteDropCollections()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $collA = new Collection("coll_a", $db);
+        $collB = new Collection("coll_b", $db);
+
+        $collA->save();
+        $collB->save();
+
+        // Our database starts with 0 graphs
+        $graphList = $db->getGraphs();
+        $this->assertCount(0, $graphList);
+
+        // And 2 previously created collections
+        $collections = $db->getAllCollections();
+        $this->assertCount(2, $collections);
+
+        // Create graph
+        $graph = new Graph("my_graph", ['edgeDefinitions' => [$this->mockEdgeDefinitions()]], $db);
+        $this->assertTrue($graph->save());
+
+        // Expects  collections: 'coll_a', 'coll_b' and 'edge_coll'
+        $graphList = $db->getAllCollections();
+        $this->assertCount(3, $graphList);
+
+        // And 1 graph
+        $graphList = $db->getGraphs();
+        $this->assertCount(1, $graphList);
+
+        $this->assertTrue($graph->delete(true));
+
+        // And now must have 0 graphs again
+        $graphList = $db->getGraphs();
+        $this->assertCount(0, $graphList);
+
+        // And 0 collections
+        $collections = $db->getAllCollections();
+        $this->assertCount(0, $collections);
+    }
+
+    public function testJsonSerialize()
+    {
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(true));
+        $this->assertJson(json_encode($graph));
     }
 }

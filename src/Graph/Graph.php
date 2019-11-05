@@ -253,7 +253,7 @@ class Graph
             if ($this->isNew()) {
                 $connection = $this->database->getConnection();
                 $uri = Api::buildSystemUri($connection->getBaseUri(), Api::GRAPH);
-                $response = $connection->post($uri, $this->toArray());
+                $response = $connection->post($uri, $this->getCreateParameters());
                 $data = json_decode((string)$response->getBody(), true);
                 $data = $data['graph'];
 
@@ -289,10 +289,6 @@ class Graph
                 throw new DatabaseException("Database not defined");
             }
 
-            if ($this->edgeDefinitions->count() === 0) {
-                throw new ArangoException("Edges definitions are missing");
-            }
-
             // Cannot delete a non-existing graph.
             if ($this->isNew()) {
                 return false;
@@ -301,7 +297,7 @@ class Graph
             $connection = $this->database->getConnection();
             $uri = Api::buildSystemUri($connection->getBaseUri(), Api::GRAPH);
             $uri = Api::addUriParam($uri, $this->getName());
-            $uri = Api::addQuery($uri, ['dropCollections' => $dropCollections]);
+            $uri = $dropCollections ? Api::addQuery($uri, ['dropCollections' => $dropCollections]) : $uri;
             $response = $connection->delete($uri);
             return true;
         } catch (ClientException $exception) {
@@ -324,6 +320,9 @@ class Graph
         }
 
         return [
+            '_id' => $this->getId(),
+            '_key' => $this->getKey(),
+            '_rev' => $this->getRevision(),
             'name' => $this->getName(),
             'isSmart' => $this->isSmart(),
             'edgeDefinitions' => $edges,
@@ -342,5 +341,17 @@ class Graph
     public function jsonSerialize()
     {
         return $this->toArray();
+    }
+
+    /**
+     * Return an array with parameters to create the graph
+     *
+     * @return array
+     */
+    protected function getCreateParameters(): array
+    {
+        $data = $this->toArray();
+        unset($data['_id'], $data['_key'], $data['_rev']);
+        return $data;
     }
 }
