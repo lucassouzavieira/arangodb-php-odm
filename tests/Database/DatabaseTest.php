@@ -70,7 +70,7 @@ class DatabaseTest extends TestCase
     {
         $db = new Database($this->getConnectionObject());
 
-        $graphs = $db->getGraphs();
+        $graphs = $db->getAllGraphs();
         $this->assertInstanceOf(ArrayList::class, $graphs);
         $this->assertCount(0, $graphs);
     }
@@ -107,7 +107,7 @@ class DatabaseTest extends TestCase
 
         $db = new Database($this->getConnectionObject($mock));
 
-        $graphs = $db->getGraphs();
+        $graphs = $db->getAllGraphs();
         $this->assertInstanceOf(ArrayList::class, $graphs);
         $this->assertCount(1, $graphs);
         $this->assertInstanceOf(Graph::class, $graphs->first());
@@ -124,7 +124,7 @@ class DatabaseTest extends TestCase
 
         $db = new Database($this->getConnectionObject($mock));
         $this->expectException(DatabaseException::class);
-        $graphs = $db->getGraphs();
+        $graphs = $db->getAllGraphs();
     }
 
     public function testGetCollection()

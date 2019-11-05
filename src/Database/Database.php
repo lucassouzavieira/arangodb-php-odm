@@ -141,7 +141,7 @@ class Database extends DatabaseHandler
      *
      * @throws DatabaseException|GuzzleException
      */
-    public function getGraphs(): ArrayList
+    public function getAllGraphs(): ArrayList
     {
         try {
             $uri = Api::buildSystemUri($this->connection->getBaseUri(), Api::GRAPH);

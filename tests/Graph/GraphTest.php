@@ -242,7 +242,7 @@ class GraphTest extends TestCase
         $graph = new Graph("my_graph", ['edgeDefinitions' => [$this->mockEdgeDefinitions()]], $db);
         $this->assertTrue($graph->save());
 
-        $dbGraphs = $db->getGraphs();
+        $dbGraphs = $db->getAllGraphs();
         $first = $dbGraphs->first();
 
         $this->assertFalse($first->isNew());
@@ -300,21 +300,21 @@ class GraphTest extends TestCase
         $edgeColl->save();
 
         // Our database starts with 0 graphs
-        $graphList = $db->getGraphs();
+        $graphList = $db->getAllGraphs();
         $this->assertCount(0, $graphList);
 
         $graph = new Graph("my_graph", ['edgeDefinitions' => [$this->mockEdgeDefinitions()]], $db);
         $this->assertTrue($graph->save());
 
         // Now must have 1 graph
-        $graphList = $db->getGraphs();
+        $graphList = $db->getAllGraphs();
         $this->assertCount(1, $graphList);
 
 
         $this->assertTrue($graph->delete());
 
         // And now must have 0 graphs again
-        $graphList = $db->getGraphs();
+        $graphList = $db->getAllGraphs();
         $this->assertCount(0, $graphList);
     }
 
@@ -364,7 +364,7 @@ class GraphTest extends TestCase
         $collB->save();
 
         // Our database starts with 0 graphs
-        $graphList = $db->getGraphs();
+        $graphList = $db->getAllGraphs();
         $this->assertCount(0, $graphList);
 
         // And 2 previously created collections
@@ -380,13 +380,13 @@ class GraphTest extends TestCase
         $this->assertCount(3, $graphList);
 
         // And 1 graph
-        $graphList = $db->getGraphs();
+        $graphList = $db->getAllGraphs();
         $this->assertCount(1, $graphList);
 
         $this->assertTrue($graph->delete(true));
 
         // And now must have 0 graphs again
-        $graphList = $db->getGraphs();
+        $graphList = $db->getAllGraphs();
         $this->assertCount(0, $graphList);
 
         // And 0 collections
@@ -398,5 +398,17 @@ class GraphTest extends TestCase
     {
         $graph = new Graph("my_graph", $this->mockGraphAttributes(true));
         $this->assertJson(json_encode($graph));
+    }
+
+    public function testToArray()
+    {
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(true));
+        $arr = $graph->toArray();
+        $this->assertIsArray($arr);
+        $this->assertArrayHasKey('_id', $arr);
+        $this->assertArrayHasKey('_key', $arr);
+        $this->assertArrayHasKey('_rev', $arr);
+        $this->assertArrayHasKey('name', $arr);
+        $this->assertArrayHasKey('edgeDefinitions', $arr);
     }
 }
