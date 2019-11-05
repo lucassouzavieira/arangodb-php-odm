@@ -3,13 +3,37 @@
 
 namespace Unit\Graph;
 
-use ArangoDB\Graph\EdgeDefinition;
 use Unit\TestCase;
 use ArangoDB\Graph\Graph;
+use GuzzleHttp\Psr7\Response;
+use ArangoDB\Graph\EdgeDefinition;
+use GuzzleHttp\Handler\MockHandler;
+use ArangoDB\Collection\Collection;
 use ArangoDB\DataStructures\ArrayList;
+use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Exceptions\Exception as ArangoException;
 
 class GraphTest extends TestCase
 {
+    public function setUp(): void
+    {
+        $this->loadEnvironment();
+        parent::setUp();
+    }
+
+    public function mockEdgeDefinitions()
+    {
+        return [
+            'collection' => 'myEdgeCollection',
+            'from' => [
+                'coll_a'
+            ],
+            'to' => [
+                'coll_b'
+            ]
+        ];
+    }
+
     public function mockGraphAttributes($withDescriptors = false)
     {
         $descriptors = [
@@ -178,5 +202,86 @@ class GraphTest extends TestCase
         $this->assertIsArray($graph->getOrphanCollections());
         $this->assertCount(1, $graph->getOrphanCollections());
         $this->assertTrue(in_array('orphan', $graph->getOrphanCollections()));
+    }
+
+    public function testSave()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $collA = new Collection("coll_a", $db);
+        $collB = new Collection("coll_b", $db);
+        $edgeColl = new Collection("edge_coll", $db, ['type' => 3]);
+
+        $collA->save();
+        $collB->save();
+        $edgeColl->save();
+
+        $graph = new Graph("my_graph", ['edgeDefinitions' => [$this->mockEdgeDefinitions()]], $db);
+        $this->assertTrue($graph->save());
+        $this->assertFalse($graph->isNew());
+        $this->assertGreaterThan(0, strlen($graph->getId()));
+        $this->assertGreaterThan(0, strlen($graph->getRevision()));
+        $this->assertTrue($graph->delete());
+    }
+
+    public function testSaveReturnFalse()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $collA = new Collection("coll_a", $db);
+        $collB = new Collection("coll_b", $db);
+        $edgeColl = new Collection("edge_coll", $db, ['type' => 3]);
+
+        $collA->save();
+        $collB->save();
+        $edgeColl->save();
+
+        $graph = new Graph("my_graph", ['edgeDefinitions' => [$this->mockEdgeDefinitions()]], $db);
+        $this->assertTrue($graph->save());
+
+        $dbGraphs = $db->getGraphs();
+        $first = $dbGraphs->first();
+
+        $this->assertFalse($first->isNew());
+        $this->assertFalse($first->save()); // Old graphs cannot be created again.
+        $this->assertTrue($graph->delete());
+    }
+
+    public function testSaveThrowException()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $collA = new Collection("coll_a", $db);
+        $collB = new Collection("coll_b", $db);
+        $edgeColl = new Collection("edge_coll", $db, ['type' => 3]);
+
+        $collA->save();
+        $collB->save();
+        $edgeColl->save();
+
+        $graph = new Graph("my_graph", [], $db);
+        $this->expectException(ArangoException::class);
+        $this->expectExceptionMessage("Edges definitions are missing");
+        $graph->save();
+    }
+
+    public function testSaveThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = $this->getConnectionObject($mock)->getDatabase();
+        $graph = new Graph("my_graph", ['edgeDefinitions' => [$this->mockEdgeDefinitions()]], $db);
+        $this->expectException(DatabaseException::class);
+        $this->expectExceptionMessage("Mocked error");
+        $graph->save();
+    }
+
+    public function testSaveThrowDatabaseExceptionOnNotDefinedDatabase()
+    {
+        $graph = new Graph("my_graph");
+        $this->expectException(DatabaseException::class);
+        $this->expectExceptionMessage("Database not defined");
+        $graph->save();
     }
 }

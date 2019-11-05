@@ -79,4 +79,18 @@ class EdgeDefinition
     {
         return $this->collection;
     }
+
+    /**
+     * Array representation of edge definition
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return [
+            'collection' => $this->getCollection(),
+            'from' => $this->from(),
+            'to' => $this->to()
+        ];
+    }
 }

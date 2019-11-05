@@ -149,7 +149,7 @@ class Database extends DatabaseHandler
             $data = json_decode((string)$response->getBody(), true);
             $graphs = new ArrayList();
             foreach ($data['graphs'] as $graphData) {
-                $graphs->push(new Graph($graphData['_key'], $graphData));
+                $graphs->push(new Graph($graphData['_key'], $graphData, $this));
             }
 
             return $graphs;
