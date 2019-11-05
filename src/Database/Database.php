@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace ArangoDB\Database;
 
-use ArangoDB\Graph\Graph;
 use ArangoDB\Http\Api;
+use ArangoDB\Graph\Graph;
 use ArangoDB\Collection\Collection;
 use ArangoDB\Connection\Connection;
 use ArangoDB\DataStructures\ArrayList;

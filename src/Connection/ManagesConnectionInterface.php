@@ -6,7 +6,7 @@ namespace ArangoDB\Connection;
 /**
  * Interface for classes that use the Connection object
  *
- * @package ArangoDB\Handler
+ * @package ArangoDB\Connection
  * @author Lucas S. Vieira
  */
 interface ManagesConnectionInterface
@@ -17,4 +17,11 @@ interface ManagesConnectionInterface
      * @param Connection $connection
      */
     public function setConnection(Connection $connection): void;
+
+    /**
+     * Return the connection object
+     *
+     * @return Connection
+     */
+    public function getConnection(): Connection;
 }

@@ -4,9 +4,9 @@ declare(strict_types=1);
 namespace ArangoDB\Connection;
 
 /**
- * Class ManagesConnection
+ * Basic connection management class
  *
- * @package ArangoDB\Entity
+ * @package ArangoDB\Connection
  * @author Lucas S. Vieira
  */
 abstract class ManagesConnection implements ManagesConnectionInterface
@@ -22,7 +22,7 @@ abstract class ManagesConnection implements ManagesConnectionInterface
      * Sets a connection for class
      *
      * @param Connection $connection
-     * @see EntityInterface::setConnection()
+     * @see ManagesConnection::setConnection()
      */
     public function setConnection(Connection $connection): void
     {
@@ -33,6 +33,7 @@ abstract class ManagesConnection implements ManagesConnectionInterface
      * Return the connection object
      *
      * @return Connection
+     * @see ManagesConnection::getConnection()
      */
     public function getConnection(): Connection
     {
