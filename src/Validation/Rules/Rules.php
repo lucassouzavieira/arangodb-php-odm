@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace ArangoDB\Validation\Rules;
 
-use phpDocumentor\Reflection\Types\Integer;
-
 /**
  * Provides validation rules for inputs data
  *

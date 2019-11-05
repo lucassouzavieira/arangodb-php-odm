@@ -11,6 +11,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  * Validates Task data
  *
  * @package ArangoDB\Validation\Admin\Task
+ * @author Lucas S. Vieira
  */
 class TaskValidator extends Validator
 {
