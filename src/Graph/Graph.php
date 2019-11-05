@@ -9,7 +9,10 @@ use ArangoDB\DataStructures\ArrayList;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Validation\Graph\GraphValidator;
 use ArangoDB\Exceptions\Exception as ArangoException;
+use ArangoDB\Validation\Exceptions\InvalidParameterException;
+use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 /**
  * Represents an ArangoDB Graph
@@ -113,10 +116,17 @@ class Graph implements \JsonSerializable
      * @param string $name Graph name
      * @param array $attributes Graph optional attributes
      * @param Database|null $database Database object
+     * @throws InvalidParameterException|MissingParameterException|ArangoException
      */
     public function __construct(string $name, array $attributes = [], Database $database = null)
     {
         $this->name = $this->key = $name;
+
+        if (count($attributes)) {
+            $validator = new GraphValidator($attributes);
+            $validator->validate();
+        }
+
         $this->isNew = !(isset($attributes['_rev']) && isset($attributes['_id']));
 
         // Set the given options or fallback to a default value.

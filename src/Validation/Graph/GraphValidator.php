@@ -4,8 +4,10 @@ declare(strict_types=1);
 namespace ArangoDB\Validation\Graph;
 
 use ArangoDB\Exceptions\Exception;
+use ArangoDB\Graph\EdgeDefinition;
 use ArangoDB\Validation\Validator;
 use ArangoDB\Validation\Rules\Rules;
+use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
@@ -61,8 +63,16 @@ class GraphValidator extends Validator
      */
     protected static function validateEdgeDefinitionsParameter()
     {
-        return function (array $edgeDefinitions) {
+        /**
+         * @param $edgeDefinitions array|ArrayList
+         * @return bool
+         */
+        return function ($edgeDefinitions) {
             foreach ($edgeDefinitions as $key => $edgeDefinition) {
+                if ($edgeDefinition instanceof EdgeDefinition) {
+                    continue;
+                }
+
                 if (!(isset($edgeDefinition['collection']) && isset($edgeDefinition['to'])
                     && isset($edgeDefinition['from']))) {
                     $message = "'edgeDefinition[$key]' parameter must contains the following keys: 'collection', 'from' and 'to'";
