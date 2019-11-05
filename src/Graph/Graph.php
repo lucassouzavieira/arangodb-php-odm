@@ -17,7 +17,7 @@ use ArangoDB\Exceptions\Exception as ArangoException;
  * @package ArangoDB\Graph
  * @author Lucas S. Vieira
  */
-class Graph
+class Graph implements \JsonSerializable
 {
     /**
      * The internal id of this graph

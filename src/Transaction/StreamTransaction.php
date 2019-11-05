@@ -13,7 +13,6 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 /**
- * Class StreamTransaction
  * Manages stream transactions on ArangoDB server
  *
  * @package ArangoDB\Transaction
