@@ -155,6 +155,16 @@ class Graph implements \JsonSerializable
     }
 
     /**
+     * Returns a string representation of graph object
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return print_r($this->toArray(), true);
+    }
+
+    /**
      * @return string
      */
     public function getId(): string

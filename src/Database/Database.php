@@ -5,6 +5,7 @@ namespace ArangoDB\Database;
 
 use ArangoDB\Http\Api;
 use ArangoDB\Graph\Graph;
+use ArangoDB\Exceptions\Exception;
 use ArangoDB\Collection\Collection;
 use ArangoDB\Connection\Connection;
 use ArangoDB\DataStructures\ArrayList;
@@ -54,6 +55,7 @@ class Database extends DatabaseHandler
      * Database constructor.
      *
      * @param Connection $connection Connection to use
+     *
      * @throws GuzzleException|DatabaseException|InvalidParameterException|MissingParameterException
      */
     public function __construct(Connection $connection)
@@ -77,6 +79,7 @@ class Database extends DatabaseHandler
      * Return all collections of database
      *
      * @return ArrayList[Collection]
+     *
      * @throws GuzzleException|DatabaseException|InvalidParameterException|MissingParameterException
      */
     public function getAllCollections(): ArrayList
@@ -116,6 +119,7 @@ class Database extends DatabaseHandler
      *
      * @param string $collection
      * @return Collection|bool Collection object. Return False if collection not exists on database
+     *
      * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
      */
     public function getCollection(string $collection)
@@ -139,7 +143,9 @@ class Database extends DatabaseHandler
     /**
      * Lists all graphs stored in this database.
      *
-     * @throws DatabaseException|GuzzleException
+     * @return ArrayList
+     *
+     * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException|Exception
      */
     public function getAllGraphs(): ArrayList
     {
@@ -174,6 +180,36 @@ class Database extends DatabaseHandler
         $collection = new Collection($collection, $this, $attributes);
         $collection->save();
         return $collection;
+    }
+
+    /**
+     * Check if database has given collection
+     *
+     * @param string $graph Graph name
+     * @return Graph|false Returns a Graph object if graph exists. Return False if graph not exists on database.
+     *
+     * @throws DatabaseException|Exception|GuzzleException|InvalidParameterException|MissingParameterException
+     */
+    public function getGraph(string $graph)
+    {
+        try {
+            $uri = Api::buildSystemUri($this->connection->getBaseUri(), Api::GRAPH);
+            $uri = Api::addUriParam($uri, $graph);
+            $response = $this->connection->get($uri);
+            $data = json_decode((string)$response->getBody(), true);
+            $graph = new Graph($graph, $data['graph'], $this);
+            return $graph;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+
+            // Graph not found.
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                return false;
+            }
+
+            throw $databaseException;
+        }
     }
 
     /**

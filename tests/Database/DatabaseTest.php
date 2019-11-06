@@ -3,8 +3,8 @@
 
 namespace Unit\Database;
 
-use ArangoDB\Graph\Graph;
 use Unit\TestCase;
+use ArangoDB\Graph\Graph;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Database\Database;
 use GuzzleHttp\Handler\MockHandler;
@@ -66,7 +66,7 @@ class DatabaseTest extends TestCase
         $this->assertTrue($db->dropCollection('coll_b'));
     }
 
-    public function testGetGraphs()
+    public function testGetAllGraphs()
     {
         $db = new Database($this->getConnectionObject());
 
@@ -75,7 +75,66 @@ class DatabaseTest extends TestCase
         $this->assertCount(0, $graphs);
     }
 
-    public function testGetGraphsWithServerResponse()
+    public function testGetGraphWithServerResponse()
+    {
+        $mockGraph = [
+            '_id' => '_graphs/mygraph',
+            '_key' => 'mygraph',
+            '_rev' => '--zGahsoet1',
+            'numberOfShards' => 1,
+            'replicationFactor' => 1,
+            'minReplicationFactor' => 1,
+            'isSmart' => false,
+            'edgeDefinitions' => [
+                [
+                    'collection' => 'someEdgeColl',
+                    'from' => [
+                        'coll_a',
+                    ],
+                    'to' => [
+                        'coll_b'
+                    ]
+                ]
+            ],
+            'orphanCollections' => []
+        ];
+
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['error' => false, 'code' => 200, 'graph' => $mockGraph])),
+        ]);
+
+        $db = new Database($this->getConnectionObject($mock));
+
+        $graph = $db->getGraph("mygraph");
+        $this->assertInstanceOf(Graph::class, $graph);
+        $this->assertFalse($graph->isNew());
+    }
+
+    public function testGetGraphReturnFalse()
+    {
+        $db = new Database($this->getConnectionObject());
+
+        $graph = $db->getGraph("nonExistingGraph");
+        $this->assertFalse($graph);
+    }
+
+    public function testGetGraphThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError())),
+        ]);
+
+        $db = new Database($this->getConnectionObject($mock));
+
+        $this->expectException(DatabaseException::class);
+        $graph = $db->getGraph("mygraph");
+    }
+
+    public function testGetAllGraphsWithServerResponse()
     {
         $mockGraph = [
             '_id' => '_graphs/mygraph',
@@ -114,7 +173,7 @@ class DatabaseTest extends TestCase
         $this->assertFalse($graphs->first()->isNew());
     }
 
-    public function testGetGraphsThrowDatabaseException()
+    public function testGetAllGraphsThrowDatabaseException()
     {
         $mock = new MockHandler([
             new Response(200, [], json_encode(['result' => []])),
