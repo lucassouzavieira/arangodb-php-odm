@@ -43,6 +43,23 @@ class Connection extends Authenticable
     }
 
     /**
+     * Proper debug dump for connection class
+     *
+     * @return array
+     */
+    public function __debugInfo()
+    {
+        $options = $this->options;
+        unset($options['username'], $options['password']);
+
+        return [
+            'options' => $options,
+            'defaultHeaders' => $this->getDefaultHeaders(),
+            'authenticated' => $this->isAuthenticated()
+        ];
+    }
+
+    /**
      * If connection is authenticated
      *
      * @return bool True if connection already authenticate, false otherwise
@@ -71,6 +88,7 @@ class Connection extends Authenticable
     {
         $this->defaultHeaders = $headers;
     }
+
 
     /**
      * Return the base endpoint uri

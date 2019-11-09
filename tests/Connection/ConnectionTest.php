@@ -2,8 +2,8 @@
 
 namespace Unit\Connection;
 
-use ArangoDB\Database\Database;
 use Unit\TestCase;
+use ArangoDB\Database\Database;
 use ArangoDB\Connection\Connection;
 use ArangoDB\Exceptions\ConnectionException;
 use ArangoDB\Auth\Exceptions\AuthException;
@@ -28,6 +28,22 @@ class ConnectionTest extends TestCase
 
         $this->assertNotNull($connection);
         $this->assertTrue($connection->isAuthenticated());
+    }
+
+    public function testDebugInfo()
+    {
+        $connection = new Connection([
+            'username' => getenv('ARANGODB_USERNAME'),
+            'password' => getenv('ARANGODB_PASSWORD'),
+            'database' => getenv('ARANGODB_DBNAME'),
+            'host' => getenv('ARANGODB_HOST'),
+            'port' => getenv('ARANGODB_PORT')
+        ]);
+
+        $this->assertNotNull($connection);
+        $this->assertIsArray($connection->__debugInfo());
+        $this->assertArrayNotHasKey('username', $connection->__debugInfo()['options']);
+        $this->assertArrayNotHasKey('password', $connection->__debugInfo()['options']);
     }
 
     public function testGetDefaultHeaders()
