@@ -140,7 +140,7 @@ $connection = new Connection([
     'database' => 'YourDatabase',
 ]);
 
-// Check if database has a collection called 'awesome_bands'. If not, create it.
+// Check if the database has a collection called 'awesome_bands'. If not, create it.
 $db = $connection->getDatabase();
 if (!$db->hasCollection('awesome_bands')) {
     $db->createCollection('awesome_bands');
@@ -168,11 +168,11 @@ $document = new Document($documentAttributes, $collection);
 // Save the document on collection.
 $document->save();
 
-// Add or change document attributes to update document
+// Add or change document attributes to update the document
 $document->status = 'active';
 $document->save(); // Will update your document on server;
 
-// Delete document from collection.
+// Delete the document from collection.
 $document->delete();
 ```
 
@@ -241,7 +241,7 @@ try {
     // Start transaction.
     $transaction->begin();
 
-    // Perfome some operations.
+    // Do something
     $collection = $db->getCollection('fighter_jets');
     $viper = new Document(['model' => 'F-16 Viper', 'status' => 'In service', 'origin' => 'USA'], $collection);
     $gripen = new Document(['model' => 'JAS 39 Gripen', 'status' => 'In service', 'origin' => 'Sweden'], $collection);
