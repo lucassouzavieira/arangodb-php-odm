@@ -3,10 +3,9 @@ declare(strict_types=1);
 
 namespace ArangoDB\Graph;
 
-use ArangoDB\Document\Document;
+use ArangoDB\Http\Api;
 use ArangoDB\Document\Edge;
 use ArangoDB\Document\Vertex;
-use ArangoDB\Http\Api;
 use ArangoDB\Database\Database;
 use ArangoDB\DataStructures\ArrayList;
 use GuzzleHttp\Exception\ClientException;
@@ -241,14 +240,6 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * @return ArrayList
-     */
-    public function getEdgeDefinitions(): ArrayList
-    {
-        return $this->edgeDefinitions;
-    }
-
-    /**
      * @return array
      */
     public function getOrphanCollections(): array
@@ -331,7 +322,7 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Returns a array representation of entity
+     * Returns a array representation of graph
      *
      * @return array
      */
@@ -358,15 +349,52 @@ class Graph implements \JsonSerializable
         ];
     }
 
+    /**
+     * Return all edge definitions of graph
+     *
+     * @return ArrayList
+     */
+    public function getEdgeDefinitions(): ArrayList
+    {
+        return $this->edgeDefinitions;
+    }
 
     /**
      * Adds an edge definition to graph
      *
-     * @param EdgeDefinition $edgeDefinition
+     * @param string $collection Edge collection name
+     * @param array $from List of vertex collection names.
+     * @param array $to List of vertex collection names.
+     *
      * @return bool
+     * @throws DatabaseException|GuzzleException
      */
-    public function addEdgeDefinition(EdgeDefinition $edgeDefinition): bool
+    public function addEdgeDefinition(string $collection, array $from, array $to): bool
     {
+        try {
+            $edgeDefinition = new EdgeDefinition($collection, $from, $to);
+
+            // If is a new graph, just add the edge definition to object.
+            if ($this->isNew()) {
+                $this->edgeDefinitions->push($edgeDefinition);
+                return true;
+            }
+
+            if (!$this->database) {
+                throw new DatabaseException("Database not defined");
+            }
+
+            $connection = $this->database->getConnection();
+            $uri = Api::buildSystemUri($connection->getBaseUri(), Api::GRAPH);
+            $uri = sprintf("%s/%s", Api::addUriParam($uri, $this->getName()), 'edge');
+            $response = $connection->post($uri, $edgeDefinition->toArray());
+            $this->edgeDefinitions->push($edgeDefinition);
+            return true;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**

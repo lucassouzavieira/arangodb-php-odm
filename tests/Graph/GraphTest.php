@@ -411,4 +411,14 @@ class GraphTest extends TestCase
         $this->assertArrayHasKey('name', $arr);
         $this->assertArrayHasKey('edgeDefinitions', $arr);
     }
+
+    public function testAddEdgeDefinitionToNewGraph()
+    {
+        $graph = new Graph("my_graph", $this->mockGraphAttributes());
+
+        $this->assertCount(1, $graph->getEdgeDefinitions());
+
+        $graph->addEdgeDefinition('edgeCollB', ['coll_x'], ['coll_y']);
+        $this->assertCount(2, $graph->getEdgeDefinitions());
+    }
 }
