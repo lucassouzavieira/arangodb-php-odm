@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace ArangoDB\Graph;
 
+use ArangoDB\Document\Document;
+use ArangoDB\Document\Edge;
+use ArangoDB\Document\Vertex;
 use ArangoDB\Http\Api;
 use ArangoDB\Database\Database;
 use ArangoDB\DataStructures\ArrayList;
@@ -353,6 +356,95 @@ class Graph implements \JsonSerializable
                 'minReplicationFactor' => $this->getMinReplicationFactor(),
             ]
         ];
+    }
+
+
+    /**
+     * Adds an edge definition to graph
+     *
+     * @param EdgeDefinition $edgeDefinition
+     * @return bool
+     */
+    public function addEdgeDefinition(EdgeDefinition $edgeDefinition): bool
+    {
+    }
+
+    /**
+     * Drops an edge definition
+     *
+     * @return bool
+     */
+    public function dropEdgeDefinition(): bool
+    {
+    }
+
+    /**
+     * Gets a vertex from graph
+     *
+     * @return Vertex
+     */
+    public function getVertex(): Vertex
+    {
+    }
+
+    /**
+     * Adds a vertex to graph
+     *
+     * @param Vertex $vertex
+     * @return bool
+     */
+    public function addVertex(Vertex $vertex): bool
+    {
+    }
+
+    /**
+     * Drops a vertex from graph
+     *
+     * @return bool
+     */
+    public function dropVertex(): bool
+    {
+    }
+
+    /**
+     * Returns an edge document
+     *
+     * @return Edge
+     */
+    public function getEdge(): Edge
+    {
+    }
+
+    /**
+     * Adds an edge to graph
+     *
+     * @param Edge $edge
+     * @return bool
+     */
+    public function addEdge(Edge $edge): bool
+    {
+    }
+
+    /**
+     * Drops an edge from graph
+     *
+     * @return bool
+     */
+    public function dropEdge(): bool
+    {
+    }
+
+    /**
+     * Returns a graph traversal
+     *
+     * @param Vertex $vertex
+     * @param int $depth
+     * @param string $type
+     *
+     * @return Traversal
+     */
+    public function traversal(Vertex $vertex, int $depth = 0, $type = 'outbound'): Traversal
+    {
     }
 
     /**
