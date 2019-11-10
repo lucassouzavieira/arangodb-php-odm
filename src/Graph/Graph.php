@@ -118,6 +118,7 @@ class Graph implements \JsonSerializable
      * @param string $name Graph name
      * @param array $attributes Graph optional attributes
      * @param Database|null $database Database object
+     *
      * @throws InvalidParameterException|MissingParameterException|ArangoException
      */
     public function __construct(string $name, array $attributes = [], Database $database = null)
@@ -289,11 +290,12 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Removes a entity on server, if possible
+     * Removes a graph on server, if possible
      *
      * @param bool $dropCollections If set true, drop collections of this graph as well.
      * Collections will only be dropped if they are not used in other graphs.
      * @return bool true if operation was successful, false otherwise
+     *
      * @throws DatabaseException|GuzzleException|ArangoException
      */
     public function delete($dropCollections = false): bool
@@ -398,12 +400,52 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Drops an edge definition
+     * Remove one edge definition from the graph.
+     * This will only remove the edge collection,
+     * the vertex collections remain untouched and can still be used in your queries.
+     *
+     * @param string $collection Edge collection name
      *
      * @return bool
+     * @throws DatabaseException|GuzzleException
      */
-    public function dropEdgeDefinition(): bool
+    public function dropEdgeDefinition(string $collection): bool
     {
+        try {
+            // If is a new graph, just return 'false'
+            // because we don't have any edge collection defined on server.
+            if ($this->isNew()) {
+                return false;
+            }
+
+            if (!$this->database) {
+                throw new DatabaseException("Database not defined");
+            }
+
+            // If the database hasn't a collection with the given name, return 'false'
+            if (!$this->database->hasCollection($collection)) {
+                return false;
+            }
+
+            // Delete edge definition of graph
+            $connection = $this->database->getConnection();
+            $uri = Api::buildSystemUri($connection->getBaseUri(), Api::GRAPH);
+            $uri = sprintf("%s/%s/%s", Api::addUriParam($uri, $this->getName()), 'edge', $collection);
+            $response = $connection->delete($uri);
+
+            $toRemove = 0;
+            foreach ($this->edgeDefinitions as $key => $edgeDefinition) {
+                $toRemove = $edgeDefinition->getCollection() === $collection ? $key : $toRemove;
+            }
+
+            $this->edgeDefinitions->remove($toRemove);
+
+            return true;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
