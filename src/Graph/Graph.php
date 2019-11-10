@@ -406,10 +406,14 @@ class Graph implements \JsonSerializable
      *
      * @param string $collection Edge collection name
      *
+     * @param bool $dropCollection Drop the collection as well. Collection will only be dropped if it is not used in other graphs.
+     * @param bool $waitForSync Define if the request should wait until synced to disk.
+     *
      * @return bool
-     * @throws DatabaseException|GuzzleException
+     * @throws DatabaseException
+     * @throws GuzzleException
      */
-    public function dropEdgeDefinition(string $collection): bool
+    public function dropEdgeDefinition(string $collection, bool $dropCollection = false, bool $waitForSync = true): bool
     {
         try {
             // If is a new graph, just return 'false'
@@ -431,6 +435,7 @@ class Graph implements \JsonSerializable
             $connection = $this->database->getConnection();
             $uri = Api::buildSystemUri($connection->getBaseUri(), Api::GRAPH);
             $uri = sprintf("%s/%s/%s", Api::addUriParam($uri, $this->getName()), 'edge', $collection);
+            $uri = Api::addQuery($uri, ['waitForSync' => $waitForSync, 'dropCollection' => $dropCollection]);
             $response = $connection->delete($uri);
 
             $toRemove = 0;
