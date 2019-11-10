@@ -3,6 +3,7 @@
 
 namespace Unit\Graph;
 
+use ArangoDB\Document\Vertex;
 use ArangoDB\Graph\Graph;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Handler\MockHandler;
@@ -16,43 +17,43 @@ use ArangoDB\Exceptions\DatabaseException;
  */
 class GraphVertexManagementTest extends BaseGraphTest
 {
-    public function testGetVertexesCollections()
+    public function testGetVertexCollections()
     {
         $db = $this->getConnectionObject()->getDatabase();
         $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
 
         $graph->save();
 
-        $vertexesCollections = $graph->getVertexesCollections();
-        $this->assertInstanceOf(ArrayList::class, $vertexesCollections);
-        $this->assertCount(2, $vertexesCollections);
-        $this->assertTrue(in_array('coll_a', $vertexesCollections->values()));
-        $this->assertTrue(in_array('coll_b', $vertexesCollections->values()));
+        $vertexCollections = $graph->getVertexCollections();
+        $this->assertInstanceOf(ArrayList::class, $vertexCollections);
+        $this->assertCount(2, $vertexCollections);
+        $this->assertTrue(in_array('coll_a', $vertexCollections->values()));
+        $this->assertTrue(in_array('coll_b', $vertexCollections->values()));
 
         $this->assertTrue($graph->delete(true));
     }
 
-    public function testGetVertexesCollectionsForNewGraphs()
+    public function testGetVertexCollectionsForNewGraphs()
     {
         $db = $this->getConnectionObject()->getDatabase();
         $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
 
-        $vertexesCollections = $graph->getVertexesCollections();
-        $this->assertInstanceOf(ArrayList::class, $vertexesCollections);
-        $this->assertCount(0, $vertexesCollections);
+        $vertexCollections = $graph->getVertexCollections();
+        $this->assertInstanceOf(ArrayList::class, $vertexCollections);
+        $this->assertCount(0, $vertexCollections);
     }
 
-    public function testGetVertexesCollectionsThrowDatabaseExceptionOnNonDefinedDatabase()
+    public function testGetVertexCollectionsThrowDatabaseExceptionOnNonDefinedDatabase()
     {
         $db = $this->getConnectionObject()->getDatabase();
         $graph = new Graph("my_graph", $this->mockGraphAttributes(true));
 
         $this->expectException(DatabaseException::class);
         $this->expectExceptionMessage("Database not defined");
-        $graph->getVertexesCollections();
+        $graph->getVertexCollections();
     }
 
-    public function testGetVertexesThrowDatabaseException()
+    public function testGetVertexCollectionsThrowDatabaseException()
     {
         $mock = new MockHandler([
             new Response(200, [], json_encode(['result' => []])),
@@ -65,7 +66,7 @@ class GraphVertexManagementTest extends BaseGraphTest
 
         $this->expectException(DatabaseException::class);
         $this->expectExceptionMessage("Mocked error");
-        $graph->getVertexesCollections();
+        $graph->getVertexCollections();
     }
 
     public function testAddVertexCollection()
@@ -197,5 +198,197 @@ class GraphVertexManagementTest extends BaseGraphTest
         $this->expectException(DatabaseException::class);
         $this->expectExceptionMessage("Mocked error");
         $graph->dropVertexCollection('vertex_coll');
+    }
+
+    public function testAddVertex()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
+        $graph->save();
+
+        $collA = $db->getCollection('coll_a');
+        $this->assertEquals(0, $collA->count()); // 0 documents on vertex collection 'coll_a'
+
+        $graph->addVertex('coll_a', ['_key' => 'Mama']);
+
+        $this->assertEquals(1, $collA->count()); // 1 document on vertex collection 'coll_a'
+        $this->assertTrue($graph->delete(true));
+    }
+
+    public function testAddVertexReturnFalseForNewGraphs()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
+
+        $this->assertFalse($graph->addVertex('coll_a', ['_key' => 'Mama']));
+    }
+
+    public function testAddVertexThrowDatabaseExceptionOnNonDefinedDatabase()
+    {
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(true));
+
+        $this->expectException(DatabaseException::class);
+        $this->expectExceptionMessage("Database not defined");
+        $graph->addVertex('coll_a', ['_key' => 'Mama']);
+    }
+
+    public function testAddVertexReturnFalseOnNonExistingGraphOrNonVertexCollection()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(404, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = $this->getConnectionObject($mock)->getDatabase();
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(true), $db);
+
+        $this->assertFalse($graph->addVertex('coll_a', ['_key' => 'Mama']));
+    }
+
+    public function testAddVertexThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = $this->getConnectionObject($mock)->getDatabase();
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(true), $db);
+
+        $this->expectException(DatabaseException::class);
+        $this->expectExceptionMessage("Mocked error");
+        $this->assertFalse($graph->addVertex('coll_a', ['_key' => 'Mama']));
+    }
+
+    public function testGetVertex()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
+        $graph->save();
+        $graph->addVertex('coll_a', ['_key' => 'Mama', 'attr' => 'feel_the_noise']);
+
+        $vertex = $graph->getVertex('coll_a', 'Mama');
+        $this->assertInstanceOf(Vertex::class, $vertex);
+        $this->assertEquals('feel_the_noise', $vertex->attr);
+        $this->assertNotNull($vertex->getCollection());
+
+        $this->assertTrue($graph->delete(true));
+    }
+
+    public function testGetVertexReturnFalseForNewGraphs()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
+
+        $this->assertFalse($graph->getVertex('coll_a', 'feel_the_noise'));
+    }
+
+    public function testGetVertexThrowDatabaseExceptionOnNonDefinedDatabase()
+    {
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(true));
+
+        $this->expectException(DatabaseException::class);
+        $this->expectExceptionMessage("Database not defined");
+        $vertex = $graph->getVertex('coll_a', 'bang_your_head');
+    }
+
+    public function testGetVertexReturnFalseOnNonExistingVertex()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
+        $graph->save();
+        $graph->addVertex('coll_a', ['_key' => 'Mama', 'attr' => 'feel_the_noise']);
+
+        $vertex = $graph->getVertex('coll_a', 'Papa');
+        $this->assertFalse($vertex);
+
+        $this->assertTrue($graph->delete(true));
+    }
+
+    public function testGetVertexThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = $this->getConnectionObject($mock)->getDatabase();
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(true), $db);
+
+        $this->expectException(DatabaseException::class);
+        $this->expectExceptionMessage("Mocked error");
+        $vertex = $graph->getVertex('coll_a', 'Papa');
+    }
+
+    public function testDropVertex()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
+        $graph->save();
+
+        $collA = $db->getCollection('coll_a');
+        $graph->addVertex('coll_a', ['_key' => 'Mama']);
+        $this->assertEquals(1, $collA->count()); // 1 document on vertex collection 'coll_a'
+
+        $graph->dropVertex('coll_a', 'Mama');
+
+        $this->assertEquals(0, $collA->count()); // 0 documents on vertex collection 'coll_a'
+        $this->assertTrue($graph->delete(true));
+    }
+
+    public function testDropVertexReturnFalseForNewGraphs()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
+
+        $this->assertFalse($graph->dropVertex('coll_a', 'Mama'));
+    }
+
+    public function testDropVertexThrowDatabaseExceptionOnNonDefinedDatabase()
+    {
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(true));
+
+        $this->expectException(DatabaseException::class);
+        $this->expectExceptionMessage("Database not defined");
+        $graph->dropVertex('coll_a', 'Mama');
+    }
+
+    public function testDropVertexReturnFalseOnNonExistingGraphOrNonVertexCollection()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
+        $graph->save();
+
+        $vertex = $graph->dropVertex('coll_a', 'Papa');
+        $this->assertFalse($vertex);
+
+        $this->assertTrue($graph->delete(true));
+    }
+
+    public function testDropVertexThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = $this->getConnectionObject($mock)->getDatabase();
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(true), $db);
+
+        $this->expectException(DatabaseException::class);
+        $this->expectExceptionMessage("Mocked error");
+        $this->assertFalse($graph->dropVertex('coll_a', 'Papa'));
     }
 }

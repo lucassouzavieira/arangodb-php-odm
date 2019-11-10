@@ -458,7 +458,7 @@ class Graph implements \JsonSerializable
      * @return ArrayList
      * @throws DatabaseException|GuzzleException|ArangoException
      */
-    public function getVertexesCollections(): ArrayList
+    public function getVertexCollections(): ArrayList
     {
         try {
             // Empty vertex collections for new graphs
@@ -559,31 +559,130 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Gets a vertex from graph
+     * Gets a vertex from the given collection.
      *
-     * @return Vertex
+     * @param string $collection The name of the vertex collection the vertex belongs to.
+     * @param string $vertex The _key attribute of the vertex.
+     *
+     * @return Vertex|false A Vertex object if vertex exists. False if no graph with this name could be found
+     * or this collection is not part of the graph or the vertex does not exist.
+     *
+     * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
      */
-    public function getVertex(): Vertex
+    public function getVertex(string $collection, string $vertex)
     {
+        try {
+            // New graphs doesn't have vertex on server.
+            if ($this->isNew()) {
+                return false;
+            }
+
+            if (!$this->database) {
+                throw new DatabaseException("Database not defined");
+            }
+
+            $connection = $this->database->getConnection();
+            $uri = Api::buildSystemUri($connection->getBaseUri(), Api::GRAPH);
+            $uri = sprintf("%s/%s/%s/%s", Api::addUriParam($uri, $this->getName()), 'vertex', $collection, $vertex);
+            $response = $connection->get($uri);
+            $data = json_decode((string)$response->getBody(), true);
+            return new Vertex($data['vertex'], $this->database->getCollection($collection));
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                return false;
+            }
+
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
      * Adds a vertex to graph
      *
-     * @param Vertex $vertex
-     * @return bool
+     * @param string $collection The name of the vertex collection the vertex should be inserted into.
+     * @param array $attributes The object attributes to be stored
+     * @param bool $waitForSync Define if the request should wait until synced to disk. Default is true.
+     * @param bool $returnNew Define if the response should contain the complete new version of the document. Default is true.
+     *
+     * @return bool True if the vertex could be added. False if the graph is not found or if a graph is found but the collection is not part of the graph.
+     *
+     * @throws DatabaseException|GuzzleException|ArangoException
      */
-    public function addVertex(Vertex $vertex): bool
+    public function addVertex(string $collection, array $attributes = [], bool $waitForSync = true, bool $returnNew = true): bool
     {
+        try {
+            // New graphs can't add vertices on server.
+            if ($this->isNew()) {
+                return false;
+            }
+
+            if (!$this->database) {
+                throw new DatabaseException("Database not defined");
+            }
+
+            $connection = $this->database->getConnection();
+            $uri = Api::buildSystemUri($connection->getBaseUri(), Api::GRAPH);
+            $uri = sprintf("%s/%s/%s", Api::addUriParam($uri, $this->getName()), 'vertex', $collection);
+            $uri = Api::addQuery($uri, ['waitForSync' => $waitForSync, 'returnNew' => $returnNew]);
+            $response = $connection->post($uri, $attributes);
+            return true;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                return false;
+            }
+
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
      * Drops a vertex from graph
      *
-     * @return bool
+     * @param string $collection The name of the vertex collection the vertex belongs to.
+     * @param string $vertex The _key attribute of the vertex.
+     * @param bool $waitForSync Define if the request should wait until synced to disk. Default is true.
+     * @param bool $returnOld Define if the response should contain the complete new version of the document. Default is false.
+     *
+     * @return bool True if the vertex could be removed. False if the graph is not found or if a graph is found but the collection is not part of the graph.
+     *
+     * @throws DatabaseException|GuzzleException|ArangoException
      */
-    public function dropVertex(): bool
+    public function dropVertex(string $collection, string $vertex, bool $waitForSync = true, bool $returnOld = false): bool
     {
+        try {
+            // New graphs doesn't have vertex on server.
+            if ($this->isNew()) {
+                return false;
+            }
+
+            if (!$this->database) {
+                throw new DatabaseException("Database not defined");
+            }
+
+            $connection = $this->database->getConnection();
+            $uri = Api::buildSystemUri($connection->getBaseUri(), Api::GRAPH);
+            $uri = sprintf("%s/%s/%s/%s", Api::addUriParam($uri, $this->getName()), 'vertex', $collection, $vertex);
+            $uri = Api::addQuery($uri, ['waitForSync' => $waitForSync, 'returnOld' => $returnOld]);
+
+            $response = $connection->delete($uri);
+            $data = json_decode((string)$response->getBody(), true);
+            return $data['removed'];
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                return false;
+            }
+
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**

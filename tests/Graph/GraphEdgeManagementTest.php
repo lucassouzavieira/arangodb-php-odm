@@ -8,6 +8,11 @@ use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\Exceptions\DatabaseException;
 
+/**
+ * Tests for graph edges management
+ *
+ * @package Unit\Graph
+ */
 class GraphEdgeManagementTest extends BaseGraphTest
 {
     public function testAddEdgeDefinition()
@@ -34,7 +39,6 @@ class GraphEdgeManagementTest extends BaseGraphTest
         $this->expectExceptionMessage("Database not defined");
         $graph->addEdgeDefinition('edge_coll', ['coll_c'], ['coll_d']);
     }
-
 
     public function testAddEdgeDefinitionThrowDatabaseException()
     {
