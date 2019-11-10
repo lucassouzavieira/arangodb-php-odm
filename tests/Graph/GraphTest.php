@@ -525,4 +525,56 @@ class GraphTest extends TestCase
 
         $graph->dropEdgeDefinition('any_edge_coll');
     }
+
+    public function testGetVertexesCollections()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
+
+        $graph->save();
+
+        $vertexesCollections = $graph->getVertexesCollections();
+        $this->assertInstanceOf(ArrayList::class, $vertexesCollections);
+        $this->assertCount(2, $vertexesCollections);
+        $this->assertTrue(in_array('coll_a', $vertexesCollections->values()));
+        $this->assertTrue(in_array('coll_b', $vertexesCollections->values()));
+
+        $this->assertTrue($graph->delete(true));
+    }
+
+    public function testGetVertexesCollectionsForNewGraphs()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
+
+        $vertexesCollections = $graph->getVertexesCollections();
+        $this->assertInstanceOf(ArrayList::class, $vertexesCollections);
+        $this->assertCount(0, $vertexesCollections);
+    }
+
+    public function testGetVertexesCollectionsThrowDatabaseExceptionOnNonDefinedDatabase()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(true));
+
+        $this->expectException(DatabaseException::class);
+        $this->expectExceptionMessage("Database not defined");
+        $graph->getVertexesCollections();
+    }
+
+    public function testGetVertexesThrowDatabaseException()
+    {
+        $mock = new MockHandler([
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(200, [], json_encode(['result' => []])),
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $db = $this->getConnectionObject($mock)->getDatabase();
+        $graph = new Graph("my_graph", $this->mockGraphAttributes(true), $db);
+
+        $this->expectException(DatabaseException::class);
+        $this->expectExceptionMessage("Mocked error");
+        $graph->getVertexesCollections();
+    }
 }

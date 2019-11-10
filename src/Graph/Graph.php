@@ -410,8 +410,7 @@ class Graph implements \JsonSerializable
      * @param bool $waitForSync Define if the request should wait until synced to disk.
      *
      * @return bool
-     * @throws DatabaseException
-     * @throws GuzzleException
+     * @throws DatabaseException|GuzzleException
      */
     public function dropEdgeDefinition(string $collection, bool $dropCollection = false, bool $waitForSync = true): bool
     {
@@ -446,6 +445,37 @@ class Graph implements \JsonSerializable
             $this->edgeDefinitions->remove($toRemove);
 
             return true;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
+    }
+
+    /**
+     * Lists all vertex collections within this graph.
+     *
+     * @return ArrayList
+     * @throws DatabaseException|GuzzleException|ArangoException
+     */
+    public function getVertexesCollections(): ArrayList
+    {
+        try {
+            // Empty vertex collections for new graphs
+            if ($this->isNew()) {
+                return new ArrayList();
+            }
+
+            if (!$this->database) {
+                throw new DatabaseException("Database not defined");
+            }
+
+            $connection = $this->database->getConnection();
+            $uri = Api::buildSystemUri($connection->getBaseUri(), Api::GRAPH);
+            $uri = sprintf("%s/%s", Api::addUriParam($uri, $this->getName()), 'vertex');
+            $response = $connection->get($uri);
+            $data = json_decode((string)$response->getBody(), true);
+            return new ArrayList($data['collections']);
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
             $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
@@ -512,13 +542,13 @@ class Graph implements \JsonSerializable
     /**
      * Returns a graph traversal
      *
-     * @param Vertex $vertex
-     * @param int $depth
-     * @param string $type
+     * @param Vertex $vertex The start vertex
+     * @param int $depth Visits only nodes in at least the given depth
+     * @param string $direction Direction for traversal. Must be either "outbound", "inbound", or "any"
      *
      * @return Traversal
      */
-    public function traversal(Vertex $vertex, int $depth = 0, $type = 'outbound'): Traversal
+    public function traversal(Vertex $vertex, int $depth = 0, $direction = 'outbound'): Traversal
     {
     }
 
