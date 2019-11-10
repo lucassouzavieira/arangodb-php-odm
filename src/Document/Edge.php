@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace ArangoDB\Document;
 
 use ArangoDB\Collection\Collection;
+use ArangoDB\Database\Database;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Validation\Document\EdgeValidator;
@@ -33,6 +34,13 @@ class Edge extends Document
     protected $from;
 
     /**
+     * Database object
+     *
+     * @var Database
+     */
+    protected $database;
+
+    /**
      * Edge constructor.
      *
      * @param array $attributes
@@ -46,13 +54,18 @@ class Edge extends Document
         $validator->validate();
         $this->to = $attributes['_to'];
         $this->from = $attributes['_from'];
+
+        if ($collection) {
+            $this->database = $collection->getDatabase();
+        }
+
         parent::__construct($attributes, $collection);
     }
 
     /**
      * Return the '_to' document
      *
-     * @return Document|false
+     * @return Vertex|false
      * @throws InvalidParameterException|MissingParameterException|DatabaseException|GuzzleException
      */
     public function to()
@@ -63,7 +76,7 @@ class Edge extends Document
     /**
      * Return the '_from' document
      *
-     * @return Document|false
+     * @return Vertex|false
      * @throws InvalidParameterException|MissingParameterException|DatabaseException|GuzzleException
      */
     public function from()

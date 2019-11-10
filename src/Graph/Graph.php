@@ -688,29 +688,131 @@ class Graph implements \JsonSerializable
     /**
      * Returns an edge document
      *
-     * @return Edge
+     * @param string $collection The name of the edge collection the edge belongs to.
+     * @param string $edge The _key attribute of the edge.
+     *
+     * @return Edge|false A Edge object if edge exists. False if no graph with this name could be found
+     * or this collection is not part of the graph or the edge does not exist.
+     *
+     * @throws DatabaseException|GuzzleException|ArangoException|MissingParameterException|InvalidParameterException
      */
-    public function getEdge(): Edge
+    public function getEdge(string $collection, string $edge)
     {
+        try {
+            // New graphs doesn't have edges on server.
+            if ($this->isNew()) {
+                return false;
+            }
+
+            if (!$this->database) {
+                throw new DatabaseException("Database not defined");
+            }
+
+            $connection = $this->database->getConnection();
+            $uri = Api::buildSystemUri($connection->getBaseUri(), Api::GRAPH);
+            $uri = sprintf("%s/%s/%s/%s", Api::addUriParam($uri, $this->getName()), 'edge', $collection, $edge);
+            $response = $connection->get($uri);
+            $data = json_decode((string)$response->getBody(), true);
+            return new Edge($data['edge'], $this->database->getCollection($collection));
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                return false;
+            }
+
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
-     * Adds an edge to graph
+     * Creates a new edge in the collection.
+     * Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph.
+     * Furthermore the edge has to be valid in the definition of the used
      *
-     * @param Edge $edge
-     * @return bool
+     * @param string $collection The name of the edge collection the edge belongs to.
+     * @param array $attributes The object attributes to be stored. Must contains '_to' and '_from' keys.
+     * @param bool $waitForSync Define if the request should wait until synced to disk. Default is true.
+     * @param bool $returnNew Define if the response should contain the complete new version of the document. Default is false
+     *
+     * @return Edge|false A Edge object if edge exists. False if no graph with this name could be found
+     * or this collection is not part of the graph or one of the vertices ('_to' or '_from') does not exist.
+     *
+     * @throws DatabaseException|GuzzleException|ArangoException
      */
-    public function addEdge(Edge $edge): bool
+    public function addEdge(string $collection, array $attributes = [], bool $waitForSync = true, bool $returnNew = false): bool
     {
+        try {
+            // New graphs can't add edges on server.
+            if ($this->isNew()) {
+                return false;
+            }
+
+            if (!$this->database) {
+                throw new DatabaseException("Database not defined");
+            }
+
+            $connection = $this->database->getConnection();
+            $uri = Api::buildSystemUri($connection->getBaseUri(), Api::GRAPH);
+            $uri = sprintf("%s/%s/%s", Api::addUriParam($uri, $this->getName()), 'edge', $collection);
+            $uri = Api::addQuery($uri, ['waitForSync' => $waitForSync, 'returnNew' => $returnNew]);
+            $response = $connection->post($uri, $attributes);
+            return true;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                return false;
+            }
+
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
      * Drops an edge from graph
      *
-     * @return bool
+     * @param string $collection The name of the edge collection the $edge belongs to.
+     * @param string $edge The _key attribute of the edge.
+     * @param bool $waitForSync Define if the request should wait until synced to disk. Default is true.
+     * @param bool $returnOld Define if the response should contain the complete new version of the document. Default is false.
+     *
+     * @return bool True if the edge could be removed. False if the graph is not found or if a graph is found but the collection is not part of the graph.
+     *
+     * @throws DatabaseException|GuzzleException|ArangoException
      */
-    public function dropEdge(): bool
+    public function dropEdge(string $collection, string $edge, bool $waitForSync = true, bool $returnOld = false): bool
     {
+        try {
+            // New graphs doesn't have edges on server.
+            if ($this->isNew()) {
+                return false;
+            }
+
+            if (!$this->database) {
+                throw new DatabaseException("Database not defined");
+            }
+
+            $connection = $this->database->getConnection();
+            $uri = Api::buildSystemUri($connection->getBaseUri(), Api::GRAPH);
+            $uri = sprintf("%s/%s/%s/%s", Api::addUriParam($uri, $this->getName()), 'edge', $collection, $edge);
+            $uri = Api::addQuery($uri, ['waitForSync' => $waitForSync, 'returnOld' => $returnOld]);
+
+            $response = $connection->delete($uri);
+            $data = json_decode((string)$response->getBody(), true);
+            return $data['removed'];
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                return false;
+            }
+
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
     }
 
     /**
