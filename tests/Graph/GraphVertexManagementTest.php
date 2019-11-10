@@ -5,6 +5,7 @@ namespace Unit\Graph;
 
 use ArangoDB\Document\Vertex;
 use ArangoDB\Graph\Graph;
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\DataStructures\ArrayList;
@@ -374,21 +375,5 @@ class GraphVertexManagementTest extends BaseGraphTest
         $this->assertFalse($vertex);
 
         $this->assertTrue($graph->delete(true));
-    }
-
-    public function testDropVertexThrowDatabaseException()
-    {
-        $mock = new MockHandler([
-            new Response(200, [], json_encode(['result' => []])),
-            new Response(200, [], json_encode(['result' => []])),
-            new Response(403, [], json_encode($this->mockServerError()))
-        ]);
-
-        $db = $this->getConnectionObject($mock)->getDatabase();
-        $graph = new Graph("my_graph", $this->mockGraphAttributes(true), $db);
-
-        $this->expectException(DatabaseException::class);
-        $this->expectExceptionMessage("Mocked error");
-        $this->assertFalse($graph->dropVertex('coll_a', 'Papa'));
     }
 }
