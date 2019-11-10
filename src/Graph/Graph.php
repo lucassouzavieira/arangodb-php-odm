@@ -484,6 +484,81 @@ class Graph implements \JsonSerializable
     }
 
     /**
+     * Adds a vertex collection to the set of orphan collections of the graph.
+     * If the collection does not exist, it will be created.
+     *
+     * @param string $collection The name of the vertex collection.
+     * @return bool
+     *
+     * @throws DatabaseException|GuzzleException|ArangoException
+     */
+    public function addVertexCollection(string $collection): bool
+    {
+        try {
+            // For new collections, just add the collection to 'orphanCollections'
+            if ($this->isNew()) {
+                $this->orphanCollections[] = $collection;
+                return true;
+            }
+
+            if (!$this->database) {
+                throw new DatabaseException("Database not defined");
+            }
+
+            // Adds the vertex collection on server.
+            $connection = $this->database->getConnection();
+            $uri = Api::buildSystemUri($connection->getBaseUri(), Api::GRAPH);
+            $uri = sprintf("%s/%s", Api::addUriParam($uri, $this->getName()), 'vertex');
+            $response = $connection->post($uri, ['collection' => $collection]);
+            $this->orphanCollections[] = $collection;
+            return true;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
+    }
+
+    /**
+     * Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph.
+     * It can only remove vertex collections that are no longer part of edge definitions,
+     * if they are used in edge definitions you are required to modify those first.
+     *
+     * @param string $collection The name of the vertex collection.
+     * @param bool $dropCollection Drop the collection as well. Collection will only be dropped if it is not used in other graphs.
+     * @return bool
+     *
+     * @throws DatabaseException|GuzzleException|ArangoException
+     */
+    public function dropVertexCollection(string $collection, bool $dropCollection = false): bool
+    {
+        try {
+            // For new collections, we don't have any collections on server.
+            if ($this->isNew()) {
+                return false;
+            }
+
+            if (!$this->database) {
+                throw new DatabaseException("Database not defined");
+            }
+
+            // Drops the vertex collection on server.
+            $connection = $this->database->getConnection();
+            $uri = Api::buildSystemUri($connection->getBaseUri(), Api::GRAPH);
+            $uri = sprintf("%s/%s/%s", Api::addUriParam($uri, $this->getName()), 'vertex', $collection);
+            $uri = Api::addQuery($uri, ['dropCollection' => $dropCollection]);
+            $response = $connection->delete($uri);
+            $data = json_decode((string)$response->getBody(), true);
+            $this->orphanCollections = $data['graph']['orphanCollections'];
+            return true;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
+            throw $databaseException;
+        }
+    }
+
+    /**
      * Gets a vertex from graph
      *
      * @return Vertex

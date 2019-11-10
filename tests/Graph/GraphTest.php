@@ -3,7 +3,6 @@
 
 namespace Unit\Graph;
 
-use Unit\TestCase;
 use ArangoDB\Graph\Graph;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Graph\EdgeDefinition;
@@ -13,71 +12,13 @@ use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Exceptions\Exception as ArangoException;
 
-class GraphTest extends TestCase
+/**
+ * Tests for graph
+ *
+ * @package Unit\Graph
+ */
+class GraphTest extends BaseGraphTest
 {
-    public function setUp(): void
-    {
-        $this->loadEnvironment();
-        parent::setUp();
-    }
-
-    public function tearDown(): void
-    {
-        $db = $this->getConnectionObject()->getDatabase();
-        $db->dropCollection('coll_a');
-        $db->dropCollection('coll_b');
-        $db->dropCollection('edge_coll');
-        $db->dropCollection('edge_coll_b');
-        parent::tearDown();
-    }
-
-    public function mockEdgeDefinitions()
-    {
-        return [
-            'collection' => 'edge_coll',
-            'from' => [
-                'coll_a'
-            ],
-            'to' => [
-                'coll_b'
-            ]
-        ];
-    }
-
-    public function mockGraphAttributes($withDescriptors = false)
-    {
-        $descriptors = [
-            '_id' => '_graphs/mygraph',
-            '_key' => 'mygraph',
-            '_rev' => '--zGahsoet1'
-        ];
-
-        $attributes = [
-            'numberOfShards' => 1,
-            'replicationFactor' => 1,
-            'minReplicationFactor' => 1,
-            'isSmart' => false,
-            'edgeDefinitions' => [
-                [
-                    'collection' => 'someEdgeColl',
-                    'from' => [
-                        'coll_a',
-                    ],
-                    'to' => [
-                        'coll_b'
-                    ]
-                ]
-            ],
-            'orphanCollections' => []
-        ];
-
-        if ($withDescriptors) {
-            return array_merge($descriptors, $attributes);
-        }
-
-        return $attributes;
-    }
-
     public function testConstructorOnlyWithName()
     {
         $graph = new Graph('my_graph');
@@ -413,168 +354,14 @@ class GraphTest extends TestCase
         $this->assertArrayHasKey('edgeDefinitions', $arr);
     }
 
-    public function testAddEdgeDefinition()
+    public function testToString()
     {
-        $db = $this->getConnectionObject()->getDatabase();
-        $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
-
-        $graph->save();
-
-        $this->assertCount(1, $graph->getEdgeDefinitions());
-        $graph->addEdgeDefinition('edgeCollB', ['coll_x'], ['coll_y']);
-
-        $graphObj = $db->getGraph('my_graph');
-        $this->assertCount(2, $graphObj->getEdgeDefinitions());
-        $this->assertTrue($graphObj->delete(true));
-    }
-
-    public function testAddEdgeDefinitionThrowDatabaseExceptionOnNonDefinedDatabase()
-    {
-        $db = $this->getConnectionObject()->getDatabase();
         $graph = new Graph("my_graph", $this->mockGraphAttributes(true));
-
-        $this->expectException(DatabaseException::class);
-        $this->expectExceptionMessage("Database not defined");
-        $graph->addEdgeDefinition('edge_coll', ['coll_c'], ['coll_d']);
-    }
-
-
-    public function testAddEdgeDefinitionThrowDatabaseException()
-    {
-        $mock = new MockHandler([
-            new Response(200, [], json_encode(['result' => []])),
-            new Response(200, [], json_encode(['result' => []])),
-            new Response(403, [], json_encode($this->mockServerError()))
-        ]);
-
-        $db = $this->getConnectionObject($mock)->getDatabase();
-        $graph = new Graph("my_graph", $this->mockGraphAttributes(true), $db);
-
-        $this->expectException(DatabaseException::class);
-        $graph->addEdgeDefinition('edge_coll', ['coll_c'], ['coll_d']);
-    }
-
-    public function testAddEdgeDefinitionToNewGraph()
-    {
-        $graph = new Graph("my_graph", $this->mockGraphAttributes());
-
-        $this->assertCount(1, $graph->getEdgeDefinitions());
-
-        $graph->addEdgeDefinition('edgeCollB', ['coll_x'], ['coll_y']);
-        $this->assertCount(2, $graph->getEdgeDefinitions());
-    }
-
-    public function testDropEdgeDefinition()
-    {
-        $db = $this->getConnectionObject()->getDatabase();
-        $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
-
-        $graph->addEdgeDefinition('edge_coll_b', ['coll_x'], ['coll_y']);
-        $graph->save();
-        $this->assertCount(2, $graph->getEdgeDefinitions());
-
-        $this->assertTrue($graph->dropEdgeDefinition('edge_coll_b'));
-
-        $graphObj = $db->getGraph('my_graph');
-        $this->assertCount(1, $graphObj->getEdgeDefinitions());
-        $this->assertTrue($graphObj->delete(true));
-    }
-
-    public function testDropEdgeDefinitionReturnFalseForNonExistentEdgeCollection()
-    {
-        $db = $this->getConnectionObject()->getDatabase();
-        $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
-        $graph->save();
-
-        $this->assertFalse($graph->dropEdgeDefinition('random_edge_coll'));
-
-        $this->assertTrue($graph->delete(true));
-    }
-
-    public function testDropEdgeDefinitionReturnFalseForNewGraphs()
-    {
-        $graph = new Graph("my_graph", $this->mockGraphAttributes());
-        $graph->addEdgeDefinition('edge_coll_b', ['coll_x'], ['coll_y']);
-
-        $this->assertFalse($graph->dropEdgeDefinition('edge_coll_b'));
-    }
-
-    public function testDropEdgeDefinitionThrowDatabaseExceptionOnNonDefinedDatabase()
-    {
-        $db = $this->getConnectionObject()->getDatabase();
-        $graph = new Graph("my_graph", $this->mockGraphAttributes(true));
-        $this->expectException(DatabaseException::class);
-        $this->expectExceptionMessage("Database not defined");
-        $graph->dropEdgeDefinition('any_edge_coll');
-    }
-
-    public function testDropEdgeDefinitionThrowDatabaseException()
-    {
-        $mock = new MockHandler([
-            new Response(200, [], json_encode(['result' => []])),
-            new Response(200, [], json_encode(['result' => []])),
-            new Response(200, [], json_encode(['result' => []])),
-            new Response(403, [], json_encode($this->mockServerError()))
-        ]);
-
-        $db = $this->getConnectionObject($mock)->getDatabase();
-        $graph = new Graph("my_graph", $this->mockGraphAttributes(true), $db);
-
-        $this->expectException(DatabaseException::class);
-        $this->expectExceptionMessage("Mocked error");
-
-        $graph->dropEdgeDefinition('any_edge_coll');
-    }
-
-    public function testGetVertexesCollections()
-    {
-        $db = $this->getConnectionObject()->getDatabase();
-        $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
-
-        $graph->save();
-
-        $vertexesCollections = $graph->getVertexesCollections();
-        $this->assertInstanceOf(ArrayList::class, $vertexesCollections);
-        $this->assertCount(2, $vertexesCollections);
-        $this->assertTrue(in_array('coll_a', $vertexesCollections->values()));
-        $this->assertTrue(in_array('coll_b', $vertexesCollections->values()));
-
-        $this->assertTrue($graph->delete(true));
-    }
-
-    public function testGetVertexesCollectionsForNewGraphs()
-    {
-        $db = $this->getConnectionObject()->getDatabase();
-        $graph = new Graph("my_graph", $this->mockGraphAttributes(), $db);
-
-        $vertexesCollections = $graph->getVertexesCollections();
-        $this->assertInstanceOf(ArrayList::class, $vertexesCollections);
-        $this->assertCount(0, $vertexesCollections);
-    }
-
-    public function testGetVertexesCollectionsThrowDatabaseExceptionOnNonDefinedDatabase()
-    {
-        $db = $this->getConnectionObject()->getDatabase();
-        $graph = new Graph("my_graph", $this->mockGraphAttributes(true));
-
-        $this->expectException(DatabaseException::class);
-        $this->expectExceptionMessage("Database not defined");
-        $graph->getVertexesCollections();
-    }
-
-    public function testGetVertexesThrowDatabaseException()
-    {
-        $mock = new MockHandler([
-            new Response(200, [], json_encode(['result' => []])),
-            new Response(200, [], json_encode(['result' => []])),
-            new Response(403, [], json_encode($this->mockServerError()))
-        ]);
-
-        $db = $this->getConnectionObject($mock)->getDatabase();
-        $graph = new Graph("my_graph", $this->mockGraphAttributes(true), $db);
-
-        $this->expectException(DatabaseException::class);
-        $this->expectExceptionMessage("Mocked error");
-        $graph->getVertexesCollections();
+        $str = (string)$graph;
+        $this->assertStringContainsString('_id', $str);
+        $this->assertStringContainsString('_key', $str);
+        $this->assertStringContainsString('_rev', $str);
+        $this->assertStringContainsString('name', $str);
+        $this->assertStringContainsString('edgeDefinitions', $str);
     }
 }
