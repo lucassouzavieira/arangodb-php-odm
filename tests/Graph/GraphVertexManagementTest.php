@@ -379,7 +379,8 @@ class GraphVertexManagementTest extends BaseGraphTest
         $this->expectExceptionMessage("Mocked error");
         $graph->dropVertex('any_vertex_coll', 'any_vertex');
     }
-    
+
+
     public function testDropVertexReturnFalseOnNonExistingGraphOrNonVertexCollection()
     {
         $db = $this->getConnectionObject()->getDatabase();

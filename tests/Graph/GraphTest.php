@@ -3,7 +3,9 @@
 
 namespace Unit\Graph;
 
+use ArangoDB\Document\Vertex;
 use ArangoDB\Graph\Graph;
+use ArangoDB\Graph\Traversal;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Graph\EdgeDefinition;
 use GuzzleHttp\Handler\MockHandler;
@@ -153,6 +155,15 @@ class GraphTest extends BaseGraphTest
         $this->assertIsArray($graph->getOrphanCollections());
         $this->assertCount(1, $graph->getOrphanCollections());
         $this->assertTrue(in_array('orphan', $graph->getOrphanCollections()));
+    }
+
+    public function testTraversal()
+    {
+        $db = $this->getConnectionObject()->getDatabase();
+        $graph = new Graph("my_graph", ['edgeDefinitions' => [$this->mockEdgeDefinitions()]], $db);
+        $traversal = $graph->traversal(new Vertex(), Traversal::GRAPH_DIRECTION_ANY, 2);
+
+        $this->assertInstanceOf(Traversal::class, $traversal);
     }
 
     public function testSave()

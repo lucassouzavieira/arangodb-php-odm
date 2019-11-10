@@ -774,7 +774,7 @@ class Graph implements \JsonSerializable
     /**
      * Drops an edge from graph
      *
-     * @param string $collection The name of the edge collection the $edge belongs to.
+     * @param string $collection The name of the edge collection the edge belongs to.
      * @param string $edge The _key attribute of the edge.
      * @param bool $waitForSync Define if the request should wait until synced to disk. Default is true.
      * @param bool $returnOld Define if the response should contain the complete new version of the document. Default is false.
@@ -824,8 +824,9 @@ class Graph implements \JsonSerializable
      *
      * @return Traversal
      */
-    public function traversal(Vertex $vertex, int $depth = 0, $direction = 'outbound'): Traversal
+    public function traversal(Vertex $vertex, $direction = Traversal::GRAPH_DIRECTION_ANY, int $depth = 0): Traversal
     {
+        return new Traversal($vertex, $direction, $depth);
     }
 
     /**
