@@ -7,7 +7,7 @@ use Throwable;
 /**
  * Basic exception class for driver
  *
- * @package ArangoDB\Validation\Exceptions
+ * @package ArangoDB\Exceptions
  * @author Lucas S. Vieira
  */
 abstract class BaseException extends \Exception
@@ -15,9 +15,9 @@ abstract class BaseException extends \Exception
     /**
      * Base exception constructor.
      *
-     * @param $message
-     * @param Throwable|null $previous
-     * @param int $code
+     * @param string $message Exception message.
+     * @param Throwable|null $previous Previous exception or error.
+     * @param int $code Error code.
      */
     public function __construct($message, Throwable $previous = null, $code = 0)
     {

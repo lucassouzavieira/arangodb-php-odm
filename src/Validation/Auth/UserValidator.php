@@ -7,7 +7,7 @@ use ArangoDB\Validation\Validator;
 use ArangoDB\Validation\Rules\Rules;
 
 /**
- * Validates user data
+ * Validates user data <br>
  * Used for avoid client errors when creating new users or granting access to databases
  *
  * @package ArangoDB\Connection

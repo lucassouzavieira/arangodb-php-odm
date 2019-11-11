@@ -48,10 +48,11 @@ abstract class Transaction
 
 
     /**
-     * StreamTransaction constructor.
+     * Transaction constructor.
      *
-     * @param Connection $connection
-     * @param array $options
+     * @param Connection $connection Connection object to use.
+     * @param array $options Transaction options.
+     *
      * @throws TransactionException|InvalidParameterException|MissingParameterException
      */
     public function __construct(Connection $connection, array $options = [])

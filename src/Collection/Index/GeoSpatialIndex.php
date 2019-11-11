@@ -6,7 +6,6 @@ namespace ArangoDB\Collection\Index;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Class GeoSpatialIndex
  * Represents a geo-spatial index on a collection
  *
  * @package ArangoDB\Collection\Index

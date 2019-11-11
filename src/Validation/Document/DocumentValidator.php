@@ -8,7 +8,8 @@ use ArangoDB\Validation\Rules\Rules;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Validate the document values
+ * Validate the document values. <br>
+ * Used for avoid client errors when creating or updating documents on collections.
  *
  * @package ArangoDB\Validation\Document
  * @author Lucas S. Vieira
@@ -18,7 +19,7 @@ class DocumentValidator extends Validator
     /**
      * DocumentValidator constructor.
      *
-     * @param array $attributes
+     * @param array $attributes Attributes to validate.
      */
     public function __construct(array $attributes = [])
     {
@@ -28,7 +29,7 @@ class DocumentValidator extends Validator
     /**
      * Set the data for validation
      *
-     * @param mixed $attributes
+     * @param array $attributes Attributes to validate.
      */
     public function setAttributes($attributes)
     {
@@ -53,9 +54,9 @@ class DocumentValidator extends Validator
     }
 
     /**
-     * Returns if the given document validator has document descriptors
+     * Check if this document validator has document descriptors.
      *
-     * @return bool
+     * @return bool Returns true if has some descriptor, false otherwise.
      */
     public function hasDescriptors()
     {
@@ -90,7 +91,7 @@ class DocumentValidator extends Validator
     /**
      * Validate document data
      *
-     * @return true if validation is successful, throw an exception otherwise
+     * @return true if validation is successful, throw an exception otherwise.
      * @throws InvalidParameterException
      */
     public function validate(): bool

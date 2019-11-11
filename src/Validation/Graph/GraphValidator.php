@@ -11,7 +11,8 @@ use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Class GraphValidator
+ * Validate the graph options values. <br>
+ * Used for avoid client errors when creating or updating graphs
  *
  * @package ArangoDB\Validation\Graph
  * @author Lucas S. Vieira

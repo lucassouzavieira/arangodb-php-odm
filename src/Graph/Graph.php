@@ -115,9 +115,9 @@ class Graph implements \JsonSerializable
     /**
      * Graph constructor.
      *
-     * @param string $name Graph name
-     * @param array $attributes Graph optional attributes
-     * @param Database|null $database Database object
+     * @param string $name Graph name.
+     * @param array $attributes Graph optional attributes.
+     * @param Database|null $database Database object.
      *
      * @throws InvalidParameterException|MissingParameterException|ArangoException
      */
@@ -158,7 +158,7 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Returns a string representation of graph object
+     * Returns a string representation of graph object.
      *
      * @return string
      */
@@ -168,6 +168,8 @@ class Graph implements \JsonSerializable
     }
 
     /**
+     * Returns the graph ID
+     *
      * @return string
      */
     public function getId(): string
@@ -176,6 +178,8 @@ class Graph implements \JsonSerializable
     }
 
     /**
+     * Returns the graph key
+     *
      * @return string
      */
     public function getKey(): string
@@ -184,8 +188,9 @@ class Graph implements \JsonSerializable
     }
 
     /**
+     * Returns true if is a new graph.
+     *
      * @return bool
-     * @see EntityInterface::isNew()
      */
     public function isNew(): bool
     {
@@ -193,6 +198,8 @@ class Graph implements \JsonSerializable
     }
 
     /**
+     * Gets the graph name.
+     *
      * @return string
      */
     public function getName(): string
@@ -201,6 +208,8 @@ class Graph implements \JsonSerializable
     }
 
     /**
+     * If this graph is a smartGraph
+     *
      * @return bool
      */
     public function isSmart(): bool
@@ -209,6 +218,8 @@ class Graph implements \JsonSerializable
     }
 
     /**
+     * Gets the graph revision.
+     *
      * @return string
      */
     public function getRevision(): string
@@ -217,6 +228,8 @@ class Graph implements \JsonSerializable
     }
 
     /**
+     * Returns the number of shards that is used for every collection within this graph.
+     *
      * @return int
      */
     public function getNumberOfShards(): int
@@ -225,6 +238,8 @@ class Graph implements \JsonSerializable
     }
 
     /**
+     * Returns the replication factor used when initially creating collections for this graph.
+     *
      * @return int
      */
     public function getReplicationFactor(): int
@@ -233,6 +248,8 @@ class Graph implements \JsonSerializable
     }
 
     /**
+     * Returns the minimal replication factor used for every new collection in the graph.
+     *
      * @return int
      */
     public function getMinReplicationFactor(): int
@@ -241,6 +258,8 @@ class Graph implements \JsonSerializable
     }
 
     /**
+     * Returns the orphan collections in the graph.
+     *
      * @return array
      */
     public function getOrphanCollections(): array
@@ -252,6 +271,7 @@ class Graph implements \JsonSerializable
      * Save a entity on server, if possible
      *
      * @return bool true if operation was successful, false otherwise
+     *
      * @throws DatabaseException|GuzzleException|ArangoException
      */
     public function save(): bool
@@ -292,9 +312,10 @@ class Graph implements \JsonSerializable
     /**
      * Removes a graph on server, if possible
      *
-     * @param bool $dropCollections If set true, drop collections of this graph as well.
+     * @param bool $dropCollections If set true, drop collections of this graph as well. <br>
      * Collections will only be dropped if they are not used in other graphs.
-     * @return bool true if operation was successful, false otherwise
+     *
+     * @return bool True if operation was successful, false otherwise.
      *
      * @throws DatabaseException|GuzzleException|ArangoException
      */
@@ -364,7 +385,7 @@ class Graph implements \JsonSerializable
     /**
      * Adds an edge definition to graph
      *
-     * @param string $collection Edge collection name
+     * @param string $collection Edge collection name.
      * @param array $from List of vertex collection names.
      * @param array $to List of vertex collection names.
      *
@@ -404,8 +425,7 @@ class Graph implements \JsonSerializable
      * This will only remove the edge collection,
      * the vertex collections remain untouched and can still be used in your queries.
      *
-     * @param string $collection Edge collection name
-     *
+     * @param string $collection Edge collection name.
      * @param bool $dropCollection Drop the collection as well. Collection will only be dropped if it is not used in other graphs.
      * @param bool $waitForSync Define if the request should wait until synced to disk.
      *
@@ -456,6 +476,7 @@ class Graph implements \JsonSerializable
      * Lists all vertex collections within this graph.
      *
      * @return ArrayList
+     *
      * @throws DatabaseException|GuzzleException|ArangoException
      */
     public function getVertexCollections(): ArrayList
@@ -488,6 +509,7 @@ class Graph implements \JsonSerializable
      * If the collection does not exist, it will be created.
      *
      * @param string $collection The name of the vertex collection.
+     *
      * @return bool
      *
      * @throws DatabaseException|GuzzleException|ArangoException
@@ -520,12 +542,13 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph.
-     * It can only remove vertex collections that are no longer part of edge definitions,
+     * Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph.<br>
+     * It can only remove vertex collections that are no longer part of edge definitions,<br>
      * if they are used in edge definitions you are required to modify those first.
      *
      * @param string $collection The name of the vertex collection.
      * @param bool $dropCollection Drop the collection as well. Collection will only be dropped if it is not used in other graphs.
+     *
      * @return bool
      *
      * @throws DatabaseException|GuzzleException|ArangoException
@@ -564,7 +587,7 @@ class Graph implements \JsonSerializable
      * @param string $collection The name of the vertex collection the vertex belongs to.
      * @param string $vertex The _key attribute of the vertex.
      *
-     * @return Vertex|false A Vertex object if vertex exists. False if no graph with this name could be found
+     * @return Vertex|false A Vertex object if vertex exists. False if no graph with this name could be found<br>
      * or this collection is not part of the graph or the vertex does not exist.
      *
      * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
@@ -600,14 +623,15 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Adds a vertex to graph
+     * Adds a vertex to graph.
      *
      * @param string $collection The name of the vertex collection the vertex should be inserted into.
-     * @param array $attributes The object attributes to be stored
+     * @param array $attributes The object attributes to be stored.
      * @param bool $waitForSync Define if the request should wait until synced to disk. Default is true.
      * @param bool $returnNew Define if the response should contain the complete new version of the document. Default is true.
      *
-     * @return bool True if the vertex could be added. False if the graph is not found or if a graph is found but the collection is not part of the graph.
+     * @return bool True if the vertex could be added. False if no graph with this name could be found<br>
+     * or if a graph is found but the collection is not part of the graph.
      *
      * @throws DatabaseException|GuzzleException|ArangoException
      */
@@ -642,14 +666,15 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Drops a vertex from graph
+     * Drops a vertex from graph.
      *
      * @param string $collection The name of the vertex collection the vertex belongs to.
      * @param string $vertex The _key attribute of the vertex.
      * @param bool $waitForSync Define if the request should wait until synced to disk. Default is true.
      * @param bool $returnOld Define if the response should contain the complete new version of the document. Default is false.
      *
-     * @return bool True if the vertex could be removed. False if the graph is not found or if a graph is found but the collection is not part of the graph.
+     * @return bool True if the vertex could be removed. False if no graph with this name could be found<br>
+     * or if a graph is found but the collection is not part of the graph.
      *
      * @throws DatabaseException|GuzzleException|ArangoException
      */
@@ -686,12 +711,12 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Returns an edge document
+     * Returns an edge document.
      *
      * @param string $collection The name of the edge collection the edge belongs to.
      * @param string $edge The _key attribute of the edge.
      *
-     * @return Edge|false A Edge object if edge exists. False if no graph with this name could be found
+     * @return Edge|false A Edge object if edge exists. False if no graph with this name could be found<br>
      * or this collection is not part of the graph or the edge does not exist.
      *
      * @throws DatabaseException|GuzzleException|ArangoException|MissingParameterException|InvalidParameterException
@@ -727,7 +752,7 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Creates a new edge in the collection.
+     * Creates a new edge in the collection.<br>
      * Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph.
      * Furthermore the edge has to be valid in the definition of the used
      *
@@ -772,14 +797,15 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Drops an edge from graph
+     * Drops an edge from graph.
      *
      * @param string $collection The name of the edge collection the edge belongs to.
      * @param string $edge The _key attribute of the edge.
      * @param bool $waitForSync Define if the request should wait until synced to disk. Default is true.
      * @param bool $returnOld Define if the response should contain the complete new version of the document. Default is false.
      *
-     * @return bool True if the edge could be removed. False if the graph is not found or if a graph is found but the collection is not part of the graph.
+     * @return bool True if the edge could be removed. False if no graph with this name could be found<br>
+     * or if a graph is found but the collection is not part of the graph.
      *
      * @throws DatabaseException|GuzzleException|ArangoException
      */
@@ -818,9 +844,9 @@ class Graph implements \JsonSerializable
     /**
      * Returns a graph traversal
      *
-     * @param Vertex $vertex The start vertex
-     * @param int $depth Visits only nodes in at least the given depth
-     * @param string $direction Direction for traversal. Must be either "outbound", "inbound", or "any"
+     * @param Vertex $vertex The start vertex.
+     * @param int $depth Visits only nodes in at least the given depth.
+     * @param string $direction Direction for traversal. Must be either "outbound", "inbound", or "any".
      *
      * @return Traversal
      */
@@ -830,7 +856,9 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * @see \JsonSerializable::jsonSerialize()
+     * Return a JSON representation of graph attributes.
+     *
+     * @return array|mixed
      */
     public function jsonSerialize()
     {
@@ -842,7 +870,7 @@ class Graph implements \JsonSerializable
      *
      * @return array
      */
-    protected function getCreateParameters(): array
+    private function getCreateParameters(): array
     {
         $data = $this->toArray();
         unset($data['_id'], $data['_key'], $data['_rev']);

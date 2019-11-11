@@ -38,7 +38,7 @@ abstract class Validator implements ValidatorInterface
     /**
      * Validator constructor.
      *
-     * @param array $options
+     * @param array $options Attributes to validate.
      */
     public function __construct(array $options)
     {

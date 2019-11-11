@@ -7,7 +7,6 @@ use ArangoDB\Validation\Validator;
 use ArangoDB\Validation\Rules\Rules;
 
 /**
- * Class ConnectionOptionsValidator
  * Validate the connection options to access the database
  *
  * @package ArangoDB\Validation\Connection

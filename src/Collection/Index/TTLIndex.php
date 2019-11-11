@@ -6,7 +6,6 @@ namespace ArangoDB\Collection\Index;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Class TTLIndex
  * Represents a TTL index on a collection
  *
  * @package ArangoDB\Collection\Index

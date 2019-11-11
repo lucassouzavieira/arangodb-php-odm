@@ -8,8 +8,8 @@ use ArangoDB\Validation\Rules\Rules;
 use ArangoDB\Exceptions\TransactionException;
 
 /**
- * Class TransactionOptionsValidator
- * Validates options for transactions
+ * Validate transactions options values. <br>
+ * Used for avoid client errors when running javascript or stream transactions.
  *
  * @package ArangoDB\Validation\Transaction
  */
@@ -35,6 +35,7 @@ class TransactionOptionsValidator extends Validator
 
     /**
      * Rules for connection
+     *
      * @return array
      */
     public function rules(): array

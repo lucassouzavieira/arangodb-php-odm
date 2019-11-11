@@ -25,12 +25,12 @@ abstract class Import
      *
      * @param Connection $connection Connection object to use.
      * @param string $collection Collection to import. Must exist on server.
-     * @param string $jsonDocuments json documents as string representation
+     * @param string $jsonDocuments JSON documents as string representation
      *
      * @return array with the results of operation
      *
      * @throws ServerException|GuzzleException|InvalidParameterException|MissingParameterException
-     * @link https://www.arangodb.com/docs/stable/http/bulk-imports-importing-self-contained.html
+     * @see https://www.arangodb.com/docs/stable/http/bulk-imports-importing-self-contained.html
      */
     public static function importJsonDocuments(Connection $connection, string $collection, string $jsonDocuments): array
     {
@@ -59,12 +59,12 @@ abstract class Import
      *
      * @param Connection $connection Connection object to use.
      * @param string $collection Collection to import. Must exist on server.
-     * @param string $arrayDocuments documents json arrays as string representation
+     * @param string $arrayDocuments Documents JSON arrays as string representation
      *
      * @return array with the results of operation
      *
      * @throws ServerException|GuzzleException|InvalidParameterException|MissingParameterException
-     * @link https://www.arangodb.com/docs/stable/http/bulk-imports-importing-self-contained.html
+     * @see https://www.arangodb.com/docs/stable/http/bulk-imports-importing-self-contained.html
      */
     public static function importArrayDocuments(Connection $connection, string $collection, string $arrayDocuments): array
     {

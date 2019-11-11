@@ -7,8 +7,8 @@ use ArangoDB\Validation\Validator;
 use ArangoDB\Validation\Rules\Rules;
 
 /**
- * Class CollectionValidator
- * Validate the document values
+ * Validate the collection options values. <br>
+ * Used for avoid client errors when creating or updating collections
  *
  * @package ArangoDB\Validation\Collection
  * @author Lucas S. Vieira
@@ -34,7 +34,7 @@ class CollectionValidator extends Validator
     /**
      * CollectionValidator constructor.
      *
-     * @param array $options
+     * @param array $options Attributes to validate.
      */
     public function __construct(array $options)
     {

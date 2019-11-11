@@ -167,6 +167,8 @@ abstract class Base implements CursorInterface
     protected const SANITIZE = '_sanitize';
 
     /**
+     * Return if the Cursor has cached results on server
+     *
      * @return bool
      */
     public function isCached(): bool

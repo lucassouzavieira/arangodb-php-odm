@@ -30,9 +30,10 @@ final class JavascriptTransaction extends Transaction
     /**
      * JavascriptTransaction constructor.
      *
-     * @param Connection $connection
-     * @param string $action
-     * @param array $options
+     * @param Connection $connection Connection object to use.
+     * @param string $action JavaScript code to execute on server
+     * @param array $options Transaction options.
+     *
      * @throws TransactionException|InvalidParameterException|MissingParameterException
      */
     public function __construct(Connection $connection, string $action, array $options = [])

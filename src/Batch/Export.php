@@ -36,14 +36,14 @@ abstract class Export
     /**
      * Exports a collection
      *
-     * @param Connection $connection
-     * @param string $collection
+     * @param Connection $connection Connection object to use
+     * @param string $collection Name of collection to export
      *
-     * @param array $options
+     * @param array $options Export options to use. If not set, a default set of options will be used.
      * @return CursorInterface Cursor to export
      *
      * @throws CursorException|GuzzleException|InvalidParameterException|MissingParameterException|DatabaseException
-     * @link https://www.arangodb.com/docs/stable/http/export.html#create-export-cursor
+     * @see https://www.arangodb.com/docs/stable/http/export.html#create-export-cursor
      */
     public static function collection(Connection $connection, string $collection, array $options = []): CursorInterface
     {

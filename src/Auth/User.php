@@ -78,6 +78,8 @@ class User extends Entity
     }
 
     /**
+     * Get the activation status of the user
+     *
      * @return bool
      */
     public function isActive(): bool
@@ -96,6 +98,8 @@ class User extends Entity
     }
 
     /**
+     * Set the activation status of the user
+     *
      * @param bool $active
      */
     public function setActive(bool $active): void
@@ -114,6 +118,8 @@ class User extends Entity
     }
 
     /**
+     * Returns extra data about user
+     *
      * @return array|null
      */
     public function getExtra()
@@ -122,6 +128,8 @@ class User extends Entity
     }
 
     /**
+     * Set extra data for user
+     *
      * @param array $extra
      */
     public function setExtra(array $extra): void
@@ -130,6 +138,8 @@ class User extends Entity
     }
 
     /**
+     * Returns a array representation of user
+     *
      * @return array
      * @see Entity::toArray()
      */

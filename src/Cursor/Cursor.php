@@ -19,14 +19,14 @@ use ArangoDB\Cursor\Exceptions\CursorException;
 class Cursor extends Base
 {
     /**
-     * URI to manage de cursor
+     * URI to manage the cursor
      *
      * @var string
      */
     protected $uri = Api::CURSOR;
 
     /**
-     * Statement to query
+     * Statement to execute
      *
      * @var StatementInterface
      */
@@ -34,7 +34,7 @@ class Cursor extends Base
 
     /**
      * Default options query for the cursor
-     * 'count', 'batchSize' and 'options' are, by default, leaved for the server defaults
+     * 'count', 'batchSize' and 'options' are, by default, leaved for the server defaults.
      *
      * @var array
      */
@@ -82,7 +82,9 @@ class Cursor extends Base
     }
 
     /**
-     * @see \Iterator::current()
+     * Return the current element
+     *
+     * @return mixed
      */
     public function current()
     {
@@ -90,7 +92,7 @@ class Cursor extends Base
     }
 
     /**
-     * @see \Iterator::next()
+     * Move forward to next element
      */
     public function next()
     {
@@ -98,7 +100,9 @@ class Cursor extends Base
     }
 
     /**
-     * @see \Iterator::key()
+     * Return the key of the current element
+     *
+     * @return mixed
      */
     public function key()
     {
@@ -106,7 +110,10 @@ class Cursor extends Base
     }
 
     /**
-     * @see \Iterator::valid()
+     * Checks if current position is valid
+     *
+     * @return bool
+     * @throws CursorException
      */
     public function valid()
     {
@@ -125,7 +132,7 @@ class Cursor extends Base
     }
 
     /**
-     * @see \Iterator::rewind()
+     * Rewind the Iterator to the first element
      */
     public function rewind()
     {
@@ -187,7 +194,6 @@ class Cursor extends Base
     /**
      * Fetch more results from the server
      *
-     * @return void
      * @throws CursorException
      */
     public function fetch(): void

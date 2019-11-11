@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace ArangoDB\Validation;
 
 /**
- * Interface ValidatorInterface
+ * Validator interface
  *
  * @package ArangoDB\Validation
  * @author Lucas S. Vieira

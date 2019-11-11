@@ -6,7 +6,7 @@ namespace ArangoDB\Cursor\Exceptions;
 use ArangoDB\Exceptions\BaseException;
 
 /**
- * Class CursorException
+ * CursorException
  *
  * @package ArangoDB\Cursor\Exceptions
  * @author Lucas S. Vieira

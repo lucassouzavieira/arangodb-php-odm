@@ -18,7 +18,7 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 /**
  * Represents an ArangoDB database
  *
- * @package ArangoDB\Auth
+ * @package ArangoDB\Database
  * @author Lucas S. Vieira
  */
 class Database extends DatabaseHandler
@@ -54,7 +54,7 @@ class Database extends DatabaseHandler
     /**
      * Database constructor.
      *
-     * @param Connection $connection Connection to use
+     * @param Connection $connection Connection object to be used
      *
      * @throws GuzzleException|DatabaseException|InvalidParameterException|MissingParameterException
      */
@@ -78,7 +78,7 @@ class Database extends DatabaseHandler
     /**
      * Return all collections of database
      *
-     * @return ArrayList[Collection]
+     * @return ArrayList A list with all collections in database.
      *
      * @throws GuzzleException|DatabaseException|InvalidParameterException|MissingParameterException
      */
@@ -91,8 +91,10 @@ class Database extends DatabaseHandler
     /**
      * Check if database has given collection
      *
-     * @param string $collection
+     * @param string $collection Collection name
+     *
      * @return bool True if operation was successful, false otherwise
+     *
      * @throws GuzzleException|DatabaseException
      */
     public function hasCollection(string $collection): bool
@@ -117,7 +119,8 @@ class Database extends DatabaseHandler
     /**
      * Return the collection object for a given collection
      *
-     * @param string $collection
+     * @param string $collection Collection name
+     *
      * @return Collection|bool Collection object. Return False if collection not exists on database
      *
      * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
@@ -143,7 +146,7 @@ class Database extends DatabaseHandler
     /**
      * Lists all graphs stored in this database.
      *
-     * @return ArrayList
+     * @return ArrayList A list with all graphs in database.
      *
      * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException|Exception
      */
@@ -173,7 +176,9 @@ class Database extends DatabaseHandler
      * @param array $attributes If you want to specify some custom attribute to collection
      *
      * @return Collection A Collection object if operation was successful, throws an exception otherwise
+     *
      * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
+     * @see https://www.arangodb.com/docs/stable/http/collection-creating.html#create-collection
      */
     public function createCollection(string $collection, array $attributes = []): Collection
     {
@@ -183,9 +188,10 @@ class Database extends DatabaseHandler
     }
 
     /**
-     * Check if database has given collection
+     * Check if database has a given graph
      *
-     * @param string $graph Graph name
+     * @param string $graph Graph name.
+     *
      * @return Graph|false Returns a Graph object if graph exists. Return False if graph not exists on database.
      *
      * @throws DatabaseException|Exception|GuzzleException|InvalidParameterException|MissingParameterException
@@ -215,8 +221,10 @@ class Database extends DatabaseHandler
     /**
      * Drops a given collection of database
      *
-     * @param string $collection
+     * @param string $collection Collection name
+     *
      * @return bool True if operation was successful, false otherwise
+     *
      * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
      */
     public function dropCollection(string $collection): bool
@@ -242,26 +250,25 @@ class Database extends DatabaseHandler
     /**
      * Synchronizes the object with database on server
      *
-     * @return bool
      * @throws GuzzleException|DatabaseException|InvalidParameterException|MissingParameterException
      */
-    public function sync(): bool
+    private function sync()
     {
         // Update database collections;
         $this->collections = $this->retrieveCollections();
 
         // Update database info;
         $this->info = self::current($this->connection);
-        return true;
     }
 
     /**
      * Retrieve a list of collections of database
      *
-     * @return ArrayList
+     * @return ArrayList A list with all collections in database.
+     *
      * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
      */
-    protected function retrieveCollections(): ArrayList
+    private function retrieveCollections(): ArrayList
     {
         try {
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabaseName(), Api::COLLECTION);

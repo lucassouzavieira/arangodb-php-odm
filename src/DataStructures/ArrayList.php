@@ -68,9 +68,10 @@ class ArrayList implements ListInterface
     }
 
     /**
-     * @param $key
+     * Get a value by it's key
+     *
+     * @param $key Key to verify on list.
      * @return mixed
-     * @see ListInterface::get()
      */
     public function get($key)
     {
@@ -82,8 +83,9 @@ class ArrayList implements ListInterface
     }
 
     /**
-     * @param mixed $value
-     * @see ListInterface::push()
+     * Add a value to list
+     *
+     * @param mixed $value Value to add.
      */
     public function push($value): void
     {
@@ -91,9 +93,10 @@ class ArrayList implements ListInterface
     }
 
     /**
-     * @param string|integer $key
-     * @param mixed $value
-     * @see ListInterface::put()
+     * Put a object into list on given key
+     *
+     * @param string|integer $key Key for manage the value.
+     * @param mixed $value Value to add.
      */
     public function put($key, $value): void
     {
@@ -101,9 +104,10 @@ class ArrayList implements ListInterface
     }
 
     /**
-     * @param $key
-     * @return bool
-     * @see ListInterface::has()
+     * Check if a given key exists on list
+     *
+     * @param $key Key to verify on list.
+     * @return bool True if key exists, false otherwise.
      */
     public function has($key): bool
     {
@@ -111,8 +115,10 @@ class ArrayList implements ListInterface
     }
 
     /**
-     * @param $key
-     * @see ListInterface::remove()
+     * Remove a value by it's key on list
+     *
+     * @param $key Key to remove from list.
+     * @return mixed
      */
     public function remove($key)
     {
@@ -120,7 +126,9 @@ class ArrayList implements ListInterface
     }
 
     /**
-     * @see ListInterface::toArray()
+     * Return an array representation for list
+     *
+     * @return array
      */
     public function toArray(): array
     {
@@ -128,7 +136,9 @@ class ArrayList implements ListInterface
     }
 
     /**
-     * @see ListInterface::values()
+     * Return an array with list values only
+     *
+     * @return array
      */
     public function values(): array
     {
@@ -136,8 +146,9 @@ class ArrayList implements ListInterface
     }
 
     /**
-     * @param ListInterface $list
-     * @see ListInterface::append()
+     * Appends a list to another.
+     *
+     * @param ListInterface $list ListInterface object to append.
      */
     public function append(ListInterface $list): void
     {
@@ -147,7 +158,9 @@ class ArrayList implements ListInterface
     }
 
     /**
-     * @see \JsonSerializable::jsonSerialize()
+     * Return a JSON representation of list
+     *
+     * @return array|mixed
      */
     public function jsonSerialize()
     {
@@ -155,8 +168,9 @@ class ArrayList implements ListInterface
     }
 
     /**
+     * Return the current element
+     *
      * @return mixed
-     * @see Iterator::current()
      */
     public function current()
     {
@@ -164,7 +178,7 @@ class ArrayList implements ListInterface
     }
 
     /**
-     * @see Iterator::next()
+     * Move forward to next element
      */
     public function next()
     {
@@ -172,8 +186,9 @@ class ArrayList implements ListInterface
     }
 
     /**
+     * Return the key of the current element
+     *
      * @return mixed
-     * @see Iterator::key()
      */
     public function key()
     {
@@ -181,8 +196,9 @@ class ArrayList implements ListInterface
     }
 
     /**
+     * Checks if current position is valid
+     *
      * @return bool
-     * @see Iterator::valid()
      */
     public function valid()
     {
@@ -190,7 +206,7 @@ class ArrayList implements ListInterface
     }
 
     /**
-     * @see Iterator::rewind()
+     * Rewind the Iterator to the first element
      */
     public function rewind()
     {
@@ -198,8 +214,9 @@ class ArrayList implements ListInterface
     }
 
     /**
+     * Count elements of an object
+     *
      * @return int
-     * @see \Countable::count()
      */
     public function count()
     {

@@ -15,7 +15,7 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 use ArangoDB\Validation\Connection\ConnectionOptionsValidator;
 
 /**
- * Class Connection
+ * Represents a connection with an ArangoDB database
  *
  * @package ArangoDB\Connection
  * @author Lucas S. Vieira
@@ -95,7 +95,7 @@ class Connection extends Authenticable
      *
      * @return string
      */
-    public function getBaseUri(): string
+    public function getBaseURI(): string
     {
         return $this->options['endpoint'];
     }
@@ -134,9 +134,9 @@ class Connection extends Authenticable
     /**
      * Executes a GET request on server
      *
-     * @param string $endpoint
-     * @param array $body
-     * @param array $headers
+     * @param string $endpoint URI to make the request
+     * @param array $body The body content.
+     * @param array $headers Additional headers to send on request
      *
      * @return ResponseInterface
      * @throws GuzzleException
@@ -149,9 +149,9 @@ class Connection extends Authenticable
     /**
      * Executes a POST request on server
      *
-     * @param string $endpoint
-     * @param array $body
-     * @param array $headers
+     * @param string $endpoint URI to make the request
+     * @param array $body The body content.
+     * @param array $headers Additional headers to send on request
      *
      * @return ResponseInterface
      * @throws GuzzleException
@@ -164,9 +164,9 @@ class Connection extends Authenticable
     /**
      * Executes a PUT request on server
      *
-     * @param string $endpoint
-     * @param array $body
-     * @param array $headers
+     * @param string $endpoint URI to make the request
+     * @param array $body The body content.
+     * @param array $headers Additional headers to send on request
      *
      * @return ResponseInterface
      * @throws GuzzleException
@@ -179,9 +179,9 @@ class Connection extends Authenticable
     /**
      * Executes a PATCH request on server
      *
-     * @param string $endpoint
-     * @param array $body
-     * @param array $headers
+     * @param string $endpoint URI to make the request
+     * @param array $body The body content.
+     * @param array $headers Additional headers to send on request
      *
      * @return ResponseInterface
      * @throws GuzzleException
@@ -194,9 +194,9 @@ class Connection extends Authenticable
     /**
      * Executes a DELETE request on server
      *
-     * @param string $endpoint
-     * @param array $body
-     * @param array $headers
+     * @param string $endpoint URI to make the request
+     * @param array $body The body content.
+     * @param array $headers Additional headers to send on request
      *
      * @return ResponseInterface
      * @throws GuzzleException
@@ -209,16 +209,16 @@ class Connection extends Authenticable
     /**
      * Makes a custom request
      *
-     * @param string $method
-     * @param string $url
-     * @param string $body
-     * @param array $headers
+     * @param string $method HTTP Method to use
+     * @param string $uri URI to make the request
+     * @param string $body The body content.
+     * @param array $headers Additional headers to send on request
      *
      * @return ResponseInterface
      * @throws GuzzleException
      */
-    public function customHttpRequest(string $method, string $url, string $body = "", array $headers = []): ResponseInterface
+    public function customHttpRequest(string $method, string $uri, string $body = "", array $headers = []): ResponseInterface
     {
-        return $this->restClient->customHttpRequest($method, $url, $body, array_merge($headers, $this->getDefaultHeaders(), $this->getAuthorizationHeader()));
+        return $this->restClient->customHttpRequest($method, $uri, $body, array_merge($headers, $this->getDefaultHeaders(), $this->getAuthorizationHeader()));
     }
 }

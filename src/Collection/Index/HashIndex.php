@@ -6,7 +6,6 @@ namespace ArangoDB\Collection\Index;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Class HashIndex
  * Represents a hash index on a collection
  *
  * @package ArangoDB\Collection\Index

@@ -14,7 +14,7 @@ use ArangoDB\Exceptions\DatabaseException;
 /**
  * Manages databases on Arango server
  *
- * @package ArangoDB\Auth
+ * @package ArangoDB\Database
  * @author Lucas S. Vieira
  */
 abstract class DatabaseHandler extends ManagesConnection
@@ -22,10 +22,11 @@ abstract class DatabaseHandler extends ManagesConnection
     /**
      * Creates a new database on server
      *
-     * @param Connection $connection Connection to be used
-     * @param string $database DatabaseHandler name
+     * @param Connection $connection Connection object to be used
+     * @param string $database Database name
      *
-     * @return bool
+     * @return bool True if database was successfully created on server. Throw an exception otherwise.
+     *
      * @throws GuzzleException|DatabaseException
      */
     public static function create(Connection $connection, string $database): bool
@@ -49,10 +50,11 @@ abstract class DatabaseHandler extends ManagesConnection
     /**
      * Drops a database from server
      *
-     * @param Connection $connection
-     * @param string $database
+     * @param Connection $connection Connection object to be used
+     * @param string $database Database name
      *
-     * @return bool
+     * @return bool True if database was successfully dropped on server. Throw an exception otherwise.
+     *
      * @throws DatabaseException|GuzzleException
      */
     public static function drop(Connection $connection, string $database): bool
@@ -79,9 +81,10 @@ abstract class DatabaseHandler extends ManagesConnection
     /**
      * Lists databases that exists on server
      *
-     * @param Connection $connection
+     * @param Connection $connection Connection object to be used
      *
-     * @return ArrayList
+     * @return ArrayList A list with all databases on server.
+     *
      * @throws GuzzleException|DatabaseException
      */
     public static function list(Connection $connection): ArrayList
@@ -102,9 +105,10 @@ abstract class DatabaseHandler extends ManagesConnection
     /**
      * Lists the databases that current user has access
      *
-     * @param Connection $connection
+     * @param Connection $connection Connection object to be used
      *
-     * @return ArrayList
+     * @return ArrayList A list with all databases on server that current user has access.
+     *
      * @throws GuzzleException|DatabaseException
      */
     public static function userDatabases(Connection $connection): ArrayList
@@ -125,10 +129,12 @@ abstract class DatabaseHandler extends ManagesConnection
     /**
      * Returns information about the current database
      *
-     * @param Connection $connection
+     * @param Connection $connection Connection object to be used
      *
-     * @return array
+     * @return array An array with information about database.
+     *
      * @throws GuzzleException|DatabaseException
+     * @see https://www.arangodb.com/docs/stable/http/database-database-management.html#information-of-the-database
      */
     public static function current(Connection $connection): array
     {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace ArangoDB\Validation\Rules;
 
 /**
- * Basic inter
+ * Basic interface for validation rule
  *
  * @package ArangoDB\Validation\Rules
  * @author Lucas S. Vieira

@@ -8,7 +8,7 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Validate the edge values
+ * Validate the edge values.
  *
  * @package ArangoDB\Validation\Document
  * @author Lucas S. Vieira
@@ -27,7 +27,7 @@ class EdgeValidator extends DocumentValidator
     /**
      * Validate document data
      *
-     * @return true if validation is successful, throw an exception otherwise
+     * @return bool True if validation is successful, throw an exception otherwise.
      * @throws InvalidParameterException|MissingParameterException
      */
     public function validate(): bool

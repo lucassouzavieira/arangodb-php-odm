@@ -8,7 +8,6 @@ use ArangoDB\Collection\Contracts\IndexInterface;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Class Index
  * Represents a collection index
  *
  * @package ArangoDB\Collection
