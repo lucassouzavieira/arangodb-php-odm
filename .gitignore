@@ -5,4 +5,13 @@ sandbox.php
 .env
 .php_cs.cache
 build/
+cache/
 coverage.xml
+
+# Ignore documentation generation script
+documentation.php
+
+# Export ignores
+/docs/             export-ignore
+/tests/            export-ignore
+phpunit.xml        export-ignore
