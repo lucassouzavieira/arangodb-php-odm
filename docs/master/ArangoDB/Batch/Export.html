@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -143,17 +149,17 @@
                     <tr>
                 <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to use</td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$collection</td>
-                <td></td>
+                <td>Name of collection to export</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$options</td>
-                <td></td>
+                <td>Export options to use. If not set, a default set of options will be used.</td>
             </tr>
             </table>
 
@@ -178,6 +184,17 @@
             </table>
 
             
+                            <h4>See also</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+                                            <a href="https://www.arangodb.com/docs/stable/http/export.html#create-export-cursor">https://www.arangodb.com/docs/stable/http/export.html#create-export-cursor</a>
+                                    </td>
+                <td></td>
+            </tr>
+            </table>
+
                     </div>
     </div>
 

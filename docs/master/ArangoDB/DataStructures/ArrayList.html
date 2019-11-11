@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -163,8 +169,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_get">get</a>($key)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get a value by it's key</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -174,8 +179,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_push">push</a>(mixed $value)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Add a value to list</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -185,8 +189,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_put">put</a>(string|integer $key, mixed $value)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Put a object into list on given key</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -196,8 +199,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_has">has</a>($key)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Check if a given key exists on list</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -207,8 +209,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_remove">remove</a>($key)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Remove a value by it's key on list</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -218,8 +219,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_toArray">toArray</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Return an array representation for list</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -229,8 +229,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_values">values</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Return an array with list values only</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -240,19 +239,17 @@
                 <div class="col-md-8 type">
                     <a href="#method_append">append</a>(<a href="../../ArangoDB/DataStructures/Contracts/ListInterface.html"><abbr title="ArangoDB\DataStructures\Contracts\ListInterface">ListInterface</abbr></a> $list)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Appends a list to another.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    array|mixed
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_jsonSerialize">jsonSerialize</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Return a JSON representation of list</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -262,8 +259,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_current">current</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Return the current element</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -273,8 +269,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_next">next</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Move forward to next element</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -284,8 +279,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_key">key</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Return the key of the current element</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -295,8 +289,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_valid">valid</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Checks if current position is valid</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -306,8 +299,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_rewind">rewind</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Rewind the Iterator to the first element</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -317,8 +309,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_count">count</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Count elements of an object</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -450,7 +441,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_get">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L75">line 75</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L76">line 76</a></div>
         <code>                    mixed
     <strong>get</strong>($key)
         </code>
@@ -459,6 +450,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Get a value by it's key</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -466,7 +459,7 @@
                     <tr>
                 <td></td>
                 <td>$key</td>
-                <td></td>
+                <td>Key to verify on list.</td>
             </tr>
             </table>
 
@@ -482,18 +475,13 @@
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_push">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L88">line 88</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L90">line 90</a></div>
         <code>                    void
     <strong>push</strong>(mixed $value)
         </code>
@@ -502,6 +490,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Add a value to list</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -509,7 +499,7 @@
                     <tr>
                 <td>mixed</td>
                 <td>$value</td>
-                <td></td>
+                <td>Value to add.</td>
             </tr>
             </table>
 
@@ -525,18 +515,13 @@
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_put">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L98">line 98</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L101">line 101</a></div>
         <code>                    void
     <strong>put</strong>(string|integer $key, mixed $value)
         </code>
@@ -545,6 +530,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Put a object into list on given key</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -552,12 +539,12 @@
                     <tr>
                 <td>string|integer</td>
                 <td>$key</td>
-                <td></td>
+                <td>Key for manage the value.</td>
             </tr>
                     <tr>
                 <td>mixed</td>
                 <td>$value</td>
-                <td></td>
+                <td>Value to add.</td>
             </tr>
             </table>
 
@@ -573,18 +560,13 @@
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_has">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L108">line 108</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L112">line 112</a></div>
         <code>                    bool
     <strong>has</strong>($key)
         </code>
@@ -593,6 +575,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Check if a given key exists on list</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -600,7 +584,7 @@
                     <tr>
                 <td></td>
                 <td>$key</td>
-                <td></td>
+                <td>Key to verify on list.</td>
             </tr>
             </table>
 
@@ -610,24 +594,19 @@
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td></td>
+            <td>True if key exists, false otherwise.</td>
         </tr>
     </table>
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_remove">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L117">line 117</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L123">line 123</a></div>
         <code>                    mixed
     <strong>remove</strong>($key)
         </code>
@@ -636,6 +615,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Remove a value by it's key on list</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -643,7 +624,7 @@
                     <tr>
                 <td></td>
                 <td>$key</td>
-                <td></td>
+                <td>Key to remove from list.</td>
             </tr>
             </table>
 
@@ -659,18 +640,13 @@
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_toArray">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L125">line 125</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L133">line 133</a></div>
         <code>                    array
     <strong>toArray</strong>()
         </code>
@@ -679,6 +655,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Return an array representation for list</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -692,18 +670,13 @@
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_values">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L133">line 133</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L143">line 143</a></div>
         <code>                    array
     <strong>values</strong>()
         </code>
@@ -712,6 +685,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Return an array with list values only</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -725,18 +700,13 @@
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_append">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L142">line 142</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L153">line 153</a></div>
         <code>                    void
     <strong>append</strong>(<a href="../../ArangoDB/DataStructures/Contracts/ListInterface.html"><abbr title="ArangoDB\DataStructures\Contracts\ListInterface">ListInterface</abbr></a> $list)
         </code>
@@ -745,6 +715,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Appends a list to another.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -752,7 +724,7 @@
                     <tr>
                 <td><a href="../../ArangoDB/DataStructures/Contracts/ListInterface.html"><abbr title="ArangoDB\DataStructures\Contracts\ListInterface">ListInterface</abbr></a></td>
                 <td>$list</td>
-                <td></td>
+                <td>ListInterface object to append.</td>
             </tr>
             </table>
 
@@ -768,19 +740,14 @@
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_jsonSerialize">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L152">line 152</a></div>
-        <code>                    
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L165">line 165</a></div>
+        <code>                    array|mixed
     <strong>jsonSerialize</strong>()
         </code>
     </h3>
@@ -788,22 +755,28 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Return a JSON representation of list</p>                                                </div>
                 <div class="tags">
             
-            
-            
-                            <h4>See also</h4>
+                            <h4>Return Value</h4>
 
                     <table class="table table-condensed">
-            </table>
+        <tr>
+            <td>array|mixed</td>
+            <td></td>
+        </tr>
+    </table>
 
+            
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_current">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L161">line 161</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L175">line 175</a></div>
         <code>                    mixed
     <strong>current</strong>()
         </code>
@@ -812,6 +785,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Return the current element</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -825,18 +800,13 @@
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_next">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L169">line 169</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L183">line 183</a></div>
         <code>                    
     <strong>next</strong>()
         </code>
@@ -845,22 +815,19 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Move forward to next element</p>                                                </div>
                 <div class="tags">
             
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_key">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L178">line 178</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L193">line 193</a></div>
         <code>                    mixed
     <strong>key</strong>()
         </code>
@@ -869,6 +836,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Return the key of the current element</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -882,18 +851,13 @@
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_valid">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L187">line 187</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L203">line 203</a></div>
         <code>                    bool
     <strong>valid</strong>()
         </code>
@@ -902,6 +866,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Checks if current position is valid</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -915,18 +881,13 @@
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_rewind">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L195">line 195</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L211">line 211</a></div>
         <code>                    
     <strong>rewind</strong>()
         </code>
@@ -935,22 +896,19 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Rewind the Iterator to the first element</p>                                                </div>
                 <div class="tags">
             
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_count">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L204">line 204</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/DataStructures/ArrayList.php#L221">line 221</a></div>
         <code>                    int
     <strong>count</strong>()
         </code>
@@ -959,6 +917,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Count elements of an object</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -972,11 +932,6 @@
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 

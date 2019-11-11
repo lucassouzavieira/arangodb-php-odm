@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -217,7 +223,7 @@ waits server write all data on disk before return any response.</td>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/StreamTransaction.php#L50">line 50</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/StreamTransaction.php#L51">line 51</a></div>
         <code>                    
     <strong>__construct</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection, array $options = [])
         </code>
@@ -235,12 +241,12 @@ waits server write all data on disk before return any response.</td>
                     <tr>
                 <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to use.</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$options</td>
-                <td></td>
+                <td>Transaction options.</td>
             </tr>
             </table>
 
@@ -262,7 +268,7 @@ waits server write all data on disk before return any response.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getTransactionId">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/StreamTransaction.php#L60">line 60</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/StreamTransaction.php#L61">line 61</a></div>
         <code>                    string
     <strong>getTransactionId</strong>()
         </code>
@@ -292,7 +298,7 @@ waits server write all data on disk before return any response.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getTransactionStatus">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/StreamTransaction.php#L70">line 70</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/StreamTransaction.php#L71">line 71</a></div>
         <code>                    string
     <strong>getTransactionStatus</strong>()
         </code>
@@ -322,7 +328,7 @@ waits server write all data on disk before return any response.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_begin">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/StreamTransaction.php#L80">line 80</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/StreamTransaction.php#L81">line 81</a></div>
         <code>                    
     <strong>begin</strong>()
         </code>
@@ -352,7 +358,7 @@ waits server write all data on disk before return any response.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_commit">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/StreamTransaction.php#L102">line 102</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/StreamTransaction.php#L103">line 103</a></div>
         <code>                    
     <strong>commit</strong>()
         </code>
@@ -382,7 +388,7 @@ waits server write all data on disk before return any response.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_abort">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/StreamTransaction.php#L129">line 129</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/StreamTransaction.php#L130">line 130</a></div>
         <code>                    
     <strong>abort</strong>()
         </code>

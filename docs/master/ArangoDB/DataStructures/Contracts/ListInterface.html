@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -281,7 +287,7 @@
                     <tr>
                 <td></td>
                 <td>$key</td>
-                <td></td>
+                <td>Key to verify on list.</td>
             </tr>
             </table>
 
@@ -321,7 +327,7 @@
                     <tr>
                 <td>mixed</td>
                 <td>$value</td>
-                <td></td>
+                <td>Value to add.</td>
             </tr>
             </table>
 
@@ -361,12 +367,12 @@
                     <tr>
                 <td>string|integer</td>
                 <td>$key</td>
-                <td></td>
+                <td>Key for manage the value.</td>
             </tr>
                     <tr>
                 <td>mixed</td>
                 <td>$value</td>
-                <td></td>
+                <td>Value to add.</td>
             </tr>
             </table>
 
@@ -406,7 +412,7 @@
                     <tr>
                 <td></td>
                 <td>$key</td>
-                <td></td>
+                <td>Key to verify on list.</td>
             </tr>
             </table>
 
@@ -416,7 +422,7 @@
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td></td>
+            <td>True if key exists, false otherwise.</td>
         </tr>
     </table>
 
@@ -446,7 +452,7 @@
                     <tr>
                 <td></td>
                 <td>$key</td>
-                <td></td>
+                <td>Key to remove from list.</td>
             </tr>
             </table>
 
@@ -546,7 +552,7 @@
                     <tr>
                 <td><a href="../../../ArangoDB/DataStructures/Contracts/ListInterface.html"><abbr title="ArangoDB\DataStructures\Contracts\ListInterface">ListInterface</abbr></a></td>
                 <td>$list</td>
-                <td></td>
+                <td>ListInterface object to append.</td>
             </tr>
             </table>
 

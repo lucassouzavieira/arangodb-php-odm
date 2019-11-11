@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -132,7 +138,7 @@ waits server write all data on disk before return any response.</td>
                 <div class="col-md-8 type">
                     <a href="#method___construct">__construct</a>(<a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection, array $options = [])
         
-                                            <p>StreamTransaction constructor.</p>                </div>
+                                            <p>Transaction constructor.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -143,7 +149,7 @@ waits server write all data on disk before return any response.</td>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/Contracts/Transaction.php#L57">line 57</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/Contracts/Transaction.php#L58">line 58</a></div>
         <code>                    
     <strong>__construct</strong>(<a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection, array $options = [])
         </code>
@@ -153,7 +159,7 @@ waits server write all data on disk before return any response.</td>
     
 
                     <div class="method-description">
-                                    <p>StreamTransaction constructor.</p>                                                </div>
+                                    <p>Transaction constructor.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -161,12 +167,12 @@ waits server write all data on disk before return any response.</td>
                     <tr>
                 <td><a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to use.</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$options</td>
-                <td></td>
+                <td>Transaction options.</td>
             </tr>
             </table>
 

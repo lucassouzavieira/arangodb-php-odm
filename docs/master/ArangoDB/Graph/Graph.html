@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -213,7 +219,7 @@
                 <div class="col-md-8 type">
                     <a href="#method___toString">__toString</a>()
         
-                                            <p>Returns a string representation of graph object</p>                </div>
+                                            <p>Returns a string representation of graph object.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -223,8 +229,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getId">getId</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Returns the graph ID</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -234,8 +239,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getKey">getKey</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Returns the graph key</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -245,8 +249,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_isNew">isNew</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Returns true if is a new graph.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -256,8 +259,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getName">getName</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Gets the graph name.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -267,8 +269,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_isSmart">isSmart</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>If this graph is a smartGraph</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -278,8 +279,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getRevision">getRevision</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Gets the graph revision.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -289,8 +289,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getNumberOfShards">getNumberOfShards</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Returns the number of shards that is used for every collection within this graph.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -300,8 +299,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getReplicationFactor">getReplicationFactor</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Returns the replication factor used when initially creating collections for this graph.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -311,8 +309,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getMinReplicationFactor">getMinReplicationFactor</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Returns the minimal replication factor used for every new collection in the graph.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -322,8 +319,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getOrphanCollections">getOrphanCollections</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Returns the orphan collections in the graph.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -413,7 +409,9 @@
                 <div class="col-md-8 type">
                     <a href="#method_dropVertexCollection">dropVertexCollection</a>(string $collection, bool $dropCollection = false)
         
-                                            <p>Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph.</p>                </div>
+                                            <p>Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph.<br>
+It can only remove vertex collections that are no longer part of edge definitions,<br>
+if they are used in edge definitions you are required to modify those first.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -433,7 +431,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_addVertex">addVertex</a>(string $collection, array $attributes = [], bool $waitForSync = true, bool $returnNew = true)
         
-                                            <p>Adds a vertex to graph</p>                </div>
+                                            <p>Adds a vertex to graph.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -443,7 +441,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_dropVertex">dropVertex</a>(string $collection, string $vertex, bool $waitForSync = true, bool $returnOld = false)
         
-                                            <p>Drops a vertex from graph</p>                </div>
+                                            <p>Drops a vertex from graph.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -453,7 +451,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getEdge">getEdge</a>(string $collection, string $edge)
         
-                                            <p>Returns an edge document</p>                </div>
+                                            <p>Returns an edge document.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -463,7 +461,8 @@
                 <div class="col-md-8 type">
                     <a href="#method_addEdge">addEdge</a>(string $collection, array $attributes = [], bool $waitForSync = true, bool $returnNew = false)
         
-                                            <p>Creates a new edge in the collection.</p>                </div>
+                                            <p>Creates a new edge in the collection.<br>
+Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -473,7 +472,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_dropEdge">dropEdge</a>(string $collection, string $edge, bool $waitForSync = true, bool $returnOld = false)
         
-                                            <p>Drops an edge from graph</p>                </div>
+                                            <p>Drops an edge from graph.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -488,23 +487,12 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    array|mixed
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_jsonSerialize">jsonSerialize</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    array
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_getCreateParameters">getCreateParameters</a>()
-        
-                                            <p>Return an array with parameters to create the graph</p>                </div>
+                                            <p>Return a JSON representation of graph attributes.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -533,17 +521,17 @@
                     <tr>
                 <td>string</td>
                 <td>$name</td>
-                <td>Graph name</td>
+                <td>Graph name.</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$attributes</td>
-                <td>Graph optional attributes</td>
+                <td>Graph optional attributes.</td>
             </tr>
                     <tr>
                 <td><a href="../../ArangoDB/Database/Database.html"><abbr title="ArangoDB\Database\Database">Database</abbr></a></td>
                 <td>$database</td>
-                <td>Database object</td>
+                <td>Database object.</td>
             </tr>
             </table>
 
@@ -575,7 +563,7 @@
     
 
                     <div class="method-description">
-                                    <p>Returns a string representation of graph object</p>                                                </div>
+                                    <p>Returns a string representation of graph object.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -595,7 +583,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getId">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L173">line 173</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L175">line 175</a></div>
         <code>                    string
     <strong>getId</strong>()
         </code>
@@ -604,6 +592,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Returns the graph ID</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -623,7 +613,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getKey">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L181">line 181</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L185">line 185</a></div>
         <code>                    string
     <strong>getKey</strong>()
         </code>
@@ -632,6 +622,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Returns the graph key</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -651,7 +643,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isNew">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L190">line 190</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L195">line 195</a></div>
         <code>                    bool
     <strong>isNew</strong>()
         </code>
@@ -660,6 +652,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Returns true if is a new graph.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -673,18 +667,13 @@
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getName">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L198">line 198</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L205">line 205</a></div>
         <code>                    string
     <strong>getName</strong>()
         </code>
@@ -693,6 +682,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Gets the graph name.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -712,7 +703,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isSmart">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L206">line 206</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L215">line 215</a></div>
         <code>                    bool
     <strong>isSmart</strong>()
         </code>
@@ -721,6 +712,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>If this graph is a smartGraph</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -740,7 +733,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getRevision">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L214">line 214</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L225">line 225</a></div>
         <code>                    string
     <strong>getRevision</strong>()
         </code>
@@ -749,6 +742,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Gets the graph revision.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -768,7 +763,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getNumberOfShards">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L222">line 222</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L235">line 235</a></div>
         <code>                    int
     <strong>getNumberOfShards</strong>()
         </code>
@@ -777,6 +772,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Returns the number of shards that is used for every collection within this graph.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -796,7 +793,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getReplicationFactor">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L230">line 230</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L245">line 245</a></div>
         <code>                    int
     <strong>getReplicationFactor</strong>()
         </code>
@@ -805,6 +802,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Returns the replication factor used when initially creating collections for this graph.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -824,7 +823,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getMinReplicationFactor">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L238">line 238</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L255">line 255</a></div>
         <code>                    int
     <strong>getMinReplicationFactor</strong>()
         </code>
@@ -833,6 +832,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Returns the minimal replication factor used for every new collection in the graph.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -852,7 +853,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getOrphanCollections">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L246">line 246</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L265">line 265</a></div>
         <code>                    array
     <strong>getOrphanCollections</strong>()
         </code>
@@ -861,6 +862,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Returns the orphan collections in the graph.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -880,7 +883,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_save">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L257">line 257</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L277">line 277</a></div>
         <code>                    bool
     <strong>save</strong>()
         </code>
@@ -919,7 +922,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_delete">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L301">line 301</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L322">line 322</a></div>
         <code>                    bool
     <strong>delete</strong>(bool $dropCollections = false)
         </code>
@@ -937,7 +940,7 @@
                     <tr>
                 <td>bool</td>
                 <td>$dropCollections</td>
-                <td>If set true, drop collections of this graph as well.
+                <td>If set true, drop collections of this graph as well. <br>
 Collections will only be dropped if they are not used in other graphs.</td>
             </tr>
             </table>
@@ -948,7 +951,7 @@ Collections will only be dropped if they are not used in other graphs.</td>
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td>true if operation was successful, false otherwise</td>
+            <td>True if operation was successful, false otherwise.</td>
         </tr>
     </table>
 
@@ -969,7 +972,7 @@ Collections will only be dropped if they are not used in other graphs.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_toArray">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L331">line 331</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L352">line 352</a></div>
         <code>                    array
     <strong>toArray</strong>()
         </code>
@@ -999,7 +1002,7 @@ Collections will only be dropped if they are not used in other graphs.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getEdgeDefinitions">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L359">line 359</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L380">line 380</a></div>
         <code>                    <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>
     <strong>getEdgeDefinitions</strong>()
         </code>
@@ -1029,7 +1032,7 @@ Collections will only be dropped if they are not used in other graphs.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_addEdgeDefinition">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L374">line 374</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L395">line 395</a></div>
         <code>                    bool
     <strong>addEdgeDefinition</strong>(string $collection, array $from, array $to)
         </code>
@@ -1047,7 +1050,7 @@ Collections will only be dropped if they are not used in other graphs.</td>
                     <tr>
                 <td>string</td>
                 <td>$collection</td>
-                <td>Edge collection name</td>
+                <td>Edge collection name.</td>
             </tr>
                     <tr>
                 <td>array</td>
@@ -1088,7 +1091,7 @@ Collections will only be dropped if they are not used in other graphs.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_dropEdgeDefinition">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L415">line 415</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L435">line 435</a></div>
         <code>                    bool
     <strong>dropEdgeDefinition</strong>(string $collection, bool $dropCollection = false, bool $waitForSync = true)
         </code>
@@ -1107,7 +1110,7 @@ the vertex collections remain untouched and can still be used in your queries.</
                     <tr>
                 <td>string</td>
                 <td>$collection</td>
-                <td>Edge collection name</td>
+                <td>Edge collection name.</td>
             </tr>
                     <tr>
                 <td>bool</td>
@@ -1148,7 +1151,7 @@ the vertex collections remain untouched and can still be used in your queries.</
             </div>
                     <div class="method-item">
                     <h3 id="method_getVertexCollections">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L461">line 461</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L482">line 482</a></div>
         <code>                    <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>
     <strong>getVertexCollections</strong>()
         </code>
@@ -1187,7 +1190,7 @@ the vertex collections remain untouched and can still be used in your queries.</
             </div>
                     <div class="method-item">
                     <h3 id="method_addVertexCollection">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L495">line 495</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L517">line 517</a></div>
         <code>                    bool
     <strong>addVertexCollection</strong>(string $collection)
         </code>
@@ -1236,7 +1239,7 @@ the vertex collections remain untouched and can still be used in your queries.</
             </div>
                     <div class="method-item">
                     <h3 id="method_dropVertexCollection">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L533">line 533</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L556">line 556</a></div>
         <code>                    bool
     <strong>dropVertexCollection</strong>(string $collection, bool $dropCollection = false)
         </code>
@@ -1246,8 +1249,9 @@ the vertex collections remain untouched and can still be used in your queries.</
     
 
                     <div class="method-description">
-                                    <p>Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph.</p>                    <p>It can only remove vertex collections that are no longer part of edge definitions,
-if they are used in edge definitions you are required to modify those first.</p>                            </div>
+                                    <p>Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph.<br>
+It can only remove vertex collections that are no longer part of edge definitions,<br>
+if they are used in edge definitions you are required to modify those first.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1291,7 +1295,7 @@ if they are used in edge definitions you are required to modify those first.</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_getVertex">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L572">line 572</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L595">line 595</a></div>
         <code>                    <a href="../../ArangoDB/Document/Vertex.html"><abbr title="ArangoDB\Document\Vertex">Vertex</abbr></a>|false
     <strong>getVertex</strong>(string $collection, string $vertex)
         </code>
@@ -1324,7 +1328,7 @@ if they are used in edge definitions you are required to modify those first.</p>
                     <table class="table table-condensed">
         <tr>
             <td><a href="../../ArangoDB/Document/Vertex.html"><abbr title="ArangoDB\Document\Vertex">Vertex</abbr></a>|false</td>
-            <td>A Vertex object if vertex exists. False if no graph with this name could be found
+            <td>A Vertex object if vertex exists. False if no graph with this name could be found<br>
 or this collection is not part of the graph or the vertex does not exist.</td>
         </tr>
     </table>
@@ -1346,7 +1350,7 @@ or this collection is not part of the graph or the vertex does not exist.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_addVertex">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L614">line 614</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L638">line 638</a></div>
         <code>                    bool
     <strong>addVertex</strong>(string $collection, array $attributes = [], bool $waitForSync = true, bool $returnNew = true)
         </code>
@@ -1356,7 +1360,7 @@ or this collection is not part of the graph or the vertex does not exist.</td>
     
 
                     <div class="method-description">
-                                    <p>Adds a vertex to graph</p>                                                </div>
+                                    <p>Adds a vertex to graph.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1369,7 +1373,7 @@ or this collection is not part of the graph or the vertex does not exist.</td>
                     <tr>
                 <td>array</td>
                 <td>$attributes</td>
-                <td>The object attributes to be stored</td>
+                <td>The object attributes to be stored.</td>
             </tr>
                     <tr>
                 <td>bool</td>
@@ -1389,7 +1393,8 @@ or this collection is not part of the graph or the vertex does not exist.</td>
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td>True if the vertex could be added. False if the graph is not found or if a graph is found but the collection is not part of the graph.</td>
+            <td>True if the vertex could be added. False if no graph with this name could be found<br>
+or if a graph is found but the collection is not part of the graph.</td>
         </tr>
     </table>
 
@@ -1410,7 +1415,7 @@ or this collection is not part of the graph or the vertex does not exist.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_dropVertex">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L656">line 656</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L681">line 681</a></div>
         <code>                    bool
     <strong>dropVertex</strong>(string $collection, string $vertex, bool $waitForSync = true, bool $returnOld = false)
         </code>
@@ -1420,7 +1425,7 @@ or this collection is not part of the graph or the vertex does not exist.</td>
     
 
                     <div class="method-description">
-                                    <p>Drops a vertex from graph</p>                                                </div>
+                                    <p>Drops a vertex from graph.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1453,7 +1458,8 @@ or this collection is not part of the graph or the vertex does not exist.</td>
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td>True if the vertex could be removed. False if the graph is not found or if a graph is found but the collection is not part of the graph.</td>
+            <td>True if the vertex could be removed. False if no graph with this name could be found<br>
+or if a graph is found but the collection is not part of the graph.</td>
         </tr>
     </table>
 
@@ -1474,7 +1480,7 @@ or this collection is not part of the graph or the vertex does not exist.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getEdge">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L699">line 699</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L724">line 724</a></div>
         <code>                    <a href="../../ArangoDB/Document/Edge.html"><abbr title="ArangoDB\Document\Edge">Edge</abbr></a>|false
     <strong>getEdge</strong>(string $collection, string $edge)
         </code>
@@ -1484,7 +1490,7 @@ or this collection is not part of the graph or the vertex does not exist.</td>
     
 
                     <div class="method-description">
-                                    <p>Returns an edge document</p>                                                </div>
+                                    <p>Returns an edge document.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1507,7 +1513,7 @@ or this collection is not part of the graph or the vertex does not exist.</td>
                     <table class="table table-condensed">
         <tr>
             <td><a href="../../ArangoDB/Document/Edge.html"><abbr title="ArangoDB\Document\Edge">Edge</abbr></a>|false</td>
-            <td>A Edge object if edge exists. False if no graph with this name could be found
+            <td>A Edge object if edge exists. False if no graph with this name could be found<br>
 or this collection is not part of the graph or the edge does not exist.</td>
         </tr>
     </table>
@@ -1529,7 +1535,7 @@ or this collection is not part of the graph or the edge does not exist.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_addEdge">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L744">line 744</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L769">line 769</a></div>
         <code>                    bool
     <strong>addEdge</strong>(string $collection, array $attributes = [], bool $waitForSync = true, bool $returnNew = false)
         </code>
@@ -1539,8 +1545,8 @@ or this collection is not part of the graph or the edge does not exist.</td>
     
 
                     <div class="method-description">
-                                    <p>Creates a new edge in the collection.</p>                    <p>Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph.
-Furthermore the edge has to be valid in the definition of the used</p>                            </div>
+                                    <p>Creates a new edge in the collection.<br>
+Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph.</p>                    <p>Furthermore the edge has to be valid in the definition of the used</p>                            </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1595,7 +1601,7 @@ or this collection is not part of the graph or one of the vertices ('_to' or '_f
             </div>
                     <div class="method-item">
                     <h3 id="method_dropEdge">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L786">line 786</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L812">line 812</a></div>
         <code>                    bool
     <strong>dropEdge</strong>(string $collection, string $edge, bool $waitForSync = true, bool $returnOld = false)
         </code>
@@ -1605,7 +1611,7 @@ or this collection is not part of the graph or one of the vertices ('_to' or '_f
     
 
                     <div class="method-description">
-                                    <p>Drops an edge from graph</p>                                                </div>
+                                    <p>Drops an edge from graph.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1638,7 +1644,8 @@ or this collection is not part of the graph or one of the vertices ('_to' or '_f
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td>True if the edge could be removed. False if the graph is not found or if a graph is found but the collection is not part of the graph.</td>
+            <td>True if the edge could be removed. False if no graph with this name could be found<br>
+or if a graph is found but the collection is not part of the graph.</td>
         </tr>
     </table>
 
@@ -1659,7 +1666,7 @@ or this collection is not part of the graph or one of the vertices ('_to' or '_f
             </div>
                     <div class="method-item">
                     <h3 id="method_traversal">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L827">line 827</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L853">line 853</a></div>
         <code>                    <a href="../../ArangoDB/Graph/Traversal.html"><abbr title="ArangoDB\Graph\Traversal">Traversal</abbr></a>
     <strong>traversal</strong>(<a href="../../ArangoDB/Document/Vertex.html"><abbr title="ArangoDB\Document\Vertex">Vertex</abbr></a> $vertex, $direction = Traversal::GRAPH_DIRECTION_ANY, int $depth = 0)
         </code>
@@ -1709,8 +1716,8 @@ or this collection is not part of the graph or one of the vertices ('_to' or '_f
             </div>
                     <div class="method-item">
                     <h3 id="method_jsonSerialize">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L835">line 835</a></div>
-        <code>                    
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L863">line 863</a></div>
+        <code>                    array|mixed
     <strong>jsonSerialize</strong>()
         </code>
     </h3>
@@ -1718,39 +1725,15 @@ or this collection is not part of the graph or one of the vertices ('_to' or '_f
             
     
 
-                <div class="tags">
-            
-            
-            
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getCreateParameters">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Graph/Graph.php#L845">line 845</a></div>
-        <code>            protected        array
-    <strong>getCreateParameters</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
                     <div class="method-description">
-                                    <p>Return an array with parameters to create the graph</p>                                                </div>
+                                    <p>Return a JSON representation of graph attributes.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>array</td>
+            <td>array|mixed</td>
             <td></td>
         </tr>
     </table>

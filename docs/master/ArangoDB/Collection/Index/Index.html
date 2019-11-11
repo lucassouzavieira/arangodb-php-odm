@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -87,8 +93,7 @@
     
 
             <div class="description">
-            <p>Class Index
-Represents a collection index</p>                                </div>
+            <p>Represents a collection index</p>                                </div>
     
     
     
@@ -324,7 +329,7 @@ a representation of an existing index</td>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L94">line 94</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L93">line 93</a></div>
         <code>                    
     <strong>__construct</strong>(string $type, array $fields, array $attributes = [])
         </code>
@@ -374,7 +379,7 @@ a representation of an existing index</td>
             </div>
                     <div class="method-item">
                     <h3 id="method___toString">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L122">line 122</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L121">line 121</a></div>
         <code>                    mixed
     <strong>__toString</strong>()
         </code>
@@ -404,7 +409,7 @@ a representation of an existing index</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_isNew">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L131">line 131</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L130">line 130</a></div>
         <code>                    bool
     <strong>isNew</strong>()
         </code>
@@ -429,6 +434,12 @@ a representation of an existing index</td>
                             <h4>See also</h4>
 
                     <table class="table table-condensed">
+                    <tr>
+                <td>
+                                            EntityInterface::isNew()
+                                    </td>
+                <td></td>
+            </tr>
             </table>
 
                     </div>
@@ -437,7 +448,7 @@ a representation of an existing index</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_isUnique">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L141">line 141</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L140">line 140</a></div>
         <code>                    bool
     <strong>isUnique</strong>()
         </code>
@@ -467,7 +478,7 @@ a representation of an existing index</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_isSparse">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L151">line 151</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L150">line 150</a></div>
         <code>                    bool
     <strong>isSparse</strong>()
         </code>
@@ -497,7 +508,7 @@ a representation of an existing index</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getId">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L161">line 161</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L160">line 160</a></div>
         <code>                    string
     <strong>getId</strong>()
         </code>
@@ -527,7 +538,7 @@ a representation of an existing index</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getName">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L171">line 171</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L170">line 170</a></div>
         <code>                    string
     <strong>getName</strong>()
         </code>
@@ -557,7 +568,7 @@ a representation of an existing index</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getType">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L181">line 181</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L180">line 180</a></div>
         <code>                    string
     <strong>getType</strong>()
         </code>
@@ -587,7 +598,7 @@ a representation of an existing index</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getFields">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L191">line 191</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L190">line 190</a></div>
         <code>                    array
     <strong>getFields</strong>()
         </code>
@@ -617,7 +628,7 @@ a representation of an existing index</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getCollection">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L201">line 201</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L200">line 200</a></div>
         <code>                    <a href="../../../ArangoDB/Collection/Collection.html"><abbr title="ArangoDB\Collection\Collection">Collection</abbr></a>|null
     <strong>getCollection</strong>()
         </code>
@@ -647,7 +658,7 @@ a representation of an existing index</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_setCollection">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L211">line 211</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L210">line 210</a></div>
         <code>                    void
     <strong>setCollection</strong>(<a href="../../../ArangoDB/Collection/Collection.html"><abbr title="ArangoDB\Collection\Collection">Collection</abbr></a> $collection)
         </code>
@@ -687,7 +698,7 @@ a representation of an existing index</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_toArray">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L221">line 221</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L220">line 220</a></div>
         <code>                    array
     <strong>toArray</strong>()
         </code>
@@ -717,7 +728,7 @@ a representation of an existing index</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getCreateData">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L238">line 238</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L237">line 237</a></div>
         <code>                    array
     <strong>getCreateData</strong>()
         </code>
@@ -747,7 +758,7 @@ a representation of an existing index</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_jsonSerialize">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L246">line 246</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Index/Index.php#L245">line 245</a></div>
         <code>                    
     <strong>jsonSerialize</strong>()
         </code>
@@ -763,6 +774,12 @@ a representation of an existing index</td>
                             <h4>See also</h4>
 
                     <table class="table table-condensed">
+                    <tr>
+                <td>
+                                            \JsonSerializable::jsonSerialize()
+                                    </td>
+                <td></td>
+            </tr>
             </table>
 
                     </div>

@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -300,8 +306,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_isCached">isCached</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Return if the Cursor has cached results on server</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -332,7 +337,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_isCached">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Base.php#L172">line 172</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Base.php#L174">line 174</a></div>
         <code>                    bool
     <strong>isCached</strong>()
         </code>
@@ -341,6 +346,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Return if the Cursor has cached results on server</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -360,7 +367,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getId">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Base.php#L182">line 182</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Base.php#L184">line 184</a></div>
         <code>                    mixed
     <strong>getId</strong>()
         </code>
@@ -390,7 +397,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_fetch">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Base.php#L192">line 192</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Base.php#L194">line 194</a></div>
         <code>    abstract        protected        void
     <strong>fetch</strong>()
         </code>

@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -265,7 +271,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_create">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Database/DatabaseHandler.php#L31">line 31</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Database/DatabaseHandler.php#L32">line 32</a></div>
         <code>        static            bool
     <strong>create</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection, string $database)
         </code>
@@ -283,12 +289,12 @@
                     <tr>
                 <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td>Connection to be used</td>
+                <td>Connection object to be used</td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$database</td>
-                <td>DatabaseHandler name</td>
+                <td>Database name</td>
             </tr>
             </table>
 
@@ -298,7 +304,7 @@
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td></td>
+            <td>True if database was successfully created on server. Throw an exception otherwise.</td>
         </tr>
     </table>
 
@@ -319,7 +325,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_drop">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Database/DatabaseHandler.php#L58">line 58</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Database/DatabaseHandler.php#L60">line 60</a></div>
         <code>        static            bool
     <strong>drop</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection, string $database)
         </code>
@@ -337,12 +343,12 @@
                     <tr>
                 <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to be used</td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$database</td>
-                <td></td>
+                <td>Database name</td>
             </tr>
             </table>
 
@@ -352,7 +358,7 @@
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td></td>
+            <td>True if database was successfully dropped on server. Throw an exception otherwise.</td>
         </tr>
     </table>
 
@@ -373,7 +379,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_list">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Database/DatabaseHandler.php#L87">line 87</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Database/DatabaseHandler.php#L90">line 90</a></div>
         <code>        static            <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>
     <strong>list</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection)
         </code>
@@ -391,7 +397,7 @@
                     <tr>
                 <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to be used</td>
             </tr>
             </table>
 
@@ -401,7 +407,7 @@
                     <table class="table table-condensed">
         <tr>
             <td><a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></td>
-            <td></td>
+            <td>A list with all databases on server.</td>
         </tr>
     </table>
 
@@ -422,7 +428,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_userDatabases">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Database/DatabaseHandler.php#L110">line 110</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Database/DatabaseHandler.php#L114">line 114</a></div>
         <code>        static            <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>
     <strong>userDatabases</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection)
         </code>
@@ -440,7 +446,7 @@
                     <tr>
                 <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to be used</td>
             </tr>
             </table>
 
@@ -450,7 +456,7 @@
                     <table class="table table-condensed">
         <tr>
             <td><a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></td>
-            <td></td>
+            <td>A list with all databases on server that current user has access.</td>
         </tr>
     </table>
 
@@ -471,7 +477,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_current">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Database/DatabaseHandler.php#L133">line 133</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Database/DatabaseHandler.php#L139">line 139</a></div>
         <code>        static            array
     <strong>current</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection)
         </code>
@@ -489,7 +495,7 @@
                     <tr>
                 <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to be used</td>
             </tr>
             </table>
 
@@ -499,7 +505,7 @@
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td></td>
+            <td>An array with information about database.</td>
         </tr>
     </table>
 
@@ -514,6 +520,17 @@
             </table>
 
             
+                            <h4>See also</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+                                            <a href="https://www.arangodb.com/docs/stable/http/database-database-management.html#information-of-the-database">https://www.arangodb.com/docs/stable/http/database-database-management.html#information-of-the-database</a>
+                                    </td>
+                <td></td>
+            </tr>
+            </table>
+
                     </div>
     </div>
 

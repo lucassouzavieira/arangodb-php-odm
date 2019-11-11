@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -86,7 +92,7 @@
     
 
             <div class="description">
-            <p>Basic inter</p>                                </div>
+            <p>Basic interface for validation rule</p>                                </div>
     
     
     

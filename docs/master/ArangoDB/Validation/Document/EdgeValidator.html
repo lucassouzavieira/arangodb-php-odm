@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -86,7 +92,7 @@
     
 
             <div class="description">
-            <p>Validate the edge values</p>                                </div>
+            <p>Validate the edge values.</p>                                </div>
     
     
     
@@ -148,7 +154,7 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_setAttributes">setAttributes</a>(mixed $attributes)
+                    <a href="#method_setAttributes">setAttributes</a>(array $attributes)
         
                                             <p>Set the data for validation</p>                </div>
                 <div class="col-md-2"><small>from&nbsp;<a href="../../../ArangoDB/Validation/Document/DocumentValidator.html#method_setAttributes"><abbr title="ArangoDB\Validation\Document\DocumentValidator">DocumentValidator</abbr></a></small></div>
@@ -170,7 +176,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_hasDescriptors">hasDescriptors</a>()
         
-                                            <p>Returns if the given document validator has document descriptors</p>                </div>
+                                            <p>Check if this document validator has document descriptors.</p>                </div>
                 <div class="col-md-2"><small>from&nbsp;<a href="../../../ArangoDB/Validation/Document/DocumentValidator.html#method_hasDescriptors"><abbr title="ArangoDB\Validation\Document\DocumentValidator">DocumentValidator</abbr></a></small></div>
             </div>
                     <div class="row">
@@ -211,7 +217,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">in <a href="../../../ArangoDB/Validation/Document/DocumentValidator.html#method___construct"><abbr title="ArangoDB\Validation\Document\DocumentValidator">DocumentValidator</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Document/DocumentValidator.php#L23">line 23</a></div>
+        <div class="location">in <a href="../../../ArangoDB/Validation/Document/DocumentValidator.html#method___construct"><abbr title="ArangoDB\Validation\Document\DocumentValidator">DocumentValidator</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Document/DocumentValidator.php#L24">line 24</a></div>
         <code>                    
     <strong>__construct</strong>(array $attributes = [])
         </code>
@@ -229,7 +235,7 @@
                     <tr>
                 <td>array</td>
                 <td>$attributes</td>
-                <td></td>
+                <td>Attributes to validate.</td>
             </tr>
             </table>
 
@@ -269,7 +275,7 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="../../../ArangoDB/Validation/Exceptions/InvalidParameterException.html"><abbr title="ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a></td>
+                <td><abbr title="ArangoDB\Validation\Exceptions\InvalidParameterException|\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></td>
                 <td></td>
             </tr>
             </table>
@@ -281,9 +287,9 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setAttributes">
-        <div class="location">in <a href="../../../ArangoDB/Validation/Document/DocumentValidator.html#method_setAttributes"><abbr title="ArangoDB\Validation\Document\DocumentValidator">DocumentValidator</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Document/DocumentValidator.php#L33">line 33</a></div>
+        <div class="location">in <a href="../../../ArangoDB/Validation/Document/DocumentValidator.html#method_setAttributes"><abbr title="ArangoDB\Validation\Document\DocumentValidator">DocumentValidator</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Document/DocumentValidator.php#L34">line 34</a></div>
         <code>                    
-    <strong>setAttributes</strong>(mixed $attributes)
+    <strong>setAttributes</strong>(array $attributes)
         </code>
     </h3>
     <div class="details">
@@ -297,9 +303,9 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>array</td>
                 <td>$attributes</td>
-                <td></td>
+                <td>Attributes to validate.</td>
             </tr>
             </table>
 
@@ -312,7 +318,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getAttributes">
-        <div class="location">in <a href="../../../ArangoDB/Validation/Document/DocumentValidator.html#method_getAttributes"><abbr title="ArangoDB\Validation\Document\DocumentValidator">DocumentValidator</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Document/DocumentValidator.php#L48">line 48</a></div>
+        <div class="location">in <a href="../../../ArangoDB/Validation/Document/DocumentValidator.html#method_getAttributes"><abbr title="ArangoDB\Validation\Document\DocumentValidator">DocumentValidator</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Document/DocumentValidator.php#L49">line 49</a></div>
         <code>                    array
     <strong>getAttributes</strong>()
         </code>
@@ -342,7 +348,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_hasDescriptors">
-        <div class="location">in <a href="../../../ArangoDB/Validation/Document/DocumentValidator.html#method_hasDescriptors"><abbr title="ArangoDB\Validation\Document\DocumentValidator">DocumentValidator</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Document/DocumentValidator.php#L60">line 60</a></div>
+        <div class="location">in <a href="../../../ArangoDB/Validation/Document/DocumentValidator.html#method_hasDescriptors"><abbr title="ArangoDB\Validation\Document\DocumentValidator">DocumentValidator</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Document/DocumentValidator.php#L61">line 61</a></div>
         <code>                    bool
     <strong>hasDescriptors</strong>()
         </code>
@@ -352,7 +358,7 @@
     
 
                     <div class="method-description">
-                                    <p>Returns if the given document validator has document descriptors</p>                                                </div>
+                                    <p>Check if this document validator has document descriptors.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -360,7 +366,7 @@
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td></td>
+            <td>Returns true if has some descriptor, false otherwise.</td>
         </tr>
     </table>
 
@@ -372,7 +378,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getDescriptorsAttributes">
-        <div class="location">in <a href="../../../ArangoDB/Validation/Document/DocumentValidator.html#method_getDescriptorsAttributes"><abbr title="ArangoDB\Validation\Document\DocumentValidator">DocumentValidator</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Document/DocumentValidator.php#L70">line 70</a></div>
+        <div class="location">in <a href="../../../ArangoDB/Validation/Document/DocumentValidator.html#method_getDescriptorsAttributes"><abbr title="ArangoDB\Validation\Document\DocumentValidator">DocumentValidator</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Document/DocumentValidator.php#L71">line 71</a></div>
         <code>                    array|null
     <strong>getDescriptorsAttributes</strong>()
         </code>
@@ -402,7 +408,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_rules">
-        <div class="location">in <a href="../../../ArangoDB/Validation/Document/DocumentValidator.html#method_rules"><abbr title="ArangoDB\Validation\Document\DocumentValidator">DocumentValidator</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Document/DocumentValidator.php#L85">line 85</a></div>
+        <div class="location">in <a href="../../../ArangoDB/Validation/Document/DocumentValidator.html#method_rules"><abbr title="ArangoDB\Validation\Document\DocumentValidator">DocumentValidator</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Document/DocumentValidator.php#L86">line 86</a></div>
         <code>                    array
     <strong>rules</strong>()
         </code>

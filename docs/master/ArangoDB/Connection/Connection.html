@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -86,7 +92,7 @@
     
 
             <div class="description">
-            <p>Class Connection</p>                                </div>
+            <p>Represents a connection with an ArangoDB database</p>                                </div>
     
     
     
@@ -206,7 +212,7 @@
                     string
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getBaseUri">getBaseUri</a>()
+                    <a href="#method_getBaseURI">getBaseURI</a>()
         
                                             <p>Return the base endpoint uri</p>                </div>
                 <div class="col-md-2"></div>
@@ -296,7 +302,7 @@
                     <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_customHttpRequest">customHttpRequest</a>(string $method, string $url, string $body = &quot;&quot;, array $headers = [])
+                    <a href="#method_customHttpRequest">customHttpRequest</a>(string $method, string $uri, string $body = &quot;&quot;, array $headers = [])
         
                                             <p>Makes a custom request</p>                </div>
                 <div class="col-md-2"></div>
@@ -548,10 +554,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_getBaseUri">
+                    <h3 id="method_getBaseURI">
         <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Connection/Connection.php#L98">line 98</a></div>
         <code>                    string
-    <strong>getBaseUri</strong>()
+    <strong>getBaseURI</strong>()
         </code>
     </h3>
     <div class="details">
@@ -696,17 +702,17 @@
                     <tr>
                 <td>string</td>
                 <td>$endpoint</td>
-                <td></td>
+                <td>URI to make the request</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$body</td>
-                <td></td>
+                <td>The body content.</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$headers</td>
-                <td></td>
+                <td>Additional headers to send on request</td>
             </tr>
             </table>
 
@@ -755,17 +761,17 @@
                     <tr>
                 <td>string</td>
                 <td>$endpoint</td>
-                <td></td>
+                <td>URI to make the request</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$body</td>
-                <td></td>
+                <td>The body content.</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$headers</td>
-                <td></td>
+                <td>Additional headers to send on request</td>
             </tr>
             </table>
 
@@ -814,17 +820,17 @@
                     <tr>
                 <td>string</td>
                 <td>$endpoint</td>
-                <td></td>
+                <td>URI to make the request</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$body</td>
-                <td></td>
+                <td>The body content.</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$headers</td>
-                <td></td>
+                <td>Additional headers to send on request</td>
             </tr>
             </table>
 
@@ -873,17 +879,17 @@
                     <tr>
                 <td>string</td>
                 <td>$endpoint</td>
-                <td></td>
+                <td>URI to make the request</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$body</td>
-                <td></td>
+                <td>The body content.</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$headers</td>
-                <td></td>
+                <td>Additional headers to send on request</td>
             </tr>
             </table>
 
@@ -932,17 +938,17 @@
                     <tr>
                 <td>string</td>
                 <td>$endpoint</td>
-                <td></td>
+                <td>URI to make the request</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$body</td>
-                <td></td>
+                <td>The body content.</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$headers</td>
-                <td></td>
+                <td>Additional headers to send on request</td>
             </tr>
             </table>
 
@@ -975,7 +981,7 @@
                     <h3 id="method_customHttpRequest">
         <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Connection/Connection.php#L220">line 220</a></div>
         <code>                    <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>
-    <strong>customHttpRequest</strong>(string $method, string $url, string $body = &quot;&quot;, array $headers = [])
+    <strong>customHttpRequest</strong>(string $method, string $uri, string $body = &quot;&quot;, array $headers = [])
         </code>
     </h3>
     <div class="details">
@@ -991,22 +997,22 @@
                     <tr>
                 <td>string</td>
                 <td>$method</td>
-                <td></td>
+                <td>HTTP Method to use</td>
             </tr>
                     <tr>
                 <td>string</td>
-                <td>$url</td>
-                <td></td>
+                <td>$uri</td>
+                <td>URI to make the request</td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$body</td>
-                <td></td>
+                <td>The body content.</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$headers</td>
-                <td></td>
+                <td>Additional headers to send on request</td>
             </tr>
             </table>
 

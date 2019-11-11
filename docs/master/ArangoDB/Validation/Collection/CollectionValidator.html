@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -86,8 +92,8 @@
     
 
             <div class="description">
-            <p>Class CollectionValidator
-Validate the document values</p>                                </div>
+            <p>Validate the collection options values. <br>
+Used for avoid client errors when creating or updating collections</p>                                </div>
     
     
     
@@ -180,7 +186,7 @@ Validate the document values</p>                                </div>
                     <tr>
                 <td>array</td>
                 <td>$options</td>
-                <td></td>
+                <td>Attributes to validate.</td>
             </tr>
             </table>
 

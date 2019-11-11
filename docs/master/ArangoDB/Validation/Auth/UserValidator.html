@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -86,7 +92,7 @@
     
 
             <div class="description">
-            <p>Validates user data
+            <p>Validates user data <br>
 Used for avoid client errors when creating new users or granting access to databases</p>                                </div>
     
     
@@ -180,7 +186,7 @@ Used for avoid client errors when creating new users or granting access to datab
                     <tr>
                 <td>array</td>
                 <td>$options</td>
-                <td></td>
+                <td>Attributes to validate.</td>
             </tr>
             </table>
 

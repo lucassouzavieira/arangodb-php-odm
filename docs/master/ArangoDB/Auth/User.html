@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -251,8 +257,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_isActive">isActive</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get the activation status of the user</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -272,8 +277,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_setActive">setActive</a>(bool $active)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Set the activation status of the user</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -293,8 +297,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getExtra">getExtra</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Returns extra data about user</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -304,8 +307,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_setExtra">setExtra</a>(array $extra)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Set extra data for user</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -315,8 +317,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_toArray">toArray</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Returns a array representation of user</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -652,7 +653,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isActive">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L83">line 83</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L85">line 85</a></div>
         <code>                    bool
     <strong>isActive</strong>()
         </code>
@@ -661,6 +662,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Get the activation status of the user</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -680,7 +683,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isNew">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L93">line 93</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L95">line 95</a></div>
         <code>                    bool
     <strong>isNew</strong>()
         </code>
@@ -710,7 +713,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setActive">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L101">line 101</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L105">line 105</a></div>
         <code>                    void
     <strong>setActive</strong>(bool $active)
         </code>
@@ -719,6 +722,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Set the activation status of the user</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -748,7 +753,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getUsername">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L111">line 111</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L115">line 115</a></div>
         <code>                    string
     <strong>getUsername</strong>()
         </code>
@@ -778,7 +783,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getExtra">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L119">line 119</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L125">line 125</a></div>
         <code>                    array|null
     <strong>getExtra</strong>()
         </code>
@@ -787,6 +792,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Returns extra data about user</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -806,7 +813,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setExtra">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L127">line 127</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L135">line 135</a></div>
         <code>                    void
     <strong>setExtra</strong>(array $extra)
         </code>
@@ -815,6 +822,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Set extra data for user</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -844,7 +853,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_toArray">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L136">line 136</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L146">line 146</a></div>
         <code>                    array
     <strong>toArray</strong>()
         </code>
@@ -853,6 +862,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Returns a array representation of user</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -869,6 +880,12 @@
                             <h4>See also</h4>
 
                     <table class="table table-condensed">
+                    <tr>
+                <td>
+                                            Entity::toArray()
+                                    </td>
+                <td></td>
+            </tr>
             </table>
 
                     </div>
@@ -877,7 +894,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_find">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L152">line 152</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L162">line 162</a></div>
         <code>                    <a href="../../ArangoDB/Auth/User.html"><abbr title="ArangoDB\Auth\User">User</abbr></a>|null
     <strong>find</strong>(string $username)
         </code>
@@ -926,7 +943,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_save">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L178">line 178</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L188">line 188</a></div>
         <code>                    bool
     <strong>save</strong>()
         </code>
@@ -962,6 +979,12 @@
                             <h4>See also</h4>
 
                     <table class="table table-condensed">
+                    <tr>
+                <td>
+                                            <a href="../../ArangoDB/Entity/EntityInterface.html#method_save"><abbr title="ArangoDB\Entity\EntityInterface">EntityInterface</abbr>::save</a>
+                                    </td>
+                <td></td>
+            </tr>
             </table>
 
                     </div>
@@ -970,7 +993,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_delete">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L205">line 205</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L215">line 215</a></div>
         <code>                    bool
     <strong>delete</strong>()
         </code>
@@ -1006,6 +1029,12 @@
                             <h4>See also</h4>
 
                     <table class="table table-condensed">
+                    <tr>
+                <td>
+                                            <a href="../../ArangoDB/Entity/EntityInterface.html#method_delete"><abbr title="ArangoDB\Entity\EntityInterface">EntityInterface</abbr>::delete</a>
+                                    </td>
+                <td></td>
+            </tr>
             </table>
 
                     </div>
@@ -1014,7 +1043,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setAttributes">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L232">line 232</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L242">line 242</a></div>
         <code>            protected        
     <strong>setAttributes</strong>(array $attributesNames, array $attributes = [])
         </code>

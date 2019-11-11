@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -86,7 +92,8 @@
     
 
             <div class="description">
-            <p>Class GraphValidator</p>                                </div>
+            <p>Validate the graph options values. <br>
+Used for avoid client errors when creating or updating graphs</p>                                </div>
     
     
     
@@ -189,7 +196,7 @@
                     <tr>
                 <td>array</td>
                 <td>$options</td>
-                <td></td>
+                <td>Attributes to validate.</td>
             </tr>
             </table>
 
@@ -241,7 +248,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_rules">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Graph/GraphValidator.php#L45">line 45</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Graph/GraphValidator.php#L46">line 46</a></div>
         <code>                    array
     <strong>rules</strong>()
         </code>
@@ -271,7 +278,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_validateEdgeDefinitionsParameter">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Graph/GraphValidator.php#L64">line 64</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Graph/GraphValidator.php#L65">line 65</a></div>
         <code>        static    protected        <a target="_blank" href="http://php.net/Closure">Closure</a>
     <strong>validateEdgeDefinitionsParameter</strong>()
         </code>

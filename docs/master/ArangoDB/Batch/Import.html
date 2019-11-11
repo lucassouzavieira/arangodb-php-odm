@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -150,7 +156,7 @@
                     <tr>
                 <td>string</td>
                 <td>$jsonDocuments</td>
-                <td>json documents as string representation</td>
+                <td>JSON documents as string representation</td>
             </tr>
             </table>
 
@@ -175,6 +181,17 @@
             </table>
 
             
+                            <h4>See also</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+                                            <a href="https://www.arangodb.com/docs/stable/http/bulk-imports-importing-self-contained.html">https://www.arangodb.com/docs/stable/http/bulk-imports-importing-self-contained.html</a>
+                                    </td>
+                <td></td>
+            </tr>
+            </table>
+
                     </div>
     </div>
 
@@ -209,7 +226,7 @@
                     <tr>
                 <td>string</td>
                 <td>$arrayDocuments</td>
-                <td>documents json arrays as string representation</td>
+                <td>Documents JSON arrays as string representation</td>
             </tr>
             </table>
 
@@ -234,6 +251,17 @@
             </table>
 
             
+                            <h4>See also</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+                                            <a href="https://www.arangodb.com/docs/stable/http/bulk-imports-importing-self-contained.html">https://www.arangodb.com/docs/stable/http/bulk-imports-importing-self-contained.html</a>
+                                    </td>
+                <td></td>
+            </tr>
+            </table>
+
                     </div>
     </div>
 

@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -291,7 +297,7 @@
                                         protected                                        string
                 </td>
                 <td>$uri</td>
-                <td class="last">URI to manage de cursor</td>
+                <td class="last">URI to manage the cursor</td>
                 <td></td>
             </tr>
                     <tr>
@@ -299,7 +305,7 @@
                                         protected                                        <a href="../../ArangoDB/AQL/Contracts/StatementInterface.html"><abbr title="ArangoDB\AQL\Contracts\StatementInterface">StatementInterface</abbr></a>
                 </td>
                 <td>$statement</td>
-                <td class="last">Statement to query</td>
+                <td class="last">Statement to execute</td>
                 <td></td>
             </tr>
                     <tr>
@@ -308,7 +314,7 @@
                 </td>
                 <td>$defaultOptions</td>
                 <td class="last">Default options query for the cursor
-'count', 'batchSize' and 'options' are, by default, leaved for the server defaults</td>
+'count', 'batchSize' and 'options' are, by default, leaved for the server defaults.</td>
                 <td></td>
             </tr>
             </table>
@@ -324,8 +330,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_isCached">isCached</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Return if the Cursor has cached results on server</p>                </div>
                 <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#method_isCached"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></div>
             </div>
                     <div class="row">
@@ -370,13 +375,12 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    mixed
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_current">current</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Return the current element</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -386,30 +390,27 @@
                 <div class="col-md-8 type">
                     <a href="#method_next">next</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Move forward to next element</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    mixed
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_key">key</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Return the key of the current element</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    bool
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_valid">valid</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Checks if current position is valid</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -419,8 +420,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_rewind">rewind</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Rewind the Iterator to the first element</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -471,7 +471,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_isCached">
-        <div class="location">in <a href="../../ArangoDB/Cursor/Base.html#method_isCached"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Base.php#L172">line 172</a></div>
+        <div class="location">in <a href="../../ArangoDB/Cursor/Base.html#method_isCached"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Base.php#L174">line 174</a></div>
         <code>                    bool
     <strong>isCached</strong>()
         </code>
@@ -480,6 +480,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Return if the Cursor has cached results on server</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -499,7 +501,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getId">
-        <div class="location">in <a href="../../ArangoDB/Cursor/Base.html#method_getId"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Base.php#L182">line 182</a></div>
+        <div class="location">in <a href="../../ArangoDB/Cursor/Base.html#method_getId"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Base.php#L184">line 184</a></div>
         <code>                    mixed
     <strong>getId</strong>()
         </code>
@@ -529,7 +531,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_fetch">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L193">line 193</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L199">line 199</a></div>
         <code>                    void
     <strong>fetch</strong>()
         </code>
@@ -648,8 +650,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_current">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L87">line 87</a></div>
-        <code>                    
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L89">line 89</a></div>
+        <code>                    mixed
     <strong>current</strong>()
         </code>
     </h3>
@@ -657,22 +659,28 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Return the current element</p>                                                </div>
                 <div class="tags">
             
-            
-            
-                            <h4>See also</h4>
+                            <h4>Return Value</h4>
 
                     <table class="table table-condensed">
-            </table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
 
+            
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_next">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L95">line 95</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L97">line 97</a></div>
         <code>                    
     <strong>next</strong>()
         </code>
@@ -681,23 +689,20 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Move forward to next element</p>                                                </div>
                 <div class="tags">
             
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_key">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L103">line 103</a></div>
-        <code>                    
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L107">line 107</a></div>
+        <code>                    mixed
     <strong>key</strong>()
         </code>
     </h3>
@@ -705,23 +710,29 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Return the key of the current element</p>                                                </div>
                 <div class="tags">
             
-            
-            
-                            <h4>See also</h4>
+                            <h4>Return Value</h4>
 
                     <table class="table table-condensed">
-            </table>
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
 
+            
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_valid">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L111">line 111</a></div>
-        <code>                    
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L118">line 118</a></div>
+        <code>                    bool
     <strong>valid</strong>()
         </code>
     </h3>
@@ -729,22 +740,37 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Checks if current position is valid</p>                                                </div>
                 <div class="tags">
             
-            
-            
-                            <h4>See also</h4>
+                            <h4>Return Value</h4>
 
                     <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../ArangoDB/Cursor/Exceptions/CursorException.html"><abbr title="ArangoDB\Cursor\Exceptions\CursorException">CursorException</abbr></a></td>
+                <td></td>
+            </tr>
             </table>
 
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_rewind">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L130">line 130</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L137">line 137</a></div>
         <code>                    
     <strong>rewind</strong>()
         </code>
@@ -753,22 +779,19 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Rewind the Iterator to the first element</p>                                                </div>
                 <div class="tags">
             
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_delete">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L141">line 141</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L148">line 148</a></div>
         <code>                    bool
     <strong>delete</strong>()
         </code>
@@ -807,7 +830,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_create">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L165">line 165</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L172">line 172</a></div>
         <code>            protected        void
     <strong>create</strong>()
         </code>
@@ -846,7 +869,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getBody">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L221">line 221</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L227">line 227</a></div>
         <code>            protected        array
     <strong>getBody</strong>()
         </code>
@@ -876,7 +899,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_appendResults">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L231">line 231</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L237">line 237</a></div>
         <code>            protected        
     <strong>appendResults</strong>(array $results)
         </code>

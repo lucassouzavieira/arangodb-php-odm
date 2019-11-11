@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -86,8 +92,8 @@
     
 
             <div class="description">
-            <p>Class TransactionOptionsValidator
-Validates options for transactions</p>                                </div>
+            <p>Validate transactions options values. <br>
+Used for avoid client errors when running javascript or stream transactions.</p>                                </div>
     
     
     
@@ -190,7 +196,7 @@ Validates options for transactions</p>                                </div>
                     <tr>
                 <td>array</td>
                 <td>$options</td>
-                <td></td>
+                <td>Attributes to validate.</td>
             </tr>
             </table>
 
@@ -242,7 +248,7 @@ Validates options for transactions</p>                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_rules">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Transaction/TransactionOptionsValidator.php#L40">line 40</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Transaction/TransactionOptionsValidator.php#L41">line 41</a></div>
         <code>                    array
     <strong>rules</strong>()
         </code>
@@ -272,7 +278,7 @@ Validates options for transactions</p>                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_validateCollectionsParameter">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Transaction/TransactionOptionsValidator.php#L56">line 56</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Transaction/TransactionOptionsValidator.php#L57">line 57</a></div>
         <code>        static    protected        <a target="_blank" href="http://php.net/Closure">Closure</a>
     <strong>validateCollectionsParameter</strong>()
         </code>

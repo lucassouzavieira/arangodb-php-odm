@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -131,7 +137,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_flushWal">flushWal</a>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection, bool $waitForSync = true, bool $waitForCollector = true)
         
-                                            <p>Flushes the write-ahead log. By flushing the currently active write-ahead
+                                            <p>Flushes the <b>write-ahead log</b>. By flushing the currently active write-ahead
 logfile, the data in it can be transferred to collection journals and
 datafiles. This is useful to ensure that all data for a collection is
 present in the collection journals and datafiles, for example, when dumping
@@ -145,7 +151,7 @@ the data of a collection.</p>                </div>
                 <div class="col-md-8 type">
                     <a href="#method_walProperties">walProperties</a>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection)
         
-                                            <p>Retrieves the configuration of the write-ahead log.</p>                </div>
+                                            <p>Retrieves the configuration of the <b>write-ahead log</b>.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -184,7 +190,7 @@ the data of a collection.</p>                </div>
                     <tr>
                 <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to use.</td>
             </tr>
             </table>
 
@@ -233,7 +239,7 @@ the data of a collection.</p>                </div>
                     <tr>
                 <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to use.</td>
             </tr>
             </table>
 
@@ -282,7 +288,7 @@ the data of a collection.</p>                </div>
                     <tr>
                 <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to use.</td>
             </tr>
             </table>
 
@@ -323,7 +329,7 @@ the data of a collection.</p>                </div>
     
 
                     <div class="method-description">
-                                    <p>Flushes the write-ahead log. By flushing the currently active write-ahead
+                                    <p>Flushes the <b>write-ahead log</b>. By flushing the currently active write-ahead
 logfile, the data in it can be transferred to collection journals and
 datafiles. This is useful to ensure that all data for a collection is
 present in the collection journals and datafiles, for example, when dumping
@@ -335,7 +341,7 @@ the data of a collection.</p>                                                </d
                     <tr>
                 <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to use.</td>
             </tr>
                     <tr>
                 <td>bool</td>
@@ -386,15 +392,15 @@ the data of a collection.</p>                                                </d
     
 
                     <div class="method-description">
-                                    <p>Retrieves the configuration of the write-ahead log.</p>                    <p>The result is a array with the following keys:
-'allowOversizeEntries': whether or not operations that are bigger than a single logfile can be executed and stored
-'logfileSize': the size of each write-ahead logfile
-'historicLogfiles': the maximum number of historic logfiles to keep
-'reserveLogfiles': the maximum number of reserve logfiles that ArangoDB allocates in the background
-'syncInterval': the interval for automatic synchronization of not-yet synchronized write-ahead log data (in milliseconds)
-'throttleWait': the maximum wait time that operations will wait before they get aborted if case of write-throttling (in milliseconds)
-'throttleWhenPending': the number of unprocessed garbage-collection operations that, when reached, will activate write-throttling.
-A value of 0 means that write-throttling will not be triggered.</p>                            </div>
+                                    <p>Retrieves the configuration of the <b>write-ahead log</b>.</p>                    <p>The result is a array with the following keys:<br>
+<b>allowOversizeEntries</b>: whether or not operations that are bigger than a single logfile can be executed and stored<br>
+<b>logfileSize</b>: the size of each write-ahead logfile<br>
+<b>historicLogfiles</b>: the maximum number of historic logfiles to keep<br>
+<b>reserveLogfiles</b>: the maximum number of reserve logfiles that ArangoDB allocates in the background<br>
+<b>syncInterval</b>: the interval for automatic synchronization of not-yet synchronized write-ahead log data (in milliseconds)<br>
+<b>throttleWait</b>: the maximum wait time that operations will wait before they get aborted if case of write-throttling (in milliseconds)<br>
+<b>throttleWhenPending</b>: the number of unprocessed garbage-collection operations that, when reached, will activate write-throttling.
+A value of 0 means that write-throttling will not be triggered.<br></p>                            </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -402,7 +408,7 @@ A value of 0 means that write-throttling will not be triggered.</p>             
                     <tr>
                 <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to use.</td>
             </tr>
             </table>
 
@@ -451,7 +457,7 @@ A value of 0 means that write-throttling will not be triggered.</p>             
                     <tr>
                 <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to use.</td>
             </tr>
             </table>
 
@@ -461,10 +467,10 @@ A value of 0 means that write-throttling will not be triggered.</p>             
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>An array with the following parameters:
- 'runningTransactions': number of currently running transactions
- 'minLastCollected': minimum id of the last collected logfile (at the start of each running transaction). This is null if no transaction is running.
- 'minLastSealed': minimum id of the last sealed logfile (at the start of each running transaction). This is null if no transaction is running.</td>
+            <td>An array with the following parameters:<br>
+ <b>runningTransactions</b>: number of currently running transactions<br>
+ <b>minLastCollected</b>: minimum id of the last collected logfile (at the start of each running transaction). This is null if no transaction is running.<br>
+ <b>minLastSealed</b>: minimum id of the last sealed logfile (at the start of each running transaction). This is null if no transaction is running.<br></td>
         </tr>
     </table>
 

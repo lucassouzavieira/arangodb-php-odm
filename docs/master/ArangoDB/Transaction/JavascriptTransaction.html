@@ -23,6 +23,12 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -161,7 +167,7 @@ waits server write all data on disk before return any response.</td>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/JavascriptTransaction.php#L38">line 38</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/JavascriptTransaction.php#L39">line 39</a></div>
         <code>                    
     <strong>__construct</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection, string $action, array $options = [])
         </code>
@@ -179,17 +185,17 @@ waits server write all data on disk before return any response.</td>
                     <tr>
                 <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to use.</td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$action</td>
-                <td></td>
+                <td>JavaScript code to execute on server</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$options</td>
-                <td></td>
+                <td>Transaction options.</td>
             </tr>
             </table>
 
@@ -211,7 +217,7 @@ waits server write all data on disk before return any response.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_execute">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/JavascriptTransaction.php#L51">line 51</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Transaction/JavascriptTransaction.php#L52">line 52</a></div>
         <code>                    mixed
     <strong>execute</strong>()
         </code>
