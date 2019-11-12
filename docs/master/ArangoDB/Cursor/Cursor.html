@@ -25,7 +25,8 @@
                 <div id="control-panel">
                     <form action="#" method="GET">
                 <select id="version-switcher" name="version">
-                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">3.5.*</option>
+                                            <option value="../../../v3.4/index.html" data-version="v3.4">3.5.*</option>
                                             <option value="../../../master/index.html" data-version="master">master branch</option>
                                     </select>
             </form>
@@ -92,7 +93,7 @@
     
 
             <div class="description">
-            <p>Represents an ArangoDB cursor</p>                                </div>
+            <p>Represents an ArangoDB cursor.</p>                                </div>
     
     
             <h2>Constants</h2>
@@ -297,7 +298,7 @@
                                         protected                                        string
                 </td>
                 <td>$uri</td>
-                <td class="last">URI to manage the cursor</td>
+                <td class="last">URI to manage the cursor.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -305,7 +306,7 @@
                                         protected                                        <a href="../../ArangoDB/AQL/Contracts/StatementInterface.html"><abbr title="ArangoDB\AQL\Contracts\StatementInterface">StatementInterface</abbr></a>
                 </td>
                 <td>$statement</td>
-                <td class="last">Statement to execute</td>
+                <td class="last">Statement to execute.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -313,8 +314,8 @@
                                         protected                                        array
                 </td>
                 <td>$defaultOptions</td>
-                <td class="last">Default options query for the cursor
-'count', 'batchSize' and 'options' are, by default, leaved for the server defaults.</td>
+                <td class="last">Default options query for the cursor.<br>
+<b>count</b>, <b>batchSize</b> and <b>options</b> are, by default, leaved for the server defaults.</td>
                 <td></td>
             </tr>
             </table>
@@ -350,7 +351,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_fetch">fetch</a>()
         
-                                            <p>Fetch more results from the server</p>                </div>
+                                            <p>Fetch more results from the server.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -370,7 +371,7 @@
                 <div class="col-md-8 type">
                     <a href="#method___toString">__toString</a>()
         
-                                            <p>Return an string representation of document</p>                </div>
+                                            <p>Return an string representation of document.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -380,7 +381,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_current">current</a>()
         
-                                            <p>Return the current element</p>                </div>
+                                            <p>Return the current element.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -390,7 +391,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_next">next</a>()
         
-                                            <p>Move forward to next element</p>                </div>
+                                            <p>Move forward to next element.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -400,7 +401,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_key">key</a>()
         
-                                            <p>Return the key of the current element</p>                </div>
+                                            <p>Return the key of the current element.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -410,7 +411,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_valid">valid</a>()
         
-                                            <p>Checks if current position is valid</p>                </div>
+                                            <p>Checks if current position is valid.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -420,7 +421,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_rewind">rewind</a>()
         
-                                            <p>Rewind the Iterator to the first element</p>                </div>
+                                            <p>Rewind the Iterator to the first element.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -440,7 +441,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_create">create</a>()
         
-                                            <p>Create/initialize the cursor</p>                </div>
+                                            <p>Create/initialize the cursor.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -450,7 +451,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getBody">getBody</a>()
         
-                                            <p>Return body for creating cursor</p>                </div>
+                                            <p>Return body for creating cursor.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -460,7 +461,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_appendResults">appendResults</a>(array $results)
         
-                                            <p>Append the results</p>                </div>
+                                            <p>Append the results.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -531,7 +532,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_fetch">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L199">line 199</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L201">line 201</a></div>
         <code>                    void
     <strong>fetch</strong>()
         </code>
@@ -541,7 +542,7 @@
     
 
                     <div class="method-description">
-                                    <p>Fetch more results from the server</p>                                                </div>
+                                    <p>Fetch more results from the server.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -588,17 +589,17 @@
                     <tr>
                 <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td>Connection object to use</td>
+                <td>Connection object to use.</td>
             </tr>
                     <tr>
                 <td><a href="../../ArangoDB/AQL/Contracts/StatementInterface.html"><abbr title="ArangoDB\AQL\Contracts\StatementInterface">StatementInterface</abbr></a></td>
                 <td>$statement</td>
-                <td>Statement to perform on server</td>
+                <td>Statement to perform on server.</td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$options</td>
-                <td>Options for cursor</td>
+                <td>Options for cursor.</td>
             </tr>
             </table>
 
@@ -630,7 +631,7 @@
     
 
                     <div class="method-description">
-                                    <p>Return an string representation of document</p>                                                </div>
+                                    <p>Return an string representation of document.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -660,7 +661,7 @@
     
 
                     <div class="method-description">
-                                    <p>Return the current element</p>                                                </div>
+                                    <p>Return the current element.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -690,7 +691,7 @@
     
 
                     <div class="method-description">
-                                    <p>Move forward to next element</p>                                                </div>
+                                    <p>Move forward to next element.</p>                                                </div>
                 <div class="tags">
             
             
@@ -711,7 +712,7 @@
     
 
                     <div class="method-description">
-                                    <p>Return the key of the current element</p>                                                </div>
+                                    <p>Return the key of the current element.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -731,7 +732,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_valid">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L118">line 118</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L119">line 119</a></div>
         <code>                    bool
     <strong>valid</strong>()
         </code>
@@ -741,7 +742,7 @@
     
 
                     <div class="method-description">
-                                    <p>Checks if current position is valid</p>                                                </div>
+                                    <p>Checks if current position is valid.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -770,7 +771,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_rewind">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L137">line 137</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L138">line 138</a></div>
         <code>                    
     <strong>rewind</strong>()
         </code>
@@ -780,7 +781,7 @@
     
 
                     <div class="method-description">
-                                    <p>Rewind the Iterator to the first element</p>                                                </div>
+                                    <p>Rewind the Iterator to the first element.</p>                                                </div>
                 <div class="tags">
             
             
@@ -791,7 +792,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_delete">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L148">line 148</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L150">line 150</a></div>
         <code>                    bool
     <strong>delete</strong>()
         </code>
@@ -830,7 +831,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_create">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L172">line 172</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L174">line 174</a></div>
         <code>            protected        void
     <strong>create</strong>()
         </code>
@@ -840,7 +841,7 @@
     
 
                     <div class="method-description">
-                                    <p>Create/initialize the cursor</p>                                                </div>
+                                    <p>Create/initialize the cursor.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -869,7 +870,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getBody">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L227">line 227</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L229">line 229</a></div>
         <code>            protected        array
     <strong>getBody</strong>()
         </code>
@@ -879,7 +880,7 @@
     
 
                     <div class="method-description">
-                                    <p>Return body for creating cursor</p>                                                </div>
+                                    <p>Return body for creating cursor.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -899,7 +900,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_appendResults">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L237">line 237</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Cursor/Cursor.php#L239">line 239</a></div>
         <code>            protected        
     <strong>appendResults</strong>(array $results)
         </code>
@@ -909,7 +910,7 @@
     
 
                     <div class="method-description">
-                                    <p>Append the results</p>                                                </div>
+                                    <p>Append the results.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 

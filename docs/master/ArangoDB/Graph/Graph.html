@@ -25,7 +25,8 @@
                 <div id="control-panel">
                     <form action="#" method="GET">
                 <select id="version-switcher" name="version">
-                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">3.5.*</option>
+                                            <option value="../../../v3.4/index.html" data-version="v3.4">3.5.*</option>
                                             <option value="../../../master/index.html" data-version="master">master branch</option>
                                     </select>
             </form>
@@ -93,7 +94,7 @@
     
 
             <div class="description">
-            <p>Represents an ArangoDB Graph</p>                                </div>
+            <p>Represents an ArangoDB Graph.</p>                                </div>
     
     
     
@@ -105,7 +106,7 @@
                                         protected                                        string
                 </td>
                 <td>$id</td>
-                <td class="last">The internal id of this graph</td>
+                <td class="last">The internal id of this graph.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -113,7 +114,7 @@
                                         protected                                        string
                 </td>
                 <td>$key</td>
-                <td class="last">The name of graph</td>
+                <td class="last">The name of graph.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -121,7 +122,7 @@
                                         protected                                        bool
                 </td>
                 <td>$isNew</td>
-                <td class="last">If this graph is a new one or a representation of existing document</td>
+                <td class="last">If this graph is a new one or a representation of existing document.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -129,7 +130,7 @@
                                         protected                                        string
                 </td>
                 <td>$name</td>
-                <td class="last">Graph name</td>
+                <td class="last">Graph name.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -137,7 +138,7 @@
                                         protected                                        bool
                 </td>
                 <td>$isSmart</td>
-                <td class="last">Flag if the graph is a smart graph</td>
+                <td class="last">Flag if the graph is a smart graph.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -169,7 +170,9 @@
                                         protected                                        int
                 </td>
                 <td>$minReplicationFactor</td>
-                <td class="last">The minimal replication factor used for every new collection in the graph.</td>
+                <td class="last">The minimal replication factor used for every new collection in the graph.<br>
+If one shard has less than minReplicationFactor copies,
+we cannot write to this shard, but to all others.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -185,7 +188,8 @@
                                         protected                                        array
                 </td>
                 <td>$orphanCollections</td>
-                <td class="last">An array of additional vertex collections.</td>
+                <td class="last">An array of additional vertex collections.<br>
+Documents within these collections do not have edges within this graph.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -229,7 +233,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getId">getId</a>()
         
-                                            <p>Returns the graph ID</p>                </div>
+                                            <p>Returns the graph ID.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -239,7 +243,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getKey">getKey</a>()
         
-                                            <p>Returns the graph key</p>                </div>
+                                            <p>Returns the graph key.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -269,7 +273,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_isSmart">isSmart</a>()
         
-                                            <p>If this graph is a smartGraph</p>                </div>
+                                            <p>If this graph is a smartGraph.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -329,7 +333,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_save">save</a>()
         
-                                            <p>Save a entity on server, if possible</p>                </div>
+                                            <p>Save the Graph on server, if possible.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -339,7 +343,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_delete">delete</a>(bool $dropCollections = false)
         
-                                            <p>Removes a graph on server, if possible</p>                </div>
+                                            <p>Removes a graph from server, if possible.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -349,7 +353,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_toArray">toArray</a>()
         
-                                            <p>Returns a array representation of graph</p>                </div>
+                                            <p>Returns a array representation of graph.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -359,7 +363,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getEdgeDefinitions">getEdgeDefinitions</a>()
         
-                                            <p>Return all edge definitions of graph</p>                </div>
+                                            <p>Return all edge definitions of graph.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -369,7 +373,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_addEdgeDefinition">addEdgeDefinition</a>(string $collection, array $from, array $to)
         
-                                            <p>Adds an edge definition to graph</p>                </div>
+                                            <p>Adds an edge definition to graph.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -379,7 +383,9 @@
                 <div class="col-md-8 type">
                     <a href="#method_dropEdgeDefinition">dropEdgeDefinition</a>(string $collection, bool $dropCollection = false, bool $waitForSync = true)
         
-                                            <p>Remove one edge definition from the graph.</p>                </div>
+                                            <p>Remove one edge definition from the graph.<br>
+This will only remove the edge collection,
+the vertex collections remain untouched and can still be used in your queries.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -482,7 +488,7 @@ Within the attributes the edge has to contain a _from and _to value referencing 
                 <div class="col-md-8 type">
                     <a href="#method_traversal">traversal</a>(<a href="../../ArangoDB/Document/Vertex.html"><abbr title="ArangoDB\Document\Vertex">Vertex</abbr></a> $vertex, $direction = Traversal::GRAPH_DIRECTION_ANY, int $depth = 0)
         
-                                            <p>Returns a graph traversal</p>                </div>
+                                            <p>Returns a graph traversal.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -593,7 +599,7 @@ Within the attributes the edge has to contain a _from and _to value referencing 
     
 
                     <div class="method-description">
-                                    <p>Returns the graph ID</p>                                                </div>
+                                    <p>Returns the graph ID.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -623,7 +629,7 @@ Within the attributes the edge has to contain a _from and _to value referencing 
     
 
                     <div class="method-description">
-                                    <p>Returns the graph key</p>                                                </div>
+                                    <p>Returns the graph key.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -713,7 +719,7 @@ Within the attributes the edge has to contain a _from and _to value referencing 
     
 
                     <div class="method-description">
-                                    <p>If this graph is a smartGraph</p>                                                </div>
+                                    <p>If this graph is a smartGraph.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -893,7 +899,7 @@ Within the attributes the edge has to contain a _from and _to value referencing 
     
 
                     <div class="method-description">
-                                    <p>Save a entity on server, if possible</p>                                                </div>
+                                    <p>Save the Graph on server, if possible.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -901,7 +907,7 @@ Within the attributes the edge has to contain a _from and _to value referencing 
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td>true if operation was successful, false otherwise</td>
+            <td>True if operation was successful, false otherwise.</td>
         </tr>
     </table>
 
@@ -932,7 +938,7 @@ Within the attributes the edge has to contain a _from and _to value referencing 
     
 
                     <div class="method-description">
-                                    <p>Removes a graph on server, if possible</p>                                                </div>
+                                    <p>Removes a graph from server, if possible.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -982,7 +988,7 @@ Collections will only be dropped if they are not used in other graphs.</td>
     
 
                     <div class="method-description">
-                                    <p>Returns a array representation of graph</p>                                                </div>
+                                    <p>Returns a array representation of graph.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -1012,7 +1018,7 @@ Collections will only be dropped if they are not used in other graphs.</td>
     
 
                     <div class="method-description">
-                                    <p>Return all edge definitions of graph</p>                                                </div>
+                                    <p>Return all edge definitions of graph.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -1042,7 +1048,7 @@ Collections will only be dropped if they are not used in other graphs.</td>
     
 
                     <div class="method-description">
-                                    <p>Adds an edge definition to graph</p>                                                </div>
+                                    <p>Adds an edge definition to graph.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1101,8 +1107,9 @@ Collections will only be dropped if they are not used in other graphs.</td>
     
 
                     <div class="method-description">
-                                    <p>Remove one edge definition from the graph.</p>                    <p>This will only remove the edge collection,
-the vertex collections remain untouched and can still be used in your queries.</p>                            </div>
+                                    <p>Remove one edge definition from the graph.<br>
+This will only remove the edge collection,
+the vertex collections remain untouched and can still be used in your queries.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1318,7 +1325,7 @@ if they are used in edge definitions you are required to modify those first.</p>
                     <tr>
                 <td>string</td>
                 <td>$vertex</td>
-                <td>The _key attribute of the vertex.</td>
+                <td>The <i>_key</i> attribute of the vertex.</td>
             </tr>
             </table>
 
@@ -1438,7 +1445,7 @@ or if a graph is found but the collection is not part of the graph.</td>
                     <tr>
                 <td>string</td>
                 <td>$vertex</td>
-                <td>The _key attribute of the vertex.</td>
+                <td>The <i>_key</i> attribute of the vertex.</td>
             </tr>
                     <tr>
                 <td>bool</td>
@@ -1503,7 +1510,7 @@ or if a graph is found but the collection is not part of the graph.</td>
                     <tr>
                 <td>string</td>
                 <td>$edge</td>
-                <td>The _key attribute of the edge.</td>
+                <td>The <i>_key</i> attribute of the edge.</td>
             </tr>
             </table>
 
@@ -1546,7 +1553,7 @@ or this collection is not part of the graph or the edge does not exist.</td>
 
                     <div class="method-description">
                                     <p>Creates a new edge in the collection.<br>
-Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph.</p>                    <p>Furthermore the edge has to be valid in the definition of the used</p>                            </div>
+Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph.</p>                    <p>Furthermore the edge has to be valid in the definition of the used.</p>                            </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1569,7 +1576,7 @@ Within the attributes the edge has to contain a _from and _to value referencing 
                     <tr>
                 <td>bool</td>
                 <td>$returnNew</td>
-                <td>Define if the response should contain the complete new version of the document. Default is false</td>
+                <td>Define if the response should contain the complete new version of the document. Default is false.</td>
             </tr>
             </table>
 
@@ -1579,7 +1586,7 @@ Within the attributes the edge has to contain a _from and _to value referencing 
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td>A Edge object if edge exists. False if no graph with this name could be found
+            <td>A Edge object if edge exists. False if no graph with this name could be found <br>
 or this collection is not part of the graph or one of the vertices ('_to' or '_from') does not exist.</td>
         </tr>
     </table>
@@ -1624,7 +1631,7 @@ or this collection is not part of the graph or one of the vertices ('_to' or '_f
                     <tr>
                 <td>string</td>
                 <td>$edge</td>
-                <td>The _key attribute of the edge.</td>
+                <td>The <i>_key</i> attribute of the edge.</td>
             </tr>
                     <tr>
                 <td>bool</td>
@@ -1676,7 +1683,7 @@ or if a graph is found but the collection is not part of the graph.</td>
     
 
                     <div class="method-description">
-                                    <p>Returns a graph traversal</p>                                                </div>
+                                    <p>Returns a graph traversal.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 

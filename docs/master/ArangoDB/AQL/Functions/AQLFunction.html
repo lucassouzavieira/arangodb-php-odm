@@ -23,6 +23,13 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../../v3.5/index.html" data-version="v3.5">3.5.*</option>
+                                            <option value="../../../../v3.4/index.html" data-version="v3.4">3.5.*</option>
+                                            <option value="../../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -80,14 +87,14 @@
 
     <p>    class
     <strong>AQLFunction</strong>        implements
-        <a href="../../../ArangoDB/Entity/EntityInterface.html"><abbr title="ArangoDB\Entity\EntityInterface">EntityInterface</abbr></a>        (<a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php">View source</a>)
+        <a href="../../../ArangoDB/Entity/Contracts/EntityInterface.html"><abbr title="ArangoDB\Entity\Contracts\EntityInterface">EntityInterface</abbr></a>        (<a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php">View source</a>)
 </p>
 
         
     
 
             <div class="description">
-            <p>Represents an user defined task on server</p>                                </div>
+            <p>Represents an user defined aql function on server.</p>                                </div>
     
     
     
@@ -99,7 +106,7 @@
                                         protected                                        string
                 </td>
                 <td>$name</td>
-                <td class="last">Fully qualified name of user function</td>
+                <td class="last">Fully qualified name of user function.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -107,7 +114,7 @@
                                         protected                                        string
                 </td>
                 <td>$code</td>
-                <td class="last">String representation of function body</td>
+                <td class="last">String representation of function body.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -115,8 +122,7 @@
                                         protected                                        bool
                 </td>
                 <td>$isDeterministic</td>
-                <td class="last">an optional boolean value to indicate whether the function
-results are fully deterministic
+                <td class="last">An optional boolean value to indicate whether the function results are fully deterministic. <br>
 (function return value solely depends on the input value and return value is the same for repeated calls with same input)</td>
                 <td></td>
             </tr>
@@ -134,7 +140,7 @@ this property is true.</td>
                                         protected                                        <a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a>
                 </td>
                 <td>$connection</td>
-                <td class="last">Connection object</td>
+                <td class="last">Connection object.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -142,7 +148,7 @@ this property is true.</td>
                                         protected                                        array
                 </td>
                 <td>$deletion</td>
-                <td class="last">Stores the deletion data for an AQLFunction object</td>
+                <td class="last">Stores the deletion data for an AQLFunction object.</td>
                 <td></td>
             </tr>
             </table>
@@ -168,8 +174,8 @@ this property is true.</td>
                 <div class="col-md-8 type">
                     <a href="#method_isNew">isNew</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>If the AQLFunction object is a new created AQLFunction (and not exists on server) <br>
+or if it is a representation of an existing one.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -179,8 +185,7 @@ this property is true.</td>
                 <div class="col-md-8 type">
                     <a href="#method_getName">getName</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Returns the AQL function name.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -190,8 +195,7 @@ this property is true.</td>
                 <div class="col-md-8 type">
                     <a href="#method_getCode">getCode</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Returns the AQL function code.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -201,8 +205,7 @@ this property is true.</td>
                 <div class="col-md-8 type">
                     <a href="#method_isDeterministic">isDeterministic</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Indicates if the function results are deterministic. <br></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -212,7 +215,7 @@ this property is true.</td>
                 <div class="col-md-8 type">
                     <a href="#method_getDeletionData">getDeletionData</a>()
         
-                                            <p>If the object has performed a delete operation, this method will return the deletion data</p>                </div>
+                                            <p>If the object has performed a delete operation, this method will return the deletion data.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -222,7 +225,7 @@ this property is true.</td>
                 <div class="col-md-8 type">
                     <a href="#method_hasConnection">hasConnection</a>()
         
-                                            <p>If this AQL function has a connection set or not</p>                </div>
+                                            <p>If this AQL function has a connection set or not.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -232,7 +235,7 @@ this property is true.</td>
                 <div class="col-md-8 type">
                     <a href="#method_setConnection">setConnection</a>(<a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection)
         
-                                            <p>Sets a connection to use</p>                </div>
+                                            <p>Sets a connection to use.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -242,8 +245,7 @@ this property is true.</td>
                 <div class="col-md-8 type">
                     <a href="#method_save">save</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Saves the AQL function on server.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -253,8 +255,7 @@ this property is true.</td>
                 <div class="col-md-8 type">
                     <a href="#method_delete">delete</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Removes an AQL function from server, if possible</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -264,19 +265,17 @@ this property is true.</td>
                 <div class="col-md-8 type">
                     <a href="#method_toArray">toArray</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Returns a array representation of AQL function object.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    array|mixed
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_jsonSerialize">jsonSerialize</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Return a JSON representation of AQL function object.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -287,7 +286,7 @@ this property is true.</td>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L75">line 75</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L74">line 74</a></div>
         <code>                    
     <strong>__construct</strong>(string $name, string $code, <a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection = null, bool $isDeterministic = true, bool $isNew = true)
         </code>
@@ -305,27 +304,27 @@ this property is true.</td>
                     <tr>
                 <td>string</td>
                 <td>$name</td>
-                <td></td>
+                <td>The AQL function name.</td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$code</td>
-                <td></td>
+                <td>The AQL function code.</td>
             </tr>
                     <tr>
                 <td><a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to use.</td>
             </tr>
                     <tr>
                 <td>bool</td>
                 <td>$isDeterministic</td>
-                <td></td>
+                <td>Indicates if the function results are deterministic.</td>
             </tr>
                     <tr>
                 <td>bool</td>
                 <td>$isNew</td>
-                <td></td>
+                <td>Indicates if the function object is a new one or not.</td>
             </tr>
             </table>
 
@@ -338,7 +337,7 @@ this property is true.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_isNew">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L88">line 88</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L89">line 89</a></div>
         <code>                    bool
     <strong>isNew</strong>()
         </code>
@@ -347,6 +346,9 @@ this property is true.</td>
             
     
 
+                    <div class="method-description">
+                                    <p>If the AQLFunction object is a new created AQLFunction (and not exists on server) <br>
+or if it is a representation of an existing one.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -360,18 +362,13 @@ this property is true.</td>
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getName">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L96">line 96</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L99">line 99</a></div>
         <code>                    string
     <strong>getName</strong>()
         </code>
@@ -380,6 +377,8 @@ this property is true.</td>
             
     
 
+                    <div class="method-description">
+                                    <p>Returns the AQL function name.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -399,7 +398,7 @@ this property is true.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getCode">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L104">line 104</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L109">line 109</a></div>
         <code>                    string
     <strong>getCode</strong>()
         </code>
@@ -408,6 +407,8 @@ this property is true.</td>
             
     
 
+                    <div class="method-description">
+                                    <p>Returns the AQL function code.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -427,7 +428,7 @@ this property is true.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_isDeterministic">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L112">line 112</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L119">line 119</a></div>
         <code>                    bool
     <strong>isDeterministic</strong>()
         </code>
@@ -436,6 +437,8 @@ this property is true.</td>
             
     
 
+                    <div class="method-description">
+                                    <p>Indicates if the function results are deterministic. <br></p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -455,7 +458,7 @@ this property is true.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getDeletionData">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L122">line 122</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L129">line 129</a></div>
         <code>                    array
     <strong>getDeletionData</strong>()
         </code>
@@ -465,7 +468,7 @@ this property is true.</td>
     
 
                     <div class="method-description">
-                                    <p>If the object has performed a delete operation, this method will return the deletion data</p>                                                </div>
+                                    <p>If the object has performed a delete operation, this method will return the deletion data.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -485,7 +488,7 @@ this property is true.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_hasConnection">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L132">line 132</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L139">line 139</a></div>
         <code>                    bool
     <strong>hasConnection</strong>()
         </code>
@@ -495,7 +498,7 @@ this property is true.</td>
     
 
                     <div class="method-description">
-                                    <p>If this AQL function has a connection set or not</p>                                                </div>
+                                    <p>If this AQL function has a connection set or not.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -515,7 +518,7 @@ this property is true.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_setConnection">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L142">line 142</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L149">line 149</a></div>
         <code>                    
     <strong>setConnection</strong>(<a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection)
         </code>
@@ -525,7 +528,7 @@ this property is true.</td>
     
 
                     <div class="method-description">
-                                    <p>Sets a connection to use</p>                                                </div>
+                                    <p>Sets a connection to use.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -533,7 +536,7 @@ this property is true.</td>
                     <tr>
                 <td><a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
                 <td>$connection</td>
-                <td></td>
+                <td>Connection object to use.</td>
             </tr>
             </table>
 
@@ -546,7 +549,7 @@ this property is true.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_save">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L152">line 152</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L161">line 161</a></div>
         <code>                    bool
     <strong>save</strong>()
         </code>
@@ -555,6 +558,8 @@ this property is true.</td>
             
     
 
+                    <div class="method-description">
+                                    <p>Saves the AQL function on server.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -562,7 +567,7 @@ this property is true.</td>
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td>true if operation was successful, false otherwise</td>
+            <td>True if operation was successful, false otherwise.</td>
         </tr>
     </table>
 
@@ -577,18 +582,13 @@ this property is true.</td>
             </table>
 
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_delete">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L176">line 176</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L187">line 187</a></div>
         <code>                    bool
     <strong>delete</strong>()
         </code>
@@ -597,6 +597,8 @@ this property is true.</td>
             
     
 
+                    <div class="method-description">
+                                    <p>Removes an AQL function from server, if possible</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -604,7 +606,7 @@ this property is true.</td>
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td>true if operation was successful, false otherwise</td>
+            <td>True if operation was successful, false otherwise.</td>
         </tr>
     </table>
 
@@ -619,18 +621,13 @@ this property is true.</td>
             </table>
 
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_toArray">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L199">line 199</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L211">line 211</a></div>
         <code>                    array
     <strong>toArray</strong>()
         </code>
@@ -639,6 +636,8 @@ this property is true.</td>
             
     
 
+                    <div class="method-description">
+                                    <p>Returns a array representation of AQL function object.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -652,19 +651,14 @@ this property is true.</td>
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_jsonSerialize">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L211">line 211</a></div>
-        <code>                    
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Functions/AQLFunction.php#L225">line 225</a></div>
+        <code>                    array|mixed
     <strong>jsonSerialize</strong>()
         </code>
     </h3>
@@ -672,15 +666,21 @@ this property is true.</td>
             
     
 
+                    <div class="method-description">
+                                    <p>Return a JSON representation of AQL function object.</p>                                                </div>
                 <div class="tags">
             
-            
-            
-                            <h4>See also</h4>
+                            <h4>Return Value</h4>
 
                     <table class="table table-condensed">
-            </table>
+        <tr>
+            <td>array|mixed</td>
+            <td></td>
+        </tr>
+    </table>
 
+            
+            
                     </div>
     </div>
 

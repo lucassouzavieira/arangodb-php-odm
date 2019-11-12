@@ -25,7 +25,8 @@
                 <div id="control-panel">
                     <form action="#" method="GET">
                 <select id="version-switcher" name="version">
-                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">3.5.*</option>
+                                            <option value="../../../v3.4/index.html" data-version="v3.4">3.5.*</option>
                                             <option value="../../../master/index.html" data-version="master">master branch</option>
                                     </select>
             </form>
@@ -93,8 +94,8 @@
     
 
             <div class="description">
-            <p>Validator base class
-Implements a default validate method</p>                                </div>
+            <p>Validator base class.<br>
+Implements a default validate method.</p>                                </div>
     
     
     
@@ -106,7 +107,7 @@ Implements a default validate method</p>                                </div>
                                         protected                                        array
                 </td>
                 <td>$data</td>
-                <td class="last">Data to validate</td>
+                <td class="last">Data to validate.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -114,7 +115,7 @@ Implements a default validate method</p>                                </div>
                                         protected                                        array
                 </td>
                 <td>$required</td>
-                <td class="last">Required keys</td>
+                <td class="last">Required keys.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -122,7 +123,7 @@ Implements a default validate method</p>                                </div>
                                         protected                                        array
                 </td>
                 <td>$canHave</td>
-                <td class="last">Optional keys</td>
+                <td class="last">Optional keys.</td>
                 <td></td>
             </tr>
             </table>
@@ -136,7 +137,7 @@ Implements a default validate method</p>                                </div>
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(array $options)
+                    <a href="#method___construct">__construct</a>(array $data = [])
         
                                             <p>Validator constructor.</p>                </div>
                 <div class="col-md-2"></div>
@@ -159,9 +160,9 @@ Implements a default validate method</p>                                </div>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Validator.php#L43">line 43</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Validator.php#L44">line 44</a></div>
         <code>                    
-    <strong>__construct</strong>(array $options)
+    <strong>__construct</strong>(array $data = [])
         </code>
     </h3>
     <div class="details">
@@ -176,7 +177,7 @@ Implements a default validate method</p>                                </div>
                     <table class="table table-condensed">
                     <tr>
                 <td>array</td>
-                <td>$options</td>
+                <td>$data</td>
                 <td>Attributes to validate.</td>
             </tr>
             </table>
@@ -190,7 +191,7 @@ Implements a default validate method</p>                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_validate">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Validator.php#L54">line 54</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Validation/Validator.php#L56">line 56</a></div>
         <code>                    bool
     <strong>validate</strong>()
         </code>

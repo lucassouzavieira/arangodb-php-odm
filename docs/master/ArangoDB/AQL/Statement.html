@@ -23,6 +23,13 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">3.5.*</option>
+                                            <option value="../../../v3.4/index.html" data-version="v3.4">3.5.*</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -220,46 +227,6 @@ store the alias here
                                             <p>'Resolves' the query, returning the string after bind all params and values</p>                </div>
                 <div class="col-md-2"></div>
             </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    string
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_output">output</a>(string $parameter)
-        
-                                            <p>Returns the proper output formatted given parameter</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    bool
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_hasParam">hasParam</a>(string $parameter)
-        
-                                            <p>Check if parameter exists</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    void
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_processQueryParameters">processQueryParameters</a>()
-        
-                                            <p>Find occurrences of bind params in query string</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    bool
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_isCollectionAlias">isCollectionAlias</a>(string $alias = &#039;@collection&#039;)
-        
-                                            <p>Verify if an alias is defined for collection aliasing</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
             </div>
 
 
@@ -286,7 +253,7 @@ store the alias here
                     <tr>
                 <td>string</td>
                 <td>$query</td>
-                <td></td>
+                <td>AQL query string.</td>
             </tr>
             </table>
 
@@ -329,7 +296,7 @@ store the alias here
             </div>
                     <div class="method-item">
                     <h3 id="method_bindValue">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Statement.php#L102">line 102</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Statement.php#L103">line 103</a></div>
         <code>                    bool
     <strong>bindValue</strong>(string $parameter, $value)
         </code>
@@ -383,7 +350,7 @@ store the alias here
             </div>
                     <div class="method-item">
                     <h3 id="method_hasAliases">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Statement.php#L117">line 117</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Statement.php#L118">line 118</a></div>
         <code>                    bool
     <strong>hasAliases</strong>()
         </code>
@@ -413,7 +380,7 @@ store the alias here
             </div>
                     <div class="method-item">
                     <h3 id="method_getQuery">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Statement.php#L127">line 127</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Statement.php#L128">line 128</a></div>
         <code>                    string
     <strong>getQuery</strong>()
         </code>
@@ -443,7 +410,7 @@ store the alias here
             </div>
                     <div class="method-item">
                     <h3 id="method_getBindVars">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Statement.php#L137">line 137</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Statement.php#L138">line 138</a></div>
         <code>                    array
     <strong>getBindVars</strong>()
         </code>
@@ -473,7 +440,7 @@ store the alias here
             </div>
                     <div class="method-item">
                     <h3 id="method_toAql">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Statement.php#L148">line 148</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Statement.php#L150">line 150</a></div>
         <code>                    string
     <strong>toAql</strong>()
         </code>
@@ -505,156 +472,6 @@ store the alias here
             </tr>
             </table>
 
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_output">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Statement.php#L169">line 169</a></div>
-        <code>            protected        string
-    <strong>output</strong>(string $parameter)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Returns the proper output formatted given parameter</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$parameter</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>string</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_hasParam">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Statement.php#L192">line 192</a></div>
-        <code>            protected        bool
-    <strong>hasParam</strong>(string $parameter)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Check if parameter exists</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$parameter</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>bool</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_processQueryParameters">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Statement.php#L202">line 202</a></div>
-        <code>            protected        void
-    <strong>processQueryParameters</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Find occurrences of bind params in query string</p>                                                </div>
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>void</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_isCollectionAlias">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/AQL/Statement.php#L229">line 229</a></div>
-        <code>            protected        bool
-    <strong>isCollectionAlias</strong>(string $alias = &#039;@collection&#039;)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Verify if an alias is defined for collection aliasing</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$alias</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>bool</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
             
                     </div>
     </div>

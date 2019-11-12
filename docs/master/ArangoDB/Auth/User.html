@@ -25,7 +25,8 @@
                 <div id="control-panel">
                     <form action="#" method="GET">
                 <select id="version-switcher" name="version">
-                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">3.5.*</option>
+                                            <option value="../../../v3.4/index.html" data-version="v3.4">3.5.*</option>
                                             <option value="../../../master/index.html" data-version="master">master branch</option>
                                     </select>
             </form>
@@ -85,14 +86,15 @@
     </div>
 
     <p>    class
-    <strong>User</strong>        extends <a href="../../ArangoDB/Entity/Entity.html"><abbr title="ArangoDB\Entity\Entity">Entity</abbr></a>        (<a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php">View source</a>)
+    <strong>User</strong>        implements
+        <a href="../../ArangoDB/Entity/Contracts/EntityInterface.html"><abbr title="ArangoDB\Entity\Contracts\EntityInterface">EntityInterface</abbr></a>        (<a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php">View source</a>)
 </p>
 
         
     
 
             <div class="description">
-            <p>Represents a user in server</p>                                </div>
+            <p>Represents a user in server.</p>                                </div>
     
     
     
@@ -100,43 +102,11 @@
 
             <table class="table table-condensed">
                     <tr>
-                <td class="type" id="property_connection">
-                                        protected                                        <a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a>
-                </td>
-                <td>$connection</td>
-                <td class="last">Connection to access the server</td>
-                <td><small>from&nbsp;<a href="../../ArangoDB/Connection/ManagesConnection.html#property_connection"><abbr title="ArangoDB\Connection\ManagesConnection">ManagesConnection</abbr></a></small></td>
-            </tr>
-                    <tr>
-                <td class="type" id="property_attributes">
-                                        protected                                        array
-                </td>
-                <td>$attributes</td>
-                <td class="last">Attributes of entity</td>
-                <td><small>from&nbsp;<a href="../../ArangoDB/Entity/Entity.html#property_attributes"><abbr title="ArangoDB\Entity\Entity">Entity</abbr></a></small></td>
-            </tr>
-                    <tr>
-                <td class="type" id="property_isNew">
-                                        protected                                        bool
-                </td>
-                <td>$isNew</td>
-                <td class="last">If user is a new User or an existing one</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type" id="property_unsetAttributes">
-                                        protected                                        array
-                </td>
-                <td>$unsetAttributes</td>
-                <td class="last">Parameters sent by server, but not used on representation of a entity</td>
-                <td><small>from&nbsp;<a href="../../ArangoDB/Entity/Entity.html#property_unsetAttributes"><abbr title="ArangoDB\Entity\Entity">Entity</abbr></a></small></td>
-            </tr>
-                    <tr>
                 <td class="type" id="property_user">
                                         protected                                        string
                 </td>
                 <td>$user</td>
-                <td class="last">Name of user on server</td>
+                <td class="last">Name of user on server.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -152,7 +122,7 @@
                                         protected                                        bool
                 </td>
                 <td>$active</td>
-                <td class="last">If user is active or not on database</td>
+                <td class="last">If user is active or not on database.</td>
                 <td></td>
             </tr>
                     <tr>
@@ -160,7 +130,23 @@
                                         protected                                        array|null
                 </td>
                 <td>$extra</td>
-                <td class="last">Extra data about the user</td>
+                <td class="last">Extra data about the user.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_isNew">
+                                        protected                                        bool
+                </td>
+                <td>$isNew</td>
+                <td class="last">If user is a new User or an existing one.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_connection">
+                                        protected                                        <a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a>
+                </td>
+                <td>$connection</td>
+                <td class="last">Connection object to use.</td>
                 <td></td>
             </tr>
             </table>
@@ -171,32 +157,32 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    void
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_setConnection">setConnection</a>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection)
-        
-                                            <p>Sets a connection for class</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Connection/ManagesConnection.html#method_setConnection"><abbr title="ArangoDB\Connection\ManagesConnection">ManagesConnection</abbr></a></small></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    <a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a>
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_getConnection">getConnection</a>()
-        
-                                            <p>Return the connection object</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Connection/ManagesConnection.html#method_getConnection"><abbr title="ArangoDB\Connection\ManagesConnection">ManagesConnection</abbr></a></small></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(array $attributes = [], bool $isNew = true)
+                    <a href="#method___construct">__construct</a>(array $attributes = [], <a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection = null, bool $isNew = true)
         
                                             <p>User constructor.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___debugInfo">__debugInfo</a>()
+        
+                                            <p>Proper debug dump for User objects.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    false|mixed|string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___toString">__toString</a>()
+        
+                                            <p>String representation of User object.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -206,48 +192,7 @@
                 <div class="col-md-8 type">
                     <a href="#method___get">__get</a>(string $name)
         
-                                            <p>Get some attribute</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Entity/Entity.html#method___get"><abbr title="ArangoDB\Entity\Entity">Entity</abbr></a></small></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method___set">__set</a>(string $name, mixed $value)
-        
-                                            <p>Set a attribute</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Entity/Entity.html#method___set"><abbr title="ArangoDB\Entity\Entity">Entity</abbr></a></small></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    void
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method___destruct">__destruct</a>()
-        
-                                            <p>Default handling for discarding objects</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Entity/Entity.html#method___destruct"><abbr title="ArangoDB\Entity\Entity">Entity</abbr></a></small></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_jsonSerialize">jsonSerialize</a>()
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Entity/Entity.html#method_jsonSerialize"><abbr title="ArangoDB\Entity\Entity">Entity</abbr></a></small></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    false|mixed|string
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method___toString">__toString</a>()
-        
-                                            <p>String representation of User object</p>                </div>
+                                            <p>Get some attribute.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -257,7 +202,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_isActive">isActive</a>()
         
-                                            <p>Get the activation status of the user</p>                </div>
+                                            <p>Get the activation status of the user.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -267,7 +212,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_isNew">isNew</a>()
         
-                                            <p>Returns true if is a new user</p>                </div>
+                                            <p>Returns true if is a new user.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -277,7 +222,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_setActive">setActive</a>(bool $active)
         
-                                            <p>Set the activation status of the user</p>                </div>
+                                            <p>Set the activation status of the user.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -287,7 +232,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getUsername">getUsername</a>()
         
-                                            <p>Returns the username</p>                </div>
+                                            <p>Returns the username.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -297,7 +242,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_getExtra">getExtra</a>()
         
-                                            <p>Returns extra data about user</p>                </div>
+                                            <p>Returns extra data about user.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -307,7 +252,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_setExtra">setExtra</a>(array $extra)
         
-                                            <p>Set extra data for user</p>                </div>
+                                            <p>Set extra data for user.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -318,16 +263,6 @@
                     <a href="#method_toArray">toArray</a>()
         
                                             <p>Returns a array representation of user</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    <a href="../../ArangoDB/Auth/User.html"><abbr title="ArangoDB\Auth\User">User</abbr></a>|null
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_find">find</a>(string $username)
-        
-                                            <p>Finds a user on server</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -347,17 +282,17 @@
                 <div class="col-md-8 type">
                     <a href="#method_delete">delete</a>()
         
-                                            <p>Removes an user from server</p>                </div>
+                                            <p>Removes an user from server.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    array|mixed
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_setAttributes">setAttributes</a>(array $attributesNames, array $attributes = [])
+                    <a href="#method_jsonSerialize">jsonSerialize</a>()
         
-                                            <p>Initialize a handler object with given attributes</p>                </div>
+                                            <p>Return a JSON representation of list.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -367,90 +302,10 @@
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method_setConnection">
-        <div class="location">in <a href="../../ArangoDB/Connection/ManagesConnection.html#method_setConnection"><abbr title="ArangoDB\Connection\ManagesConnection">ManagesConnection</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Connection/ManagesConnection.php#L27">line 27</a></div>
-        <code>                    void
-    <strong>setConnection</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Sets a connection for class</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
-                <td>$connection</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>void</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getConnection">
-        <div class="location">in <a href="../../ArangoDB/Connection/ManagesConnection.html#method_getConnection"><abbr title="ArangoDB\Connection\ManagesConnection">ManagesConnection</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Connection/ManagesConnection.php#L38">line 38</a></div>
-        <code>                    <a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a>
-    <strong>getConnection</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Return the connection object</p>                                                </div>
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L64">line 64</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L76">line 76</a></div>
         <code>                    
-    <strong>__construct</strong>(array $attributes = [], bool $isNew = true)
+    <strong>__construct</strong>(array $attributes = [], <a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection = null, bool $isNew = true)
         </code>
     </h3>
     <div class="details">
@@ -466,12 +321,17 @@
                     <tr>
                 <td>array</td>
                 <td>$attributes</td>
-                <td></td>
+                <td>User attributes.</td>
+            </tr>
+                    <tr>
+                <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
+                <td>$connection</td>
+                <td>Connection object to use.</td>
             </tr>
                     <tr>
                 <td>bool</td>
                 <td>$isNew</td>
-                <td></td>
+                <td>If the user is a new one or representation of an existing user.</td>
             </tr>
             </table>
 
@@ -481,7 +341,7 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a target="_blank" href="http://php.net/ReflectionException">ReflectionException</a></td>
+                <td><abbr title="ArangoDB\Validation\Exceptions\InvalidParameterException|\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></td>
                 <td></td>
             </tr>
             </table>
@@ -492,10 +352,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method___get">
-        <div class="location">in <a href="../../ArangoDB/Entity/Entity.html#method___get"><abbr title="ArangoDB\Entity\Entity">Entity</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Entity/Entity.php#L64">line 64</a></div>
-        <code>                    mixed|null
-    <strong>__get</strong>(string $name)
+                    <h3 id="method___debugInfo">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L100">line 100</a></div>
+        <code>                    array
+    <strong>__debugInfo</strong>()
         </code>
     </h3>
     <div class="details">
@@ -503,127 +363,27 @@
     
 
                     <div class="method-description">
-                                    <p>Get some attribute</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$name</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>mixed|null</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method___set">
-        <div class="location">in <a href="../../ArangoDB/Entity/Entity.html#method___set"><abbr title="ArangoDB\Entity\Entity">Entity</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Entity/Entity.php#L79">line 79</a></div>
-        <code>                    
-    <strong>__set</strong>(string $name, mixed $value)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Set a attribute</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$name</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>mixed</td>
-                <td>$value</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method___destruct">
-        <div class="location">in <a href="../../ArangoDB/Entity/Entity.html#method___destruct"><abbr title="ArangoDB\Entity\Entity">Entity</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Entity/Entity.php#L89">line 89</a></div>
-        <code>                    void
-    <strong>__destruct</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Default handling for discarding objects</p>                                                </div>
+                                    <p>Proper debug dump for User objects.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>void</td>
+            <td>array</td>
             <td></td>
         </tr>
     </table>
 
             
             
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_jsonSerialize">
-        <div class="location">in <a href="../../ArangoDB/Entity/Entity.html#method_jsonSerialize"><abbr title="ArangoDB\Entity\Entity">Entity</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Entity/Entity.php#L97">line 97</a></div>
-        <code>                    
-    <strong>jsonSerialize</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-            
-            
-            
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method___toString">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L75">line 75</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L110">line 110</a></div>
         <code>                    false|mixed|string
     <strong>__toString</strong>()
         </code>
@@ -633,7 +393,7 @@
     
 
                     <div class="method-description">
-                                    <p>String representation of User object</p>                                                </div>
+                                    <p>String representation of User object.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -652,8 +412,48 @@
 
             </div>
                     <div class="method-item">
+                    <h3 id="method___get">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L122">line 122</a></div>
+        <code>                    mixed|null
+    <strong>__get</strong>(string $name)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get some attribute.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>Attribute name.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed|null</td>
+            <td>Attribute value.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_isActive">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L85">line 85</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L136">line 136</a></div>
         <code>                    bool
     <strong>isActive</strong>()
         </code>
@@ -663,7 +463,7 @@
     
 
                     <div class="method-description">
-                                    <p>Get the activation status of the user</p>                                                </div>
+                                    <p>Get the activation status of the user.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -683,7 +483,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isNew">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L95">line 95</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L146">line 146</a></div>
         <code>                    bool
     <strong>isNew</strong>()
         </code>
@@ -693,7 +493,7 @@
     
 
                     <div class="method-description">
-                                    <p>Returns true if is a new user</p>                                                </div>
+                                    <p>Returns true if is a new user.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -713,7 +513,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setActive">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L105">line 105</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L156">line 156</a></div>
         <code>                    void
     <strong>setActive</strong>(bool $active)
         </code>
@@ -723,7 +523,7 @@
     
 
                     <div class="method-description">
-                                    <p>Set the activation status of the user</p>                                                </div>
+                                    <p>Set the activation status of the user.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -753,7 +553,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getUsername">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L115">line 115</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L166">line 166</a></div>
         <code>                    string
     <strong>getUsername</strong>()
         </code>
@@ -763,7 +563,7 @@
     
 
                     <div class="method-description">
-                                    <p>Returns the username</p>                                                </div>
+                                    <p>Returns the username.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -783,7 +583,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getExtra">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L125">line 125</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L176">line 176</a></div>
         <code>                    array|null
     <strong>getExtra</strong>()
         </code>
@@ -793,7 +593,7 @@
     
 
                     <div class="method-description">
-                                    <p>Returns extra data about user</p>                                                </div>
+                                    <p>Returns extra data about user.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -813,7 +613,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setExtra">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L135">line 135</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L186">line 186</a></div>
         <code>                    void
     <strong>setExtra</strong>(array $extra)
         </code>
@@ -823,7 +623,7 @@
     
 
                     <div class="method-description">
-                                    <p>Set extra data for user</p>                                                </div>
+                                    <p>Set extra data for user.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -853,7 +653,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_toArray">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L146">line 146</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L196">line 196</a></div>
         <code>                    array
     <strong>toArray</strong>()
         </code>
@@ -877,73 +677,13 @@
 
             
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>
-                                            Entity::toArray()
-                                    </td>
-                <td></td>
-            </tr>
-            </table>
-
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_find">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L162">line 162</a></div>
-        <code>                    <a href="../../ArangoDB/Auth/User.html"><abbr title="ArangoDB\Auth\User">User</abbr></a>|null
-    <strong>find</strong>(string $username)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Finds a user on server</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$username</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../ArangoDB/Auth/User.html"><abbr title="ArangoDB\Auth\User">User</abbr></a>|null</td>
-            <td>User if exists, null if not</td>
-        </tr>
-    </table>
-
-            
-                            <h4>Exceptions</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><abbr title="GuzzleHttp\Exception\GuzzleException|\ReflectionException">ReflectionException</abbr></td>
-                <td></td>
-            </tr>
-            </table>
-
-            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_save">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L188">line 188</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L212">line 212</a></div>
         <code>                    bool
     <strong>save</strong>()
         </code>
@@ -961,7 +701,7 @@
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td>true if operation was successful, false otherwise</td>
+            <td>True if operation was successful, false otherwise.</td>
         </tr>
     </table>
 
@@ -976,24 +716,13 @@
             </table>
 
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>
-                                            <a href="../../ArangoDB/Entity/EntityInterface.html#method_save"><abbr title="ArangoDB\Entity\EntityInterface">EntityInterface</abbr>::save</a>
-                                    </td>
-                <td></td>
-            </tr>
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_delete">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L215">line 215</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L241">line 241</a></div>
         <code>                    bool
     <strong>delete</strong>()
         </code>
@@ -1003,7 +732,7 @@
     
 
                     <div class="method-description">
-                                    <p>Removes an user from server</p>                                                </div>
+                                    <p>Removes an user from server.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -1011,7 +740,7 @@
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td>true if operation was successful, false otherwise</td>
+            <td>True if operation was successful, false otherwise.</td>
         </tr>
     </table>
 
@@ -1020,32 +749,21 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td><abbr title="GuzzleHttp\Exception\GuzzleException|\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></td>
+                <td><abbr title="GuzzleHttp\Exception\GuzzleException|\ArangoDB\Validation\Exceptions\InvalidParameterException|\ArangoDB\Auth\Exceptions\UserException">UserException</abbr></td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>See also</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>
-                                            <a href="../../ArangoDB/Entity/EntityInterface.html#method_delete"><abbr title="ArangoDB\Entity\EntityInterface">EntityInterface</abbr>::delete</a>
-                                    </td>
-                <td></td>
-            </tr>
-            </table>
-
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_setAttributes">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L242">line 242</a></div>
-        <code>            protected        
-    <strong>setAttributes</strong>(array $attributesNames, array $attributes = [])
+                    <h3 id="method_jsonSerialize">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Auth/User.php#L270">line 270</a></div>
+        <code>                    array|mixed
+    <strong>jsonSerialize</strong>()
         </code>
     </h3>
     <div class="details">
@@ -1053,34 +771,19 @@
     
 
                     <div class="method-description">
-                                    <p>Initialize a handler object with given attributes</p>                                                </div>
+                                    <p>Return a JSON representation of list.</p>                                                </div>
                 <div class="tags">
-                            <h4>Parameters</h4>
+            
+                            <h4>Return Value</h4>
 
                     <table class="table table-condensed">
-                    <tr>
-                <td>array</td>
-                <td>$attributesNames</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>array</td>
-                <td>$attributes</td>
-                <td></td>
-            </tr>
-            </table>
+        <tr>
+            <td>array|mixed</td>
+            <td></td>
+        </tr>
+    </table>
 
             
-            
-                            <h4>Exceptions</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><a target="_blank" href="http://php.net/ReflectionException">ReflectionException</a></td>
-                <td></td>
-            </tr>
-            </table>
-
             
                     </div>
     </div>

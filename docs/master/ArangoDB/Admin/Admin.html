@@ -25,7 +25,8 @@
                 <div id="control-panel">
                     <form action="#" method="GET">
                 <select id="version-switcher" name="version">
-                                            <option value="../../../v3.5/index.html" data-version="v3.5">v3.5+ versions</option>
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">3.5.*</option>
+                                            <option value="../../../v3.4/index.html" data-version="v3.4">3.5.*</option>
                                             <option value="../../../master/index.html" data-version="master">master branch</option>
                                     </select>
             </form>
@@ -92,7 +93,7 @@
     
 
             <div class="description">
-            <p>Manages some Admin features</p>                                </div>
+            <p>Manages some Admin features.</p>                                </div>
     
     
     
@@ -100,6 +101,16 @@
             <h2>Methods</h2>
 
             <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;<a href="../../ArangoDB/Auth/User.html"><abbr title="ArangoDB\Auth\User">User</abbr></a>|bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_user">user</a>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection, string $username)
+        
+                                            <p>Finds a user on server.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     static&nbsp;array
@@ -171,8 +182,62 @@ the data of a collection.</p>                </div>
 
             <div id="method-details">
                     <div class="method-item">
+                    <h3 id="method_user">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Admin/Admin.php#L36">line 36</a></div>
+        <code>        static            <a href="../../ArangoDB/Auth/User.html"><abbr title="ArangoDB\Auth\User">User</abbr></a>|bool
+    <strong>user</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection, string $username)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Finds a user on server.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
+                <td>$connection</td>
+                <td>Connection object to use.</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$username</td>
+                <td>Username of user.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../ArangoDB/Auth/User.html"><abbr title="ArangoDB\Auth\User">User</abbr></a>|bool</td>
+            <td>User objects if the user with the given 'username' exists, false if not.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Validation\Exceptions\InvalidParameterException|\ArangoDB\Validation\Exceptions\MissingParameterException|\GuzzleHttp\Exception\GuzzleException|\ArangoDB\Exceptions\ServerException">ServerException</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_statistics">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Admin/Admin.php#L33">line 33</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Admin/Admin.php#L68">line 68</a></div>
         <code>        static            array
     <strong>statistics</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection)
         </code>
@@ -200,7 +265,7 @@ the data of a collection.</p>                </div>
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>Array with statistics information about server</td>
+            <td>Array with statistics information about server.</td>
         </tr>
     </table>
 
@@ -221,7 +286,7 @@ the data of a collection.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_time">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Admin/Admin.php#L55">line 55</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Admin/Admin.php#L91">line 91</a></div>
         <code>        static            float
     <strong>time</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection)
         </code>
@@ -249,7 +314,7 @@ the data of a collection.</p>                </div>
                     <table class="table table-condensed">
         <tr>
             <td>float</td>
-            <td>Unix timestamp from server</td>
+            <td>Unix timestamp from server.</td>
         </tr>
     </table>
 
@@ -270,7 +335,7 @@ the data of a collection.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_tasks">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Admin/Admin.php#L77">line 77</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Admin/Admin.php#L114">line 114</a></div>
         <code>        static            <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>
     <strong>tasks</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection)
         </code>
@@ -298,7 +363,7 @@ the data of a collection.</p>                </div>
                     <table class="table table-condensed">
         <tr>
             <td><a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></td>
-            <td>ArrayList with all tasks from  server</td>
+            <td>ArrayList with all tasks from server.</td>
         </tr>
     </table>
 
@@ -319,7 +384,7 @@ the data of a collection.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_flushWal">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Admin/Admin.php#L112">line 112</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Admin/Admin.php#L150">line 150</a></div>
         <code>        static            bool
     <strong>flushWal</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection, bool $waitForSync = true, bool $waitForCollector = true)
         </code>
@@ -382,7 +447,7 @@ the data of a collection.</p>                                                </d
             </div>
                     <div class="method-item">
                     <h3 id="method_walProperties">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Admin/Admin.php#L147">line 147</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Admin/Admin.php#L187">line 187</a></div>
         <code>        static            array
     <strong>walProperties</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection)
         </code>
@@ -433,13 +498,18 @@ A value of 0 means that write-throttling will not be triggered.<br></p>         
             </table>
 
             
+                            <h4>See also</h4>
+
+                    <table class="table table-condensed">
+            </table>
+
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_walTransactions">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Admin/Admin.php#L179">line 179</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Admin/Admin.php#L219">line 219</a></div>
         <code>        static            array
     <strong>walTransactions</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection)
         </code>

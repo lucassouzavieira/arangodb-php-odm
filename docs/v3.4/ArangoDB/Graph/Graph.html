@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>ArangoDB\Graph\Graph | ArangoDB - Object Document Mapper for PHP</title>
+
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:ArangoDB_Graph_Graph" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">3.5.*</option>
+                                            <option value="../../../v3.4/index.html" data-version="v3.4">3.5.*</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
+                <script>
+            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
+        </script>
+        <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">ArangoDB - Object Document Mapper for PHP</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../../ArangoDB.html">ArangoDB</a></li><li class="backslash">\</li><li><a href="../../ArangoDB/Graph.html">Graph</a></li><li class="backslash">\</li><li>Graph</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            Graph
+                
+        </h1>
+    </div>
+
+    <p>    class
+    <strong>Graph</strong>        implements
+        <a target="_blank" href="http://php.net/JsonSerializable">JsonSerializable</a>        (<a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php">View source</a>)
+</p>
+
+        
+    
+
+            <div class="description">
+            <p>Represents an ArangoDB Graph.</p>                                </div>
+    
+    
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_id">
+                                        protected                                        string
+                </td>
+                <td>$id</td>
+                <td class="last">The internal id of this graph.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_key">
+                                        protected                                        string
+                </td>
+                <td>$key</td>
+                <td class="last">The name of graph.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_isNew">
+                                        protected                                        bool
+                </td>
+                <td>$isNew</td>
+                <td class="last">If this graph is a new one or a representation of existing document.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_name">
+                                        protected                                        string
+                </td>
+                <td>$name</td>
+                <td class="last">Graph name.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_isSmart">
+                                        protected                                        bool
+                </td>
+                <td>$isSmart</td>
+                <td class="last">Flag if the graph is a smart graph.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_revision">
+                                        protected                                        string
+                </td>
+                <td>$revision</td>
+                <td class="last">The revision of graph.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_numberOfShards">
+                                        protected                                        int
+                </td>
+                <td>$numberOfShards</td>
+                <td class="last">Number of shards created for every new collection in the graph.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_replicationFactor">
+                                        protected                                        int
+                </td>
+                <td>$replicationFactor</td>
+                <td class="last">The replication factor used for every new collection in the graph.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_minReplicationFactor">
+                                        protected                                        int
+                </td>
+                <td>$minReplicationFactor</td>
+                <td class="last">The minimal replication factor used for every new collection in the graph.<br>
+If one shard has less than minReplicationFactor copies,
+we cannot write to this shard, but to all others.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_edgeDefinitions">
+                                        protected                                        <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>
+                </td>
+                <td>$edgeDefinitions</td>
+                <td class="last">An array of definitions for the relations of graph.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_orphanCollections">
+                                        protected                                        array
+                </td>
+                <td>$orphanCollections</td>
+                <td class="last">An array of additional vertex collections.<br>
+Documents within these collections do not have edges within this graph.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_database">
+                                        protected                                        <a href="../../ArangoDB/Database/Database.html"><abbr title="ArangoDB\Database\Database">Database</abbr></a>
+                </td>
+                <td>$database</td>
+                <td class="last">Database object of graph</td>
+                <td></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(string $name, array $attributes = [], <a href="../../ArangoDB/Database/Database.html"><abbr title="ArangoDB\Database\Database">Database</abbr></a> $database = null)
+        
+                                            <p>Graph constructor.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___toString">__toString</a>()
+        
+                                            <p>Returns a string representation of graph object.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getId">getId</a>()
+        
+                                            <p>Returns the graph ID.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getKey">getKey</a>()
+        
+                                            <p>Returns the graph key.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isNew">isNew</a>()
+        
+                                            <p>Returns true if is a new graph.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getName">getName</a>()
+        
+                                            <p>Gets the graph name.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isSmart">isSmart</a>()
+        
+                                            <p>If this graph is a smartGraph.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getRevision">getRevision</a>()
+        
+                                            <p>Gets the graph revision.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getNumberOfShards">getNumberOfShards</a>()
+        
+                                            <p>Returns the number of shards that is used for every collection within this graph.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getReplicationFactor">getReplicationFactor</a>()
+        
+                                            <p>Returns the replication factor used when initially creating collections for this graph.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getMinReplicationFactor">getMinReplicationFactor</a>()
+        
+                                            <p>Returns the minimal replication factor used for every new collection in the graph.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getOrphanCollections">getOrphanCollections</a>()
+        
+                                            <p>Returns the orphan collections in the graph.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_save">save</a>()
+        
+                                            <p>Save the Graph on server, if possible.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_delete">delete</a>(bool $dropCollections = false)
+        
+                                            <p>Removes a graph from server, if possible.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_toArray">toArray</a>()
+        
+                                            <p>Returns a array representation of graph.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getEdgeDefinitions">getEdgeDefinitions</a>()
+        
+                                            <p>Return all edge definitions of graph.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_addEdgeDefinition">addEdgeDefinition</a>(string $collection, array $from, array $to)
+        
+                                            <p>Adds an edge definition to graph.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_dropEdgeDefinition">dropEdgeDefinition</a>(string $collection, bool $dropCollection = false, bool $waitForSync = true)
+        
+                                            <p>Remove one edge definition from the graph.<br>
+This will only remove the edge collection,
+the vertex collections remain untouched and can still be used in your queries.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getVertexCollections">getVertexCollections</a>()
+        
+                                            <p>Lists all vertex collections within this graph.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_addVertexCollection">addVertexCollection</a>(string $collection)
+        
+                                            <p>Adds a vertex collection to the set of orphan collections of the graph.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_dropVertexCollection">dropVertexCollection</a>(string $collection, bool $dropCollection = false)
+        
+                                            <p>Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph.<br>
+It can only remove vertex collections that are no longer part of edge definitions,<br>
+if they are used in edge definitions you are required to modify those first.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../ArangoDB/Document/Vertex.html"><abbr title="ArangoDB\Document\Vertex">Vertex</abbr></a>|false
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getVertex">getVertex</a>(string $collection, string $vertex)
+        
+                                            <p>Gets a vertex from the given collection.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_addVertex">addVertex</a>(string $collection, array $attributes = [], bool $waitForSync = true, bool $returnNew = true)
+        
+                                            <p>Adds a vertex to graph.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_dropVertex">dropVertex</a>(string $collection, string $vertex, bool $waitForSync = true, bool $returnOld = false)
+        
+                                            <p>Drops a vertex from graph.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../ArangoDB/Document/Edge.html"><abbr title="ArangoDB\Document\Edge">Edge</abbr></a>|false
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getEdge">getEdge</a>(string $collection, string $edge)
+        
+                                            <p>Returns an edge document.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_addEdge">addEdge</a>(string $collection, array $attributes = [], bool $waitForSync = true, bool $returnNew = false)
+        
+                                            <p>Creates a new edge in the collection.<br>
+Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_dropEdge">dropEdge</a>(string $collection, string $edge, bool $waitForSync = true, bool $returnOld = false)
+        
+                                            <p>Drops an edge from graph.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../ArangoDB/Graph/Traversal.html"><abbr title="ArangoDB\Graph\Traversal">Traversal</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_traversal">traversal</a>(<a href="../../ArangoDB/Document/Vertex.html"><abbr title="ArangoDB\Document\Vertex">Vertex</abbr></a> $vertex, $direction = Traversal::GRAPH_DIRECTION_ANY, int $depth = 0)
+        
+                                            <p>Returns a graph traversal.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array|mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_jsonSerialize">jsonSerialize</a>()
+        
+                                            <p>Return a JSON representation of graph attributes.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L124">line 124</a></div>
+        <code>                    
+    <strong>__construct</strong>(string $name, array $attributes = [], <a href="../../ArangoDB/Database/Database.html"><abbr title="ArangoDB\Database\Database">Database</abbr></a> $database = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Graph constructor.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>Graph name.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$attributes</td>
+                <td>Graph optional attributes.</td>
+            </tr>
+                    <tr>
+                <td><a href="../../ArangoDB/Database/Database.html"><abbr title="ArangoDB\Database\Database">Database</abbr></a></td>
+                <td>$database</td>
+                <td>Database object.</td>
+            </tr>
+            </table>
+
+            
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Validation\Exceptions\InvalidParameterException|\ArangoDB\Validation\Exceptions\MissingParameterException|\ArangoDB\Exceptions\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___toString">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L165">line 165</a></div>
+        <code>                    string
+    <strong>__toString</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns a string representation of graph object.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getId">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L175">line 175</a></div>
+        <code>                    string
+    <strong>getId</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns the graph ID.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getKey">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L185">line 185</a></div>
+        <code>                    string
+    <strong>getKey</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns the graph key.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isNew">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L195">line 195</a></div>
+        <code>                    bool
+    <strong>isNew</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns true if is a new graph.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getName">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L205">line 205</a></div>
+        <code>                    string
+    <strong>getName</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Gets the graph name.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isSmart">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L215">line 215</a></div>
+        <code>                    bool
+    <strong>isSmart</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>If this graph is a smartGraph.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getRevision">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L225">line 225</a></div>
+        <code>                    string
+    <strong>getRevision</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Gets the graph revision.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getNumberOfShards">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L235">line 235</a></div>
+        <code>                    int
+    <strong>getNumberOfShards</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns the number of shards that is used for every collection within this graph.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getReplicationFactor">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L245">line 245</a></div>
+        <code>                    int
+    <strong>getReplicationFactor</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns the replication factor used when initially creating collections for this graph.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getMinReplicationFactor">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L255">line 255</a></div>
+        <code>                    int
+    <strong>getMinReplicationFactor</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns the minimal replication factor used for every new collection in the graph.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getOrphanCollections">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L265">line 265</a></div>
+        <code>                    array
+    <strong>getOrphanCollections</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns the orphan collections in the graph.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_save">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L277">line 277</a></div>
+        <code>                    bool
+    <strong>save</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Save the Graph on server, if possible.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td>True if operation was successful, false otherwise.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Exceptions\DatabaseException|\GuzzleHttp\Exception\GuzzleException|\ArangoDB\Exceptions\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_delete">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L322">line 322</a></div>
+        <code>                    bool
+    <strong>delete</strong>(bool $dropCollections = false)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Removes a graph from server, if possible.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>bool</td>
+                <td>$dropCollections</td>
+                <td>If set true, drop collections of this graph as well. <br>
+Collections will only be dropped if they are not used in other graphs.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td>True if operation was successful, false otherwise.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Exceptions\DatabaseException|\GuzzleHttp\Exception\GuzzleException|\ArangoDB\Exceptions\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_toArray">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L352">line 352</a></div>
+        <code>                    array
+    <strong>toArray</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns a array representation of graph.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getEdgeDefinitions">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L380">line 380</a></div>
+        <code>                    <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>
+    <strong>getEdgeDefinitions</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Return all edge definitions of graph.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addEdgeDefinition">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L395">line 395</a></div>
+        <code>                    bool
+    <strong>addEdgeDefinition</strong>(string $collection, array $from, array $to)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Adds an edge definition to graph.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$collection</td>
+                <td>Edge collection name.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$from</td>
+                <td>List of vertex collection names.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$to</td>
+                <td>List of vertex collection names.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Exceptions\DatabaseException|\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_dropEdgeDefinition">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L435">line 435</a></div>
+        <code>                    bool
+    <strong>dropEdgeDefinition</strong>(string $collection, bool $dropCollection = false, bool $waitForSync = true)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Remove one edge definition from the graph.<br>
+This will only remove the edge collection,
+the vertex collections remain untouched and can still be used in your queries.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$collection</td>
+                <td>Edge collection name.</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$dropCollection</td>
+                <td>Drop the collection as well. Collection will only be dropped if it is not used in other graphs.</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$waitForSync</td>
+                <td>Define if the request should wait until synced to disk.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Exceptions\DatabaseException|\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getVertexCollections">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L482">line 482</a></div>
+        <code>                    <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>
+    <strong>getVertexCollections</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Lists all vertex collections within this graph.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Exceptions\DatabaseException|\GuzzleHttp\Exception\GuzzleException|\ArangoDB\Exceptions\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addVertexCollection">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L517">line 517</a></div>
+        <code>                    bool
+    <strong>addVertexCollection</strong>(string $collection)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Adds a vertex collection to the set of orphan collections of the graph.</p>                    <p>If the collection does not exist, it will be created.</p>                            </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$collection</td>
+                <td>The name of the vertex collection.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Exceptions\DatabaseException|\GuzzleHttp\Exception\GuzzleException|\ArangoDB\Exceptions\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_dropVertexCollection">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L556">line 556</a></div>
+        <code>                    bool
+    <strong>dropVertexCollection</strong>(string $collection, bool $dropCollection = false)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph.<br>
+It can only remove vertex collections that are no longer part of edge definitions,<br>
+if they are used in edge definitions you are required to modify those first.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$collection</td>
+                <td>The name of the vertex collection.</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$dropCollection</td>
+                <td>Drop the collection as well. Collection will only be dropped if it is not used in other graphs.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Exceptions\DatabaseException|\GuzzleHttp\Exception\GuzzleException|\ArangoDB\Exceptions\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getVertex">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L595">line 595</a></div>
+        <code>                    <a href="../../ArangoDB/Document/Vertex.html"><abbr title="ArangoDB\Document\Vertex">Vertex</abbr></a>|false
+    <strong>getVertex</strong>(string $collection, string $vertex)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Gets a vertex from the given collection.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$collection</td>
+                <td>The name of the vertex collection the vertex belongs to.</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$vertex</td>
+                <td>The <i>_key</i> attribute of the vertex.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../ArangoDB/Document/Vertex.html"><abbr title="ArangoDB\Document\Vertex">Vertex</abbr></a>|false</td>
+            <td>A Vertex object if vertex exists. False if no graph with this name could be found<br>
+or this collection is not part of the graph or the vertex does not exist.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Exceptions\DatabaseException|\GuzzleHttp\Exception\GuzzleException|\ArangoDB\Validation\Exceptions\InvalidParameterException|\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addVertex">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L638">line 638</a></div>
+        <code>                    bool
+    <strong>addVertex</strong>(string $collection, array $attributes = [], bool $waitForSync = true, bool $returnNew = true)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Adds a vertex to graph.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$collection</td>
+                <td>The name of the vertex collection the vertex should be inserted into.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$attributes</td>
+                <td>The object attributes to be stored.</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$waitForSync</td>
+                <td>Define if the request should wait until synced to disk. Default is true.</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$returnNew</td>
+                <td>Define if the response should contain the complete new version of the document. Default is true.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td>True if the vertex could be added. False if no graph with this name could be found<br>
+or if a graph is found but the collection is not part of the graph.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Exceptions\DatabaseException|\GuzzleHttp\Exception\GuzzleException|\ArangoDB\Exceptions\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_dropVertex">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L681">line 681</a></div>
+        <code>                    bool
+    <strong>dropVertex</strong>(string $collection, string $vertex, bool $waitForSync = true, bool $returnOld = false)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Drops a vertex from graph.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$collection</td>
+                <td>The name of the vertex collection the vertex belongs to.</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$vertex</td>
+                <td>The <i>_key</i> attribute of the vertex.</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$waitForSync</td>
+                <td>Define if the request should wait until synced to disk. Default is true.</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$returnOld</td>
+                <td>Define if the response should contain the complete new version of the document. Default is false.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td>True if the vertex could be removed. False if no graph with this name could be found<br>
+or if a graph is found but the collection is not part of the graph.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Exceptions\DatabaseException|\GuzzleHttp\Exception\GuzzleException|\ArangoDB\Exceptions\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getEdge">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L724">line 724</a></div>
+        <code>                    <a href="../../ArangoDB/Document/Edge.html"><abbr title="ArangoDB\Document\Edge">Edge</abbr></a>|false
+    <strong>getEdge</strong>(string $collection, string $edge)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns an edge document.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$collection</td>
+                <td>The name of the edge collection the edge belongs to.</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$edge</td>
+                <td>The <i>_key</i> attribute of the edge.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../ArangoDB/Document/Edge.html"><abbr title="ArangoDB\Document\Edge">Edge</abbr></a>|false</td>
+            <td>A Edge object if edge exists. False if no graph with this name could be found<br>
+or this collection is not part of the graph or the edge does not exist.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Exceptions\DatabaseException|\GuzzleHttp\Exception\GuzzleException|\ArangoDB\Exceptions\Exception|\ArangoDB\Validation\Exceptions\MissingParameterException|\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addEdge">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L769">line 769</a></div>
+        <code>                    bool
+    <strong>addEdge</strong>(string $collection, array $attributes = [], bool $waitForSync = true, bool $returnNew = false)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Creates a new edge in the collection.<br>
+Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph.</p>                    <p>Furthermore the edge has to be valid in the definition of the used.</p>                            </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$collection</td>
+                <td>The name of the edge collection the edge belongs to.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$attributes</td>
+                <td>The object attributes to be stored. Must contains '_to' and '_from' keys.</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$waitForSync</td>
+                <td>Define if the request should wait until synced to disk. Default is true.</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$returnNew</td>
+                <td>Define if the response should contain the complete new version of the document. Default is false.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td>A Edge object if edge exists. False if no graph with this name could be found <br>
+or this collection is not part of the graph or one of the vertices ('_to' or '_from') does not exist.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Exceptions\DatabaseException|\GuzzleHttp\Exception\GuzzleException|\ArangoDB\Exceptions\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_dropEdge">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L812">line 812</a></div>
+        <code>                    bool
+    <strong>dropEdge</strong>(string $collection, string $edge, bool $waitForSync = true, bool $returnOld = false)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Drops an edge from graph.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$collection</td>
+                <td>The name of the edge collection the edge belongs to.</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$edge</td>
+                <td>The <i>_key</i> attribute of the edge.</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$waitForSync</td>
+                <td>Define if the request should wait until synced to disk. Default is true.</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$returnOld</td>
+                <td>Define if the response should contain the complete new version of the document. Default is false.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td>True if the edge could be removed. False if no graph with this name could be found<br>
+or if a graph is found but the collection is not part of the graph.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Exceptions\DatabaseException|\GuzzleHttp\Exception\GuzzleException|\ArangoDB\Exceptions\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_traversal">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L853">line 853</a></div>
+        <code>                    <a href="../../ArangoDB/Graph/Traversal.html"><abbr title="ArangoDB\Graph\Traversal">Traversal</abbr></a>
+    <strong>traversal</strong>(<a href="../../ArangoDB/Document/Vertex.html"><abbr title="ArangoDB\Document\Vertex">Vertex</abbr></a> $vertex, $direction = Traversal::GRAPH_DIRECTION_ANY, int $depth = 0)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns a graph traversal.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../ArangoDB/Document/Vertex.html"><abbr title="ArangoDB\Document\Vertex">Vertex</abbr></a></td>
+                <td>$vertex</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$direction</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$depth</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../ArangoDB/Graph/Traversal.html"><abbr title="ArangoDB\Graph\Traversal">Traversal</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_jsonSerialize">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Graph/Graph.php#L863">line 863</a></div>
+        <code>                    array|mixed
+    <strong>jsonSerialize</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Return a JSON representation of graph attributes.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array|mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>

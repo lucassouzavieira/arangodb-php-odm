@@ -23,6 +23,13 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">3.5.*</option>
+                                            <option value="../../../v3.4/index.html" data-version="v3.4">3.5.*</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -559,9 +566,9 @@
                     static&nbsp;string
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_buildDatabaseUri">buildDatabaseUri</a>(string $baseUri, string $database, string $apiEndpoint = &#039;&#039;)
+                    <a href="#method_addUriParam">addUriParam</a>(string $baseUri, string|integer $param)
         
-                                            <p>Builds URIs for access to Arango HTTP Interface</p>                </div>
+                                            <p>Add an URI param to an URI</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -569,9 +576,19 @@
                     static&nbsp;string
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_addUriParam">addUriParam</a>(string $baseUri, $param)
+                    <a href="#method_addQuery">addQuery</a>(string $baseUri, array $data = [])
         
-                                            <p>Add an Uri param to a Uri</p>                </div>
+                                            <p>Add an URI query</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_buildDatabaseUri">buildDatabaseUri</a>(string $baseUri, string $database, string $apiEndpoint = &#039;&#039;)
+        
+                                            <p>Builds URIs for access to Arango HTTP Interface</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -584,16 +601,6 @@
                                             <p>Builds URIs for access some special endpoints on Arango HTTP Interface</p>                </div>
                 <div class="col-md-2"></div>
             </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    static&nbsp;string
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_addQuery">addQuery</a>(string $baseUri, array $data = [])
-        
-                                            <p>Add query</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
             </div>
 
 
@@ -601,8 +608,98 @@
 
             <div id="method-details">
                     <div class="method-item">
+                    <h3 id="method_addUriParam">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Http/Api.php#L95">line 95</a></div>
+        <code>        static            string
+    <strong>addUriParam</strong>(string $baseUri, string|integer $param)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Add an URI param to an URI</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$baseUri</td>
+                <td>Base URI to add a parameter.</td>
+            </tr>
+                    <tr>
+                <td>string|integer</td>
+                <td>$param</td>
+                <td>Parameter value.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td>The modified URI.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addQuery">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Http/Api.php#L108">line 108</a></div>
+        <code>        static            string
+    <strong>addQuery</strong>(string $baseUri, array $data = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Add an URI query</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$baseUri</td>
+                <td>Base URI to add a query.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$data</td>
+                <td>Query data.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td>The modified URI with the Query.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_buildDatabaseUri">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Http/Api.php#L94">line 94</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Http/Api.php#L122">line 122</a></div>
         <code>        static            string
     <strong>buildDatabaseUri</strong>(string $baseUri, string $database, string $apiEndpoint = &#039;&#039;)
         </code>
@@ -620,17 +717,17 @@
                     <tr>
                 <td>string</td>
                 <td>$baseUri</td>
-                <td></td>
+                <td>Base URI to add a parameter.</td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$database</td>
-                <td></td>
+                <td>Database name.</td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$apiEndpoint</td>
-                <td></td>
+                <td>Base Api endpoint (One of Api class constants).</td>
             </tr>
             </table>
 
@@ -640,52 +737,7 @@
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_addUriParam">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Http/Api.php#L106">line 106</a></div>
-        <code>        static            string
-    <strong>addUriParam</strong>(string $baseUri, $param)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Add an Uri param to a Uri</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$baseUri</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$param</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>string</td>
-            <td></td>
+            <td>The modified database URI.</td>
         </tr>
     </table>
 
@@ -697,7 +749,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_buildSystemUri">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Http/Api.php#L118">line 118</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Http/Api.php#L135">line 135</a></div>
         <code>        static            string
     <strong>buildSystemUri</strong>(string $baseUri, string $endpoint)
         </code>
@@ -715,12 +767,12 @@
                     <tr>
                 <td>string</td>
                 <td>$baseUri</td>
-                <td></td>
+                <td>Base URI to add a parameter.</td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$endpoint</td>
-                <td></td>
+                <td>One of Api class constants.</td>
             </tr>
             </table>
 
@@ -730,52 +782,7 @@
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_addQuery">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Http/Api.php#L130">line 130</a></div>
-        <code>        static            string
-    <strong>addQuery</strong>(string $baseUri, array $data = [])
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Add query</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$baseUri</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>array</td>
-                <td>$data</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>string</td>
-            <td></td>
+            <td>The modified system URI.</td>
         </tr>
     </table>
 
