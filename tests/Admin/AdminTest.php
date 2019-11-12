@@ -2,6 +2,7 @@
 
 namespace Unit\Admin;
 
+use ArangoDB\Auth\User;
 use Unit\TestCase;
 use ArangoDB\Admin\Admin;
 use GuzzleHttp\Psr7\Response;
@@ -16,6 +17,41 @@ class AdminTest extends TestCase
     {
         $this->loadEnvironment();
         parent::setUp();
+    }
+
+    public function testUser()
+    {
+        $user = new User([
+            'user' => 'tester',
+            'password' => 'somePassword',
+            'active' => true,
+            'extra' => ['name' => 'Tester']
+        ], $this->getConnectionObject());
+
+        // Create user.
+        $user->save();
+
+        // Check on server.
+        $userObj = Admin::user($this->getConnectionObject(), 'tester');
+        $this->assertInstanceOf(User::class, $userObj);
+        $this->assertEquals($user->toArray(), $userObj->toArray());
+        $this->assertTrue($user->delete());
+    }
+
+    public function testUserReturnFalseForNonExistingUser()
+    {
+        $user = Admin::user($this->getConnectionObject(), 'tester');
+        $this->assertFalse($user);
+    }
+
+    public function testUserThrowServerException()
+    {
+        $mock = new MockHandler([
+            new Response(403, [], json_encode($this->mockServerError()))
+        ]);
+
+        $this->expectException(ServerException::class);
+        $user = Admin::user($this->getConnectionObject($mock), 'tester');
     }
 
     public function testStatistics()

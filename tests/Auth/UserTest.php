@@ -223,7 +223,7 @@ class UserTest extends TestCase
         $result = $user->save();
 
         // Find user.
-        $searchedUser = Admin::findUser($this->getConnectionObject(), 'testing_user');
+        $searchedUser = Admin::user($this->getConnectionObject(), 'testing_user');
         $this->assertInstanceOf(User::class, $searchedUser);
 
         $this->assertEquals($user->getUsername(), $searchedUser->getUsername());
@@ -245,11 +245,11 @@ class UserTest extends TestCase
         $user->save();
 
         // Check on server.
-        $this->assertInstanceOf(User::class, Admin::findUser($this->getConnectionObject(), 'tester'));
+        $this->assertInstanceOf(User::class, Admin::user($this->getConnectionObject(), 'tester'));
 
         // Delete user and checks on server.
         $this->assertTrue($user->delete());
-        $this->assertFalse(Admin::findUser($this->getConnectionObject(), 'tester'));
+        $this->assertFalse(Admin::user($this->getConnectionObject(), 'tester'));
     }
 
     public function testDeleteThrowUserException()

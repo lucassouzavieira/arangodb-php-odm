@@ -29,11 +29,11 @@ abstract class Admin
      * @param Connection $connection Connection object to use.
      * @param string $username Username of user.
      *
-     * @return User|bool User if exists, false if not.
+     * @return User|bool User objects if the user with the given 'username' exists, false if not.
      *
      * @throws InvalidParameterException|MissingParameterException|GuzzleException|ServerException
      */
-    public static function findUser(Connection $connection, string $username)
+    public static function user(Connection $connection, string $username)
     {
         try {
             $uri = Api::buildDatabaseUri($connection->getBaseUri(), $connection->getDatabaseName(), Api::USER);
