@@ -38,11 +38,11 @@ abstract class Validator implements ValidatorInterface
     /**
      * Validator constructor.
      *
-     * @param array $options Attributes to validate.
+     * @param array $data Attributes to validate.
      */
-    public function __construct(array $options)
+    public function __construct(array $data = [])
     {
-        $this->data = $options;
+        $this->data = $data;
     }
 
     /**

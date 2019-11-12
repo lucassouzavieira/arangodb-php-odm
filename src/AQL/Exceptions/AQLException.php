@@ -6,7 +6,7 @@ namespace ArangoDB\AQL\Exceptions;
 use ArangoDB\Exceptions\BaseException;
 
 /**
- * Class AQLException
+ * Represents an AQL exception
  *
  * @package ArangoDB\AQL\Exceptions
  * @author Lucas S. Vieira

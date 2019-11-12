@@ -14,7 +14,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 /**
- * Represents an user defined task on server
+ * Represents an user defined task on server.
  *
  * @package ArangoDB\Admin\Task
  * @author Lucas S. Vieira
@@ -22,35 +22,35 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 class Task implements EntityInterface
 {
     /**
-     * Task id
+     * Task id.
      *
      * @var string
      */
     protected $id;
 
     /**
-     * Task type
+     * Task type.
      *
      * @var string
      */
     protected $type = 'unknown';
 
     /**
-     * Attributes of task
+     * Attributes of task.
      *
      * @var array
      */
     protected $attributes;
 
     /**
-     * Connection object
+     * Connection object.
      *
      * @var Connection
      */
     protected $connection;
 
     /**
-     * Default options
+     * Default options.
      *
      * @var array
      */
@@ -71,10 +71,10 @@ class Task implements EntityInterface
     /**
      * Task constructor.
      *
-     * @param string $name Task name
-     * @param string $command Task command
-     * @param Connection|null $connection Connection to use
-     * @param array $options Additional options for task
+     * @param string $name Task name.
+     * @param string $command Task command.
+     * @param Connection|null $connection Connection to use.
+     * @param array $options Additional options for task.
      *
      * @throws InvalidParameterException|MissingParameterException
      */
@@ -99,6 +99,9 @@ class Task implements EntityInterface
     }
 
     /**
+     * If the task object is a new created task (and not exists on server) <br>
+     * or if it is a representation of an existing one.
+     *
      * @return bool
      */
     public function isNew(): bool
@@ -107,9 +110,9 @@ class Task implements EntityInterface
     }
 
     /**
-     * Return the Task id
+     * Return the Task id.
      *
-     * @return string|null Task id, if exists or null if the task is a new one
+     * @return string|null Task id, if exists or null if the task is a new one.
      */
     public function getId()
     {
@@ -117,7 +120,7 @@ class Task implements EntityInterface
     }
 
     /**
-     * Return the task type
+     * Return the task type.
      *
      * @return string
      */
@@ -127,7 +130,7 @@ class Task implements EntityInterface
     }
 
     /**
-     * Returns the command
+     * Returns the command.
      *
      * @return string
      */
@@ -137,7 +140,7 @@ class Task implements EntityInterface
     }
 
     /**
-     * Returns a array representation of task
+     * Returns a array representation of task.
      *
      * @return array
      */
@@ -147,7 +150,7 @@ class Task implements EntityInterface
     }
 
     /**
-     * If this task has a connection set or not
+     * If this task has a connection set or not.
      *
      * @return bool True of has a connection object. False otherwise.
      */
@@ -157,7 +160,7 @@ class Task implements EntityInterface
     }
 
     /**
-     * Sets a custom id for Task
+     * Sets a custom id for task.
      *
      * @param string $id
      */
@@ -167,7 +170,7 @@ class Task implements EntityInterface
     }
 
     /**
-     * Sets the command to task
+     * Sets the command to task.
      *
      * @param string $command
      */
@@ -178,9 +181,9 @@ class Task implements EntityInterface
 
 
     /**
-     * Sets a connection to use
+     * Sets a connection to use.
      *
-     * @param Connection $connection
+     * @param Connection $connection Connection object to use.
      */
     public function setConnection(Connection $connection)
     {
@@ -190,7 +193,8 @@ class Task implements EntityInterface
     /**
      * Saves this task on server, if possible
      *
-     * @return bool true if operation was successful, false otherwise
+     * @return bool True if operation was successful, false otherwise
+     *
      * @throws ServerException|GuzzleException
      */
     public function save(): bool
@@ -226,9 +230,10 @@ class Task implements EntityInterface
     }
 
     /**
-     * Removes a task from server, if possible
+     * Removes a task from server, if possible.
      *
-     * @return bool true if operation was successful, false otherwise
+     * @return bool True if operation was successful, false otherwise
+     *
      * @throws ServerException|GuzzleException
      */
     public function delete(): bool
@@ -255,7 +260,9 @@ class Task implements EntityInterface
     }
 
     /**
-     * @see \JsonSerializable::jsonSerialize()
+     * Return a JSON representation of Task object.
+     *
+     * @return array|mixed
      */
     public function jsonSerialize()
     {

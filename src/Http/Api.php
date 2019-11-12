@@ -83,25 +83,14 @@ abstract class Api
     const AUTH_BASE = "/_open/auth";
     const JWT_AUTH_BASE = "/_open/auth";
 
-    /**
-     * Builds URIs for access to Arango HTTP Interface
-     *
-     * @param string $baseUri
-     * @param string $database
-     * @param string $apiEndpoint
-     * @return string
-     */
-    public static function buildDatabaseUri(string $baseUri, string $database, string $apiEndpoint = ''): string
-    {
-        return sprintf("%s%s%s", $baseUri . Api::DB, $database, $apiEndpoint);
-    }
 
     /**
-     * Add an Uri param to a Uri
+     * Add an URI param to an URI
      *
-     * @param string $baseUri
-     * @param $param
-     * @return string
+     * @param string $baseUri Base URI to add a parameter.
+     * @param string|integer $param Parameter value.
+     *
+     * @return string The modified URI.
      */
     public static function addUriParam(string $baseUri, $param): string
     {
@@ -109,26 +98,42 @@ abstract class Api
     }
 
     /**
-     * Builds URIs for access some special endpoints on Arango HTTP Interface
+     * Add an URI query
      *
-     * @param string $baseUri
-     * @param string $endpoint
-     * @return string
-     */
-    public static function buildSystemUri(string $baseUri, string $endpoint): string
-    {
-        return sprintf("%s%s", $baseUri, $endpoint);
-    }
-
-    /**
-     * Add query
+     * @param string $baseUri Base URI to add a query.
+     * @param array $data Query data.
      *
-     * @param string $baseUri
-     * @param array $data
-     * @return string
+     * @return string The modified URI with the Query.
      */
     public static function addQuery(string $baseUri, array $data = []): string
     {
         return sprintf("%s?%s", $baseUri, http_build_query($data));
+    }
+
+    /**
+     * Builds URIs for access to Arango HTTP Interface
+     *
+     * @param string $baseUri Base URI to add a parameter.
+     * @param string $database Database name.
+     * @param string $apiEndpoint Base Api endpoint (One of Api class constants).
+     *
+     * @return string The modified database URI.
+     */
+    public static function buildDatabaseUri(string $baseUri, string $database, string $apiEndpoint = ''): string
+    {
+        return sprintf("%s%s%s", $baseUri . Api::DB, $database, $apiEndpoint);
+    }
+
+    /**
+     * Builds URIs for access some special endpoints on Arango HTTP Interface
+     *
+     * @param string $baseUri Base URI to add a parameter.
+     * @param string $endpoint One of Api class constants.
+     *
+     * @return string The modified system URI.
+     */
+    public static function buildSystemUri(string $baseUri, string $endpoint): string
+    {
+        return sprintf("%s%s", $baseUri, $endpoint);
     }
 }

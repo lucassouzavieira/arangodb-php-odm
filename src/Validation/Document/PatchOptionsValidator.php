@@ -22,7 +22,7 @@ class PatchOptionsValidator extends Validator
     ];
 
     /**
-     * Rules for validation
+     * Rules for validation.
      *
      * @return array
      */

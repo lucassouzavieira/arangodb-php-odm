@@ -8,15 +8,15 @@ use ArangoDB\Validation\Rules\Rules;
 
 /**
  * Validates user data <br>
- * Used for avoid client errors when creating new users or granting access to databases
+ * Used for avoid client errors when creating new users or granting access to databases.
  *
- * @package ArangoDB\Connection
+ * @package ArangoDB\Validation\Auth
  * @author Lucas S. Vieira
  */
 class UserValidator extends Validator
 {
     /**
-     * Mandatory keys in users arrays
+     * Required keys in users arrays.
      *
      * @var array
      */
@@ -25,7 +25,7 @@ class UserValidator extends Validator
     ];
 
     /**
-     * Users array can have these keys
+     * Users array can have these keys.
      *
      * @var array
      */
@@ -34,7 +34,8 @@ class UserValidator extends Validator
     ];
 
     /**
-     * Rules for connection
+     * Rules for user.
+     *
      * @return array
      */
     public function rules(): array

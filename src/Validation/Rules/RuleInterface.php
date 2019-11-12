@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace ArangoDB\Validation\Rules;
 
 /**
- * Basic interface for validation rule
+ * Basic interface for validation rule.
  *
  * @package ArangoDB\Validation\Rules
  * @author Lucas S. Vieira
@@ -12,10 +12,11 @@ namespace ArangoDB\Validation\Rules;
 interface RuleInterface
 {
     /**
-     * Check if a given value is valid
+     * Check if a given value is valid.
      *
-     * @param $value
-     * @return bool
+     * @param mixed $value Value to validate.
+     *
+     * @return bool True if value is valid, false otherwise.
      */
     public function isValid($value): bool;
 }

@@ -11,7 +11,7 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 
 /**
- * Represents an user defined task on server
+ * Represents an user defined aql function on server.
  *
  * @package ArangoDB\AQL\Functions
  * @author Lucas S. Vieira
@@ -19,22 +19,21 @@ use GuzzleHttp\Exception\GuzzleException;
 class AQLFunction implements EntityInterface
 {
     /**
-     * Fully qualified name of user function
+     * Fully qualified name of user function.
      *
      * @var string
      */
     protected $name;
 
     /**
-     * String representation of function body
+     * String representation of function body.
      *
      * @var string
      */
     protected $code;
 
     /**
-     * an optional boolean value to indicate whether the function
-     * results are fully deterministic
+     * An optional boolean value to indicate whether the function results are fully deterministic. <br>
      * (function return value solely depends on the input value and return value is the same for repeated calls with same input)
      *
      * @var bool
@@ -50,14 +49,14 @@ class AQLFunction implements EntityInterface
     protected $isNew;
 
     /**
-     * Connection object
+     * Connection object.
      *
      * @var Connection
      */
     protected $connection;
 
     /**
-     * Stores the deletion data for an AQLFunction object
+     * Stores the deletion data for an AQLFunction object.
      *
      * @var array
      */
@@ -66,11 +65,11 @@ class AQLFunction implements EntityInterface
     /**
      * AQLFunction constructor.
      *
-     * @param string $name
-     * @param string $code
-     * @param Connection|null $connection
-     * @param bool $isDeterministic
-     * @param bool $isNew
+     * @param string $name The AQL function name.
+     * @param string $code The AQL function code.
+     * @param Connection|null $connection Connection object to use.
+     * @param bool $isDeterministic Indicates if the function results are deterministic.
+     * @param bool $isNew Indicates if the function object is a new one or not.
      */
     public function __construct(string $name, string $code, Connection $connection = null, bool $isDeterministic = true, bool $isNew = true)
     {
@@ -82,8 +81,10 @@ class AQLFunction implements EntityInterface
     }
 
     /**
+     * If the AQLFunction object is a new created AQLFunction (and not exists on server) <br>
+     * or if it is a representation of an existing one.
+     *
      * @return bool
-     * @see EntityInterface::isNew()
      */
     public function isNew(): bool
     {
@@ -91,6 +92,8 @@ class AQLFunction implements EntityInterface
     }
 
     /**
+     * Returns the AQL function name.
+     *
      * @return string
      */
     public function getName(): string
@@ -99,6 +102,8 @@ class AQLFunction implements EntityInterface
     }
 
     /**
+     * Returns the AQL function code.
+     *
      * @return string
      */
     public function getCode(): string
@@ -107,6 +112,8 @@ class AQLFunction implements EntityInterface
     }
 
     /**
+     * Indicates if the function results are deterministic. <br>
+     *
      * @return bool
      */
     public function isDeterministic(): bool
@@ -115,7 +122,7 @@ class AQLFunction implements EntityInterface
     }
 
     /**
-     * If the object has performed a delete operation, this method will return the deletion data
+     * If the object has performed a delete operation, this method will return the deletion data.
      *
      * @return array
      */
@@ -125,7 +132,7 @@ class AQLFunction implements EntityInterface
     }
 
     /**
-     * If this AQL function has a connection set or not
+     * If this AQL function has a connection set or not.
      *
      * @return bool True if has a connection object. False otherwise.
      */
@@ -135,9 +142,9 @@ class AQLFunction implements EntityInterface
     }
 
     /**
-     * Sets a connection to use
+     * Sets a connection to use.
      *
-     * @param Connection $connection
+     * @param Connection $connection Connection object to use.
      */
     public function setConnection(Connection $connection)
     {
@@ -145,9 +152,11 @@ class AQLFunction implements EntityInterface
     }
 
     /**
-     * @return bool true if operation was successful, false otherwise
+     * Saves the AQL function on server.
+     *
+     * @return bool True if operation was successful, false otherwise.
+     *
      * @throws ServerException|GuzzleException
-     * @see EntityInterface::save()
      */
     public function save(): bool
     {
@@ -169,9 +178,11 @@ class AQLFunction implements EntityInterface
     }
 
     /**
-     * @return bool true if operation was successful, false otherwise
+     * Removes an AQL function from server, if possible
+     *
+     * @return bool True if operation was successful, false otherwise
+     *
      * @throws ServerException|GuzzleException
-     * @see EntityInterface::delete()
      */
     public function delete(): bool
     {
@@ -193,8 +204,9 @@ class AQLFunction implements EntityInterface
     }
 
     /**
+     * Returns a array representation of AQL function object.
+     *
      * @return array
-     * @see EntityInterface::toArray()
      */
     public function toArray(): array
     {
@@ -206,7 +218,9 @@ class AQLFunction implements EntityInterface
     }
 
     /**
-     * @see \JsonSerializable::jsonSerialize()
+     * Return a JSON representation of AQL function object.
+     *
+     * @return array|mixed
      */
     public function jsonSerialize()
     {

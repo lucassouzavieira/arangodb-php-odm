@@ -7,7 +7,7 @@ use Throwable;
 use ArangoDB\Exceptions\BaseException;
 
 /**
- * InvalidParameterException
+ * Invalid parameter exception.
  *
  * @package ArangoDB\Validation\Exceptions
  * @author Lucas S. Vieira
@@ -15,21 +15,25 @@ use ArangoDB\Exceptions\BaseException;
 class InvalidParameterException extends BaseException
 {
     /**
+     * Parameter name.
+     *
      * @var string
      */
     protected $parameter;
 
     /**
+     * Parameter value.
+     *
      * @var mixed
      */
     protected $value;
 
     /**
-     * MissingParameter constructor.
+     * InvalidParameterException constructor.
      *
-     * @param $parameter
-     * @param $value
-     * @param Throwable|null $previous
+     * @param string|int $parameter Parameter name.
+     * @param mixed $value Parameter value.
+     * @param Throwable|null $previous Previous exception or error.
      */
     public function __construct($parameter, $value, Throwable $previous = null)
     {

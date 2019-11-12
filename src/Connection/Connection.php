@@ -15,7 +15,7 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 use ArangoDB\Validation\Connection\ConnectionOptionsValidator;
 
 /**
- * Represents a connection with an ArangoDB database
+ * Represents a connection with an ArangoDB database.
  *
  * @package ArangoDB\Connection
  * @author Lucas S. Vieira
@@ -23,7 +23,7 @@ use ArangoDB\Validation\Connection\ConnectionOptionsValidator;
 class Connection extends Authenticable
 {
     /**
-     * Default headers to send to server
+     * Default headers to send to server.
      *
      * @var array
      */
@@ -32,7 +32,8 @@ class Connection extends Authenticable
     /**
      * Connection constructor.
      *
-     * @param array $options Connection options
+     * @param array $options Connection options.
+     *
      * @throws InvalidParameterException|MissingParameterException|GuzzleException|AuthException|ConnectionException
      */
     public function __construct(array $options)
@@ -60,9 +61,9 @@ class Connection extends Authenticable
     }
 
     /**
-     * If connection is authenticated
+     * If connection is authenticated.
      *
-     * @return bool True if connection already authenticate, false otherwise
+     * @return bool True if connection already authenticate, false otherwise.
      */
     public function isAuthenticated(): bool
     {
@@ -70,7 +71,7 @@ class Connection extends Authenticable
     }
 
     /**
-     * Return the connection default headers
+     * Return the connection default headers.
      *
      * @return array
      */
@@ -80,9 +81,9 @@ class Connection extends Authenticable
     }
 
     /**
-     * Set the connection default headers
+     * Set the connection default headers.
      *
-     * @param array $headers
+     * @param array $headers The default array to add on all requests.
      */
     public function setDefaultHeaders(array $headers)
     {
@@ -91,11 +92,11 @@ class Connection extends Authenticable
 
 
     /**
-     * Return the base endpoint uri
+     * Return the base endpoint URI.
      *
      * @return string
      */
-    public function getBaseURI(): string
+    public function getBaseUri(): string
     {
         return $this->options['endpoint'];
     }
@@ -132,13 +133,14 @@ class Connection extends Authenticable
     }
 
     /**
-     * Executes a GET request on server
+     * Executes a GET request on server.
      *
-     * @param string $endpoint URI to make the request
+     * @param string $endpoint URI to make the request.
      * @param array $body The body content.
-     * @param array $headers Additional headers to send on request
+     * @param array $headers Additional headers to send on request.
      *
      * @return ResponseInterface
+     *
      * @throws GuzzleException
      */
     public function get(string $endpoint, array $body = [], array $headers = []): ResponseInterface
@@ -147,13 +149,14 @@ class Connection extends Authenticable
     }
 
     /**
-     * Executes a POST request on server
+     * Executes a POST request on server.
      *
-     * @param string $endpoint URI to make the request
+     * @param string $endpoint URI to make the request.
      * @param array $body The body content.
-     * @param array $headers Additional headers to send on request
+     * @param array $headers Additional headers to send on request.
      *
      * @return ResponseInterface
+     *
      * @throws GuzzleException
      */
     public function post(string $endpoint, array $body = [], array $headers = []): ResponseInterface
@@ -162,13 +165,14 @@ class Connection extends Authenticable
     }
 
     /**
-     * Executes a PUT request on server
+     * Executes a PUT request on server.
      *
-     * @param string $endpoint URI to make the request
+     * @param string $endpoint URI to make the request.
      * @param array $body The body content.
-     * @param array $headers Additional headers to send on request
+     * @param array $headers Additional headers to send on request.
      *
      * @return ResponseInterface
+     *
      * @throws GuzzleException
      */
     public function put(string $endpoint, array $body = [], array $headers = []): ResponseInterface
@@ -177,11 +181,11 @@ class Connection extends Authenticable
     }
 
     /**
-     * Executes a PATCH request on server
+     * Executes a PATCH request on server.
      *
-     * @param string $endpoint URI to make the request
+     * @param string $endpoint URI to make the request.
      * @param array $body The body content.
-     * @param array $headers Additional headers to send on request
+     * @param array $headers Additional headers to send on request.
      *
      * @return ResponseInterface
      * @throws GuzzleException
@@ -192,13 +196,14 @@ class Connection extends Authenticable
     }
 
     /**
-     * Executes a DELETE request on server
+     * Executes a DELETE request on server.
      *
-     * @param string $endpoint URI to make the request
+     * @param string $endpoint URI to make the request.
      * @param array $body The body content.
-     * @param array $headers Additional headers to send on request
+     * @param array $headers Additional headers to send on request.
      *
      * @return ResponseInterface
+     *
      * @throws GuzzleException
      */
     public function delete(string $endpoint, array $body = [], array $headers = []): ResponseInterface
@@ -207,14 +212,15 @@ class Connection extends Authenticable
     }
 
     /**
-     * Makes a custom request
+     * Makes a custom HTTP request.
      *
-     * @param string $method HTTP Method to use
-     * @param string $uri URI to make the request
+     * @param string $method HTTP Method to use.
+     * @param string $uri URI to make the request.
      * @param string $body The body content.
-     * @param array $headers Additional headers to send on request
+     * @param array $headers Additional headers to send on request.
      *
      * @return ResponseInterface
+     *
      * @throws GuzzleException
      */
     public function customHttpRequest(string $method, string $uri, string $body = "", array $headers = []): ResponseInterface

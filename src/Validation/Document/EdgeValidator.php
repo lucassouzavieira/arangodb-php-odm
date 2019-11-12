@@ -25,9 +25,10 @@ class EdgeValidator extends DocumentValidator
     ];
 
     /**
-     * Validate document data
+     * Validate document data.
      *
      * @return bool True if validation is successful, throw an exception otherwise.
+     *
      * @throws InvalidParameterException|MissingParameterException
      */
     public function validate(): bool
@@ -37,11 +38,11 @@ class EdgeValidator extends DocumentValidator
     }
 
     /**
-     * Validate graph parameters
+     * Validate graph parameters.
      *
      * @throws MissingParameterException|InvalidParameterException
      */
-    protected function validateGraphParams()
+    private function validateGraphParams()
     {
         if (!isset($this->data['_to'])) {
             throw new MissingParameterException("'_to'");

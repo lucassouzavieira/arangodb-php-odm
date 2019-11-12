@@ -6,7 +6,7 @@ namespace ArangoDB\AQL\Exceptions;
 use ArangoDB\Exceptions\BaseException;
 
 /**
- * Class StatementException
+ * Statement exception
  *
  * @package ArangoDB\AQL\Exceptions
  * @author Lucas S. Vieira

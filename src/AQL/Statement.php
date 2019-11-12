@@ -70,7 +70,7 @@ class Statement implements StatementInterface
     /**
      * Statement constructor.
      *
-     * @param string $query
+     * @param string $query AQL query string.
      */
     public function __construct(string $query)
     {
@@ -93,10 +93,11 @@ class Statement implements StatementInterface
     /**
      * Binds a value to specified parameter name.
      *
-     * @param string $parameter
-     * @param $value
+     * @param string $parameter Parameter name.
+     * @param mixed $value Value for parameter.
      *
-     * @return bool
+     * @return bool True if the parameter has an alias on query string. False otherwise.
+     *
      * @throws InvalidParameterException
      */
     public function bindValue(string $parameter, $value): bool
@@ -143,6 +144,7 @@ class Statement implements StatementInterface
      * 'Resolves' the query, returning the string after bind all params and values
      *
      * @return string
+     *
      * @throws StatementException
      */
     public function toAql(): string
@@ -163,10 +165,11 @@ class Statement implements StatementInterface
     /**
      * Returns the proper output formatted given parameter
      *
-     * @param string $parameter
+     * @param string $parameter Parameter name.
+     *
      * @return string
      */
-    protected function output(string $parameter)
+    private function output(string $parameter)
     {
         $value = $this->container->get($parameter);
         $format = $this->formats[gettype($value)];
@@ -185,11 +188,11 @@ class Statement implements StatementInterface
     /**
      * Check if parameter exists
      *
-     * @param string $parameter
+     * @param string $parameter Parameter name.
      *
      * @return bool
      */
-    protected function hasParam(string $parameter): bool
+    private function hasParam(string $parameter): bool
     {
         return in_array($parameter, $this->queryParameters);
     }
@@ -199,7 +202,7 @@ class Statement implements StatementInterface
      *
      * @return void
      */
-    protected function processQueryParameters(): void
+    private function processQueryParameters(): void
     {
         // Check if a collection alias was defined
         $matches = [];
@@ -223,10 +226,11 @@ class Statement implements StatementInterface
     /**
      * Verify if an alias is defined for collection aliasing
      *
-     * @param string $alias
+     * @param string $alias The candidate alias to be checked.
+     *
      * @return bool
      */
-    protected function isCollectionAlias(string $alias = '@collection'): bool
+    private function isCollectionAlias(string $alias = '@collection'): bool
     {
         return $this->collectionAlias === $alias;
     }

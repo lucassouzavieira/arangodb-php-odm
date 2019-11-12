@@ -7,7 +7,7 @@ use ArangoDB\Validation\Validator;
 use ArangoDB\Validation\Rules\Rules;
 
 /**
- * Validate the connection options to access the database
+ * Validate the connection options to access the database.
  *
  * @package ArangoDB\Validation\Connection
  * @author Lucas S. Vieira
@@ -15,7 +15,7 @@ use ArangoDB\Validation\Rules\Rules;
 class ConnectionOptionsValidator extends Validator
 {
     /**
-     * Required keys in connections arrays
+     * Required keys in connections arrays.
      *
      * @var array
      */
@@ -24,7 +24,7 @@ class ConnectionOptionsValidator extends Validator
     ];
 
     /**
-     * The connection array can have these keys
+     * The connection array can have these keys.
      *
      * @var array
      */
@@ -35,16 +35,16 @@ class ConnectionOptionsValidator extends Validator
     /**
      * ConnectionOptionsValidator constructor.
      *
-     * @param array $options
+     * @param array $data Attributes to validate.
      */
-    public function __construct(array $options)
+    public function __construct(array $data = [])
     {
-        $this->data = $options;
-
         // We can use 'host' and 'port' keys to define the endpoint.
-        if (array_key_exists('host', $options) && array_key_exists('port', $options)) {
-            $this->data['endpoint'] = sprintf("%s:%d", $options['host'], $options['port']);
+        if (array_key_exists('host', $data) && array_key_exists('port', $data)) {
+            $data['endpoint'] = sprintf("%s:%d", $data['host'], $data['port']);
         }
+
+        parent::__construct($data);
     }
 
     /**
@@ -66,6 +66,8 @@ class ConnectionOptionsValidator extends Validator
     }
 
     /**
+     * Return all connection options.
+     *
      * @return array
      */
     public function getConnectionOptions(): array

@@ -7,7 +7,7 @@ use Throwable;
 use ArangoDB\Exceptions\BaseException;
 
 /**
- * MissingParameterException
+ * Missing parameter exception
  *
  * @package ArangoDB\Validation\Exceptions
  * @author Lucas S. Vieira
@@ -15,17 +15,19 @@ use ArangoDB\Exceptions\BaseException;
 class MissingParameterException extends BaseException
 {
     /**
+     * Parameter name.
+     *
      * @var string
      */
     protected $parameter;
 
     /**
-     * MissingParameter constructor.
+     * MissingParameterException constructor.
      *
-     * @param $parameter
-     * @param Throwable|null $previous
+     * @param string $parameter Parameter name.
+     * @param Throwable|null $previous Previous exception or error.
      */
-    public function __construct($parameter, Throwable $previous = null)
+    public function __construct(string $parameter, Throwable $previous = null)
     {
         $this->parameter = $parameter;
         $message = "Missing '$parameter' on: " . $this->getFile() . " in line " . $this->getLine();

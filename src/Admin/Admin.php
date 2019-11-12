@@ -143,6 +143,7 @@ abstract class Admin
      * @return array
      *
      * @throws ServerException|GuzzleException
+     * @see https://www.arangodb.com/docs/stable/http/miscellaneous-functions.html#retrieves-the-configuration-of-the-write-ahead-log
      */
     public static function walProperties(Connection $connection): array
     {

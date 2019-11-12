@@ -10,7 +10,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Class RestClient
+ * RestClient.
  *
  * @package ArangoDB\Http
  * @author Lucas S. Vieira
@@ -18,13 +18,15 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 class RestClient
 {
     /**
-     * Base uri string
+     * Base URI string.
      *
      * @var string
      */
     protected $baseUri;
 
     /**
+     * Guzzle HTTP client.
+     *
      * @var Client
      */
     protected $httpClient;
@@ -32,9 +34,10 @@ class RestClient
     /**
      * RestClient constructor.
      *
-     * @param string $baseUri base URI
-     * @param array $options
-     * @throws InvalidParameterException If the base uri is invalid
+     * @param string $baseUri Base URI for all requests.
+     * @param array $options Base options for all requests.
+     *
+     * @throws InvalidParameterException If the base URI is invalid.
      */
     public function __construct(string $baseUri, array $options = [])
     {
@@ -49,13 +52,14 @@ class RestClient
     }
 
     /**
-     * Performs a GET request
+     * Performs a GET request.
      *
-     * @param string $url Url to execute request
-     * @param mixed $data Data to send
-     * @param array $headers Headers
+     * @param string $url URL to execute request.
+     * @param mixed $data Data to send.
+     * @param array $headers Additional headers.
      *
      * @return mixed|ResponseInterface
+     *
      * @throws GuzzleException
      */
     public function get($url, $data = [], $headers = []): ResponseInterface
@@ -65,13 +69,14 @@ class RestClient
     }
 
     /**
-     * Performs a POST request
+     * Performs a POST request.
      *
-     * @param string $url Url to execute request
-     * @param mixed $data Data to send
-     * @param array $headers Headers
+     * @param string $url URL to execute request.
+     * @param mixed $data Data to send.
+     * @param array $headers Additional headers.
      *
      * @return mixed|ResponseInterface
+     *
      * @throws GuzzleException
      */
     public function post($url, $data = [], $headers = []): ResponseInterface
@@ -81,13 +86,14 @@ class RestClient
     }
 
     /**
-     * Performs a PUT request
+     * Performs a PUT request.
      *
-     * @param string $url Url to execute request
-     * @param mixed $data Data to send
-     * @param array $headers Headers
+     * @param string $url URL to execute request.
+     * @param mixed $data Data to send.
+     * @param array $headers Additional headers.
      *
      * @return mixed|ResponseInterface
+     *
      * @throws GuzzleException
      */
     public function put($url, $data = [], $headers = []): ResponseInterface
@@ -99,11 +105,12 @@ class RestClient
     /**
      * Performs a PATCH request
      *
-     * @param string $url Url to execute request
+     * @param string $url URL to execute request
      * @param mixed $data Data to send
-     * @param array $headers Headers
+     * @param array $headers Additional headers.
      *
      * @return mixed|ResponseInterface
+     *
      * @throws GuzzleException
      */
     public function patch($url, $data = [], $headers = []): ResponseInterface
@@ -113,13 +120,14 @@ class RestClient
     }
 
     /**
-     * Performs a DELETE request
+     * Performs a DELETE request.
      *
-     * @param string $url Url to execute request
-     * @param mixed $data Data to send
-     * @param array $headers Headers
+     * @param string $url URL to execute request.
+     * @param mixed $data Data to send.
+     * @param array $headers Additional headers.
      *
      * @return mixed|ResponseInterface
+     *
      * @throws GuzzleException
      */
     public function delete($url, $data = [], $headers = []): ResponseInterface
@@ -129,14 +137,15 @@ class RestClient
     }
 
     /**
-     * Makes a custom request
+     * Makes a custom HTTP request.
      *
-     * @param string $method
-     * @param string $url
-     * @param string $body
-     * @param array $headers
+     * @param string $method HTTP method to use.
+     * @param string $url URL to request.
+     * @param string $body Body to sent.
+     * @param array $headers Additional headers.
      *
      * @return ResponseInterface
+     *
      * @throws GuzzleException
      */
     public function customHttpRequest(string $method, string $url, string $body = "", array $headers = []): ResponseInterface

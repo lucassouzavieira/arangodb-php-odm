@@ -17,7 +17,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 /**
- * Represents an ArangoDB Graph
+ * Represents an ArangoDB Graph.
  *
  * @package ArangoDB\Graph
  * @author Lucas S. Vieira
@@ -25,35 +25,35 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 class Graph implements \JsonSerializable
 {
     /**
-     * The internal id of this graph
+     * The internal id of this graph.
      *
      * @var string
      */
     protected $id;
 
     /**
-     * The name of graph
+     * The name of graph.
      *
      * @var string
      */
     protected $key;
 
     /**
-     * If this graph is a new one or a representation of existing document
+     * If this graph is a new one or a representation of existing document.
      *
      * @var bool
      */
     protected $isNew;
 
     /**
-     * Graph name
+     * Graph name.
      *
      * @var string
      */
     protected $name;
 
     /**
-     * Flag if the graph is a smart graph
+     * Flag if the graph is a smart graph.
      *
      * @var bool
      */
@@ -61,7 +61,7 @@ class Graph implements \JsonSerializable
 
     /**
      * The revision of graph.
-     * Can be used to make sure to not override concurrent modifications to this graph
+     * Can be used to make sure to not override concurrent modifications to this graph.
      *
      * @var string
      */
@@ -82,7 +82,7 @@ class Graph implements \JsonSerializable
     protected $replicationFactor;
 
     /**
-     * The minimal replication factor used for every new collection in the graph.
+     * The minimal replication factor used for every new collection in the graph.<br>
      * If one shard has less than minReplicationFactor copies,
      * we cannot write to this shard, but to all others.
      *
@@ -98,7 +98,7 @@ class Graph implements \JsonSerializable
     protected $edgeDefinitions;
 
     /**
-     * An array of additional vertex collections.
+     * An array of additional vertex collections.<br>
      * Documents within these collections do not have edges within this graph.
      *
      * @var array
@@ -168,7 +168,7 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Returns the graph ID
+     * Returns the graph ID.
      *
      * @return string
      */
@@ -178,7 +178,7 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Returns the graph key
+     * Returns the graph key.
      *
      * @return string
      */
@@ -208,7 +208,7 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * If this graph is a smartGraph
+     * If this graph is a smartGraph.
      *
      * @return bool
      */
@@ -268,9 +268,9 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Save a entity on server, if possible
+     * Save the Graph on server, if possible.
      *
-     * @return bool true if operation was successful, false otherwise
+     * @return bool True if operation was successful, false otherwise.
      *
      * @throws DatabaseException|GuzzleException|ArangoException
      */
@@ -310,7 +310,7 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Removes a graph on server, if possible
+     * Removes a graph from server, if possible.
      *
      * @param bool $dropCollections If set true, drop collections of this graph as well. <br>
      * Collections will only be dropped if they are not used in other graphs.
@@ -345,7 +345,7 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Returns a array representation of graph
+     * Returns a array representation of graph.
      *
      * @return array
      */
@@ -373,7 +373,7 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Return all edge definitions of graph
+     * Return all edge definitions of graph.
      *
      * @return ArrayList
      */
@@ -383,7 +383,7 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Adds an edge definition to graph
+     * Adds an edge definition to graph.
      *
      * @param string $collection Edge collection name.
      * @param array $from List of vertex collection names.
@@ -421,7 +421,7 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Remove one edge definition from the graph.
+     * Remove one edge definition from the graph.<br>
      * This will only remove the edge collection,
      * the vertex collections remain untouched and can still be used in your queries.
      *
@@ -585,7 +585,7 @@ class Graph implements \JsonSerializable
      * Gets a vertex from the given collection.
      *
      * @param string $collection The name of the vertex collection the vertex belongs to.
-     * @param string $vertex The _key attribute of the vertex.
+     * @param string $vertex The <i>_key</i> attribute of the vertex.
      *
      * @return Vertex|false A Vertex object if vertex exists. False if no graph with this name could be found<br>
      * or this collection is not part of the graph or the vertex does not exist.
@@ -669,7 +669,7 @@ class Graph implements \JsonSerializable
      * Drops a vertex from graph.
      *
      * @param string $collection The name of the vertex collection the vertex belongs to.
-     * @param string $vertex The _key attribute of the vertex.
+     * @param string $vertex The <i>_key</i> attribute of the vertex.
      * @param bool $waitForSync Define if the request should wait until synced to disk. Default is true.
      * @param bool $returnOld Define if the response should contain the complete new version of the document. Default is false.
      *
@@ -714,7 +714,7 @@ class Graph implements \JsonSerializable
      * Returns an edge document.
      *
      * @param string $collection The name of the edge collection the edge belongs to.
-     * @param string $edge The _key attribute of the edge.
+     * @param string $edge The <i>_key</i> attribute of the edge.
      *
      * @return Edge|false A Edge object if edge exists. False if no graph with this name could be found<br>
      * or this collection is not part of the graph or the edge does not exist.
@@ -754,14 +754,14 @@ class Graph implements \JsonSerializable
     /**
      * Creates a new edge in the collection.<br>
      * Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph.
-     * Furthermore the edge has to be valid in the definition of the used
+     * Furthermore the edge has to be valid in the definition of the used.
      *
      * @param string $collection The name of the edge collection the edge belongs to.
      * @param array $attributes The object attributes to be stored. Must contains '_to' and '_from' keys.
      * @param bool $waitForSync Define if the request should wait until synced to disk. Default is true.
-     * @param bool $returnNew Define if the response should contain the complete new version of the document. Default is false
+     * @param bool $returnNew Define if the response should contain the complete new version of the document. Default is false.
      *
-     * @return Edge|false A Edge object if edge exists. False if no graph with this name could be found
+     * @return Edge|false A Edge object if edge exists. False if no graph with this name could be found <br>
      * or this collection is not part of the graph or one of the vertices ('_to' or '_from') does not exist.
      *
      * @throws DatabaseException|GuzzleException|ArangoException
@@ -800,7 +800,7 @@ class Graph implements \JsonSerializable
      * Drops an edge from graph.
      *
      * @param string $collection The name of the edge collection the edge belongs to.
-     * @param string $edge The _key attribute of the edge.
+     * @param string $edge The <i>_key</i> attribute of the edge.
      * @param bool $waitForSync Define if the request should wait until synced to disk. Default is true.
      * @param bool $returnOld Define if the response should contain the complete new version of the document. Default is false.
      *
@@ -842,7 +842,7 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Returns a graph traversal
+     * Returns a graph traversal.
      *
      * @param Vertex $vertex The start vertex.
      * @param int $depth Visits only nodes in at least the given depth.
@@ -866,7 +866,7 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Return an array with parameters to create the graph
+     * Return an array with parameters to create the graph.
      *
      * @return array
      */

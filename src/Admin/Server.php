@@ -11,7 +11,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\BadResponseException;
 
 /**
- * Manages some server admin features
+ * Manages some server admin features.
  *
  * @package ArangoDB\Admin
  * @author Lucas S. Vieira
@@ -19,10 +19,12 @@ use GuzzleHttp\Exception\BadResponseException;
 abstract class Server
 {
     /**
-     * Returns the Arango server version
+     * Returns the Arango server version.
      *
-     * @param Connection $connection
-     * @return string
+     * @param Connection $connection Connection object to use.
+     *
+     * @return string The server version string. The string has the format “major.minor.sub”.<br>
+     * Major and minor will be numeric, and sub may contain a number or a textual version.
      *
      * @throws ServerException|GuzzleException
      */
@@ -41,13 +43,14 @@ abstract class Server
     }
 
     /**
-     * Returns the storage engine the server is configured to use
+     * Returns the storage engine the server is configured to use.
      * (mmfiles or rocksdb)
      *
-     * @param Connection $connection
-     * @return string
+     * @param Connection $connection Connection object to use.
+     * @return string Engine name. Will be <b>mmfiles</b> or <b>rocksdb</b>
      *
      * @throws GuzzleException|ServerException
+     * @see https://www.arangodb.com/docs/stable/http/miscellaneous-functions.html#return-server-database-engine-type
      */
     public static function engine(Connection $connection): string
     {
@@ -63,16 +66,17 @@ abstract class Server
     }
 
     /**
-     * Returns the role of a server in a cluster
-     * 'single' for standalone servers
-     * 'coordinator' if server is a coordinator in a cluster
-     * 'primary' if the server is a DBServer in a cluster
-     * 'secondary' a not used role
-     * 'agent' if the server is an Agency node in a cluster
-     * 'undefined' if the role cannot be determined
+     * Returns the role of a server in a cluster.
      *
-     * @param Connection $connection
-     * @return string
+     * @param Connection $connection Connection object to use.
+     *
+     * @return string The role of server in a cluster. Possible return values for role are: <br>
+     * <b>single</b>: for standalone servers. <br>
+     * <b>coordinator</b>: if server is a coordinator in a cluster. <br>
+     * <b>primary</b>: if the server is a DBServer in a cluster. <br>
+     * <b>secondary</b>: a not used role. <br>
+     * <b>agent</b>: if the server is an Agency node in a cluster. <br>
+     * <b>undefined</b>: if the role cannot be determined. <br>
      *
      * @throws GuzzleException|ServerException
      */
@@ -90,11 +94,12 @@ abstract class Server
     }
 
     /**
-     * Checks if the Arango server is available for arbitrary operations
-     * (e.g Is not set to read-only mode and isn't a follower on failover setups)
-     * If server during startup or during shutdown returns false
+     * Checks if the Arango server is available for arbitrary operations.<br>
+     * (e.g Is not set to read-only mode and isn't a follower on failover setups)<br>
+     * If server during startup or during shutdown returns false.
      *
-     * @param Connection $connection
+     * @param Connection $connection Connection object to use.
+     *
      * @return boolean True if server is available. False if not.
      *
      * @throws ServerException|GuzzleException
@@ -120,7 +125,8 @@ abstract class Server
     /**
      * Returns the server's current log level settings.
      *
-     * @param Connection $connection
+     * @param Connection $connection Connection object to use.
+     *
      * @return array An array with the log topics being the object keys, and the log levels being the object values.
      *
      * @throws ServerException|GuzzleException

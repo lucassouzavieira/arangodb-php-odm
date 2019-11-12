@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace ArangoDB\Validation\Rules;
 
 /**
- * Provides validation rules for inputs data
+ * Provides validation rules for inputs data.
  *
  * @package ArangoDB\Validation
  * @author Lucas S. Vieira
@@ -12,7 +12,7 @@ namespace ArangoDB\Validation\Rules;
 abstract class Rules
 {
     /**
-     * Is array ?
+     * Is array rule.
      *
      * @return RuleInterface
      */
@@ -20,10 +20,11 @@ abstract class Rules
     {
         return new class implements RuleInterface {
             /**
-             * Check if a given value is valid
+             * Check if a given value is an array.
              *
-             * @param $value
-             * @return bool
+             * @param mixed $value Value to validate.
+             *
+             * @return bool True if value is valid, false otherwise.
              */
             public function isValid($value): bool
             {
@@ -33,7 +34,7 @@ abstract class Rules
     }
 
     /**
-     * Is string ?
+     * Is string rule.
      *
      * @return RuleInterface
      */
@@ -41,10 +42,11 @@ abstract class Rules
     {
         return new class implements RuleInterface {
             /**
-             * Check if a given value is valid
+             * Check if a given value is string.
              *
-             * @param $value
-             * @return bool
+             * @param mixed $value Value to validate.
+             *
+             * @return bool True if value is valid, false otherwise.
              */
             public function isValid($value): bool
             {
@@ -54,7 +56,7 @@ abstract class Rules
     }
 
     /**
-     * Is numeric ?
+     * Is numeric rule.
      *
      * @return RuleInterface
      */
@@ -62,10 +64,11 @@ abstract class Rules
     {
         return new class implements RuleInterface {
             /**
-             * Check if a given value is valid
+             * Check if a given value is numeric.
              *
-             * @param $value
-             * @return bool
+             * @param mixed $value Value to validate.
+             *
+             * @return bool True if value is valid, false otherwise.
              */
             public function isValid($value): bool
             {
@@ -75,7 +78,7 @@ abstract class Rules
     }
 
     /**
-     * Is integer ?
+     * Is integer rule.
      *
      * @return RuleInterface
      */
@@ -83,10 +86,11 @@ abstract class Rules
     {
         return new class implements RuleInterface {
             /**
-             * Check if a given value is valid
+             * Check if a given value is an integer.
              *
-             * @param $value
-             * @return bool
+             * @param mixed $value Value to validate.
+             *
+             * @return bool True if value is valid, false otherwise.
              */
             public function isValid($value): bool
             {
@@ -96,7 +100,7 @@ abstract class Rules
     }
 
     /**
-     * Is boolean ?
+     * Is boolean rule.
      *
      * @return RuleInterface
      */
@@ -104,10 +108,11 @@ abstract class Rules
     {
         return new class implements RuleInterface {
             /**
-             * Check if a given value is valid
+             * Check if a given value is a boolean.
              *
-             * @param $value
-             * @return bool
+             * @param mixed $value Value to validate.
+             *
+             * @return bool True if value is valid, false otherwise.
              */
             public function isValid($value): bool
             {
@@ -117,18 +122,20 @@ abstract class Rules
     }
 
     /**
-     * Is a primitive type ?
+     * Is a primitive type rule.
      *
      * @return RuleInterface
+     * @see https://www.php.net/manual/en/language.types.intro.php
      */
     public static function isPrimitive()
     {
         return new class implements RuleInterface {
             /**
-             * Check if a given value is valid
+             * Check if a given value is a primitive type
              *
-             * @param $value
-             * @return bool
+             * @param mixed $value Value to validate.
+             *
+             * @return bool True if value is valid, false otherwise.
              */
             public function isValid($value): bool
             {
@@ -142,16 +149,17 @@ abstract class Rules
     }
 
     /**
-     * If a value is equals to or greater than some given value
+     * If a value is equals to or greater than some given value.
      *
-     * @param int $reference
+     * @param int $reference Reference value.
+     *
      * @return RuleInterface
      */
     public static function equalsOrGreaterThan(int $reference)
     {
         return new class($reference) implements RuleInterface {
             /**
-             * Reference value
+             * Reference value.
              *
              * @var integer
              */
@@ -160,7 +168,7 @@ abstract class Rules
             /**
              * equalsOrGreaterThan Rule constructor.
              *
-             * @param int $reference
+             * @param int $reference Reference value.
              */
             public function __construct(int $reference)
             {
@@ -170,8 +178,9 @@ abstract class Rules
             /**
              * Check if a given value is valid
              *
-             * @param $value
-             * @return bool
+             * @param mixed $value Value to validate.
+             *
+             * @return bool True if value is valid, false otherwise.
              */
             public function isValid($value): bool
             {
@@ -185,7 +194,7 @@ abstract class Rules
     }
 
     /**
-     * Is an uri ?
+     * Is an URI
      *
      * @return RuleInterface
      */
@@ -193,10 +202,11 @@ abstract class Rules
     {
         return new class implements RuleInterface {
             /**
-             * Check if a given value is valid
+             * Check if a given value is an URI
              *
-             * @param $value
-             * @return bool
+             * @param mixed $value Value to validate.
+             *
+             * @return bool True if value is valid, false otherwise.
              */
             public function isValid($value): bool
             {
@@ -207,9 +217,10 @@ abstract class Rules
     }
 
     /**
-     * In - Rule
+     * Verify if a value is in a set of given values.
      *
-     * @param array $values
+     * @param array $values Acceptable values.
+     *
      * @return RuleInterface
      */
     public static function in(array $values)
@@ -223,7 +234,7 @@ abstract class Rules
             /**
              * InRule constructor.
              *
-             * @param array $values
+             * @param array $values Acceptable values.
              */
             public function __construct(array $values)
             {
@@ -231,10 +242,11 @@ abstract class Rules
             }
 
             /**
-             * Check if a given value is valid
+             * Check if a given value is one of acceptable values.
              *
-             * @param $value
-             * @return bool
+             * @param mixed $value Value to validate.
+             *
+             * @return bool True if value is valid, false otherwise.
              */
             public function isValid($value): bool
             {
@@ -246,7 +258,8 @@ abstract class Rules
     /**
      * Validate through a callback
      *
-     * @param callable $callback
+     * @param callable $callback Callback with validation logic.
+     *
      * @return RuleInterface
      */
     public static function callbackValidation(callable $callback)
@@ -260,7 +273,7 @@ abstract class Rules
             /**
              * Callback validation constructor.
              *
-             * @param callable $callback
+             * @param callable $callback Callback with validation logic.
              */
             public function __construct(callable $callback)
             {
@@ -268,10 +281,11 @@ abstract class Rules
             }
 
             /**
-             * Check if a given value is valid
+             * Check if a given value is valid.
              *
-             * @param $value
-             * @return bool
+             * @param mixed $value Value to validate.
+             *
+             * @return bool True if value is valid, false otherwise.
              */
             public function isValid($value): bool
             {

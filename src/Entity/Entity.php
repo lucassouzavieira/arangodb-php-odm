@@ -6,7 +6,7 @@ namespace ArangoDB\Entity;
 use ArangoDB\Connection\ManagesConnection;
 
 /**
- * Entity class
+ * Entity class.
  *
  * @package ArangoDB\Handler
  * @author Lucas S. Vieira
@@ -14,7 +14,7 @@ use ArangoDB\Connection\ManagesConnection;
 abstract class Entity extends ManagesConnection implements EntityInterface
 {
     /**
-     * Attributes of entity
+     * Attributes of entity.
      *
      * @var array
      */
@@ -29,7 +29,7 @@ abstract class Entity extends ManagesConnection implements EntityInterface
     protected $isNew = false;
 
     /**
-     * Parameters sent by server, but not used on representation of a entity
+     * Parameters sent by server, but not used on representation of a entity.
      *
      * @var array
      */
@@ -41,8 +41,8 @@ abstract class Entity extends ManagesConnection implements EntityInterface
     /**
      * Entity constructor.
      *
-     * @param array $attributes
-     * @param bool $isNew
+     * @param array $attributes Entity attributes.
+     * @param bool $isNew If the entity is a new one.
      */
     public function __construct(array $attributes = [], bool $isNew = false)
     {
@@ -56,9 +56,10 @@ abstract class Entity extends ManagesConnection implements EntityInterface
     }
 
     /**
-     * Get some attribute
+     * Get some attribute.
      *
-     * @param string $name
+     * @param string $name Attribute name.
+     *
      * @return mixed|null
      */
     public function __get(string $name)
@@ -73,8 +74,8 @@ abstract class Entity extends ManagesConnection implements EntityInterface
     /**
      * Set a attribute
      *
-     * @param string $name
-     * @param mixed $value
+     * @param string $name Attribute name.
+     * @param mixed $value Attribute value.
      */
     public function __set(string $name, $value)
     {
@@ -92,7 +93,9 @@ abstract class Entity extends ManagesConnection implements EntityInterface
     }
 
     /**
-     * @see \JsonSerializable::jsonSerialize()
+     * Return a JSON representation of Entity object.
+     *
+     * @return array|mixed
      */
     public function jsonSerialize()
     {

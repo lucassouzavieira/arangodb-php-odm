@@ -34,7 +34,7 @@ class TransactionOptionsValidator extends Validator
     ];
 
     /**
-     * Rules for connection
+     * Rules for connection.
      *
      * @return array
      */
@@ -54,7 +54,7 @@ class TransactionOptionsValidator extends Validator
      *
      * @return \Closure
      */
-    protected static function validateCollectionsParameter()
+    private static function validateCollectionsParameter()
     {
         return function (array $collections) {
             // Must contains one or more of following attributes:

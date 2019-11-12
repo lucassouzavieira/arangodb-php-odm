@@ -8,7 +8,7 @@ use ArangoDB\Validation\Rules\Rules;
 
 /**
  * Validate the collection options values. <br>
- * Used for avoid client errors when creating or updating collections
+ * Used for avoid client errors when creating or updating collections.
  *
  * @package ArangoDB\Validation\Collection
  * @author Lucas S. Vieira
@@ -16,7 +16,7 @@ use ArangoDB\Validation\Rules\Rules;
 class CollectionValidator extends Validator
 {
     /**
-     * Required keys
+     * Required keys.
      *
      * @var array
      */
@@ -25,24 +25,14 @@ class CollectionValidator extends Validator
     ];
 
     /**
-     * Optional keys
+     * Optional keys.
      *
      * @var array
      */
     protected $canHave = [];
 
     /**
-     * CollectionValidator constructor.
-     *
-     * @param array $options Attributes to validate.
-     */
-    public function __construct(array $options)
-    {
-        $this->data = $options;
-    }
-
-    /**
-     * Rules for validation
+     * Rules for validation.
      *
      * @return array
      */

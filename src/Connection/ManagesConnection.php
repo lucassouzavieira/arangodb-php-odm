@@ -19,10 +19,9 @@ abstract class ManagesConnection implements ManagesConnectionInterface
     protected $connection;
 
     /**
-     * Sets a connection for class
+     * Sets a connection for class.
      *
-     * @param Connection $connection
-     * @see ManagesConnection::setConnection()
+     * @param Connection $connection Connection object to use.
      */
     public function setConnection(Connection $connection): void
     {
@@ -33,7 +32,6 @@ abstract class ManagesConnection implements ManagesConnectionInterface
      * Return the connection object
      *
      * @return Connection
-     * @see ManagesConnection::getConnection()
      */
     public function getConnection(): Connection
     {

@@ -17,16 +17,6 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 class DocumentValidator extends Validator
 {
     /**
-     * DocumentValidator constructor.
-     *
-     * @param array $attributes Attributes to validate.
-     */
-    public function __construct(array $attributes = [])
-    {
-        $this->data = $attributes;
-    }
-
-    /**
      * Set the data for validation
      *
      * @param array $attributes Attributes to validate.
@@ -64,9 +54,9 @@ class DocumentValidator extends Validator
     }
 
     /**
-     * Return document descriptors attributes
+     * Return document descriptors attributes.
      *
-     * @return array|null
+     * @return array
      */
     public function getDescriptorsAttributes()
     {
@@ -78,7 +68,7 @@ class DocumentValidator extends Validator
     }
 
     /**
-     * Rules for validation
+     * Rules for validation.
      *
      * @codeCoverageIgnore
      * @return array
@@ -89,9 +79,10 @@ class DocumentValidator extends Validator
     }
 
     /**
-     * Validate document data
+     * Validate document data.
      *
      * @return true if validation is successful, throw an exception otherwise.
+     *
      * @throws InvalidParameterException
      */
     public function validate(): bool

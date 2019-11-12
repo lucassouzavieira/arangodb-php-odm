@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace ArangoDB\AQL\Contracts;
 
 /**
- * Interface StatementInterface
+ * StatementInterface
  *
  * @package ArangoDB\AQL
  * @author Lucas S. Vieira

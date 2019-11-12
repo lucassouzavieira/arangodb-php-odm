@@ -20,7 +20,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 class GraphValidator extends Validator
 {
     /**
-     * Required keys
+     * Required keys.
      *
      * @var array
      */
@@ -29,7 +29,7 @@ class GraphValidator extends Validator
     ];
 
     /**
-     * Optional keys
+     * Optional keys.
      *
      * @var array
      */
@@ -39,7 +39,7 @@ class GraphValidator extends Validator
     ];
 
     /**
-     * Rules for validation
+     * Rules for validation.
      *
      * @return array
      */
@@ -62,7 +62,7 @@ class GraphValidator extends Validator
      *
      * @return \Closure
      */
-    protected static function validateEdgeDefinitionsParameter()
+    private static function validateEdgeDefinitionsParameter()
     {
         /**
          * @param $edgeDefinitions array|ArrayList

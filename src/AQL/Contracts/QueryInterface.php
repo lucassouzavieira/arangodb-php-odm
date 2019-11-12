@@ -7,7 +7,7 @@ use ArangoDB\Cursor\Base;
 use ArangoDB\Cursor\Contracts\CursorInterface;
 
 /**
- * Interface QueryInterface
+ * QueryInterface
  *
  * @package ArangoDB\AQL
  * @author Lucas S. Vieira

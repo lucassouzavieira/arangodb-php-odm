@@ -24,8 +24,9 @@ abstract class AQL
     /**
      * Validates a given AQL statement
      *
-     * @param StatementInterface $statement
-     * @param Connection $connection
+     * @param StatementInterface $statement Statement to be validated.
+     * @param Connection $connection Connection object to use.
+     *
      * @return bool
      *
      * @throws AQLException|GuzzleException
@@ -50,11 +51,12 @@ abstract class AQL
     }
 
     /**
-     * Returns all tasks of server information.
+     * Returns all registered AQL user functions.
      *
-     * @param Connection $connection
-     * @param string $namespace
-     * @return ArrayList[AQLFunction] ArrayList with all AQL functions from server
+     * @param Connection $connection Connection object to use.
+     * @param string $namespace Returns all registered AQL user functions from namespace 'namespace' under result.
+     *
+     * @return ArrayList ArrayList with all AQL functions from server.
      *
      * @throws ServerException|GuzzleException
      */
