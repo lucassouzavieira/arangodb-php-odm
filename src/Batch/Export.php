@@ -13,7 +13,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 /**
- * Allow export data from a collection
+ * Allow export data from a collection.
  *
  * @package ArangoDB\Batch
  * @author Lucas S. Vieira
@@ -21,7 +21,7 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 abstract class Export
 {
     /**
-     * Default export options
+     * Default export options.
      *
      * @var array
      */
@@ -34,13 +34,13 @@ abstract class Export
     ];
 
     /**
-     * Exports a collection
+     * Exports a collection.
      *
-     * @param Connection $connection Connection object to use
-     * @param string $collection Name of collection to export
-     *
+     * @param Connection $connection Connection object to use.
+     * @param string $collection Name of collection to export.
      * @param array $options Export options to use. If not set, a default set of options will be used.
-     * @return CursorInterface Cursor to export
+     *
+     * @return CursorInterface A ExportCursor to be used for export.
      *
      * @throws CursorException|GuzzleException|InvalidParameterException|MissingParameterException|DatabaseException
      * @see https://www.arangodb.com/docs/stable/http/export.html#create-export-cursor

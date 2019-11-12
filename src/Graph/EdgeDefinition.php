@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace ArangoDB\Graph;
 
 /**
- * Represents an edge definition for Graphs
+ * Represents an edge definition for Graphs.
  *
  * @package ArangoDB\Graph
  * @author Lucas S. Vieira
@@ -12,7 +12,7 @@ namespace ArangoDB\Graph;
 class EdgeDefinition
 {
     /**
-     * List of vertex collection names.
+     * List of vertex collection names. <br>
      * Edges in collection can only be inserted if their _to is in any of the collections here.
      *
      * @var array
@@ -20,7 +20,7 @@ class EdgeDefinition
     protected $to = [];
 
     /**
-     * List of vertex collection names.
+     * List of vertex collection names. <br>
      * Edges in collection can only be inserted if their _from is in any of the collections here.
      *
      * @var array
@@ -28,7 +28,7 @@ class EdgeDefinition
     protected $from = [];
 
     /**
-     * Name of the edge collection
+     * Name of the edge collection.
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class EdgeDefinition
     /**
      * EdgeDefinition constructor.
      *
-     * @param string $collection Edge collection name
+     * @param string $collection Edge collection name.
      * @param array $from List of vertex collection names.
      * @param array $to List of vertex collection names.
      */
@@ -49,7 +49,7 @@ class EdgeDefinition
     }
 
     /**
-     * List of vertex collection names.
+     * List of vertex collection names. <br>
      * Edges in collection can only be inserted if their _to is in any of the collections here.
      *
      * @return array
@@ -60,7 +60,7 @@ class EdgeDefinition
     }
 
     /**
-     * List of vertex collection names.
+     * List of vertex collection names. <br>
      * Edges in collection can only be inserted if their _from is in any of the collections here.
      *
      * @return array
@@ -71,7 +71,7 @@ class EdgeDefinition
     }
 
     /**
-     * Name of the edge collection
+     * Name of the edge collection.
      *
      * @return string
      */
@@ -81,7 +81,7 @@ class EdgeDefinition
     }
 
     /**
-     * Array representation of edge definition
+     * Array representation of edge definition.
      *
      * @return array
      */

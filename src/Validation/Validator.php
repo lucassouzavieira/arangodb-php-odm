@@ -7,29 +7,30 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 /**
- * Validator base class
- * Implements a default validate method
+ * Validator base class.<br>
+ * Implements a default validate method.
  *
  * @package ArangoDB\Validation
+ * @author Lucas S. Vieira
  */
 abstract class Validator implements ValidatorInterface
 {
     /**
-     * Data to validate
+     * Data to validate.
      *
      * @var array
      */
     protected $data = [];
 
     /**
-     * Required keys
+     * Required keys.
      *
      * @var array
      */
     protected $required = [];
 
     /**
-     * Optional keys
+     * Optional keys.
      *
      * @var array
      */

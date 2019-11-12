@@ -11,7 +11,7 @@ use ArangoDB\AQL\Contracts\StatementInterface;
 use ArangoDB\Cursor\Exceptions\CursorException;
 
 /**
- * Represents an ArangoDB cursor
+ * Represents an ArangoDB cursor.
  *
  * @package ArangoDB\Cursor
  * @author Lucas S. Vieira
@@ -19,22 +19,22 @@ use ArangoDB\Cursor\Exceptions\CursorException;
 class Cursor extends Base
 {
     /**
-     * URI to manage the cursor
+     * URI to manage the cursor.
      *
      * @var string
      */
     protected $uri = Api::CURSOR;
 
     /**
-     * Statement to execute
+     * Statement to execute.
      *
      * @var StatementInterface
      */
     protected $statement;
 
     /**
-     * Default options query for the cursor
-     * 'count', 'batchSize' and 'options' are, by default, leaved for the server defaults.
+     * Default options query for the cursor.<br>
+     * <b>count</b>, <b>batchSize</b> and <b>options</b> are, by default, leaved for the server defaults.
      *
      * @var array
      */
@@ -47,9 +47,9 @@ class Cursor extends Base
     /**
      * Cursor constructor.
      *
-     * @param Connection $connection Connection object to use
-     * @param StatementInterface $statement Statement to perform on server
-     * @param array $options Options for cursor
+     * @param Connection $connection Connection object to use.
+     * @param StatementInterface $statement Statement to perform on server.
+     * @param array $options Options for cursor.
      *
      * @throws CursorException|GuzzleException
      */
@@ -63,7 +63,7 @@ class Cursor extends Base
     }
 
     /**
-     * Return an string representation of document
+     * Return an string representation of document.
      *
      * @return string
      */
@@ -82,7 +82,7 @@ class Cursor extends Base
     }
 
     /**
-     * Return the current element
+     * Return the current element.
      *
      * @return mixed
      */
@@ -92,7 +92,7 @@ class Cursor extends Base
     }
 
     /**
-     * Move forward to next element
+     * Move forward to next element.
      */
     public function next()
     {
@@ -100,7 +100,7 @@ class Cursor extends Base
     }
 
     /**
-     * Return the key of the current element
+     * Return the key of the current element.
      *
      * @return mixed
      */
@@ -110,9 +110,10 @@ class Cursor extends Base
     }
 
     /**
-     * Checks if current position is valid
+     * Checks if current position is valid.
      *
      * @return bool
+     *
      * @throws CursorException
      */
     public function valid()
@@ -132,7 +133,7 @@ class Cursor extends Base
     }
 
     /**
-     * Rewind the Iterator to the first element
+     * Rewind the Iterator to the first element.
      */
     public function rewind()
     {
@@ -143,6 +144,7 @@ class Cursor extends Base
      * Deletes the cursor and frees the resources associated with it.
      *
      * @return bool
+     *
      * @throws CursorException
      */
     public function delete(): bool
@@ -165,7 +167,7 @@ class Cursor extends Base
     }
 
     /**
-     * Create/initialize the cursor
+     * Create/initialize the cursor.
      *
      * @throws CursorException|GuzzleException
      */
@@ -192,7 +194,7 @@ class Cursor extends Base
     }
 
     /**
-     * Fetch more results from the server
+     * Fetch more results from the server.
      *
      * @throws CursorException
      */
@@ -220,7 +222,7 @@ class Cursor extends Base
     }
 
     /**
-     * Return body for creating cursor
+     * Return body for creating cursor.
      *
      * @return array
      */
@@ -230,7 +232,7 @@ class Cursor extends Base
     }
 
     /**
-     * Append the results
+     * Append the results.
      *
      * @param array $results
      */

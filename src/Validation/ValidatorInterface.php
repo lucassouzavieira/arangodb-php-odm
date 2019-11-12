@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace ArangoDB\Validation;
 
 /**
- * Validator interface
+ * Validator interface.
  *
  * @package ArangoDB\Validation
  * @author Lucas S. Vieira
@@ -12,14 +12,14 @@ namespace ArangoDB\Validation;
 interface ValidatorInterface
 {
     /**
-     * Rules for validation
+     * Rules for validation.
      *
      * @return array
      */
     public function rules(): array;
 
     /**
-     * Validate data
+     * Validate data.
      *
      * @return bool
      */

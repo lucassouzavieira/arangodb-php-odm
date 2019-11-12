@@ -13,7 +13,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 /**
- * Represents an ArangoDB export cursor
+ * Represents an ArangoDB export cursor.
  *
  * @package ArangoDB\Cursor
  * @author Lucas S. Vieira
@@ -21,9 +21,9 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 class ExportCursor extends CollectionCursor
 {
     /**
-     * Default options query for the cursor
-     * 'restrict', 'batchSize' and 'options' are,
-     * by default, leaved for the server defaults
+     * Default options query for the cursor. <br>
+     * <b>restrict</b>, <b>batchSize</b> and <b>options</b> are,
+     * by default, leaved for the server defaults.
      *
      * @var array
      */
@@ -38,9 +38,9 @@ class ExportCursor extends CollectionCursor
     /**
      * ExportCursor constructor.
      *
-     * @param Connection $connection Connection object to use
-     * @param string $collection Collection to export
-     * @param array $options Options for cursor
+     * @param Connection $connection Connection object to use.
+     * @param string $collection Collection to export.
+     * @param array $options Options for cursor.
      *
      * @throws CursorException|GuzzleException|DatabaseException|InvalidParameterException|MissingParameterException
      */
@@ -59,12 +59,12 @@ class ExportCursor extends CollectionCursor
     }
 
     /**
-     * Return body for creating cursor
+     * Return body for creating cursor.
      *
      * @return array
      */
     protected function getBody(): array
     {
-        return array_merge($this->options);
+        return $this->options;
     }
 }

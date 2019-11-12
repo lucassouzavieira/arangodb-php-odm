@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace ArangoDB\Admin;
 
-use ArangoDB\Auth\User;
 use ArangoDB\Http\Api;
+use ArangoDB\Auth\User;
 use ArangoDB\Admin\Task\Task;
 use ArangoDB\Connection\Connection;
 use ArangoDB\DataStructures\ArrayList;
@@ -16,7 +16,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 /**
- * Manages some Admin features
+ * Manages some Admin features.
  *
  * @package ArangoDB\Admin
  * @author Lucas S. Vieira
@@ -60,7 +60,8 @@ abstract class Admin
      * Returns the statistics information.
      *
      * @param Connection $connection Connection object to use.
-     * @return array Array with statistics information about server
+     *
+     * @return array Array with statistics information about server.
      *
      * @throws ServerException|GuzzleException
      */
@@ -82,7 +83,8 @@ abstract class Admin
      * Returns the system time.
      *
      * @param Connection $connection Connection object to use.
-     * @return float Unix timestamp from server
+     *
+     * @return float Unix timestamp from server.
      *
      * @throws ServerException|GuzzleException
      */
@@ -104,7 +106,8 @@ abstract class Admin
      * Returns all tasks of server information.
      *
      * @param Connection $connection Connection object to use.
-     * @return ArrayList[Task] ArrayList with all tasks from  server
+     *
+     * @return ArrayList[Task] ArrayList with all tasks from server.
      *
      * @throws ServerException|GuzzleException|InvalidParameterException|MissingParameterException
      */
@@ -139,6 +142,7 @@ abstract class Admin
      * @param Connection $connection Connection object to use.
      * @param bool $waitForSync If true, the operation should block until the not-yet synchronized data in the write-ahead log was synchronized to disk.
      * @param bool $waitForCollector If true, the operation should block until the data in the flushed log has been collected by the write-ahead log garbage collector.
+     *
      * @return bool True if operation was successful. False otherwise.
      *
      * @throws ServerException|GuzzleException
@@ -174,6 +178,7 @@ abstract class Admin
      * A value of 0 means that write-throttling will not be triggered.<br>
      *
      * @param Connection $connection Connection object to use.
+     *
      * @return array
      *
      * @throws ServerException|GuzzleException

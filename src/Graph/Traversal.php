@@ -6,7 +6,7 @@ namespace ArangoDB\Graph;
 use ArangoDB\Document\Vertex;
 
 /**
- * Represents a graph traversal
+ * Represents a graph traversal.
  *
  * @package ArangoDB\Graph
  * @author Lucas S. Vieira
@@ -14,21 +14,21 @@ use ArangoDB\Document\Vertex;
 class Traversal
 {
     /**
-     * Inbound graph direction
+     * Inbound graph direction.
      *
      * @var string
      */
     public const GRAPH_DIRECTION_INBOUND = 'inbound';
 
     /**
-     * Outbound graph direction
+     * Outbound graph direction.
      *
      * @var string
      */
     public const GRAPH_DIRECTION_OUTBOUND = 'outbound';
 
     /**
-     * Any graph direction
+     * Any graph direction.
      *
      * @var string
      */
@@ -59,9 +59,9 @@ class Traversal
     /**
      * Traversal constructor.
      *
-     * @param Vertex $vertex Vertex to start graph traversal
-     * @param string $direction Direction for traversal
-     * @param int $depth Visits only nodes in at least the given depth
+     * @param Vertex $vertex Vertex to start graph traversal.
+     * @param string $direction Direction for traversal.
+     * @param int $depth Visits only nodes in at least the given depth.
      */
     public function __construct(Vertex $vertex, string $direction = self::GRAPH_DIRECTION_ANY, int $depth = 0)
     {
