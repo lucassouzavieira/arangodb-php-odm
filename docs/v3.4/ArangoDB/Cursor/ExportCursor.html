@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>ArangoDB\Cursor\ExportCursor | ArangoDB - Object Document Mapper for PHP</title>
+
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:ArangoDB_Cursor_ExportCursor" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.5/index.html" data-version="v3.5">3.5.*</option>
+                                            <option value="../../../v3.4/index.html" data-version="v3.4">3.4.*</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
+                <script>
+            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
+        </script>
+        <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">ArangoDB - Object Document Mapper for PHP</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../../ArangoDB.html">ArangoDB</a></li><li class="backslash">\</li><li><a href="../../ArangoDB/Cursor.html">Cursor</a></li><li class="backslash">\</li><li>ExportCursor</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            ExportCursor
+                
+        </h1>
+    </div>
+
+    <p>    class
+    <strong>ExportCursor</strong>        extends <a href="../../ArangoDB/Cursor/CollectionCursor.html"><abbr title="ArangoDB\Cursor\CollectionCursor">CollectionCursor</abbr></a>        (<a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Cursor/ExportCursor.php">View source</a>)
+</p>
+
+        
+    
+
+            <div class="description">
+            <p>Represents an ArangoDB export cursor.</p>                                </div>
+    
+    
+            <h2>Constants</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td>ID</td>
+                <td class="last">
+                    <p><em>Cursor ID entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>HAS_MORE</td>
+                <td class="last">
+                    <p><em>'hasMore' flag</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>RESULT</td>
+                <td class="last">
+                    <p><em>Cursor result entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>EXTRA</td>
+                <td class="last">
+                    <p><em>Cursor extra entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>STATS</td>
+                <td class="last">
+                    <p><em>Cursor stats entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>COUNT</td>
+                <td class="last">
+                    <p><em>Cursor count entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FULL_COUNT</td>
+                <td class="last">
+                    <p><em>Cursor fullCount entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>CACHE</td>
+                <td class="last">
+                    <p><em>Cursor cache entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>CACHED</td>
+                <td class="last">
+                    <p><em>Cursor cached entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>TYPE</td>
+                <td class="last">
+                    <p><em>Cursor type entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>BASE_URL</td>
+                <td class="last">
+                    <p><em>Cursor baseUrl entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>SANITIZE</td>
+                <td class="last">
+                    <p><em>Cursor sanitize option</em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_id">
+                                        protected                                        mixed
+                </td>
+                <td>$id</td>
+                <td class="last">Cursor id</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#property_id"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_data">
+                                        protected                                        <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>
+                </td>
+                <td>$data</td>
+                <td class="last">Result data</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#property_data"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_connection">
+                                        protected                                        <a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a>
+                </td>
+                <td>$connection</td>
+                <td class="last">Connection object</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#property_connection"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_options">
+                                        protected                                        array
+                </td>
+                <td>$options</td>
+                <td class="last">Cursor Options</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#property_options"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_result">
+                                        protected                                        <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>
+                </td>
+                <td>$result</td>
+                <td class="last">Result set</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#property_result"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_hasMore">
+                                        protected                                        boolean
+                </td>
+                <td>$hasMore</td>
+                <td class="last">'hasMore' indicator</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#property_hasMore"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_position">
+                                        protected                                        int
+                </td>
+                <td>$position</td>
+                <td class="last">Current position</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#property_position"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_length">
+                                        protected                                        int
+                </td>
+                <td>$length</td>
+                <td class="last">Total length of current set</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#property_length"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_fullCount">
+                                        protected                                        int
+                </td>
+                <td>$fullCount</td>
+                <td class="last">Full cont of the result set</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#property_fullCount"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_extra">
+                                        protected                                        array
+                </td>
+                <td>$extra</td>
+                <td class="last">Extra data (stats)</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#property_extra"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_fetches">
+                                        protected                                        int
+                </td>
+                <td>$fetches</td>
+                <td class="last">Number of HTTP calls made to build the cursor</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#property_fetches"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_cached">
+                                        protected                                        bool
+                </td>
+                <td>$cached</td>
+                <td class="last">If the result query was served from cached results</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#property_cached"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_count">
+                                        protected                                        int
+                </td>
+                <td>$count</td>
+                <td class="last">Number of documents in cursor,</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#property_count"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_uri">
+                                        protected                                        string
+                </td>
+                <td>$uri</td>
+                <td class="last">URI to manage the cursor.</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/Cursor.html#property_uri"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_statement">
+                                        protected                                        <a href="../../ArangoDB/AQL/Contracts/StatementInterface.html"><abbr title="ArangoDB\AQL\Contracts\StatementInterface">StatementInterface</abbr></a>
+                </td>
+                <td>$statement</td>
+                <td class="last">Statement to execute.</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/Cursor.html#property_statement"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_defaultOptions">
+                                        protected                                        array
+                </td>
+                <td>$defaultOptions</td>
+                <td class="last">Default options query for the cursor. <br>
+<b>restrict</b>, <b>batchSize</b> and <b>options</b> are,
+by default, leaved for the server defaults.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_collection">
+                                        protected                                        <a href="../../ArangoDB/Collection/Collection.html"><abbr title="ArangoDB\Collection\Collection">Collection</abbr></a>
+                </td>
+                <td>$collection</td>
+                <td class="last">Collection object</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/Cursor/CollectionCursor.html#property_collection"><abbr title="ArangoDB\Cursor\CollectionCursor">CollectionCursor</abbr></a></small></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isCached">isCached</a>()
+        
+                                            <p>Return if the Cursor has cached results on server</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#method_isCached"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getId">getId</a>()
+        
+                                            <p>Returns the cursor ID</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Cursor/Base.html#method_getId"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_fetch">fetch</a>()
+        
+                                            <p>Fetch more results from the server.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Cursor/Cursor.html#method_fetch"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection, <a href="../../ArangoDB/Collection/Collection.html"><abbr title="ArangoDB\Collection\Collection">Collection</abbr></a> $collection, array $options = [])
+        
+                                            <p>ExportCursor constructor.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___toString">__toString</a>()
+        
+                                            <p>Return an string representation of document.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Cursor/Cursor.html#method___toString"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_current">current</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Cursor/CollectionCursor.html#method_current"><abbr title="ArangoDB\Cursor\CollectionCursor">CollectionCursor</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_next">next</a>()
+        
+                                            <p>Move forward to next element.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Cursor/Cursor.html#method_next"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_key">key</a>()
+        
+                                            <p>Return the key of the current element.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Cursor/Cursor.html#method_key"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_valid">valid</a>()
+        
+                                            <p>Checks if current position is valid.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Cursor/Cursor.html#method_valid"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_rewind">rewind</a>()
+        
+                                            <p>Rewind the Iterator to the first element.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Cursor/Cursor.html#method_rewind"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_delete">delete</a>()
+        
+                                            <p>Deletes the cursor and frees the resources associated with it.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Cursor/Cursor.html#method_delete"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_create">create</a>()
+        
+                                            <p>Create/initialize the cursor.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Cursor/Cursor.html#method_create"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getBody">getBody</a>()
+        
+                                            <p>Return body for creating cursor.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_appendResults">appendResults</a>(array $results)
+        
+                                            <p>Append the results.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/Cursor/Cursor.html#method_appendResults"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a></small></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_isCached">
+        <div class="location">in <a href="../../ArangoDB/Cursor/Base.html#method_isCached"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Cursor/Base.php#L174">line 174</a></div>
+        <code>                    bool
+    <strong>isCached</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Return if the Cursor has cached results on server</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getId">
+        <div class="location">in <a href="../../ArangoDB/Cursor/Base.html#method_getId"><abbr title="ArangoDB\Cursor\Base">Base</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Cursor/Base.php#L184">line 184</a></div>
+        <code>                    mixed
+    <strong>getId</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns the cursor ID</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_fetch">
+        <div class="location">in <a href="../../ArangoDB/Cursor/Cursor.html#method_fetch"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Cursor/Cursor.php#L201">line 201</a></div>
+        <code>                    void
+    <strong>fetch</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Fetch more results from the server.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../ArangoDB/Cursor/Exceptions/CursorException.html"><abbr title="ArangoDB\Cursor\Exceptions\CursorException">CursorException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Cursor/ExportCursor.php#L47">line 47</a></div>
+        <code>                    
+    <strong>__construct</strong>(<a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection, <a href="../../ArangoDB/Collection/Collection.html"><abbr title="ArangoDB\Collection\Collection">Collection</abbr></a> $collection, array $options = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>ExportCursor constructor.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
+                <td>$connection</td>
+                <td>Connection object to use.</td>
+            </tr>
+                    <tr>
+                <td><a href="../../ArangoDB/Collection/Collection.html"><abbr title="ArangoDB\Collection\Collection">Collection</abbr></a></td>
+                <td>$collection</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$options</td>
+                <td>Options for cursor.</td>
+            </tr>
+            </table>
+
+            
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Cursor\Exceptions\CursorException|\GuzzleHttp\Exception\GuzzleException|\ArangoDB\Exceptions\DatabaseException|\ArangoDB\Validation\Exceptions\InvalidParameterException|\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___toString">
+        <div class="location">in <a href="../../ArangoDB/Cursor/Cursor.html#method___toString"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Cursor/Cursor.php#L70">line 70</a></div>
+        <code>                    string
+    <strong>__toString</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Return an string representation of document.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_current">
+        <div class="location">in <a href="../../ArangoDB/Cursor/CollectionCursor.html#method_current"><abbr title="ArangoDB\Cursor\CollectionCursor">CollectionCursor</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Cursor/CollectionCursor.php#L49">line 49</a></div>
+        <code>                    mixed
+    <strong>current</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Validation\Exceptions\InvalidParameterException|\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>See also</h4>
+
+                    <table class="table table-condensed">
+            </table>
+
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_next">
+        <div class="location">in <a href="../../ArangoDB/Cursor/Cursor.html#method_next"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Cursor/Cursor.php#L97">line 97</a></div>
+        <code>                    
+    <strong>next</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Move forward to next element.</p>                                                </div>
+                <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_key">
+        <div class="location">in <a href="../../ArangoDB/Cursor/Cursor.html#method_key"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Cursor/Cursor.php#L107">line 107</a></div>
+        <code>                    mixed
+    <strong>key</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Return the key of the current element.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_valid">
+        <div class="location">in <a href="../../ArangoDB/Cursor/Cursor.html#method_valid"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Cursor/Cursor.php#L119">line 119</a></div>
+        <code>                    bool
+    <strong>valid</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Checks if current position is valid.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../ArangoDB/Cursor/Exceptions/CursorException.html"><abbr title="ArangoDB\Cursor\Exceptions\CursorException">CursorException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_rewind">
+        <div class="location">in <a href="../../ArangoDB/Cursor/Cursor.html#method_rewind"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Cursor/Cursor.php#L138">line 138</a></div>
+        <code>                    
+    <strong>rewind</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Rewind the Iterator to the first element.</p>                                                </div>
+                <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_delete">
+        <div class="location">in <a href="../../ArangoDB/Cursor/Cursor.html#method_delete"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Cursor/Cursor.php#L150">line 150</a></div>
+        <code>                    bool
+    <strong>delete</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Deletes the cursor and frees the resources associated with it.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../ArangoDB/Cursor/Exceptions/CursorException.html"><abbr title="ArangoDB\Cursor\Exceptions\CursorException">CursorException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_create">
+        <div class="location">in <a href="../../ArangoDB/Cursor/Cursor.html#method_create"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Cursor/Cursor.php#L174">line 174</a></div>
+        <code>            protected        void
+    <strong>create</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Create/initialize the cursor.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Cursor\Exceptions\CursorException|\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getBody">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Cursor/ExportCursor.php#L66">line 66</a></div>
+        <code>            protected        array
+    <strong>getBody</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Return body for creating cursor.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_appendResults">
+        <div class="location">in <a href="../../ArangoDB/Cursor/Cursor.html#method_appendResults"><abbr title="ArangoDB\Cursor\Cursor">Cursor</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.4/src/Cursor/Cursor.php#L239">line 239</a></div>
+        <code>            protected        
+    <strong>appendResults</strong>(array $results)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Append the results.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$results</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>
