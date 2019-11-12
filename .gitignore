@@ -5,9 +5,9 @@ sandbox.php
 .env
 .php_cs.cache
 build/
-<<<<<<< HEAD
 cache/
 coverage.xml
+*.phar
 
 # Ignore documentation generation script
 documentation.php
