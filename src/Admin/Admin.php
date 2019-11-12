@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace ArangoDB\Admin;
 
+use ArangoDB\Auth\User;
 use ArangoDB\Http\Api;
 use ArangoDB\Admin\Task\Task;
 use ArangoDB\Connection\Connection;
@@ -22,6 +23,39 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
  */
 abstract class Admin
 {
+    /**
+     * Finds a user on server.
+     *
+     * @param Connection $connection Connection object to use.
+     * @param string $username Username of user.
+     *
+     * @return User|bool User if exists, false if not.
+     *
+     * @throws InvalidParameterException|MissingParameterException|GuzzleException|ServerException
+     */
+    public static function findUser(Connection $connection, string $username)
+    {
+        try {
+            $uri = Api::buildDatabaseUri($connection->getBaseUri(), $connection->getDatabaseName(), Api::USER);
+            $uri = Api::addUriParam($uri, $username);
+
+            $response = $connection->get($uri);
+            $data = json_decode((string)$response->getBody(), true);
+            $user = new User($data, $connection, false);
+            return $user;
+        } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
+
+            // User not found.
+            if ($exception->getResponse()->getStatusCode() == 404) {
+                return false;
+            }
+
+            throw $serverException;
+        }
+    }
+
     /**
      * Returns the statistics information.
      *

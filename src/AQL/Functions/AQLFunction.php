@@ -5,10 +5,10 @@ namespace ArangoDB\AQL\Functions;
 
 use ArangoDB\Http\Api;
 use ArangoDB\Connection\Connection;
-use ArangoDB\Entity\EntityInterface;
 use ArangoDB\Exceptions\ServerException;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
+use ArangoDB\Entity\Contracts\EntityInterface;
 
 /**
  * Represents an user defined aql function on server.

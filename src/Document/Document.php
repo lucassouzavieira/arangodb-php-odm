@@ -6,11 +6,11 @@ namespace ArangoDB\Document;
 use ArangoDB\Http\Api;
 use ArangoDB\Connection\Connection;
 use ArangoDB\Collection\Collection;
-use ArangoDB\Entity\EntityInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ClientException;
 use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Validation\Rules\RuleInterface;
+use ArangoDB\Entity\Contracts\EntityInterface;
 use ArangoDB\Validation\Document\DocumentValidator;
 use ArangoDB\Validation\Document\UpdateOptionsValidator;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
@@ -139,7 +139,7 @@ class Document implements EntityInterface
     }
 
     /**
-     * Return an string representation of document
+     * Return an string representation of document.
      *
      * @return string
      */
@@ -149,10 +149,11 @@ class Document implements EntityInterface
     }
 
     /**
-     * Get some attribute
+     * Get some attribute.
      *
-     * @param string $name
-     * @return mixed|null
+     * @param string $name Attribute name.
+     *
+     * @return mixed|null Attribute value.
      */
     public function __get(string $name)
     {

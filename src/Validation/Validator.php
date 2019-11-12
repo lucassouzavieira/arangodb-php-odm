@@ -48,7 +48,8 @@ abstract class Validator implements ValidatorInterface
     /**
      * Validate user data
      *
-     * @return true if validation is successful, throw an exception otherwise
+     * @return True if validation is successful, throw an exception otherwise.
+     *
      * @throws MissingParameterException|InvalidParameterException
      */
     public function validate(): bool

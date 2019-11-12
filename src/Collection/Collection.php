@@ -174,6 +174,7 @@ class Collection implements \JsonSerializable
      * @param string $name
      * @param Database $database
      * @param array $attributes
+     *
      * @throws DatabaseException|GuzzleException|MissingParameterException|InvalidParameterException
      */
     public function __construct(string $name, Database $database, array $attributes = [])
@@ -676,9 +677,10 @@ class Collection implements \JsonSerializable
     }
 
     /**
-     * Return the number of documents in a collection
+     * Return the number of documents in a collection.
      *
-     * @return int
+     * @return int Total count of documents on collection.
+     *
      * @throws DatabaseException|GuzzleException
      */
     public function count(): int
@@ -719,8 +721,9 @@ class Collection implements \JsonSerializable
     /**
      * Renames the collection
      *
-     * @param string $newName
+     * @param string $newName The new name of collection.
      * @return bool
+     *
      * @throws DatabaseException|GuzzleException
      */
     public function rename(string $newName): bool
@@ -770,6 +773,7 @@ class Collection implements \JsonSerializable
      * Return only fields to update this collection.
      *
      * @return array
+     *
      * @see Collection::rename()
      */
     protected function getUpdateParameters(): array
@@ -784,9 +788,10 @@ class Collection implements \JsonSerializable
      * Update collection.
      *
      * @return bool
+     *
      * @throws GuzzleException
      */
-    protected function update()
+    private function update()
     {
         $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
         $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_PROPERTIES), $this->getUpdateParameters());

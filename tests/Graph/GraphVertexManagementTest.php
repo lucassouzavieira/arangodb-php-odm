@@ -3,9 +3,8 @@
 
 namespace Unit\Graph;
 
-use ArangoDB\Document\Vertex;
 use ArangoDB\Graph\Graph;
-use GuzzleHttp\Exception\ClientException;
+use ArangoDB\Document\Vertex;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\DataStructures\ArrayList;

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace ArangoDB\Entity;
+namespace ArangoDB\Entity\Contracts;
 
 /**
- * Entity interface
+ * Entity interface.
  *
  * @package ArangoDB\Handler
  * @author Lucas S. Vieira
@@ -12,28 +12,28 @@ namespace ArangoDB\Entity;
 interface EntityInterface extends \JsonSerializable
 {
     /**
-     * Returns true if is a new object
+     * Returns true if is a new object.
      *
      * @return bool
      */
     public function isNew(): bool;
 
     /**
-     * Save a entity on server, if possible
+     * Save a entity on server, if possible.
      *
-     * @return bool true if operation was successful, false otherwise
+     * @return bool True if operation was successful, false otherwise.
      */
     public function save(): bool;
 
     /**
-     * Removes a entity on server, if possible
+     * Removes a entity on server, if possible.
      *
-     * @return bool true if operation was successful, false otherwise
+     * @return bool True if operation was successful, false otherwise.
      */
     public function delete(): bool;
 
     /**
-     * Returns a array representation of entity
+     * Returns a array representation of entity.
      *
      * @return array
      */

@@ -44,7 +44,7 @@ class Connection extends Authenticable
     }
 
     /**
-     * Proper debug dump for connection class
+     * Proper debug dump for connection objects.
      *
      * @return array
      */

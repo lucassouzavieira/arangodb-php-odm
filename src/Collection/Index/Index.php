@@ -8,7 +8,7 @@ use ArangoDB\Collection\Contracts\IndexInterface;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Represents a collection index
+ * Represents a collection index.
  *
  * @package ArangoDB\Collection
  * @author Lucas S. Vieira
@@ -16,14 +16,14 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 class Index implements IndexInterface
 {
     /**
-     * Index Id
+     * Index Id.
      *
      * @var string
      */
     protected $id;
 
     /**
-     * Index name
+     * Index name.
      *
      * @var string
      */

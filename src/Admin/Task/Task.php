@@ -5,10 +5,10 @@ namespace ArangoDB\Admin\Task;
 
 use ArangoDB\Http\Api;
 use ArangoDB\Connection\Connection;
-use ArangoDB\Entity\EntityInterface;
 use ArangoDB\Exceptions\ServerException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ClientException;
+use ArangoDB\Entity\Contracts\EntityInterface;
 use ArangoDB\Validation\Admin\Task\TaskValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;

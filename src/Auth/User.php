@@ -4,23 +4,26 @@ declare(strict_types=1);
 namespace ArangoDB\Auth;
 
 use ArangoDB\Http\Api;
-use ArangoDB\Entity\Entity;
-use ArangoDB\Entity\EntityInterface;
+use ArangoDB\Connection\Connection;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Auth\Exceptions\UserException;
+use ArangoDB\Validation\Auth\UserValidator;
+use ArangoDB\Entity\Contracts\EntityInterface;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
+use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 /**
- * Represents a user in server
+ * Represents a user in server.
  *
  * @package ArangoDB\Auth
  * @author Lucas S. Vieira
  */
-class User extends Entity
+class User implements EntityInterface
 {
     /**
-     * Name of user on server
+     * Name of user on server.
+     *
      * @var string
      */
     protected $user;
@@ -31,44 +34,76 @@ class User extends Entity
      *
      * @var string
      */
-    protected $password;
+    protected $password = '';
 
     /**
-     * If user is active or not on database
+     * If user is active or not on database.
      *
      * @var bool
      */
     protected $active;
 
     /**
-     * Extra data about the user
+     * Extra data about the user.
      *
      * @var array|null
      */
-    protected $extra;
+    protected $extra = null;
 
     /**
-     * If user is a new User or an existing one
+     * If user is a new User or an existing one.
      *
      * @var bool
      */
     protected $isNew;
 
     /**
+     * Connection object to use.
+     *
+     * @var Connection
+     */
+    protected $connection;
+
+    /**
      * User constructor.
      *
-     * @param array $attributes
-     * @param bool $isNew
-     * @throws \ReflectionException
+     * @param array $attributes User attributes.
+     * @param Connection|null $connection Connection object to use.
+     * @param bool $isNew If the user is a new one or representation of an existing user.
+     *
+     * @throws InvalidParameterException|MissingParameterException
      */
-    public function __construct(array $attributes = [], bool $isNew = true)
+    public function __construct(array $attributes = [], Connection $connection = null, bool $isNew = true)
     {
-        $this->setAttributes(['user', 'password', 'active', 'extra'], $attributes);
-        parent::__construct($attributes, $isNew);
+        $validator = new UserValidator($attributes);
+        $validator->validate();
+
+        $this->isNew = $isNew;
+        $this->connection = $connection;
+        $this->user = $attributes['user'];
+        $this->active = $attributes['active'];
+
+        if (isset($attributes['password'])) {
+            $this->password = $attributes['password'];
+        }
+
+        if (isset($attributes['extra'])) {
+            $this->extra = $attributes['extra'];
+        }
     }
 
     /**
-     * String representation of User object
+     * Proper debug dump for User objects.
+     *
+     * @return array
+     */
+    public function __debugInfo()
+    {
+        return $this->toArray();
+    }
+
+    /**
+     * String representation of User object.
      *
      * @return false|mixed|string
      */
@@ -78,17 +113,33 @@ class User extends Entity
     }
 
     /**
-     * Get the activation status of the user
+     * Get some attribute.
+     *
+     * @param string $name Attribute name.
+     *
+     * @return mixed|null Attribute value.
+     */
+    public function __get($name)
+    {
+        if (in_array($name, ['extra', 'user', 'active'])) {
+            return $this->{$name};
+        }
+
+        return null;
+    }
+
+    /**
+     * Get the activation status of the user.
      *
      * @return bool
      */
     public function isActive(): bool
     {
-        return $this->attributes['active'];
+        return $this->active;
     }
 
     /**
-     * Returns true if is a new user
+     * Returns true if is a new user.
      *
      * @return bool
      */
@@ -98,50 +149,49 @@ class User extends Entity
     }
 
     /**
-     * Set the activation status of the user
+     * Set the activation status of the user.
      *
      * @param bool $active
      */
     public function setActive(bool $active): void
     {
-        $this->attributes['active'] = $active;
+        $this->active = $active;
     }
 
     /**
-     * Returns the username
+     * Returns the username.
      *
      * @return string
      */
     public function getUsername(): string
     {
-        return $this->attributes['user'];
+        return $this->user;
     }
 
     /**
-     * Returns extra data about user
+     * Returns extra data about user.
      *
      * @return array|null
      */
     public function getExtra()
     {
-        return $this->attributes['extra'];
+        return $this->extra;
     }
 
     /**
-     * Set extra data for user
+     * Set extra data for user.
      *
      * @param array $extra
      */
     public function setExtra(array $extra): void
     {
-        $this->attributes['extra'] = $extra;
+        $this->extra = $extra;
     }
 
     /**
      * Returns a array representation of user
      *
      * @return array
-     * @see Entity::toArray()
      */
     public function toArray(): array
     {
@@ -153,47 +203,23 @@ class User extends Entity
     }
 
     /**
-     * Finds a user on server
-     *
-     * @param string $username
-     * @return User|null User if exists, null if not
-     * @throws GuzzleException|\ReflectionException
-     */
-    public function find(string $username)
-    {
-        try {
-            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::USER);
-            $uri = Api::addUriParam($uri, $username);
-
-            $response = $this->connection->get($uri);
-            $data = json_decode((string)$response->getBody(), true);
-            $user = new User($data, false);
-            $user->setConnection($this->connection);
-            return $user;
-        } catch (ClientException $exception) {
-            // User not found.
-            if ($exception->getResponse()->getStatusCode() == 404) {
-                return null;
-            }
-        }
-    }
-
-    /**
      * Saves (or update) a user on server
      *
-     * @return bool True if user was created or updated on server. Throws an exception if user is duplicated
+     * @return bool True if user was created or updated on server. Throws an exception if user is duplicated.
+     *
      * @throws UserException
-     * @see EntityInterface::save()
      */
     public function save(): bool
     {
         try {
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::USER);
 
-            $method = $this->isNew() ? 'post' : 'patch';
+            $method = $this->isNew() ? 'post' : 'patch'; // User will be created or updated.
             $uri = $this->isNew() ? $uri : Api::addUriParam($uri, $this->getUsername());
+            $data = $this->toArray();
+            $data['password'] = $this->password;
 
-            $this->connection->$method($uri, $this->attributes);
+            $this->connection->$method($uri, $data);
             $this->isNew = false;
             $this->password = null;
 
@@ -206,11 +232,11 @@ class User extends Entity
     }
 
     /**
-     * Removes an user from server
+     * Removes an user from server.
      *
-     * @return bool True if user was removed, false otherwise (e.g. user not exists)
-     * @throws GuzzleException|InvalidParameterException
-     * @see EntityInterface::delete()
+     * @return bool True if user was removed, false otherwise (e.g. user not exists).
+     *
+     * @throws GuzzleException|InvalidParameterException|UserException
      */
     public function delete(): bool
     {
@@ -218,38 +244,31 @@ class User extends Entity
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::USER);
             $uri = Api::addUriParam($uri, $this->getUsername());
 
-            $response = $this->connection->delete($uri, $this->toArray());
-
+            $response = $this->connection->delete($uri);
             $this->isNew = false;
             $this->password = null;
 
             return true;
         } catch (ClientException $exception) {
+            $response = json_decode((string)$exception->getResponse()->getBody(), true);
+            $userException = new UserException($response['errorMessage'], $exception, $response['errorNum']);
+
             // User not found.
             if ($exception->getResponse()->getStatusCode() == 404) {
                 return false;
             }
+
+            throw $userException;
         }
     }
 
     /**
-     * Initialize a handler object with given attributes
+     * Return a JSON representation of list.
      *
-     * @param array $attributesNames
-     * @param array $attributes
-     * @throws \ReflectionException
+     * @return array|mixed
      */
-    protected function setAttributes(array $attributesNames, array $attributes = [])
+    public function jsonSerialize()
     {
-        foreach ($attributesNames as $attribute) {
-            $reflection = new \ReflectionClass($this);
-
-            if (array_key_exists($attribute, $attributes)) {
-                $reflectionProperty = $reflection->getProperty($attribute);
-                $reflectionProperty->setAccessible(true);
-                $reflectionProperty->setValue($this, $attributes[$attribute]);
-                $reflectionProperty->setAccessible(false);
-            }
-        }
+        return $this->toArray();
     }
 }
