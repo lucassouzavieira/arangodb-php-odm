@@ -112,6 +112,7 @@ class Document implements EntityInterface
      *
      * @param array $attributes Document attributes
      * @param Collection $collection Collection to add this document
+     *
      * @throws InvalidParameterException
      */
     public function __construct(array $attributes = [], Collection $collection = null)
@@ -169,6 +170,7 @@ class Document implements EntityInterface
      *
      * @param string $name
      * @param mixed $value
+     *
      * @throws InvalidParameterException
      */
     public function __set(string $name, $value)
@@ -184,6 +186,7 @@ class Document implements EntityInterface
      * Verifies if an attribute is set on document
      *
      * @param string $name
+     *
      * @return bool
      */
     public function __isset(string $name)
@@ -203,6 +206,7 @@ class Document implements EntityInterface
 
     /**
      * Returns true if is a new object
+     *
      * @return bool
      */
     public function isNew(): bool

@@ -105,6 +105,7 @@ class Connection extends Authenticable
      * Return the database object for this connection
      *
      * @return Database
+     *
      * @throws GuzzleException|DatabaseException|InvalidParameterException|MissingParameterException
      */
     public function getDatabase(): Database
@@ -188,6 +189,7 @@ class Connection extends Authenticable
      * @param array $headers Additional headers to send on request.
      *
      * @return ResponseInterface
+     *
      * @throws GuzzleException
      */
     public function patch(string $endpoint, array $body = [], array $headers = []): ResponseInterface

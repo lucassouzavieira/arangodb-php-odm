@@ -5,12 +5,12 @@ namespace Unit\Graph;
 
 use ArangoDB\Document\Vertex;
 use ArangoDB\Graph\Graph;
-use ArangoDB\Graph\Traversal;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Graph\EdgeDefinition;
 use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\Collection\Collection;
 use ArangoDB\DataStructures\ArrayList;
+use ArangoDB\Graph\Traversal\Traversal;
 use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Exceptions\Exception as ArangoException;
 

@@ -8,6 +8,7 @@ use ArangoDB\Document\Edge;
 use ArangoDB\Document\Vertex;
 use ArangoDB\Database\Database;
 use ArangoDB\DataStructures\ArrayList;
+use ArangoDB\Graph\Traversal\Traversal;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Exceptions\DatabaseException;
@@ -852,7 +853,7 @@ class Graph implements \JsonSerializable
      */
     public function traversal(Vertex $vertex, $direction = Traversal::GRAPH_DIRECTION_ANY, int $depth = 0): Traversal
     {
-        return new Traversal($vertex, $direction, $depth);
+        return new Traversal($vertex, $this->getName(), $direction, $depth);
     }
 
     /**
