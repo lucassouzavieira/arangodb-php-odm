@@ -8,7 +8,6 @@ build/
 cache/
 coverage.xml
 *.phar
-docs/
 
 # Ignore documentation generation script
 documentation.php

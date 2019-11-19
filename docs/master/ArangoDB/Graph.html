@@ -23,13 +23,6 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                    <form action="#" method="GET">
-                <select id="version-switcher" name="version">
-                                            <option value="../../v3.5/index.html" data-version="v3.5">3.5.*</option>
-                                            <option value="../../v3.4/index.html" data-version="v3.4">3.4.*</option>
-                                            <option value="../../master/index.html" data-version="master">master branch</option>
-                                    </select>
-            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -82,6 +75,9 @@
         <h1>ArangoDB\Graph</h1>
     </div>
 
+            <h2>Namespaces</h2>
+        <div class="namespace-list">
+            <a href="../ArangoDB/Graph/Traversal.html">ArangoDB\Graph\Traversal</a>        </div>
     
             <h2>Classes</h2>
         
@@ -102,15 +98,6 @@
                 </div>
                 <div class="col-md-6">
                     Represents an ArangoDB Graph.
-                </div>
-            </div>
-                    <div class="row">
-                <div class="col-md-6">
-                                            <a href="../ArangoDB/Graph/Traversal.html"><abbr title="ArangoDB\Graph\Traversal">Traversal</abbr></a>
-                                            
-                </div>
-                <div class="col-md-6">
-                    Represents a graph traversal.
                 </div>
             </div>
             </div>
