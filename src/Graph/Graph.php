@@ -853,7 +853,7 @@ class Graph implements \JsonSerializable
      */
     public function traversal(Vertex $vertex, $direction = Traversal::GRAPH_DIRECTION_ANY, int $depth = 0): Traversal
     {
-        return new Traversal($vertex, $this->getName(), $direction, $depth);
+        return Traversal::traversalQuery($vertex, $this->getName(), $direction, $depth);
     }
 
     /**

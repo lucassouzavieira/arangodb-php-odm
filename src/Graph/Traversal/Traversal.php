@@ -4,7 +4,12 @@ declare(strict_types=1);
 namespace ArangoDB\Graph\Traversal;
 
 use ArangoDB\AQL\Statement;
+use ArangoDB\Cursor\Cursor;
 use ArangoDB\Document\Vertex;
+use ArangoDB\Connection\Connection;
+use GuzzleHttp\Exception\GuzzleException;
+use ArangoDB\Cursor\Exceptions\CursorException;
+use ArangoDB\AQL\Exceptions\StatementException;
 
 /**
  * Represents a graph traversal.
@@ -36,27 +41,6 @@ class Traversal
     public const GRAPH_DIRECTION_ANY = 'ANY';
 
     /**
-     * Vertex to start graph traversal
-     *
-     * @var Vertex
-     */
-    protected $vertex;
-
-    /**
-     * The graph to traverse
-     *
-     * @var string
-     */
-    protected $graph;
-
-    /**
-     * Visits only nodes in at least the given depth.
-     *
-     * @var int
-     */
-    protected $depth;
-
-    /**
      * The traversal query
      *
      * @var Statement
@@ -64,39 +48,81 @@ class Traversal
     protected $statement;
 
     /**
-     * Direction for traversal.
-     * Must be either "outbound", "inbound", or "any"
+     * Connection to use to manage database
      *
-     * @var string
+     * @var Connection
      */
-    protected $direction;
+    protected $connection;
+
+    /**
+     * Cursor object
+     *
+     * @var Cursor
+     */
+    protected $cursor;
 
     /**
      * Traversal constructor.
      *
+     * @param Statement $statement AQL Statement for traversal.
+     * @param Connection|null $connection The connection object to use.
+     *
+     * @throws CursorException|GuzzleException
+     */
+    public function __construct(Statement $statement, Connection $connection = null)
+    {
+        $this->statement = $statement;
+        $this->connection = $connection;
+
+        if ($connection) {
+            $this->cursor = new Cursor($connection, $statement);
+        }
+    }
+
+    /**
+     * Sets a connection to use for traversal.
+     *
+     * @param Connection $connection
+     */
+    public function setConnection(Connection $connection): void
+    {
+        $this->connection = $connection;
+    }
+
+    /**
+     * Returns the query,
+     *
+     * @return string
+     *
+     * @throws StatementException
+     */
+    public function toAql()
+    {
+        return $this->statement->toAql();
+    }
+
+    /**
+     * Returns a default traversal
+     *
      * @param Vertex $vertex Vertex to start graph traversal.
-     * @param string $graph The graph to traverse
+     * @param string $graph The graph to traverse.
      * @param string $direction Direction for traversal.
      * @param int $depth Visits only nodes in at least the given depth.
-     * @param string $query A custom query. Default is a empty string
+     *
+     * @return Traversal Traversal object.
+     *
+     * @throws CursorException|GuzzleException
      */
-    public function __construct(Vertex $vertex, string $graph, string $direction = self::GRAPH_DIRECTION_ANY, int $depth = 0, string $query = "")
+    public static function traversalQuery(Vertex $vertex, string $graph, string $direction = self::GRAPH_DIRECTION_ANY, int $depth = 0): Traversal
     {
-        $this->vertex = $vertex;
-        $this->direction = $direction;
-        $this->depth = $depth === 0 ? 1 : $depth;
-
-        $vertexId = $vertex->getId();
-
-        if (!$query) {
-            $query = sprintf("
+        $query = sprintf("
                 FOR v, e, p IN 1..%d %s
                 '%s'
                 GRAPH '%s'
                 LIMIT 100
-                RETURN p", $this->depth, $this->direction, $vertexId, $graph);
-        }
+                RETURN p", $depth, $direction, $vertex->getId(), $graph);
 
-        $this->statement = new Statement($query);
+        return new Traversal(new Statement($query));
     }
+
 }

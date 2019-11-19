@@ -3,8 +3,8 @@
 
 namespace Unit\Graph;
 
-use ArangoDB\Document\Vertex;
 use ArangoDB\Graph\Graph;
+use ArangoDB\Document\Vertex;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Graph\EdgeDefinition;
 use GuzzleHttp\Handler\MockHandler;
