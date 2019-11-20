@@ -23,10 +23,10 @@ class TraversalTest extends BaseGraphTest
         $vertex = new Vertex($this->mockVertex());
         $traversal = Traversal::traversalQuery($vertex, "my_graph", Traversal::GRAPH_DIRECTION_OUTBOUND, 2);
 
-        $this->assertStringContainsString( "coll_a/a1m", $traversal->toAql());
-        $this->assertStringContainsString( "my_graph", $traversal->toAql());
-        $this->assertStringContainsString( "OUTBOUND", $traversal->toAql());
-        $this->assertStringContainsString( "2", $traversal->toAql());
+        $this->assertStringContainsString("coll_a/a1m", $traversal->toAql());
+        $this->assertStringContainsString("my_graph", $traversal->toAql());
+        $this->assertStringContainsString("OUTBOUND", $traversal->toAql());
+        $this->assertStringContainsString("2", $traversal->toAql());
 
         $this->assertInstanceOf(Traversal::class, $traversal);
     }

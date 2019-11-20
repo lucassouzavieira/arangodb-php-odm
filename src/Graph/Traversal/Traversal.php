@@ -5,6 +5,7 @@ namespace ArangoDB\Graph\Traversal;
 
 use ArangoDB\AQL\Statement;
 use ArangoDB\Cursor\Cursor;
+use ArangoDB\Cursor\TraversalCursor;
 use ArangoDB\Document\Vertex;
 use ArangoDB\Connection\Connection;
 use GuzzleHttp\Exception\GuzzleException;
@@ -75,7 +76,7 @@ class Traversal
         $this->connection = $connection;
 
         if ($connection) {
-            $this->cursor = new Cursor($connection, $statement);
+            $this->cursor = new TraversalCursor($connection, $statement);
         }
     }
 
@@ -124,5 +125,4 @@ class Traversal
 
         return new Traversal(new Statement($query));
     }
-
 }

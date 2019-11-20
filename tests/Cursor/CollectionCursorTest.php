@@ -3,6 +3,7 @@
 
 namespace Unit\Cursor;
 
+use ArangoDB\Document\Edge;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Document\Document;
 use GuzzleHttp\Handler\MockHandler;
@@ -61,7 +62,7 @@ class CollectionCursorTest extends CursorTestCase
         $this->assertEquals(2500, $counter); // Counter starts at 0.
     }
 
-    public function testCurrent()
+    public function testCurrentForDocuments()
     {
         $this->getConnectionObject()->getDatabase()->createCollection('test_cursor_coll');
         $doc = new Document(['hello' => 'Sun'], $this->getConnectionObject()->getDatabase()->getCollection('test_cursor_coll'));
@@ -74,5 +75,20 @@ class CollectionCursorTest extends CursorTestCase
         $this->assertInstanceOf(Document::class, $current);
         $this->assertFalse($current->isNew());
         $this->assertEquals('Sun', $current->toArray()['hello']);
+    }
+
+    public function testCurrentForEdges()
+    {
+        $this->getConnectionObject()->getDatabase()->createCollection('test_cursor_coll', ['type' => 3]);
+        $doc = new Edge(['_from' => 'solar_system/sun', '_to' => 'solar_system/mars'], $this->getConnectionObject()->getDatabase()->getCollection('test_cursor_coll'));
+        $doc->save();
+
+        $collection = $this->getConnectionObject()->getDatabase()->getCollection('test_cursor_coll');
+        $cursor = new CollectionCursor($collection);
+        $current = $cursor->current();
+
+        $this->assertInstanceOf(Edge::class, $current);
+        $this->assertFalse($current->isNew());
+        $this->assertEquals('solar_system/sun', $current->toArray()['_from']);
     }
 }
