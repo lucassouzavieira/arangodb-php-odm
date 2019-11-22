@@ -29,7 +29,8 @@ class CollectionCursor extends Cursor
     /**
      * CollectionCursor constructor.
      *
-     * @param Collection $collection
+     * @param Collection $collection Collection
+     *
      * @throws Exceptions\CursorException|InvalidParameterException|GuzzleException
      */
     public function __construct(Collection $collection)

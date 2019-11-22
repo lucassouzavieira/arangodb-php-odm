@@ -7,12 +7,14 @@ use ArangoDB\Http\Api;
 use ArangoDB\Document\Edge;
 use ArangoDB\Document\Vertex;
 use ArangoDB\Database\Database;
+use ArangoDB\Cursor\TraversalCursor;
 use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Graph\Traversal\Traversal;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Validation\Graph\GraphValidator;
+use ArangoDB\Cursor\Exceptions\CursorException;
 use ArangoDB\Exceptions\Exception as ArangoException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
@@ -849,7 +851,9 @@ class Graph implements \JsonSerializable
      * @param int $depth Visits only nodes in at least the given depth.
      * @param string $direction Direction for traversal. Must be either "outbound", "inbound", or "any".
      *
-     * @return Traversal
+     * @return TraversalCursor
+     *
+     * @throws CursorException|GuzzleException
      */
     public function traversal(Vertex $vertex, $direction = Traversal::GRAPH_DIRECTION_ANY, int $depth = 0): Traversal
     {

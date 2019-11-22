@@ -39,7 +39,7 @@ class DocumentValidator extends Validator
     public function getAttributes()
     {
         $attributes = $this->data;
-        unset($attributes['_id'], $attributes['_rev'], $attributes['_key']);
+        unset($attributes['_id'], $attributes['_rev']);
         return $attributes;
     }
 

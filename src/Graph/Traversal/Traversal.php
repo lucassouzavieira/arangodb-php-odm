@@ -5,9 +5,9 @@ namespace ArangoDB\Graph\Traversal;
 
 use ArangoDB\AQL\Statement;
 use ArangoDB\Cursor\Cursor;
-use ArangoDB\Cursor\TraversalCursor;
 use ArangoDB\Document\Vertex;
 use ArangoDB\Connection\Connection;
+use ArangoDB\Cursor\TraversalCursor;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Cursor\Exceptions\CursorException;
 use ArangoDB\AQL\Exceptions\StatementException;
@@ -123,6 +123,6 @@ class Traversal
                 LIMIT 100
                 RETURN p", $depth, $direction, $vertex->getId(), $graph);
 
-        return new Traversal(new Statement($query));
+        return new Traversal($vertex->getCollection()->getDatabase()->getConnection(), new Statement($query));
     }
 }

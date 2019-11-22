@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace ArangoDB\Cursor;
 
+use ArangoDB\AQL\Contracts\StatementInterface;
 use ArangoDB\AQL\Statement;
 use ArangoDB\Connection\Connection;
 

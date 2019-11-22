@@ -128,7 +128,7 @@ class Document implements EntityInterface
         }
 
         // If document is an representation of a existing one.
-        if ($this->getId() || $this->getKey() || $this->getRevision()) {
+        if ($this->getId() || $this->getRevision()) {
             $this->isNew = false;
         }
 

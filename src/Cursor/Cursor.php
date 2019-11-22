@@ -177,7 +177,7 @@ class Cursor extends Base
             $response = $this->connection->post(sprintf($this->uri), $this->getBody());
             $data = json_decode((string)$response->getBody(), true);
             $this->fetches++;
-            $this->hasMore = $data[self::HAS_MORE];
+            $this->hasMore = isset($data[self::HAS_MORE]) ? $data[self::HAS_MORE] : false;
             $this->appendResults($data[self::RESULT]);
             $this->length = count($data[self::RESULT]);
             $this->count = isset($data[self::COUNT]) ? $data[self::COUNT] : $this->length;
