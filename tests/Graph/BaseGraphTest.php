@@ -4,12 +4,16 @@
 namespace Unit\Graph;
 
 use Unit\TestCase;
+use Unit\Graph\Utils\MockGraphTrait;
 
 abstract class BaseGraphTest extends TestCase
 {
+    use MockGraphTrait;
+
     public function setUp(): void
     {
         $this->loadEnvironment();
+        $this->mockGraph($this->getConnectionObject()->getDatabase());
         parent::setUp();
     }
 
@@ -20,6 +24,11 @@ abstract class BaseGraphTest extends TestCase
         $db->dropCollection('coll_b');
         $db->dropCollection('edge_coll');
         $db->dropCollection('edge_coll_b');
+
+        if ($db->getGraph("traversal_test_graph")) {
+            $db->getGraph('traversal_test_graph')->delete(true);
+        }
+
         parent::tearDown();
     }
 

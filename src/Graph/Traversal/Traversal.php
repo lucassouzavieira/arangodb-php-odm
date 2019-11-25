@@ -6,6 +6,7 @@ namespace ArangoDB\Graph\Traversal;
 use ArangoDB\AQL\Statement;
 use ArangoDB\Cursor\Cursor;
 use ArangoDB\Document\Vertex;
+use ArangoDB\Exceptions\Exception;
 use ArangoDB\Connection\Connection;
 use ArangoDB\Cursor\TraversalCursor;
 use GuzzleHttp\Exception\GuzzleException;
@@ -112,7 +113,7 @@ class Traversal
      *
      * @return Traversal Traversal object.
      *
-     * @throws CursorException|GuzzleException
+     * @throws CursorException|GuzzleException|Exception
      */
     public static function traversalQuery(Vertex $vertex, string $graph, string $direction = self::GRAPH_DIRECTION_ANY, int $depth = 0): Traversal
     {
@@ -123,6 +124,12 @@ class Traversal
                 LIMIT 100
                 RETURN p", $depth, $direction, $vertex->getId(), $graph);
 
-        return new Traversal($vertex->getCollection()->getDatabase()->getConnection(), new Statement($query));
+
+        if (is_null($vertex->getCollection())) {
+            throw new Exception("The given Vertex object hasn't a Connection set.");
+        }
+
+        $connection = $vertex->getCollection()->getDatabase()->getConnection();
+        return new Traversal(new Statement($query), $connection);
     }
 }

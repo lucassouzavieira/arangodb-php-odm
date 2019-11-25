@@ -5,6 +5,7 @@ namespace ArangoDB\Collection;
 
 use ArangoDB\Http\Api;
 use ArangoDB\Document\Edge;
+use ArangoDB\Document\Vertex;
 use ArangoDB\Document\Document;
 use ArangoDB\Database\Database;
 use ArangoDB\Connection\Connection;
@@ -627,11 +628,14 @@ class Collection implements \JsonSerializable
     /**
      * Find a document by it's key
      *
-     * @param $key Document key
+     * @param string $key Document key
+     * @param bool $isVertex If the collection is a vertex in a graph, passing true will return document as Vertex object.
+     *
      * @return Document|false
+     *
      * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
      */
-    public function findByKey($key)
+    public function findByKey(string $key, bool $isVertex = false)
     {
         try {
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::DOCUMENT);
@@ -639,6 +643,8 @@ class Collection implements \JsonSerializable
             $response = $this->connection->get(sprintf("%s/%s", $uri, $handle));
             $data = json_decode((string)$response->getBody(), true);
             $document = $this->isGraph() ? new Edge($data, $this) : new Document($data, $this);
+            $document = $isVertex ? new Vertex($data, $this) : $document;
+
             return $document;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);

@@ -3,6 +3,7 @@
 
 namespace Unit\Collection;
 
+use ArangoDB\Document\Vertex;
 use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Database\Database;
@@ -459,6 +460,24 @@ class CollectionTest extends TestCase
         $key = $document->getKey();
         $doc = $collection->findByKey($key);
 
+        $this->assertInstanceOf(Document::class, $doc);
+        $this->assertArrayHasKey('document', $doc->toArray());
+        $this->assertEquals('testing', $doc->toArray()['document']);
+    }
+
+    public function testFindByKeyReturnVertex()
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertTrue($collection->save());
+        $document = new Document(['document' => 'testing'], $collection);
+        $document->save();
+
+        $key = $document->getKey();
+        $doc = $collection->findByKey($key, true);
+
+        $this->assertInstanceOf(Vertex::class, $doc);
         $this->assertArrayHasKey('document', $doc->toArray());
         $this->assertEquals('testing', $doc->toArray()['document']);
     }

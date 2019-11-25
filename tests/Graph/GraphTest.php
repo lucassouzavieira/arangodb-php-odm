@@ -157,13 +157,30 @@ class GraphTest extends BaseGraphTest
         $this->assertTrue(in_array('orphan', $graph->getOrphanCollections()));
     }
 
-    public function testTraversal()
+    public function testTraversalQuery()
     {
-        $db = $this->getConnectionObject()->getDatabase();
-        $graph = new Graph("my_graph", ['edgeDefinitions' => [$this->mockEdgeDefinitions()]], $db);
-        $traversal = $graph->traversal(new Vertex(), Traversal::GRAPH_DIRECTION_ANY, 2);
+        $cities = $this->getConnectionObject()->getDatabase()->getCollection('cities');
+        $vertex = $cities->findByKey("ssa", true);
+
+        $traversal = Traversal::traversalQuery($vertex, "traversal_test_graph", Traversal::GRAPH_DIRECTION_ANY, 4);
+
+        $this->assertStringContainsString("cities/ssa", $traversal->toAql());
+        $this->assertStringContainsString("traversal_test_graph", $traversal->toAql());
+        $this->assertStringContainsString("ANY", $traversal->toAql());
+        $this->assertStringContainsString("4", $traversal->toAql());
 
         $this->assertInstanceOf(Traversal::class, $traversal);
+    }
+
+    public function testTraversalQueryThrowException()
+    {
+        $cities = $this->getConnectionObject()->getDatabase()->getCollection('cities');
+        $document = $cities->findByKey("itz", true);
+        $vertex = new Vertex($document->toArray());
+
+        $this->expectException(ArangoException::class);
+        $this->expectExceptionMessage("The given Vertex object hasn't a Connection set.");
+        $traversal = Traversal::traversalQuery($vertex, "traversal_test_graph", Traversal::GRAPH_DIRECTION_OUTBOUND, 2);
     }
 
     public function testSave()
@@ -244,6 +261,9 @@ class GraphTest extends BaseGraphTest
     public function testDelete()
     {
         $db = $this->getConnectionObject()->getDatabase();
+        // First: drop the default graph for testing;
+        $db->getGraph("traversal_test_graph")->delete(true);
+
         $collA = new Collection("coll_a", $db);
         $collB = new Collection("coll_b", $db);
         $edgeColl = new Collection("edge_coll", $db, ['type' => 3]);
@@ -310,6 +330,9 @@ class GraphTest extends BaseGraphTest
     public function testDeleteDropCollections()
     {
         $db = $this->getConnectionObject()->getDatabase();
+        // First: drop the default graph for testing;
+        $db->getGraph("traversal_test_graph")->delete(true);
+
         $collA = new Collection("coll_a", $db);
         $collB = new Collection("coll_b", $db);
 
