@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>ArangoDB\AQL\Functions\AQLFunction | ArangoDB - Object Document Mapper for PHP</title>
+
+            <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/sami.css">
+        <script src="../../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/typeahead.min.js"></script>
+        <script src="../../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:ArangoDB_AQL_Functions_AQLFunction" data-root-path="../../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../../v3.4.0/index.html" data-version="v3.4.0">v3.4.0</option>
+                                            <option value="../../../../v3.5.0/index.html" data-version="v3.5.0">v3.5.0</option>
+                                            <option value="../../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
+                <script>
+            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
+        </script>
+        <form id="search-form" action="../../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../../index.html">ArangoDB - Object Document Mapper for PHP</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../../classes.html">Classes</a></li>
+                                            <li><a href="../../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../traits.html">Traits</a></li>
+                    <li><a href="../../../doc-index.html">Index</a></li>
+                    <li><a href="../../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../../../ArangoDB.html">ArangoDB</a></li><li class="backslash">\</li><li><a href="../../../ArangoDB/AQL.html">AQL</a></li><li class="backslash">\</li><li><a href="../../../ArangoDB/AQL/Functions.html">Functions</a></li><li class="backslash">\</li><li>AQLFunction</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            AQLFunction
+                
+        </h1>
+    </div>
+
+    <p>    class
+    <strong>AQLFunction</strong>        implements
+        <a href="../../../ArangoDB/Entity/Contracts/EntityInterface.html"><abbr title="ArangoDB\Entity\Contracts\EntityInterface">EntityInterface</abbr></a>        (<a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.5.0/src/AQL/Functions/AQLFunction.php">View source</a>)
+</p>
+
+        
+    
+
+            <div class="description">
+            <p>Represents an user defined aql function on server.</p>                                </div>
+    
+    
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_name">
+                                        protected                                        string
+                </td>
+                <td>$name</td>
+                <td class="last">Fully qualified name of user function.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_code">
+                                        protected                                        string
+                </td>
+                <td>$code</td>
+                <td class="last">String representation of function body.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_isDeterministic">
+                                        protected                                        bool
+                </td>
+                <td>$isDeterministic</td>
+                <td class="last">An optional boolean value to indicate whether the function results are fully deterministic. <br>
+(function return value solely depends on the input value and return value is the same for repeated calls with same input)</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_isNew">
+                                        protected                                        bool
+                </td>
+                <td>$isNew</td>
+                <td class="last">If the entity is not an representation of a existing user function on server,
+this property is true.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_connection">
+                                        protected                                        <a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a>
+                </td>
+                <td>$connection</td>
+                <td class="last">Connection object.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_deletion">
+                                        protected                                        array
+                </td>
+                <td>$deletion</td>
+                <td class="last">Stores the deletion data for an AQLFunction object.</td>
+                <td></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(string $name, string $code, <a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection = null, bool $isDeterministic = true, bool $isNew = true)
+        
+                                            <p>AQLFunction constructor.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isNew">isNew</a>()
+        
+                                            <p>If the AQLFunction object is a new created AQLFunction (and not exists on server) <br>
+or if it is a representation of an existing one.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getName">getName</a>()
+        
+                                            <p>Returns the AQL function name.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getCode">getCode</a>()
+        
+                                            <p>Returns the AQL function code.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isDeterministic">isDeterministic</a>()
+        
+                                            <p>Indicates if the function results are deterministic. <br></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getDeletionData">getDeletionData</a>()
+        
+                                            <p>If the object has performed a delete operation, this method will return the deletion data.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_hasConnection">hasConnection</a>()
+        
+                                            <p>If this AQL function has a connection set or not.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setConnection">setConnection</a>(<a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection)
+        
+                                            <p>Sets a connection to use.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_save">save</a>()
+        
+                                            <p>Saves the AQL function on server.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_delete">delete</a>()
+        
+                                            <p>Removes an AQL function from server, if possible</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_toArray">toArray</a>()
+        
+                                            <p>Returns a array representation of AQL function object.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array|mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_jsonSerialize">jsonSerialize</a>()
+        
+                                            <p>Return a JSON representation of AQL function object.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.5.0/src/AQL/Functions/AQLFunction.php#L74">line 74</a></div>
+        <code>                    
+    <strong>__construct</strong>(string $name, string $code, <a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection = null, bool $isDeterministic = true, bool $isNew = true)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>AQLFunction constructor.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The AQL function name.</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$code</td>
+                <td>The AQL function code.</td>
+            </tr>
+                    <tr>
+                <td><a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
+                <td>$connection</td>
+                <td>Connection object to use.</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$isDeterministic</td>
+                <td>Indicates if the function results are deterministic.</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$isNew</td>
+                <td>Indicates if the function object is a new one or not.</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isNew">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.5.0/src/AQL/Functions/AQLFunction.php#L89">line 89</a></div>
+        <code>                    bool
+    <strong>isNew</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>If the AQLFunction object is a new created AQLFunction (and not exists on server) <br>
+or if it is a representation of an existing one.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getName">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.5.0/src/AQL/Functions/AQLFunction.php#L99">line 99</a></div>
+        <code>                    string
+    <strong>getName</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns the AQL function name.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getCode">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.5.0/src/AQL/Functions/AQLFunction.php#L109">line 109</a></div>
+        <code>                    string
+    <strong>getCode</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns the AQL function code.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isDeterministic">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.5.0/src/AQL/Functions/AQLFunction.php#L119">line 119</a></div>
+        <code>                    bool
+    <strong>isDeterministic</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Indicates if the function results are deterministic. <br></p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getDeletionData">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.5.0/src/AQL/Functions/AQLFunction.php#L129">line 129</a></div>
+        <code>                    array
+    <strong>getDeletionData</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>If the object has performed a delete operation, this method will return the deletion data.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasConnection">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.5.0/src/AQL/Functions/AQLFunction.php#L139">line 139</a></div>
+        <code>                    bool
+    <strong>hasConnection</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>If this AQL function has a connection set or not.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td>True if has a connection object. False otherwise.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setConnection">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.5.0/src/AQL/Functions/AQLFunction.php#L149">line 149</a></div>
+        <code>                    
+    <strong>setConnection</strong>(<a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a> $connection)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Sets a connection to use.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a></td>
+                <td>$connection</td>
+                <td>Connection object to use.</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_save">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.5.0/src/AQL/Functions/AQLFunction.php#L161">line 161</a></div>
+        <code>                    bool
+    <strong>save</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Saves the AQL function on server.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td>True if operation was successful, false otherwise.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Exceptions\ServerException|\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_delete">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.5.0/src/AQL/Functions/AQLFunction.php#L187">line 187</a></div>
+        <code>                    bool
+    <strong>delete</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Removes an AQL function from server, if possible</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td>True if operation was successful, false otherwise.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="ArangoDB\Exceptions\ServerException|\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_toArray">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.5.0/src/AQL/Functions/AQLFunction.php#L211">line 211</a></div>
+        <code>                    array
+    <strong>toArray</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns a array representation of AQL function object.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_jsonSerialize">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v3.5.0/src/AQL/Functions/AQLFunction.php#L225">line 225</a></div>
+        <code>                    array|mixed
+    <strong>jsonSerialize</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Return a JSON representation of AQL function object.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array|mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>

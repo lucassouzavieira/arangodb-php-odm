@@ -23,6 +23,13 @@
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v3.4.0/index.html" data-version="v3.4.0">v3.4.0</option>
+                                            <option value="../../../v3.5.0/index.html" data-version="v3.5.0">v3.5.0</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
                 <script>
             $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
         </script>
@@ -479,7 +486,7 @@
                     <a href="../../ArangoDB/Document/Document.html"><abbr title="ArangoDB\Document\Document">Document</abbr></a>|false
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_findByKey">findByKey</a>($key)
+                    <a href="#method_findByKey">findByKey</a>(string $key, bool $isVertex = false)
         
                                             <p>Find a document by it's key</p>                </div>
                 <div class="col-md-2"></div>
@@ -563,7 +570,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L180">line 180</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L181">line 181</a></div>
         <code>                    
     <strong>__construct</strong>(string $name, <a href="../../ArangoDB/Database/Database.html"><abbr title="ArangoDB\Database\Database">Database</abbr></a> $database, array $attributes = [])
         </code>
@@ -613,7 +620,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___toString">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L200">line 200</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L201">line 201</a></div>
         <code>                    string
     <strong>__toString</strong>()
         </code>
@@ -643,7 +650,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___get">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L211">line 211</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L212">line 212</a></div>
         <code>                    mixed|null
     <strong>__get</strong>(string $name)
         </code>
@@ -683,7 +690,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___set">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L227">line 227</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L228">line 228</a></div>
         <code>                    
     <strong>__set</strong>(string $name, mixed $value)
         </code>
@@ -728,7 +735,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_all">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L244">line 244</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L245">line 245</a></div>
         <code>                    <a href="../../ArangoDB/Cursor/Contracts/CursorInterface.html"><abbr title="ArangoDB\Cursor\Contracts\CursorInterface">CursorInterface</abbr></a>|bool
     <strong>all</strong>()
         </code>
@@ -767,7 +774,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getAttributes">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L258">line 258</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L259">line 259</a></div>
         <code>                    array
     <strong>getAttributes</strong>()
         </code>
@@ -797,7 +804,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setAttributes">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L268">line 268</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L269">line 269</a></div>
         <code>                    void
     <strong>setAttributes</strong>(array $data)
         </code>
@@ -837,7 +844,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getDatabase">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L282">line 282</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L283">line 283</a></div>
         <code>                    <a href="../../ArangoDB/Database/Database.html"><abbr title="ArangoDB\Database\Database">Database</abbr></a>
     <strong>getDatabase</strong>()
         </code>
@@ -867,7 +874,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getName">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L292">line 292</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L293">line 293</a></div>
         <code>                    string
     <strong>getName</strong>()
         </code>
@@ -897,7 +904,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getId">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L302">line 302</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L303">line 303</a></div>
         <code>                    string|null
     <strong>getId</strong>()
         </code>
@@ -927,7 +934,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getGloballyUniqueId">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L312">line 312</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L313">line 313</a></div>
         <code>                    string
     <strong>getGloballyUniqueId</strong>()
         </code>
@@ -957,7 +964,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getStatus">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L322">line 322</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L323">line 323</a></div>
         <code>                    int
     <strong>getStatus</strong>()
         </code>
@@ -987,7 +994,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getStatusDescription">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L332">line 332</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L333">line 333</a></div>
         <code>                    string
     <strong>getStatusDescription</strong>()
         </code>
@@ -1017,7 +1024,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getType">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L342">line 342</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L343">line 343</a></div>
         <code>                    string
     <strong>getType</strong>()
         </code>
@@ -1047,7 +1054,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isSystem">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L352">line 352</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L353">line 353</a></div>
         <code>                    bool
     <strong>isSystem</strong>()
         </code>
@@ -1077,7 +1084,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isNew">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L362">line 362</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L363">line 363</a></div>
         <code>                    bool
     <strong>isNew</strong>()
         </code>
@@ -1107,7 +1114,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isGraph">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L372">line 372</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L373">line 373</a></div>
         <code>                    bool
     <strong>isGraph</strong>()
         </code>
@@ -1137,7 +1144,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_toArray">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L382">line 382</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L383">line 383</a></div>
         <code>                    array
     <strong>toArray</strong>()
         </code>
@@ -1167,7 +1174,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getChecksum">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L396">line 396</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L397">line 397</a></div>
         <code>                    string
     <strong>getChecksum</strong>()
         </code>
@@ -1206,7 +1213,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getIndexes">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L421">line 421</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L422">line 422</a></div>
         <code>                    <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>
     <strong>getIndexes</strong>()
         </code>
@@ -1245,7 +1252,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getRevision">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L450">line 450</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L451">line 451</a></div>
         <code>                    string
     <strong>getRevision</strong>()
         </code>
@@ -1284,7 +1291,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addIndex">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L476">line 476</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L477">line 477</a></div>
         <code>                    bool
     <strong>addIndex</strong>(<a href="../../ArangoDB/Collection/Contracts/IndexInterface.html"><abbr title="ArangoDB\Collection\Contracts\IndexInterface">IndexInterface</abbr></a> $index)
         </code>
@@ -1333,7 +1340,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_dropIndex">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L504">line 504</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L505">line 505</a></div>
         <code>                    bool
     <strong>dropIndex</strong>(<a href="../../ArangoDB/Collection/Contracts/IndexInterface.html"><abbr title="ArangoDB\Collection\Contracts\IndexInterface">IndexInterface</abbr></a> $index)
         </code>
@@ -1382,7 +1389,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_save">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L537">line 537</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L538">line 538</a></div>
         <code>                    bool
     <strong>save</strong>()
         </code>
@@ -1422,7 +1429,7 @@ For change 'name', the method 'rename' must be used.</p>                        
             </div>
                     <div class="method-item">
                     <h3 id="method_drop">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L566">line 566</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L567">line 567</a></div>
         <code>                    bool
     <strong>drop</strong>()
         </code>
@@ -1461,7 +1468,7 @@ For change 'name', the method 'rename' must be used.</p>                        
             </div>
                     <div class="method-item">
                     <h3 id="method_truncate">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L591">line 591</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L592">line 592</a></div>
         <code>                    bool
     <strong>truncate</strong>()
         </code>
@@ -1500,7 +1507,7 @@ For change 'name', the method 'rename' must be used.</p>                        
             </div>
                     <div class="method-item">
                     <h3 id="method_load">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L612">line 612</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L613">line 613</a></div>
         <code>                    bool
     <strong>load</strong>(bool $count = true)
         </code>
@@ -1549,9 +1556,9 @@ For change 'name', the method 'rename' must be used.</p>                        
             </div>
                     <div class="method-item">
                     <h3 id="method_findByKey">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L634">line 634</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L638">line 638</a></div>
         <code>                    <a href="../../ArangoDB/Document/Document.html"><abbr title="ArangoDB\Document\Document">Document</abbr></a>|false
-    <strong>findByKey</strong>($key)
+    <strong>findByKey</strong>(string $key, bool $isVertex = false)
         </code>
     </h3>
     <div class="details">
@@ -1565,9 +1572,14 @@ For change 'name', the method 'rename' must be used.</p>                        
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$key</td>
                 <td>Document key</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$isVertex</td>
+                <td>If the collection is a vertex in a graph, passing true will return document as Vertex object.</td>
             </tr>
             </table>
 
@@ -1598,7 +1610,7 @@ For change 'name', the method 'rename' must be used.</p>                        
             </div>
                     <div class="method-item">
                     <h3 id="method_unload">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L662">line 662</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L668">line 668</a></div>
         <code>                    bool
     <strong>unload</strong>()
         </code>
@@ -1637,7 +1649,7 @@ For change 'name', the method 'rename' must be used.</p>                        
             </div>
                     <div class="method-item">
                     <h3 id="method_count">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L686">line 686</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L692">line 692</a></div>
         <code>                    int
     <strong>count</strong>()
         </code>
@@ -1676,7 +1688,7 @@ For change 'name', the method 'rename' must be used.</p>                        
             </div>
                     <div class="method-item">
                     <h3 id="method_recalculateCount">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L707">line 707</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L713">line 713</a></div>
         <code>                    bool
     <strong>recalculateCount</strong>()
         </code>
@@ -1715,7 +1727,7 @@ For change 'name', the method 'rename' must be used.</p>                        
             </div>
                     <div class="method-item">
                     <h3 id="method_rename">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L729">line 729</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L735">line 735</a></div>
         <code>                    bool
     <strong>rename</strong>(string $newName)
         </code>
@@ -1764,7 +1776,7 @@ For change 'name', the method 'rename' must be used.</p>                        
             </div>
                     <div class="method-item">
                     <h3 id="method_jsonSerialize">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L747">line 747</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L753">line 753</a></div>
         <code>                    
     <strong>jsonSerialize</strong>()
         </code>
@@ -1788,7 +1800,7 @@ For change 'name', the method 'rename' must be used.</p>                        
             </div>
                     <div class="method-item">
                     <h3 id="method_getCreateParameters">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L757">line 757</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L763">line 763</a></div>
         <code>            protected        array
     <strong>getCreateParameters</strong>()
         </code>
@@ -1818,7 +1830,7 @@ For change 'name', the method 'rename' must be used.</p>                        
             </div>
                     <div class="method-item">
                     <h3 id="method_getUpdateParameters">
-        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L779">line 779</a></div>
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/master/src/Collection/Collection.php#L785">line 785</a></div>
         <code>            protected        array
     <strong>getUpdateParameters</strong>()
         </code>
