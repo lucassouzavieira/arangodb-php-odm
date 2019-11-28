@@ -1,3 +1,6 @@
+[![codecov](https://codecov.io/gh/lucassouzavieira/arangodb-php-odm/branch/develop/graph/badge.svg)](https://codecov.io/gh/lucassouzavieira/arangodb-php-odm)
+[![CodeFactor](https://www.codefactor.io/repository/github/lucassouzavieira/arangodb-php-odm/badge)](https://www.codefactor.io/repository/github/lucassouzavieira/arangodb-php-odm)
+
 # ArangoDB PHP ODM
 ![ArangoDB](https://www.arangodb.com/wp-content/uploads/2016/05/ArangoDB_logo_@2.png)
 
@@ -8,9 +11,6 @@
 - 3.5 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=v3.5)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm) 
 - develop [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=develop)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
 - master [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=master)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
-
-- Coverage [![codecov](https://codecov.io/gh/lucassouzavieira/arangodb-php-odm/branch/develop/graph/badge.svg)](https://codecov.io/gh/lucassouzavieira/arangodb-php-odm)
-
 
 ## Installation
 #### Using composer
