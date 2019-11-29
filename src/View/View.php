@@ -40,6 +40,13 @@ class View
     protected $type;
 
     /**
+     * If the View is a new one or a representation of an existing view on server.
+     *
+     * @var bool
+     */
+    protected $isNew;
+
+    /**
      * The view links
      *
      * @var mixed
@@ -48,71 +55,62 @@ class View
     protected $links;
 
     /**
-     * Primary sort order definitions
+     * View properties.
+     * Check ArangoDB Server documentation for more details.
      *
-     * @var mixed
-     * @see https://www.arangodb.com/docs/stable/arangosearch-views.html#primary-sort-order
-     */
-    protected $primarySort;
-
-    /**
-     * Wait at least this many milliseconds between committing View data store
-     * changes and making documents visible to queries.
-     *
-     * @var int
-     */
-    protected $commitInterval = 1000;
-
-    /**
-     * Consolidation policy
-     *
-     * @var mixed
+     * @var array
      * @see https://www.arangodb.com/docs/stable/arangosearch-views.html#view-properties
      */
-    protected $consolidationPolicy = null;
+    protected $attributes = [];
 
     /**
-     * ait at least this many milliseconds between applying 'consolidationPolicy' to
-     * consolidate View data store and possibly release space on the filesystem
-     * (default: 10000, to disable use: 0).
+     * View properties default values.
+     * Check ArangoDB Server documentation for more details.
      *
-     * @var int
+     * @var array
      * @see https://www.arangodb.com/docs/stable/arangosearch-views.html#view-properties
      */
-    protected $consolidationInterval = 10000;
+    protected $defaults = [
+        'writebufferActive' => 0,
+        'writebufferSizeMax' => 33554432,
+        'writebufferIdle' => 64,
+        'commitIntervalMsec' => 1000,
+        'consolidationIntervalMsec' => 10000,
+        'consolidationPolicy' => [],
+        'cleanupIntervalStep' => 2
+    ];
 
     /**
-     * Wait at least this many commits between removing unused files in the
-     * ArangoSearch data directory
+     * View constructor.
      *
-     * @var int
+     * @param string $name The name of View
+     * @param string $type The type of View
+     * @param array $attributes View attributes
+     *
      * @see https://www.arangodb.com/docs/stable/arangosearch-views.html#view-properties
      */
-    protected $cleanupIntervalStep = 2;
+    public function __construct(string $name, string $type = "arangosearch", array $attributes = [])
+    {
+        $this->name = $name;
+        $this->type = $type;
+        $this->attributes = array_merge($this->defaults, $attributes);
+
+        $this->isNew = true;
+        $this->id = isset($this->attributes['id']) ? $this->attributes['id'] : '';
+        $this->globallyUniqueId = isset($this->attributes['globallyUniqueId']) ? $this->attributes['globallyUniqueId'] : '';
+
+        if ($this->id && $this->globallyUniqueId) {
+            $this->isNew = false;
+        }
+    }
 
     /**
-     * Maximum number of writers (segments) cached in the pool.
+     * Returns true if is a new object
      *
-     * @var int
-     * @see https://www.arangodb.com/docs/stable/arangosearch-views.html#view-properties
+     * @return bool
      */
-    protected $writeBufferIdle = 64;
-
-    /**
-     * Maximum memory byte size per writer (segment) before a writer (segment) flush is triggered
-     *
-     * @var int
-     * @see https://www.arangodb.com/docs/stable/arangosearch-views.html#view-properties
-     */
-    protected $writeBufferSizeMax = 33554432;
-
-    /**
-     *  Maximum number of concurrent active writers (segments) that perform a
-     * transaction. Other writers (segments) wait till current active writers
-     * (segments) finish.
-     *
-     * @var int
-     * @see https://www.arangodb.com/docs/stable/arangosearch-views.html#view-properties
-     */
-    protected $writeBufferActive = 0;
+    public function isNew(): bool
+    {
+        return $this->isNew;
+    }
 }

@@ -52,6 +52,9 @@
         <testsuite name="Transaction">
             <directory suffix="Test.php">tests/Transaction</directory>
         </testsuite>
+        <testsuite name="View">
+            <directory suffix="Test.php">tests/View</directory>
+        </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
