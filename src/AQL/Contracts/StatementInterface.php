@@ -7,7 +7,7 @@ namespace ArangoDB\AQL\Contracts;
  * StatementInterface
  *
  * @package ArangoDB\AQL
- * @author Lucas S. Vieira
+ * @author  Lucas S. Vieira
  */
 interface StatementInterface
 {

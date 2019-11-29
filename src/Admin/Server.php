@@ -14,7 +14,7 @@ use GuzzleHttp\Exception\BadResponseException;
  * Manages some server admin features.
  *
  * @package ArangoDB\Admin
- * @author Lucas S. Vieira
+ * @author  Lucas S. Vieira
  */
 abstract class Server
 {
@@ -46,11 +46,11 @@ abstract class Server
      * Returns the storage engine the server is configured to use.
      * (mmfiles or rocksdb)
      *
-     * @param Connection $connection Connection object to use.
+     * @param  Connection $connection Connection object to use.
      * @return string Engine name. Will be <b>mmfiles</b> or <b>rocksdb</b>
      *
      * @throws GuzzleException|ServerException
-     * @see https://www.arangodb.com/docs/stable/http/miscellaneous-functions.html#return-server-database-engine-type
+     * @see    https://www.arangodb.com/docs/stable/http/miscellaneous-functions.html#return-server-database-engine-type
      */
     public static function engine(Connection $connection): string
     {

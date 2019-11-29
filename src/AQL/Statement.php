@@ -13,7 +13,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  * Represents an prepared AQL Statement
  *
  * @package ArangoDB\AQL
- * @author Lucas S. Vieira
+ * @author  Lucas S. Vieira
  */
 class Statement implements StatementInterface
 {
@@ -94,7 +94,7 @@ class Statement implements StatementInterface
      * Binds a value to specified parameter name.
      *
      * @param string $parameter Parameter name.
-     * @param mixed $value Value for parameter.
+     * @param mixed  $value     Value for parameter.
      *
      * @return bool True if the parameter has an alias on query string. False otherwise.
      *

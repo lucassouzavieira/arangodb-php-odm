@@ -10,14 +10,15 @@ use ArangoDB\Cursor\Contracts\CursorInterface;
  * QueryInterface
  *
  * @package ArangoDB\AQL
- * @author Lucas S. Vieira
+ * @author  Lucas S. Vieira
  */
 interface QueryInterface
 {
     /**
      * Instantiate a new StatementInterface object with the specified query
      *
-     * @param string $query
+     * @param  string $query
+     *
      * @return StatementInterface
      */
     public function query(string $query): StatementInterface;
@@ -25,7 +26,8 @@ interface QueryInterface
     /**
      * Execute an statment on server and returns a cursor
      *
-     * @param StatementInterface $statement
+     * @param  StatementInterface $statement
+     *
      * @return Base
      */
     public function execute(StatementInterface $statement): CursorInterface;

@@ -14,7 +14,7 @@ use ArangoDB\Entity\Contracts\EntityInterface;
  * Represents an user defined aql function on server.
  *
  * @package ArangoDB\AQL\Functions
- * @author Lucas S. Vieira
+ * @author  Lucas S. Vieira
  */
 class AQLFunction implements EntityInterface
 {
@@ -65,11 +65,11 @@ class AQLFunction implements EntityInterface
     /**
      * AQLFunction constructor.
      *
-     * @param string $name The AQL function name.
-     * @param string $code The AQL function code.
-     * @param Connection|null $connection Connection object to use.
-     * @param bool $isDeterministic Indicates if the function results are deterministic.
-     * @param bool $isNew Indicates if the function object is a new one or not.
+     * @param string          $name            The AQL function name.
+     * @param string          $code            The AQL function code.
+     * @param Connection|null $connection      Connection object to use.
+     * @param bool            $isDeterministic Indicates if the function results are deterministic.
+     * @param bool            $isNew           Indicates if the function object is a new one or not.
      */
     public function __construct(string $name, string $code, Connection $connection = null, bool $isDeterministic = true, bool $isNew = true)
     {

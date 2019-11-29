@@ -18,7 +18,7 @@ use phpDocumentor\Reflection\Types\Null_;
  * Represents an user defined task on server.
  *
  * @package ArangoDB\Admin\Task
- * @author Lucas S. Vieira
+ * @author  Lucas S. Vieira
  */
 class Task implements EntityInterface
 {
@@ -72,10 +72,10 @@ class Task implements EntityInterface
     /**
      * Task constructor.
      *
-     * @param string $name Task name.
-     * @param string $command Task command.
+     * @param string          $name       Task name.
+     * @param string          $command    Task command.
      * @param Connection|null $connection Connection to use.
-     * @param array $options Additional options for task.
+     * @param array           $options    Additional options for task.
      *
      * @throws InvalidParameterException|MissingParameterException
      */

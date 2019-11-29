@@ -11,7 +11,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  * Manager parameters/values binding to statements
  *
  * @package ArangoDB\AQL
- * @author Lucas S. Vieira
+ * @author  Lucas S. Vieira
  */
 class BindContainer extends ArrayList
 {
@@ -35,8 +35,8 @@ class BindContainer extends ArrayList
      * Add validation to value being set.
      * All values must be primitives data types
      *
-     * @param int|string $key
-     * @param mixed $value
+     * @param  int|string $key
+     * @param  mixed      $value
      * @throws InvalidParameterException
      */
     public function put($key, $value): void
