@@ -162,8 +162,7 @@ class AQLFunction implements EntityInterface
     {
         try {
             if ($this->hasConnection()) {
-                $response = $this->connection->post(Api::AQL_USER_FUNCTION, $this->toArray());
-                $data = json_decode((string)$response->getBody(), true);
+                $this->connection->post(Api::AQL_USER_FUNCTION, $this->toArray());
                 $this->isNew = false;
                 return true;
             }
