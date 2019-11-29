@@ -138,7 +138,7 @@ class AQLFunction implements EntityInterface
      */
     public function hasConnection(): bool
     {
-        return !is_null($this->connection);
+        return !($this->connection === null);
     }
 
     /**

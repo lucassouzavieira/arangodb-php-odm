@@ -125,7 +125,7 @@ class Traversal
                 RETURN p", $depth, $direction, $vertex->getId(), $graph);
 
 
-        if (is_null($vertex->getCollection())) {
+        if ($vertex->getCollection() === null) {
             throw new Exception("The given Vertex object hasn't a Connection set.");
         }
 
