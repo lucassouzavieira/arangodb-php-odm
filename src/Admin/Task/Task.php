@@ -72,10 +72,10 @@ class Task implements EntityInterface
     /**
      * Task constructor.
      *
-     * @param string          $name       Task name.
-     * @param string          $command    Task command.
+     * @param string $name Task name.
+     * @param string $command Task command.
      * @param Connection|null $connection Connection to use.
-     * @param array           $options    Additional options for task.
+     * @param array $options Additional options for task.
      *
      * @throws InvalidParameterException|MissingParameterException
      */
@@ -241,8 +241,7 @@ class Task implements EntityInterface
     {
         try {
             if (!$this->isNew() && $this->hasConnection()) {
-                $response = $this->connection->delete(Api::addUriParam(Api::ADMIN_TASKS, $this->getId()));
-                $data = json_decode((string)$response->getBody(), true);
+                $this->connection->delete(Api::addUriParam(Api::ADMIN_TASKS, $this->getId()));
                 return true;
             }
 

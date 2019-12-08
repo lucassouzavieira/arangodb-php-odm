@@ -2,13 +2,13 @@
 
 namespace Unit\AQL;
 
-use ArangoDB\AQL\Functions\AQLFunction;
-use ArangoDB\Exceptions\ServerException;
 use Unit\TestCase;
 use ArangoDB\AQL\AQL;
 use ArangoDB\AQL\Statement;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Handler\MockHandler;
+use ArangoDB\AQL\Functions\AQLFunction;
+use ArangoDB\Exceptions\ServerException;
 use ArangoDB\AQL\Exceptions\AQLException;
 
 class AQLTest extends TestCase
@@ -109,6 +109,6 @@ class AQLTest extends TestCase
         ]);
 
         $this->expectException(ServerException::class);
-        $list = AQL::functions($this->getConnectionObject($mock));
+        AQL::functions($this->getConnectionObject($mock));
     }
 }

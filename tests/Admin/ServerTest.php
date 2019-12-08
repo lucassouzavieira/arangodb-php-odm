@@ -53,7 +53,7 @@ class ServerTest extends TestCase
         ]);
 
         $this->expectException(ServerException::class);
-        $status = Server::isAvailable($this->getConnectionObject($mock));
+        Server::isAvailable($this->getConnectionObject($mock));
     }
 
     public function testEngine()
@@ -87,7 +87,7 @@ class ServerTest extends TestCase
         ]);
 
         $this->expectException(ServerException::class);
-        $role = Server::role($this->getConnectionObject($mock));
+        Server::role($this->getConnectionObject($mock));
     }
 
     public function testLogLevel()
@@ -103,6 +103,6 @@ class ServerTest extends TestCase
         ]);
 
         $this->expectException(ServerException::class);
-        $logConfiguration = Server::logLevel($this->getConnectionObject($mock));
+        Server::logLevel($this->getConnectionObject($mock));
     }
 }

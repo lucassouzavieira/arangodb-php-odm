@@ -51,7 +51,7 @@ class AdminTest extends TestCase
         ]);
 
         $this->expectException(ServerException::class);
-        $user = Admin::user($this->getConnectionObject($mock), 'tester');
+        Admin::user($this->getConnectionObject($mock), 'tester');
     }
 
     public function testStatistics()
@@ -67,7 +67,7 @@ class AdminTest extends TestCase
         ]);
 
         $this->expectException(ServerException::class);
-        $statistics = Admin::statistics($this->getConnectionObject($mock));
+        Admin::statistics($this->getConnectionObject($mock));
     }
 
     public function testTasks()
