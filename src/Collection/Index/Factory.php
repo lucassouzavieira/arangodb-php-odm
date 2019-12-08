@@ -28,14 +28,22 @@ final class Factory
             throw new MissingParameterException("attributes['type']");
         }
 
-        if ($attributes['type'] === 'primary') {
-            return new PrimaryIndex($attributes['fields'], $attributes);
+        $indexes = [
+            'primary' => PrimaryIndex::class,
+            'edge' => EdgeIndex::class,
+            'fulltext' => FullTextIndex::class,
+            'persistent' => PersistentIndex::class,
+            'hash' => HashIndex::class,
+            'geo' => GeoSpatialIndex::class,
+            'skiplist' => SkipListIndex::class,
+            'ttl' => TTLIndex::class,
+        ];
+
+        if (!array_key_exists($attributes['type'], $indexes)) {
+            throw new IndexException("Couldn't identify the proper index");
         }
 
-        if ($attributes['type'] === 'edge') {
-            return new EdgeIndex($attributes['fields'], $attributes);
-        }
-
+        // Specific indexes with proper constructors.
         if ($attributes['type'] === 'fulltext') {
             return new FullTextIndex($attributes['fields'], $attributes['minLength'], $attributes);
         }
@@ -44,22 +52,15 @@ final class Factory
             return new PersistentIndex($attributes['fields'], $attributes);
         }
 
-        if ($attributes['type'] === 'hash') {
-            return new HashIndex($attributes['fields'], $attributes);
-        }
-
         if ($attributes['type'] === 'geo') {
             return new GeoSpatialIndex($attributes['fields'], true, $attributes);
-        }
-
-        if ($attributes['type'] === 'skiplist') {
-            return new SkipListIndex($attributes['fields'], $attributes);
         }
 
         if ($attributes['type'] === 'ttl') {
             return new TTLIndex($attributes['fields'], $attributes['expireAfter'], $attributes);
         }
 
-        throw new IndexException("Couldn't identify the proper index");
+        $class = $indexes[$attributes['type']];
+        return new $class($attributes['fields'], $attributes);
     }
 }
