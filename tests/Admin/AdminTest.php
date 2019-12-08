@@ -2,8 +2,8 @@
 
 namespace Unit\Admin;
 
-use ArangoDB\Auth\User;
 use Unit\TestCase;
+use ArangoDB\Auth\User;
 use ArangoDB\Admin\Admin;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Admin\Task\Task;
@@ -96,7 +96,7 @@ class AdminTest extends TestCase
         ]);
 
         $this->expectException(ServerException::class);
-        $tasks = Admin::tasks($this->getConnectionObject($mock));
+        Admin::tasks($this->getConnectionObject($mock));
     }
 
     public function testTime()
@@ -112,7 +112,7 @@ class AdminTest extends TestCase
         ]);
 
         $this->expectException(ServerException::class);
-        $time = Admin::time($this->getConnectionObject($mock));
+        Admin::time($this->getConnectionObject($mock));
     }
 
     public function testFlushWal()
@@ -128,7 +128,7 @@ class AdminTest extends TestCase
         ]);
 
         $this->expectException(ServerException::class);
-        $tasks = Admin::flushWal($this->getConnectionObject($mock));
+        Admin::flushWal($this->getConnectionObject($mock));
     }
 
     public function testWalProperties()
@@ -160,7 +160,7 @@ class AdminTest extends TestCase
         ]);
 
         $this->expectException(ServerException::class);
-        $tasks = Admin::walProperties($this->getConnectionObject($mock));
+        Admin::walProperties($this->getConnectionObject($mock));
     }
 
     public function testWalPropertiesWhenNotImplemented()
@@ -170,7 +170,7 @@ class AdminTest extends TestCase
         ]);
 
         $this->expectException(ServerException::class);
-        $tasks = Admin::walProperties($this->getConnectionObject($mock));
+        Admin::walProperties($this->getConnectionObject($mock));
     }
 
     public function testWalTransactions()
@@ -197,12 +197,12 @@ class AdminTest extends TestCase
         ]);
 
         $this->expectException(ServerException::class);
-        $tasks = Admin::walTransactions($this->getConnectionObject($mock));
+        Admin::walTransactions($this->getConnectionObject($mock));
     }
 
     public function testWalTransactionsWhenNotImplemented()
     {
         $this->expectException(ServerException::class);
-        $tasks = Admin::walProperties($this->getConnectionObject());
+        Admin::walProperties($this->getConnectionObject());
     }
 }
