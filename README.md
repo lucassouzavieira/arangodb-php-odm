@@ -15,12 +15,12 @@
 ## Installation
 #### Using composer
 
-- ##### ```3.5.x``` versions of ArangoDB server.  
-  *  Run the command bellow on your project root.      
+- ##### ```3.5.x``` versions of ArangoDB server
+  * Run the command bellow on your project root.      
     `composer require lvieira/arangodb-php-odm:^3.5`
 
-- ##### ```3.4.x``` versions of ArangoDB server.  
-  *  Run the command bellow on your project root.      
+- ##### ```3.4.x``` versions of ArangoDB server
+  * Run the command bellow on your project root.      
     `composer require lvieira/arangodb-php-odm:^3.4`
         
 
@@ -267,7 +267,7 @@ try {
 ```
 ## Documentation
 
-Check the full documentation of project:
+Check the full documentation of project:  
  - For [v3.5.x versions](https://lucassouzavieira.github.io/arangodb-php-odm/v3.5.0/index.html)
  - For [v3.4.x versions](https://lucassouzavieira.github.io/arangodb-php-odm/v3.4.0/index.html)
  
