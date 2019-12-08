@@ -30,7 +30,7 @@ class ServerTest extends TestCase
         ]);
 
         $this->expectException(ServerException::class);
-        $version = Server::version($this->getConnectionObject($mock));
+        Server::version($this->getConnectionObject($mock));
     }
 
     public function testIsAvailable()
@@ -70,7 +70,7 @@ class ServerTest extends TestCase
         ]);
 
         $this->expectException(ServerException::class);
-        $engine = Server::engine($this->getConnectionObject($mock));
+        Server::engine($this->getConnectionObject($mock));
     }
 
     public function testRole()
