@@ -3,11 +3,11 @@
 
 namespace Unit\Batch;
 
-use ArangoDB\Exceptions\ServerException;
 use Unit\TestCase;
 use ArangoDB\Batch\Import;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Handler\MockHandler;
+use ArangoDB\Exceptions\ServerException;
 
 class ImportTest extends TestCase
 {
@@ -43,7 +43,7 @@ class ImportTest extends TestCase
     {
         $contents = $this->getContent();
         $this->expectException(ServerException::class);
-        $result = Import::importJsonDocuments($this->getConnectionObject(), 'world_cup_editions', $contents);
+        Import::importJsonDocuments($this->getConnectionObject(), 'world_cup_editions', $contents);
     }
 
     public function testImportFromJsonDocumentsThrowServerException()
@@ -57,7 +57,7 @@ class ImportTest extends TestCase
 
         $contents = $this->getContent();
         $this->expectException(ServerException::class);
-        $result = Import::importJsonDocuments($this->getConnectionObject($mock), 'world_cup_editions', $contents);
+        Import::importJsonDocuments($this->getConnectionObject($mock), 'world_cup_editions', $contents);
     }
 
     public function testImportFromJsonDocumentsThrowServerExceptionOnDatabaseExceptionThrown()
@@ -70,7 +70,7 @@ class ImportTest extends TestCase
 
         $contents = $this->getContent();
         $this->expectException(ServerException::class);
-        $result = Import::importJsonDocuments($this->getConnectionObject($mock), 'world_cup_editions', $contents);
+        Import::importJsonDocuments($this->getConnectionObject($mock), 'world_cup_editions', $contents);
     }
 
     public function testImportFromArrayDocuments()
@@ -88,7 +88,7 @@ class ImportTest extends TestCase
     {
         $contents = $this->getContent("world_cup_array_import.txt");
         $this->expectException(ServerException::class);
-        $result = Import::importArrayDocuments($this->getConnectionObject(), 'world_cup_editions', $contents);
+        Import::importArrayDocuments($this->getConnectionObject(), 'world_cup_editions', $contents);
     }
 
     public function testImportFromArrayDocumentsThrowServerException()
@@ -102,7 +102,7 @@ class ImportTest extends TestCase
 
         $contents = $this->getContent("world_cup_array_import.txt");
         $this->expectException(ServerException::class);
-        $result = Import::importArrayDocuments($this->getConnectionObject($mock), 'world_cup_editions', $contents);
+        Import::importArrayDocuments($this->getConnectionObject($mock), 'world_cup_editions', $contents);
     }
 
     public function testImportFromArrayDocumentsThrowServerExceptionOnDatabaseExceptionThrown()
@@ -115,6 +115,6 @@ class ImportTest extends TestCase
 
         $contents = $this->getContent("world_cup_array_import.txt");
         $this->expectException(ServerException::class);
-        $result = Import::importArrayDocuments($this->getConnectionObject($mock), 'world_cup_editions', $contents);
+        Import::importArrayDocuments($this->getConnectionObject($mock), 'world_cup_editions', $contents);
     }
 }

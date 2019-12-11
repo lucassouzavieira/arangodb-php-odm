@@ -19,7 +19,7 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
  * Manages some Admin features.
  *
  * @package ArangoDB\Admin
- * @author Lucas S. Vieira
+ * @author  Lucas S. Vieira
  */
 abstract class Admin
 {
@@ -27,7 +27,7 @@ abstract class Admin
      * Finds a user on server.
      *
      * @param Connection $connection Connection object to use.
-     * @param string $username Username of user.
+     * @param string     $username   Username of user.
      *
      * @return User|bool User objects if the user with the given 'username' exists, false if not.
      *
@@ -139,9 +139,9 @@ abstract class Admin
      * present in the collection journals and datafiles, for example, when dumping
      * the data of a collection.
      *
-     * @param Connection $connection Connection object to use.
-     * @param bool $waitForSync If true, the operation should block until the not-yet synchronized data in the write-ahead log was synchronized to disk.
-     * @param bool $waitForCollector If true, the operation should block until the data in the flushed log has been collected by the write-ahead log garbage collector.
+     * @param Connection $connection       Connection object to use.
+     * @param bool       $waitForSync      If true, the operation should block until the not-yet synchronized data in the write-ahead log was synchronized to disk.
+     * @param bool       $waitForCollector If true, the operation should block until the data in the flushed log has been collected by the write-ahead log garbage collector.
      *
      * @return bool True if operation was successful. False otherwise.
      *
@@ -182,7 +182,7 @@ abstract class Admin
      * @return array
      *
      * @throws ServerException|GuzzleException
-     * @see https://www.arangodb.com/docs/stable/http/miscellaneous-functions.html#retrieves-the-configuration-of-the-write-ahead-log
+     * @see    https://www.arangodb.com/docs/stable/http/miscellaneous-functions.html#retrieves-the-configuration-of-the-write-ahead-log
      */
     public static function walProperties(Connection $connection): array
     {
@@ -208,7 +208,7 @@ abstract class Admin
     /**
      * Returns information about the currently running transactions.
      *
-     * @param Connection $connection Connection object to use.
+     * @param  Connection $connection Connection object to use.
      * @return array An array with the following parameters:<br>
      *  <b>runningTransactions</b>: number of currently running transactions<br>
      *  <b>minLastCollected</b>: minimum id of the last collected logfile (at the start of each running transaction). This is null if no transaction is running.<br>

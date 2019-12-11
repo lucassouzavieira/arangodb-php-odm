@@ -9,7 +9,7 @@ use ArangoDB\Exceptions\BaseException;
  * Statement exception
  *
  * @package ArangoDB\AQL\Exceptions
- * @author Lucas S. Vieira
+ * @author  Lucas S. Vieira
  */
 class StatementException extends BaseException
 {

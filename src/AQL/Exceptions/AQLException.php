@@ -9,7 +9,7 @@ use ArangoDB\Exceptions\BaseException;
  * Represents an AQL exception
  *
  * @package ArangoDB\AQL\Exceptions
- * @author Lucas S. Vieira
+ * @author  Lucas S. Vieira
  */
 class AQLException extends BaseException
 {

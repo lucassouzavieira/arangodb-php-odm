@@ -58,7 +58,7 @@ abstract class Authenticable
     protected function authenticate(array $credentials): void
     {
         try {
-            $response = $this->restClient->post($this->getAuthenticationEndpoint($this->options['database']), $credentials);
+            $response = $this->restClient->post($this->getAuthenticationEndpoint(), $credentials);
             $this->authToken = json_decode((string)$response->getBody(), true);
         } catch (BadResponseException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
@@ -102,10 +102,9 @@ abstract class Authenticable
     /**
      * Authentication endpoint for a given database
      *
-     * @param string $database
      * @return string
      */
-    private function getAuthenticationEndpoint(string $database)
+    private function getAuthenticationEndpoint()
     {
         return sprintf(Api::DB . "%s" . Api::AUTH_BASE, $this->getDatabaseName());
     }

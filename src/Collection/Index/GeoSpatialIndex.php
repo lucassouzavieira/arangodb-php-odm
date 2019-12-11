@@ -39,9 +39,11 @@ final class GeoSpatialIndex extends Index
     }
 
     /**
+     * If the index is a GeoJson.
+     *
      * @return bool
      */
-    public function getGeoJson(): bool
+    public function isGeoJson(): bool
     {
         return $this->geoJson;
     }
@@ -55,7 +57,7 @@ final class GeoSpatialIndex extends Index
     {
         return [
             'type' => $this->getType(),
-            'geoJson' => $this->getGeoJson(),
+            'geoJson' => $this->isGeoJson(),
             'fields' => $this->getFields()
         ];
     }
@@ -68,7 +70,7 @@ final class GeoSpatialIndex extends Index
     public function toArray(): array
     {
         $values = parent::toArray();
-        $values['geoJson'] = $this->getGeoJson();
+        $values['geoJson'] = $this->isGeoJson();
         return $values;
     }
 }

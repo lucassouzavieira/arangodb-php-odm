@@ -5,8 +5,8 @@ namespace Unit\Connection;
 use Unit\TestCase;
 use ArangoDB\Database\Database;
 use ArangoDB\Connection\Connection;
-use ArangoDB\Exceptions\ConnectionException;
 use ArangoDB\Auth\Exceptions\AuthException;
+use ArangoDB\Exceptions\ConnectionException;
 
 class ConnectionTest extends TestCase
 {
@@ -105,7 +105,7 @@ class ConnectionTest extends TestCase
     public function testThrowConnectionException()
     {
         $this->expectException(ConnectionException::class);
-        $connection = new Connection([
+        new Connection([
             'username' => getenv('ARANGODB_USERNAME'),
             'password' => getenv('ARANGODB_PASSWORD'),
             'database' => getenv('ARANGODB_DBNAME'),
@@ -183,8 +183,8 @@ class ConnectionTest extends TestCase
         ]);
 
         $this->assertNotNull($connection);
-        $getAuthorizationHeaders = new \ReflectionMethod(Connection::class, 'getAuthorizationHeader');
-        $getAuthorizationHeaders->setAccessible(true);
-        $this->assertArrayHasKey('Authorization', $getAuthorizationHeaders->invoke($connection));
+        $getAuthHeaders = new \ReflectionMethod(Connection::class, 'getAuthorizationHeader');
+        $getAuthHeaders->setAccessible(true);
+        $this->assertArrayHasKey('Authorization', $getAuthHeaders->invoke($connection));
     }
 }

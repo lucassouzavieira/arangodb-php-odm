@@ -18,14 +18,14 @@ class GeoSpatialIndexTest extends TestCase
         $index = new GeoSpatialIndex(['my_geo_attr']);
 
         $this->assertTrue($index->isNew());
-        $this->assertTrue($index->getGeoJson());
+        $this->assertTrue($index->isGeoJson());
         $this->assertEquals("geo", $index->getType());
     }
 
     public function testGetGeoJSON()
     {
         $index = new GeoSpatialIndex(['my_geo_attr'], false);
-        $this->assertFalse($index->getGeoJson());
+        $this->assertFalse($index->isGeoJson());
     }
 
     public function testToArray()

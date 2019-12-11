@@ -17,15 +17,15 @@ use ArangoDB\AQL\Contracts\StatementInterface;
  * Manages some AQL features
  *
  * @package ArangoDB\AQL
- * @author Lucas S. Vieira
+ * @author  Lucas S. Vieira
  */
 abstract class AQL
 {
     /**
      * Validates a given AQL statement
      *
-     * @param StatementInterface $statement Statement to be validated.
-     * @param Connection $connection Connection object to use.
+     * @param StatementInterface $statement  Statement to be validated.
+     * @param Connection         $connection Connection object to use.
      *
      * @return bool
      *
@@ -54,7 +54,7 @@ abstract class AQL
      * Returns all registered AQL user functions.
      *
      * @param Connection $connection Connection object to use.
-     * @param string $namespace Returns all registered AQL user functions from namespace 'namespace' under result.
+     * @param string     $namespace  Returns all registered AQL user functions from namespace 'namespace' under result.
      *
      * @return ArrayList ArrayList with all AQL functions from server.
      *

@@ -1,10 +1,10 @@
-Fixes **#[Related Issue]**
+Fixes **#[Related Issue](url)**
 
-### Description
+# Description
 
-[Insert a short description here]
+_(Insert a short description here)_
 
-### Change log
+## Change log
 
 - Added:
 - Changed:

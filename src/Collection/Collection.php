@@ -302,7 +302,7 @@ class Collection implements \JsonSerializable
      */
     public function getId()
     {
-        return is_null($this->attributes['objectId']) ? $this->attributes['id'] : $this->attributes['objectId'];
+        return ($this->attributes['objectId'] === null) ? $this->attributes['id'] : $this->attributes['objectId'];
     }
 
     /**

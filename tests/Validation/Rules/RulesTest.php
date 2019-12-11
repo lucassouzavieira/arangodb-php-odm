@@ -43,7 +43,6 @@ class RulesTest extends TestCase
     public function testNumericRule()
     {
         $validator = Rules::numeric();
-        $string = "We will rock you!";
 
         $this->assertTrue($validator->isValid('12.4')); // Numeric string.
         $this->assertTrue($validator->isValid(rand(1, 100)));

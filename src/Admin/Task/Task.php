@@ -12,12 +12,13 @@ use ArangoDB\Entity\Contracts\EntityInterface;
 use ArangoDB\Validation\Admin\Task\TaskValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
+use phpDocumentor\Reflection\Types\Null_;
 
 /**
  * Represents an user defined task on server.
  *
  * @package ArangoDB\Admin\Task
- * @author Lucas S. Vieira
+ * @author  Lucas S. Vieira
  */
 class Task implements EntityInterface
 {
@@ -156,7 +157,7 @@ class Task implements EntityInterface
      */
     public function hasConnection(): bool
     {
-        return !is_null($this->connection);
+        return !($this->connection === null);
     }
 
     /**
@@ -240,8 +241,7 @@ class Task implements EntityInterface
     {
         try {
             if (!$this->isNew() && $this->hasConnection()) {
-                $response = $this->connection->delete(Api::addUriParam(Api::ADMIN_TASKS, $this->getId()));
-                $data = json_decode((string)$response->getBody(), true);
+                $this->connection->delete(Api::addUriParam(Api::ADMIN_TASKS, $this->getId()));
                 return true;
             }
 
