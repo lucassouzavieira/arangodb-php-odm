@@ -183,7 +183,7 @@ class DatabaseTest extends TestCase
 
         $db = new Database($this->getConnectionObject($mock));
         $this->expectException(DatabaseException::class);
-        $graphs = $db->getAllGraphs();
+        $db->getAllGraphs();
     }
 
     public function testGetCollection()

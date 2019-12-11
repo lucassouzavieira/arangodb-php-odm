@@ -143,7 +143,7 @@ abstract class Rules
                     return false;
                 }
 
-                return is_null($value) || is_int($value) || is_string($value) || is_bool($value) || is_float($value);
+                return $value === null || is_int($value) || is_string($value) || is_bool($value) || is_float($value);
             }
         };
     }

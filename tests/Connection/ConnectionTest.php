@@ -105,7 +105,7 @@ class ConnectionTest extends TestCase
     public function testThrowConnectionException()
     {
         $this->expectException(ConnectionException::class);
-        $connection = new Connection([
+        new Connection([
             'username' => getenv('ARANGODB_USERNAME'),
             'password' => getenv('ARANGODB_PASSWORD'),
             'database' => getenv('ARANGODB_DBNAME'),
