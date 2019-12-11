@@ -4,7 +4,7 @@ Fixes **#[Related Issue](url)**
 
 _(Insert a short description here)_
 
-# Change log
+## Change log
 
 - Added:
 - Changed:
