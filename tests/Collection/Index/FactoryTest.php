@@ -222,6 +222,6 @@ class FactoryTest extends TestCase
         unset($attributes['type']);
 
         $this->expectException(MissingParameterException::class);
-        $index = Factory::factory($attributes);
+        Factory::factory($attributes);
     }
 }

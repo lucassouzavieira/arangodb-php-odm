@@ -3,9 +3,9 @@
 
 namespace Unit\Collection;
 
-use ArangoDB\Document\Vertex;
 use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
+use ArangoDB\Document\Vertex;
 use ArangoDB\Database\Database;
 use ArangoDB\Document\Document;
 use ArangoDB\Collection\Collection;
@@ -491,7 +491,6 @@ class CollectionTest extends TestCase
         $document = new Document(['document' => 'testing'], $collection);
         $document->save();
 
-        $id = $document->getId();
         $doc = $collection->findByKey("unknown");
         $this->assertFalse($doc);
     }
@@ -508,7 +507,7 @@ class CollectionTest extends TestCase
         $db = new Database($this->getConnectionObject($mock));
         $collection = new Collection('test_save_coll', $db);
         $this->expectException(DatabaseException::class);
-        $doc = $collection->findByKey("unknown");
+        $collection->findByKey("unknown");
     }
 
     public function testSave()

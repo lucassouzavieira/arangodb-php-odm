@@ -38,7 +38,7 @@ class StatementTest extends TestCase
         $this->assertTrue($statement->bindValue('@name', 'Theo'));
 
         $this->expectException(StatementException::class);
-        $res = $statement->toAql();
+        $statement->toAql();
     }
 
     public function testBindValue()
