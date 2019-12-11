@@ -17,12 +17,12 @@
 
 ### Using composer
 
-- ##### `3.5.x` versions of ArangoDB server
+- #### `3.5.x` versions of ArangoDB server
 
   - Run the command bellow on your project root.<br>
     `composer require lvieira/arangodb-php-odm:^3.5`
 
-- ##### `3.4.x` versions of ArangoDB server
+- #### `3.4.x` versions of ArangoDB server
 
   - Run the command bellow on your project root.<br>
     `composer require lvieira/arangodb-php-odm:^3.4`

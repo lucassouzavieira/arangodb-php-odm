@@ -5,13 +5,11 @@ namespace Unit\Document;
 
 use ArangoDB\Document\Edge;
 use GuzzleHttp\Psr7\Response;
-use ArangoDB\Document\Document;
 use ArangoDB\Collection\Collection;
+use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\DataStructures\ArrayList;
-use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
-use GuzzleHttp\Handler\MockHandler;
 
 class EdgeTest extends DocumentTestCase
 {
@@ -40,7 +38,6 @@ class EdgeTest extends DocumentTestCase
     public function testConstructorThrowMissingParameterExceptionForFromAttribute()
     {
         $db = $this->getConnectionObject()->getDatabase();
-        $collection = new Collection('doc_tests', $db);
         $attributes = $this->getAttributes(true);
         unset($attributes['_from']);
 
@@ -51,7 +48,6 @@ class EdgeTest extends DocumentTestCase
     public function testConstructorThrowInvalidParameterException()
     {
         $db = $this->getConnectionObject()->getDatabase();
-        $collection = new Collection('doc_tests', $db);
         $attributes = $this->getAttributes(true);
         $attributes['field'] = new ArrayList();
 
