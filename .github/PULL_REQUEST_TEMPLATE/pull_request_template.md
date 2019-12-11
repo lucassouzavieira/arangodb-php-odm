@@ -1,13 +1,14 @@
 Fixes **#[Related Issue](url)**
 
-### Description
+# Description
 
 _(Insert a short description here)_
 
-### Change log
-  - Added:
-  - Changed:
-  - Deprecated:
-  - Removed:
-  - Fixed:
-  - Security:
+# Change log
+
+- Added:
+- Changed:
+- Deprecated:
+- Removed:
+- Fixed:
+- Security:
