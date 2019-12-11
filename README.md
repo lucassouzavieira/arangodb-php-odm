@@ -1,31 +1,36 @@
-[![codecov](https://codecov.io/gh/lucassouzavieira/arangodb-php-odm/branch/develop/graph/badge.svg)](https://codecov.io/gh/lucassouzavieira/arangodb-php-odm)
-[![CodeFactor](https://www.codefactor.io/repository/github/lucassouzavieira/arangodb-php-odm/badge)](https://www.codefactor.io/repository/github/lucassouzavieira/arangodb-php-odm)
+[![codecov](https://codecov.io/gh/lucassouzavieira/arangodb-php-odm/branch/develop/graph/badge.svg)](https://codecov.io/gh/lucassouzavieira/arangodb-php-odm) [![CodeFactor](https://www.codefactor.io/repository/github/lucassouzavieira/arangodb-php-odm/badge)](https://www.codefactor.io/repository/github/lucassouzavieira/arangodb-php-odm)
 
 # ArangoDB PHP ODM
+
 ![ArangoDB](https://www.arangodb.com/wp-content/uploads/2016/05/ArangoDB_logo_@2.png)
 
-### A new PHP driver for ArangoDB
+## A new PHP driver for ArangoDB
 
-#### Build Status
-- 3.4 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=v3.4)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm) 
-- 3.5 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=v3.5)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm) 
+### Build Status
+
+- 3.4 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=v3.4)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
+- 3.5 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=v3.5)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
 - develop [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=develop)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
 - master [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=master)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
 
 ## Installation
-#### Using composer
 
-- ##### ```3.5.x``` versions of ArangoDB server
-  * Run the command bellow on your project root.      
+### Using composer
+
+- ##### `3.5.x` versions of ArangoDB server
+
+  - Run the command bellow on your project root.<br>
     `composer require lvieira/arangodb-php-odm:^3.5`
 
-- ##### ```3.4.x``` versions of ArangoDB server
-  * Run the command bellow on your project root.      
+- ##### `3.4.x` versions of ArangoDB server
+
+  - Run the command bellow on your project root.<br>
     `composer require lvieira/arangodb-php-odm:^3.4`
-        
 
 ## Usage
-#### Setting up a new connection
+
+### Setting up a new connection
+
 ```php
 use ArangoDB\Connection\Connection;
 
@@ -58,8 +63,10 @@ $connection = new Connection([
 ]);
 ```
 
-#### Managing databases
+### Managing databases
+
 With connection, you already set a database. You can get the database instance.
+
 ```php
 use ArangoDB\Database\Database;
 use ArangoDB\Collection\Collection;
@@ -104,7 +111,8 @@ $result = Database::create($connection, 'my_database_name');
 $result = Database::drop($connection, 'db_to_drop');
 ```
 
-#### Collections
+### Collections
+
 You can also work with collections objects directly.
 
 ```php
@@ -135,7 +143,8 @@ foreach ($collection->all() as $document){
 }
 ```
 
-#### Documents
+### Documents
+
 ```php
 use ArangoDB\Document\Document;
 use ArangoDB\Connection\Connection;
@@ -185,8 +194,10 @@ $document->save(); // Will update your document on server;
 $document->delete();
 ```
 
-#### Transactions
-You can perform transactions on ArangoDB Server sending JavaScript code. 
+### Transactions
+
+You can perform transactions on ArangoDB Server sending JavaScript code.
+
 ```php
 use ArangoDB\Exceptions\TransactionException;
 use ArangoDB\Transaction\JavascriptTransaction;
@@ -214,6 +225,7 @@ try {
     return $transactionException->getMessage();
 }
 ```
+
 You can also perform transactions directly from PHP.
 
 ```php
@@ -265,11 +277,14 @@ try {
     $transaction->abort();
 }
 ```
+
 ## Documentation
 
-Check the full documentation of project:  
- - For [v3.5.x versions](https://lucassouzavieira.github.io/arangodb-php-odm/v3.5.0/index.html)
- - For [v3.4.x versions](https://lucassouzavieira.github.io/arangodb-php-odm/v3.4.0/index.html)
- 
+Check the full documentation of project:
+
+- For [v3.5.x versions](https://lucassouzavieira.github.io/arangodb-php-odm/v3.5.0/index.html)
+- For [v3.4.x versions](https://lucassouzavieira.github.io/arangodb-php-odm/v3.4.0/index.html)
+
 ## Contributing
+
 [Check how contribute in this project](CONTRIBUTING.md)
