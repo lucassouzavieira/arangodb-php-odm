@@ -3,6 +3,8 @@
 
 namespace Unit\Transaction;
 
+use ArangoDB\Admin\Admin;
+use ArangoDB\Admin\Server;
 use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Document\Document;
@@ -16,6 +18,12 @@ class StreamTransactionTest extends TestCase
     public function setUp(): void
     {
         $this->loadEnvironment();
+
+        // Skip this test for 3.4 version.
+        if ((float)Server::version($this->getConnectionObject()) < 3.5) {
+            $this->markTestSkipped("ArangoDB versions before the 3.5 doesn't have stream transactions feature");
+        }
+
         parent::setUp();
     }
 
