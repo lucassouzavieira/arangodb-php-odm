@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>ArangoDB\Cursor\Base | ArangoDB - Object Document Mapper for PHP</title>
+
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:ArangoDB_Cursor_Base" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v1.0.0/index.html" data-version="v1.0.0">v1.0.0</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
+                <script>
+            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
+        </script>
+        <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">ArangoDB - Object Document Mapper for PHP</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../../ArangoDB.html">ArangoDB</a></li><li class="backslash">\</li><li><a href="../../ArangoDB/Cursor.html">Cursor</a></li><li class="backslash">\</li><li>Base</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            Base
+                
+        </h1>
+    </div>
+
+    <p>abstract     class
+    <strong>Base</strong>        implements
+        <a href="../../ArangoDB/Cursor/Contracts/CursorInterface.html"><abbr title="ArangoDB\Cursor\Contracts\CursorInterface">CursorInterface</abbr></a>        (<a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/Cursor/Base.php">View source</a>)
+</p>
+
+        
+    
+
+            <div class="description">
+            <p>Base class for Cursors</p>                                </div>
+    
+    
+            <h2>Constants</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td>ID</td>
+                <td class="last">
+                    <p><em>Cursor ID entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>HAS_MORE</td>
+                <td class="last">
+                    <p><em>'hasMore' flag</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>RESULT</td>
+                <td class="last">
+                    <p><em>Cursor result entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>EXTRA</td>
+                <td class="last">
+                    <p><em>Cursor extra entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>STATS</td>
+                <td class="last">
+                    <p><em>Cursor stats entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>COUNT</td>
+                <td class="last">
+                    <p><em>Cursor count entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FULL_COUNT</td>
+                <td class="last">
+                    <p><em>Cursor fullCount entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>CACHE</td>
+                <td class="last">
+                    <p><em>Cursor cache entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>CACHED</td>
+                <td class="last">
+                    <p><em>Cursor cached entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>TYPE</td>
+                <td class="last">
+                    <p><em>Cursor type entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>BASE_URL</td>
+                <td class="last">
+                    <p><em>Cursor baseUrl entry</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>SANITIZE</td>
+                <td class="last">
+                    <p><em>Cursor sanitize option</em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_id">
+                                        protected                                        mixed
+                </td>
+                <td>$id</td>
+                <td class="last">Cursor id</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_data">
+                                        protected                                        <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>
+                </td>
+                <td>$data</td>
+                <td class="last">Result data</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_connection">
+                                        protected                                        <a href="../../ArangoDB/Connection/Connection.html"><abbr title="ArangoDB\Connection\Connection">Connection</abbr></a>
+                </td>
+                <td>$connection</td>
+                <td class="last">Connection object</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_options">
+                                        protected                                        array
+                </td>
+                <td>$options</td>
+                <td class="last">Cursor Options</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_result">
+                                        protected                                        <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>
+                </td>
+                <td>$result</td>
+                <td class="last">Result set</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_hasMore">
+                                        protected                                        boolean
+                </td>
+                <td>$hasMore</td>
+                <td class="last">'hasMore' indicator</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_position">
+                                        protected                                        int
+                </td>
+                <td>$position</td>
+                <td class="last">Current position</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_length">
+                                        protected                                        int
+                </td>
+                <td>$length</td>
+                <td class="last">Total length of current set</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_fullCount">
+                                        protected                                        int
+                </td>
+                <td>$fullCount</td>
+                <td class="last">Full cont of the result set</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_extra">
+                                        protected                                        array
+                </td>
+                <td>$extra</td>
+                <td class="last">Extra data (stats)</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_fetches">
+                                        protected                                        int
+                </td>
+                <td>$fetches</td>
+                <td class="last">Number of HTTP calls made to build the cursor</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_cached">
+                                        protected                                        bool
+                </td>
+                <td>$cached</td>
+                <td class="last">If the result query was served from cached results</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_count">
+                                        protected                                        int
+                </td>
+                <td>$count</td>
+                <td class="last">Number of documents in cursor,</td>
+                <td></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isCached">isCached</a>()
+        
+                                            <p>Return if the Cursor has cached results on server</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getId">getId</a>()
+        
+                                            <p>Returns the cursor ID</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_fetch">fetch</a>()
+        
+                                            <p>Fetch more results from the server</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_isCached">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/Cursor/Base.php#L174">line 174</a></div>
+        <code>                    bool
+    <strong>isCached</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Return if the Cursor has cached results on server</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getId">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/Cursor/Base.php#L184">line 184</a></div>
+        <code>                    mixed
+    <strong>getId</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Returns the cursor ID</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_fetch">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/Cursor/Base.php#L194">line 194</a></div>
+        <code>    abstract        protected        void
+    <strong>fetch</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Fetch more results from the server</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>

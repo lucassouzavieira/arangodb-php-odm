@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>ArangoDB\AQL\BindContainer | ArangoDB - Object Document Mapper for PHP</title>
+
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:ArangoDB_AQL_BindContainer" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                    <form action="#" method="GET">
+                <select id="version-switcher" name="version">
+                                            <option value="../../../v1.0.0/index.html" data-version="v1.0.0">v1.0.0</option>
+                                            <option value="../../../master/index.html" data-version="master">master branch</option>
+                                    </select>
+            </form>
+                <script>
+            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
+        </script>
+        <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">ArangoDB - Object Document Mapper for PHP</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../../ArangoDB.html">ArangoDB</a></li><li class="backslash">\</li><li><a href="../../ArangoDB/AQL.html">AQL</a></li><li class="backslash">\</li><li>BindContainer</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            BindContainer
+                
+        </h1>
+    </div>
+
+    <p>    class
+    <strong>BindContainer</strong>        extends <a href="../../ArangoDB/DataStructures/ArrayList.html"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>        (<a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/AQL/BindContainer.php">View source</a>)
+</p>
+
+        
+    
+
+            <div class="description">
+            <p>Manager parameters/values binding to statements</p>                                </div>
+    
+    
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_content">
+                                        protected                                        array
+                </td>
+                <td>$content</td>
+                <td class="last">List of data</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#property_content"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_position">
+                                        protected                                        int
+                </td>
+                <td>$position</td>
+                <td class="last">Current index</td>
+                <td><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#property_position"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_validator">
+                                        protected                                        <a href="../../ArangoDB/Validation/Document/DocumentValidator.html"><abbr title="ArangoDB\Validation\Document\DocumentValidator">DocumentValidator</abbr></a>
+                </td>
+                <td>$validator</td>
+                <td class="last">Validate input data</td>
+                <td></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>()
+        
+                                            <p>BindContainer constructor.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    false|string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___toString">__toString</a>()
+        
+                                            <p>String representation of ArrayList</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method___toString"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_first">first</a>()
+        
+                                            <p>Get the first value of list</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_first"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_last">last</a>()
+        
+                                            <p>Get the last value of list</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_last"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_get">get</a>($key)
+        
+                                            <p>Get a value by it's key</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_get"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_push">push</a>(mixed $value)
+        
+                                            <p>Add a value to list</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_push"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_put">put</a>(string|integer $key, mixed $value)
+        
+                                            <p>Add validation to value being set.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_has">has</a>($key)
+        
+                                            <p>Check if a given key exists on list</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_has"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_remove">remove</a>($key)
+        
+                                            <p>Remove a value by it's key on list</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_remove"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_toArray">toArray</a>()
+        
+                                            <p>Return an array representation for list</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_toArray"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_values">values</a>()
+        
+                                            <p>Return an array with list values only</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_values"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_append">append</a>(<a href="../../ArangoDB/DataStructures/Contracts/ListInterface.html"><abbr title="ArangoDB\DataStructures\Contracts\ListInterface">ListInterface</abbr></a> $list)
+        
+                                            <p>Appends a list to another.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_append"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array|mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_jsonSerialize">jsonSerialize</a>()
+        
+                                            <p>Return a JSON representation of list</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_jsonSerialize"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_current">current</a>()
+        
+                                            <p>Return the current element</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_current"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_next">next</a>()
+        
+                                            <p>Move forward to next element</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_next"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_key">key</a>()
+        
+                                            <p>Return the key of the current element</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_key"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_valid">valid</a>()
+        
+                                            <p>Checks if current position is valid</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_valid"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_rewind">rewind</a>()
+        
+                                            <p>Rewind the Iterator to the first element</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_rewind"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_count">count</a>()
+        
+                                            <p>Count elements of an object</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../ArangoDB/DataStructures/ArrayList.html#method_count"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getAll">getAll</a>()
+        
+                                            <p>Get the stored vars</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/AQL/BindContainer.php#L28">line 28</a></div>
+        <code>                    
+    <strong>__construct</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>BindContainer constructor.</p>                                                </div>
+                <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___toString">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method___toString"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L43">line 43</a></div>
+        <code>                    false|string
+    <strong>__toString</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>String representation of ArrayList</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>false|string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_first">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_first"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L53">line 53</a></div>
+        <code>                    mixed
+    <strong>first</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get the first value of list</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_last">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_last"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L64">line 64</a></div>
+        <code>                    mixed
+    <strong>last</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get the last value of list</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_get">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_get"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L76">line 76</a></div>
+        <code>                    mixed
+    <strong>get</strong>($key)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get a value by it's key</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$key</td>
+                <td>Key to verify on list.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_push">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_push"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L90">line 90</a></div>
+        <code>                    void
+    <strong>push</strong>(mixed $value)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Add a value to list</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td>Value to add.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_put">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/AQL/BindContainer.php#L42">line 42</a></div>
+        <code>                    void
+    <strong>put</strong>(string|integer $key, mixed $value)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Add validation to value being set.</p>                    <p>All values must be primitives data types</p>                            </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string|integer</td>
+                <td>$key</td>
+                <td>Key for manage the value.</td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td>Value to add.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../ArangoDB/Validation/Exceptions/InvalidParameterException.html"><abbr title="ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_has">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_has"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L112">line 112</a></div>
+        <code>                    bool
+    <strong>has</strong>($key)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Check if a given key exists on list</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$key</td>
+                <td>Key to verify on list.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td>True if key exists, false otherwise.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_remove">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_remove"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L123">line 123</a></div>
+        <code>                    mixed
+    <strong>remove</strong>($key)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Remove a value by it's key on list</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$key</td>
+                <td>Key to remove from list.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_toArray">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_toArray"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L133">line 133</a></div>
+        <code>                    array
+    <strong>toArray</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Return an array representation for list</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_values">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_values"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L143">line 143</a></div>
+        <code>                    array
+    <strong>values</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Return an array with list values only</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_append">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_append"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L153">line 153</a></div>
+        <code>                    void
+    <strong>append</strong>(<a href="../../ArangoDB/DataStructures/Contracts/ListInterface.html"><abbr title="ArangoDB\DataStructures\Contracts\ListInterface">ListInterface</abbr></a> $list)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Appends a list to another.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../ArangoDB/DataStructures/Contracts/ListInterface.html"><abbr title="ArangoDB\DataStructures\Contracts\ListInterface">ListInterface</abbr></a></td>
+                <td>$list</td>
+                <td>ListInterface object to append.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_jsonSerialize">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_jsonSerialize"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L165">line 165</a></div>
+        <code>                    array|mixed
+    <strong>jsonSerialize</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Return a JSON representation of list</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array|mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_current">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_current"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L175">line 175</a></div>
+        <code>                    mixed
+    <strong>current</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Return the current element</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_next">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_next"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L183">line 183</a></div>
+        <code>                    
+    <strong>next</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Move forward to next element</p>                                                </div>
+                <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_key">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_key"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L193">line 193</a></div>
+        <code>                    mixed
+    <strong>key</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Return the key of the current element</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_valid">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_valid"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L203">line 203</a></div>
+        <code>                    bool
+    <strong>valid</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Checks if current position is valid</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_rewind">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_rewind"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L211">line 211</a></div>
+        <code>                    
+    <strong>rewind</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Rewind the Iterator to the first element</p>                                                </div>
+                <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_count">
+        <div class="location">in <a href="../../ArangoDB/DataStructures/ArrayList.html#method_count"><abbr title="ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a> at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/DataStructures/ArrayList.php#L221">line 221</a></div>
+        <code>                    int
+    <strong>count</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Count elements of an object</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getAll">
+        <div class="location">at         <a href="https://github.com/lucassouzavieira/arangodb-php-odm/blob/v1.0.0/src/AQL/BindContainer.php#L60">line 60</a></div>
+        <code>                    array
+    <strong>getAll</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get the stored vars</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>
