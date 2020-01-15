@@ -3,6 +3,7 @@
 
 namespace Unit\Collection;
 
+use ArangoDB\Admin\Server;
 use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Document\Vertex;
@@ -232,6 +233,11 @@ class CollectionTest extends TestCase
 
     public function testAddTTLIndex()
     {
+        // Skip this test for 3.4 version.
+        if ((float)Server::version($this->getConnectionObject()) < 3.5) {
+            $this->markTestSkipped("ArangoDB versions before the 3.5 doesn't have TTL index feature");
+        }
+
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
 

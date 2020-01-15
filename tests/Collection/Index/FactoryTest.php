@@ -3,11 +3,10 @@
 
 namespace Unit\Collection\GeneralIndex;
 
-use ArangoDB\Exceptions\IndexException;
-use ArangoDB\Validation\Exceptions\MissingParameterException;
 use Unit\TestCase;
 use ArangoDB\Collection\Index\Index;
 use ArangoDB\Collection\Index\Factory;
+use ArangoDB\Exceptions\IndexException;
 use ArangoDB\Collection\Index\TTLIndex;
 use ArangoDB\Collection\Index\HashIndex;
 use ArangoDB\Collection\Index\EdgeIndex;
@@ -16,6 +15,7 @@ use ArangoDB\Collection\Index\FullTextIndex;
 use ArangoDB\Collection\Index\SkipListIndex;
 use ArangoDB\Collection\Index\PersistentIndex;
 use ArangoDB\Collection\Index\GeoSpatialIndex;
+use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 class FactoryTest extends TestCase
 {

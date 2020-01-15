@@ -9,35 +9,34 @@ services:
 php:
   - 7.2
   - 7.3
-  - nightly
+  - 7.4
+
+env:
+  - ARANGO_SERVER=3.4.8
+  - ARANGO_SERVER=3.5.3
+
+include:
+  - env: LINT=1
+    php: 7.3
+  - env: COVERAGE=1
+    php: 7.3
 
 branches:
   only:
     - master
     - develop
-    - v3.4
-    - v3.5
-
-matrix:
-  include:
-    - env: LINT=1
-      php: 7.3
-    - env: COVERAGE=1
-      php: 7.3
-
-  allow_failures:
-    - php: nightly
 
 install:
   - composer self-update
 
 before_script:
   - cp .env.testing .env
+  - echo -e "\nARANGODB_VERSION=$ARANGO_SERVER" >> .env
   - phpenv config-rm xdebug.ini
   - composer self-update
   - composer install --no-interaction
-  - docker pull arangodb/arangodb:latest
-  - docker run -d -p 8529:8529 -e ARANGO_ROOT_PASSWORD=testing arangodb/arangodb:latest
+  - echo "docker pull arangodb/arangodb:$ARANGO_SERVER" | bash -
+  - echo "docker run -d -p 8529:8529 -e ARANGO_ROOT_PASSWORD=testing arangodb/arangodb:$ARANGO_SERVER" | bash -
   - docker ps -a
   - sleep 30
 
