@@ -13,7 +13,6 @@ php:
 
 env:
   - ARANGO_SERVER=3.4.8
-  - ARANGO_SERVER=3.5.3
 
 include:
   - env: LINT=1
@@ -25,6 +24,7 @@ branches:
   only:
     - master
     - develop
+    - v3.4
 
 install:
   - composer self-update
