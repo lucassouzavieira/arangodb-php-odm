@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/lucassouzavieira/arangodb-php-odm/branch/develop/graph/badge.svg)](https://codecov.io/gh/lucassouzavieira/arangodb-php-odm) [![CodeFactor](https://www.codefactor.io/repository/github/lucassouzavieira/arangodb-php-odm/badge)](https://www.codefactor.io/repository/github/lucassouzavieira/arangodb-php-odm) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4753101a298943048849fd47c945704d)](https://www.codacy.com/manual/lucassouzavieira/arangodb-php-odm?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=lucassouzavieira/arangodb-php-odm&amp;utm_campaign=Badge_Grade)
+[![codecov](https://codecov.io/gh/lucassouzavieira/arangodb-php-odm/branch/develop/graph/badge.svg)](https://codecov.io/gh/lucassouzavieira/arangodb-php-odm) [![CodeFactor](https://www.codefactor.io/repository/github/lucassouzavieira/arangodb-php-odm/badge)](https://www.codefactor.io/repository/github/lucassouzavieira/arangodb-php-odm) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4753101a298943048849fd47c945704d)](https://www.codacy.com/manual/lucassouzavieira/arangodb-php-odm?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=lucassouzavieira/arangodb-php-odm&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?branch=develop)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
 
 # ArangoDB PHP ODM
 
@@ -8,24 +8,17 @@
 
 ### Build Status
 
-- 3.4 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=v3.4)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
-- 3.5 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=v3.5)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
-- develop [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=develop)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
-- master [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?token=nFk4yBNeTx1VbdPiYuWE&branch=master)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
+- 3.4 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?branch=v3.4)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
+- 3.5 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?branch=v3.5)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
+- 3.6 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?branch=v3.6)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
+- develop [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?branch=develop)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
+- master [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?branch=master)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
 
 ## Installation
 
 ### Using composer
-
-- #### `3.5.x` versions of ArangoDB server
-
   - Run the command bellow on your project root.<br>
-    `composer require lvieira/arangodb-php-odm:^3.5`
-
-- #### `3.4.x` versions of ArangoDB server
-
-  - Run the command bellow on your project root.<br>
-    `composer require lvieira/arangodb-php-odm:^3.4`
+    `composer require lvieira/arangodb-php-odm`
 
 ## Usage
 
@@ -280,10 +273,7 @@ try {
 
 ## Documentation
 
-Check the full documentation of project:
-
-- For [v3.5.x versions](https://lucassouzavieira.github.io/arangodb-php-odm/v3.5.0/index.html)
-- For [v3.4.x versions](https://lucassouzavieira.github.io/arangodb-php-odm/v3.4.0/index.html)
+Check the [full documentation](https://lucassouzavieira.github.io/arangodb-php-odm/v1.0.0/index.html) of project:
 
 ## Contributing
 

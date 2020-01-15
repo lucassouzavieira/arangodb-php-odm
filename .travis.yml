@@ -14,6 +14,7 @@ php:
 env:
   - ARANGO_SERVER=3.4.8
   - ARANGO_SERVER=3.5.3
+  - ARANGO_SERVER=3.6.0
 
 include:
   - env: LINT=1
