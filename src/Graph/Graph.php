@@ -853,7 +853,7 @@ class Graph implements \JsonSerializable
      *
      * @return TraversalCursor
      *
-     * @throws CursorException|GuzzleException
+     * @throws CursorException|GuzzleException|ArangoException
      */
     public function traversal(Vertex $vertex, $direction = Traversal::GRAPH_DIRECTION_ANY, int $depth = 0): Traversal
     {
