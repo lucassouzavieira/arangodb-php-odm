@@ -15,7 +15,6 @@ env:
   - ARANGO_SERVER=3.4.8
   - ARANGO_SERVER=3.5.4
   - ARANGO_SERVER=3.6.2
-  - ARANGO_SERVER=latest
 
 include:
   - env: LINT=1
