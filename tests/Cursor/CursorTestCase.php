@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Unit\Cursor;
 
@@ -54,7 +55,7 @@ abstract class CursorTestCase extends TestCase
         $collection = $db->getCollection('test_cursor_coll');
         $planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupyter', 'Saturn', 'Uranus', 'Neptune'];
 
-        // Create 1000 documents
+        // Create documents
         for ($i = 0; $i < $quantity; $i++) {
             $document = new Document(['hello' => $planets[rand(0, 7)]], $collection);
             $document->save();

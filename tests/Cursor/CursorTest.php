@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Unit\Cursor;
 
@@ -12,6 +12,17 @@ use ArangoDB\Cursor\Exceptions\CursorException;
 
 class CursorTest extends CursorTestCase
 {
+    public function testReceiveDataFromServer()
+    {
+        $collection = $this->getCollection(1);
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
+        $this->assertGreaterThan(0, $cursor->count());
+
+        $collection = $this->getCollection(100);
+        $cursor = new Cursor($collection->getDatabase()->getConnection(), new Statement("FOR u IN test_cursor_coll RETURN u"));
+        $this->assertGreaterThan(0, $cursor->count());
+    }
+
     public function testConstructorThrowCursorException()
     {
         $mock = new MockHandler([

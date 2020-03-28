@@ -138,8 +138,7 @@ class Database extends DatabaseHandler
             return false;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -164,8 +163,7 @@ class Database extends DatabaseHandler
             return $graphs;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
