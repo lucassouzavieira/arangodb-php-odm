@@ -7,8 +7,8 @@ use ArangoDB\Http\Api;
 use ArangoDB\Connection\Connection;
 use ArangoDB\DataStructures\ArrayList;
 use GuzzleHttp\Exception\GuzzleException;
-use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Cursor\Exceptions\CursorException;
+use ArangoDB\Exceptions\Database\DatabaseException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 

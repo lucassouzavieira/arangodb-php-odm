@@ -39,7 +39,7 @@ class Cursor extends Base
      * @var array
      */
     protected $defaultOptions = [
-        'cache' => false,
+        'cache' => true,
         'memoryLimit' => 0,
         'ttl' => 60,
     ];
@@ -188,8 +188,7 @@ class Cursor extends Base
             }
         } catch (GuzzleException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $cursorException = new CursorException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $cursorException;
+            throw new CursorException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 

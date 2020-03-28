@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Unit\Cursor;
 
@@ -8,8 +8,8 @@ use ArangoDB\Document\Document;
 use ArangoDB\Cursor\ExportCursor;
 use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\Cursor\CollectionCursor;
-use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Cursor\Exceptions\CursorException;
+use ArangoDB\Exceptions\Database\DatabaseException;
 
 class ExportCursorTest extends CursorTestCase
 {

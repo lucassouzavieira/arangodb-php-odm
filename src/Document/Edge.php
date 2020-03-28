@@ -3,11 +3,11 @@ declare(strict_types=1);
 
 namespace ArangoDB\Document;
 
-use ArangoDB\Collection\Collection;
 use ArangoDB\Database\Database;
+use ArangoDB\Collection\Collection;
 use GuzzleHttp\Exception\GuzzleException;
-use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Validation\Document\EdgeValidator;
+use ArangoDB\Exceptions\Database\DatabaseException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 

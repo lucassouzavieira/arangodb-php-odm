@@ -1,6 +1,8 @@
 <?php
 
-namespace ArangoDB\Exceptions;
+namespace ArangoDB\Exceptions\Database;
+
+use ArangoDB\Exceptions\BaseException;
 
 /**
  * DatabaseException

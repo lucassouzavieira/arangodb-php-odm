@@ -6,7 +6,7 @@ namespace ArangoDB\Batch;
 use ArangoDB\Cursor\ExportCursor;
 use ArangoDB\Connection\Connection;
 use GuzzleHttp\Exception\GuzzleException;
-use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Exceptions\Database\DatabaseException;
 use ArangoDB\Cursor\Contracts\CursorInterface;
 use ArangoDB\Cursor\Exceptions\CursorException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;

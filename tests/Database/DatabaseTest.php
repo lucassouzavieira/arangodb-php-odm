@@ -10,7 +10,7 @@ use ArangoDB\Database\Database;
 use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\Collection\Collection;
 use ArangoDB\DataStructures\ArrayList;
-use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Exceptions\Database\DatabaseException;
 
 class DatabaseTest extends TestCase
 {

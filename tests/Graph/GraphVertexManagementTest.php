@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Unit\Graph;
 
@@ -8,7 +8,7 @@ use ArangoDB\Document\Vertex;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\DataStructures\ArrayList;
-use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Exceptions\Database\DatabaseException;
 
 /**
  * Tests for graph vertex management

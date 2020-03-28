@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Unit\Graph;
 
@@ -7,7 +7,7 @@ use ArangoDB\Document\Edge;
 use ArangoDB\Graph\Graph;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Handler\MockHandler;
-use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Exceptions\Database\DatabaseException;
 
 /**
  * Tests for graph edge management

@@ -1,17 +1,16 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Unit\Transaction;
 
-use ArangoDB\Admin\Admin;
-use ArangoDB\Admin\Server;
 use Unit\TestCase;
+use ArangoDB\Admin\Server;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Document\Document;
 use GuzzleHttp\Handler\MockHandler;
-use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Transaction\StreamTransaction;
 use ArangoDB\Exceptions\TransactionException;
+use ArangoDB\Exceptions\Database\DatabaseException;
 
 class StreamTransactionTest extends TestCase
 {
