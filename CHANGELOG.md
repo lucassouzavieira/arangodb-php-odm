@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2020-03-28
+Implements some fixes to the driver. 
+
+### Fixed
+ -  Fixes #4. Update cursor class base endpoint. 
+
+### Changed
+ - `DatabaseException` moved to `ArangoDB\Exception\Database` namespace.
+
 ## [1.1.0] - 2020-01-15
 ### Added
 - ArangoDB v3.6 support.
