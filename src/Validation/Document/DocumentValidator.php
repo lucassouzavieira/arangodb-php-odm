@@ -90,7 +90,7 @@ class DocumentValidator extends Validator
         $callback = function ($arr = []) use (&$callback) {
             $validator = Rules::isPrimitive();
             foreach ($arr as $key => $value) {
-                if (is_object($value) || is_callable($value)) {
+                if ((is_object($value) || is_callable($value)) && !is_string($value)) {
                     throw new InvalidParameterException($key, $value);
                 }
 
