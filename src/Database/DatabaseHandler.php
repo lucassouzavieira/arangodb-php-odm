@@ -9,7 +9,7 @@ use ArangoDB\DataStructures\ArrayList;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Connection\ManagesConnection;
-use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Exceptions\Database\DatabaseException;
 
 /**
  * Manages databases on Arango server

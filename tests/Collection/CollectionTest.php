@@ -15,11 +15,11 @@ use ArangoDB\Collection\Index\Index;
 use ArangoDB\Cursor\CollectionCursor;
 use ArangoDB\Collection\Index\TTLIndex;
 use ArangoDB\Collection\Index\HashIndex;
-use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Collection\Index\FullTextIndex;
 use ArangoDB\Collection\Index\SkipListIndex;
 use ArangoDB\Collection\Index\PersistentIndex;
 use ArangoDB\Collection\Index\GeoSpatialIndex;
+use ArangoDB\Exceptions\Database\DatabaseException;
 
 class CollectionTest extends TestCase
 {

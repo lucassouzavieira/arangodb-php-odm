@@ -12,7 +12,6 @@ use ArangoDB\Entity\Contracts\EntityInterface;
 use ArangoDB\Validation\Admin\Task\TaskValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
-use phpDocumentor\Reflection\Types\Null_;
 
 /**
  * Represents an user defined task on server.

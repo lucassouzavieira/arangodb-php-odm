@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Unit\Database;
 
@@ -10,7 +10,7 @@ use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\Connection\Connection;
 use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Database\DatabaseHandler;
-use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Exceptions\Database\DatabaseException;
 
 class DatabaseHandlerTest extends TestCase
 {

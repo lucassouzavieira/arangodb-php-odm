@@ -12,9 +12,9 @@ use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Graph\Traversal\Traversal;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
-use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Validation\Graph\GraphValidator;
 use ArangoDB\Cursor\Exceptions\CursorException;
+use ArangoDB\Exceptions\Database\DatabaseException;
 use ArangoDB\Exceptions\Exception as ArangoException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
@@ -853,7 +853,7 @@ class Graph implements \JsonSerializable
      *
      * @return TraversalCursor
      *
-     * @throws CursorException|GuzzleException
+     * @throws CursorException|GuzzleException|ArangoException
      */
     public function traversal(Vertex $vertex, $direction = Traversal::GRAPH_DIRECTION_ANY, int $depth = 0): Traversal
     {

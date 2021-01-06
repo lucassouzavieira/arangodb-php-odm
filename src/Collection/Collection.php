@@ -15,10 +15,10 @@ use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Exceptions\IndexException;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
-use ArangoDB\Exceptions\DatabaseException;
 use ArangoDB\Cursor\Contracts\CursorInterface;
 use ArangoDB\Cursor\Exceptions\CursorException;
 use ArangoDB\Collection\Contracts\IndexInterface;
+use ArangoDB\Exceptions\Database\DatabaseException;
 use ArangoDB\Validation\Collection\CollectionValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
@@ -654,8 +654,7 @@ class Collection implements \JsonSerializable
                 return false;
             }
 
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -677,8 +676,7 @@ class Collection implements \JsonSerializable
             return $data['status'] === self::$unloadedStatus || $data['status'] === self::$unloadingStatus;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -699,8 +697,7 @@ class Collection implements \JsonSerializable
             return (int)$data['count'];
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -719,8 +716,7 @@ class Collection implements \JsonSerializable
             return (bool)$data['result'];
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 

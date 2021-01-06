@@ -39,7 +39,7 @@ class Cursor extends Base
      * @var array
      */
     protected $defaultOptions = [
-        'cache' => false,
+        'cache' => true,
         'memoryLimit' => 0,
         'ttl' => 60,
     ];
@@ -55,6 +55,7 @@ class Cursor extends Base
      */
     public function __construct(Connection $connection, StatementInterface $statement, array $options = [])
     {
+        $this->uri = Api::buildDatabaseUri($connection->getBaseUri(), $connection->getDatabaseName(), Api::CURSOR);
         $this->statement = $statement;
         $this->connection = $connection;
         $this->result = new ArrayList();
@@ -73,7 +74,7 @@ class Cursor extends Base
             'id' => $this->getId(),
             'cached' => $this->isCached(),
             'hasMore' => $this->hasMore,
-            'lenght' => $this->length,
+            'length' => $this->length,
             'extra' => $this->extra,
             'fetches' => $this->fetches,
         ];
@@ -188,8 +189,7 @@ class Cursor extends Base
             }
         } catch (GuzzleException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $cursorException = new CursorException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $cursorException;
+            throw new CursorException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -219,6 +219,14 @@ class Cursor extends Base
             $cursorException = new CursorException($response['errorMessage'], $exception, $response['errorNum']);
             throw $cursorException;
         }
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function count()
+    {
+        return $this->result->count();
     }
 
     /**

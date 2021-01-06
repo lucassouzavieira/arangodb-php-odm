@@ -8,7 +8,7 @@ use ArangoDB\Document\Document;
 use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\Collection\Collection;
 use ArangoDB\DataStructures\ArrayList;
-use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Exceptions\Database\DatabaseException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 class DocumentTest extends DocumentTestCase

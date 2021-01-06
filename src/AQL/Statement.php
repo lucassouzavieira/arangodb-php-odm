@@ -94,7 +94,7 @@ class Statement implements StatementInterface
      * Binds a value to specified parameter name.
      *
      * @param string $parameter Parameter name.
-     * @param mixed  $value     Value for parameter.
+     * @param mixed $value Value for parameter.
      *
      * @return bool True if the parameter has an alias on query string. False otherwise.
      *
@@ -159,7 +159,7 @@ class Statement implements StatementInterface
             $query = str_replace($parameter, $this->output($parameter), $query);
         }
 
-        return $query;
+        return utf8_encode($query);
     }
 
     /**

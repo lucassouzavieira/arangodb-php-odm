@@ -11,7 +11,7 @@ use GuzzleHttp\Handler\MockHandler;
 use ArangoDB\Collection\Collection;
 use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Graph\Traversal\Traversal;
-use ArangoDB\Exceptions\DatabaseException;
+use ArangoDB\Exceptions\Database\DatabaseException;
 use ArangoDB\Exceptions\Exception as ArangoException;
 
 /**

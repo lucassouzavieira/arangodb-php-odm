@@ -36,7 +36,7 @@ class CollectionCursor extends Cursor
     public function __construct(Collection $collection)
     {
         $this->collection = $collection;
-        $statement = new Statement("FOR doc IN @collection RETURN doc");
+        $statement = new Statement("FOR u IN @collection RETURN u");
         $statement->bindValue('@collection', $collection->getName());
         $connection = $this->collection->getDatabase()->getConnection();
         parent::__construct($connection, $statement);

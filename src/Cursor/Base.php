@@ -13,7 +13,7 @@ use ArangoDB\Cursor\Contracts\CursorInterface;
  * @package ArangoDB\Cursor
  * @author Lucas S. Vieira
  */
-abstract class Base implements CursorInterface
+abstract class Base implements CursorInterface, \Countable
 {
     /**
      * Cursor id

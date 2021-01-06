@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Unit\Validation\Document;
 
@@ -25,6 +25,22 @@ class DocumentValidatorTest extends TestCase
             'value' => 1.5,
             'percent' => 45.4,
             'quantity' => 40
+        ];
+
+        $validator = new DocumentValidator($attributes);
+        $this->assertTrue($validator->validate());
+
+        $attributes['tr'] = new ArrayList(['with' => ['some', 'fields']]); // Add object to attributes
+
+        $validator = new DocumentValidator($attributes);
+        $this->expectException(InvalidParameterException::class);
+        $this->assertTrue($validator->validate());
+    }
+
+    public function testFunctionNamesAsString()
+    {
+        $attributes = [
+            'field' => 'PI',
         ];
 
         $validator = new DocumentValidator($attributes);
