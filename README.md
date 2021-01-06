@@ -8,9 +8,6 @@
 
 ### Build Status
 
-- 3.4 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?branch=v3.4)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
-- 3.5 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?branch=v3.5)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
-- 3.6 [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?branch=v3.6)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
 - develop [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?branch=develop)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
 - master [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?branch=master)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
 
