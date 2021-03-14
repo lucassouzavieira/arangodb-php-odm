@@ -19,11 +19,11 @@ class ConnectionTest extends TestCase
     public function testAuthenticate()
     {
         $connection = new Connection([
-            'username' => getenv('ARANGODB_USERNAME'),
-            'password' => getenv('ARANGODB_PASSWORD'),
-            'database' => getenv('ARANGODB_DBNAME'),
-            'host' => getenv('ARANGODB_HOST'),
-            'port' => getenv('ARANGODB_PORT')
+            'username' => $_ENV['ARANGODB_USERNAME'],
+            'password' => $_ENV['ARANGODB_PASSWORD'],
+            'database' => $_ENV['ARANGODB_DBNAME'],
+            'host' => $_ENV['ARANGODB_HOST'],
+            'port' => $_ENV['ARANGODB_PORT']
         ]);
 
         $this->assertNotNull($connection);
@@ -33,11 +33,11 @@ class ConnectionTest extends TestCase
     public function testDebugInfo()
     {
         $connection = new Connection([
-            'username' => getenv('ARANGODB_USERNAME'),
-            'password' => getenv('ARANGODB_PASSWORD'),
-            'database' => getenv('ARANGODB_DBNAME'),
-            'host' => getenv('ARANGODB_HOST'),
-            'port' => getenv('ARANGODB_PORT')
+            'username' => $_ENV['ARANGODB_USERNAME'],
+            'password' => $_ENV['ARANGODB_PASSWORD'],
+            'database' => $_ENV['ARANGODB_DBNAME'],
+            'host' => $_ENV['ARANGODB_HOST'],
+            'port' => $_ENV['ARANGODB_PORT']
         ]);
 
         $this->assertNotNull($connection);
@@ -49,11 +49,11 @@ class ConnectionTest extends TestCase
     public function testGetDefaultHeaders()
     {
         $connection = new Connection([
-            'username' => getenv('ARANGODB_USERNAME'),
-            'password' => getenv('ARANGODB_PASSWORD'),
-            'database' => getenv('ARANGODB_DBNAME'),
-            'host' => getenv('ARANGODB_HOST'),
-            'port' => getenv('ARANGODB_PORT')
+            'username' => $_ENV['ARANGODB_USERNAME'],
+            'password' => $_ENV['ARANGODB_PASSWORD'],
+            'database' => $_ENV['ARANGODB_DBNAME'],
+            'host' => $_ENV['ARANGODB_HOST'],
+            'port' => $_ENV['ARANGODB_PORT']
         ]);
 
         $this->assertIsArray($connection->getDefaultHeaders());
@@ -63,11 +63,11 @@ class ConnectionTest extends TestCase
     public function testSetDefaultHeaders()
     {
         $connection = new Connection([
-            'username' => getenv('ARANGODB_USERNAME'),
-            'password' => getenv('ARANGODB_PASSWORD'),
-            'database' => getenv('ARANGODB_DBNAME'),
-            'host' => getenv('ARANGODB_HOST'),
-            'port' => getenv('ARANGODB_PORT')
+            'username' => $_ENV['ARANGODB_USERNAME'],
+            'password' => $_ENV['ARANGODB_PASSWORD'],
+            'database' => $_ENV['ARANGODB_DBNAME'],
+            'host' => $_ENV['ARANGODB_HOST'],
+            'port' => $_ENV['ARANGODB_PORT']
         ]);
 
         // Set one header
@@ -84,21 +84,21 @@ class ConnectionTest extends TestCase
         $this->expectException(AuthException::class);
 
         $connection = new Connection([
-            'username' => getenv('ARANGODB_USERNAME'),
+            'username' => $_ENV['ARANGODB_USERNAME'],
             'password' => 'someWrongPassword',
-            'database' => getenv('ARANGODB_DBNAME'),
-            'host' => getenv('ARANGODB_HOST'),
-            'port' => getenv('ARANGODB_PORT')
+            'database' => $_ENV['ARANGODB_DBNAME'],
+            'host' => $_ENV['ARANGODB_HOST'],
+            'port' => $_ENV['ARANGODB_PORT']
         ]);
 
         $this->expectException(AuthException::class);
 
         $connection = new Connection([
             'username' => 'usernamenonexistent',
-            'password' => getenv('ARANGODB_PASSWORD'),
-            'database' => getenv('ARANGODB_DBNAME'),
-            'host' => getenv('ARANGODB_HOST'),
-            'port' => getenv('ARANGODB_PORT')
+            'password' => $_ENV['ARANGODB_PASSWORD'],
+            'database' => $_ENV['ARANGODB_DBNAME'],
+            'host' => $_ENV['ARANGODB_HOST'],
+            'port' => $_ENV['ARANGODB_PORT']
         ]);
     }
 
@@ -106,10 +106,10 @@ class ConnectionTest extends TestCase
     {
         $this->expectException(ConnectionException::class);
         new Connection([
-            'username' => getenv('ARANGODB_USERNAME'),
-            'password' => getenv('ARANGODB_PASSWORD'),
-            'database' => getenv('ARANGODB_DBNAME'),
-            'host' => getenv('ARANGODB_HOST'),
+            'username' => $_ENV['ARANGODB_USERNAME'],
+            'password' => $_ENV['ARANGODB_PASSWORD'],
+            'database' => $_ENV['ARANGODB_DBNAME'],
+            'host' => $_ENV['ARANGODB_HOST'],
             'port' => rand(8100, 8200) // Wrong port
         ]);
     }
@@ -117,69 +117,69 @@ class ConnectionTest extends TestCase
     public function testGetDatabaseName()
     {
         $connection = new Connection([
-            'username' => getenv('ARANGODB_USERNAME'),
-            'password' => getenv('ARANGODB_PASSWORD'),
-            'database' => getenv('ARANGODB_DBNAME'),
-            'host' => getenv('ARANGODB_HOST'),
-            'port' => getenv('ARANGODB_PORT')
+            'username' => $_ENV['ARANGODB_USERNAME'],
+            'password' => $_ENV['ARANGODB_PASSWORD'],
+            'database' => $_ENV['ARANGODB_DBNAME'],
+            'host' => $_ENV['ARANGODB_HOST'],
+            'port' => $_ENV['ARANGODB_PORT']
         ]);
 
         $this->assertNotNull($connection);
-        $this->assertEquals(getenv('ARANGODB_DBNAME'), $connection->getDatabaseName());
+        $this->assertEquals($_ENV['ARANGODB_DBNAME'], $connection->getDatabaseName());
     }
 
     public function testGetUsername()
     {
         $connection = new Connection([
-            'username' => getenv('ARANGODB_USERNAME'),
-            'password' => getenv('ARANGODB_PASSWORD'),
-            'database' => getenv('ARANGODB_DBNAME'),
-            'host' => getenv('ARANGODB_HOST'),
-            'port' => getenv('ARANGODB_PORT')
+            'username' => $_ENV['ARANGODB_USERNAME'],
+            'password' => $_ENV['ARANGODB_PASSWORD'],
+            'database' => $_ENV['ARANGODB_DBNAME'],
+            'host' => $_ENV['ARANGODB_HOST'],
+            'port' => $_ENV['ARANGODB_PORT']
         ]);
 
         $this->assertNotNull($connection);
-        $this->assertEquals(getenv('ARANGODB_USERNAME'), $connection->getUsername());
+        $this->assertEquals($_ENV['ARANGODB_USERNAME'], $connection->getUsername());
     }
 
     public function testGetDatabase()
     {
         $connection = new Connection([
-            'username' => getenv('ARANGODB_USERNAME'),
-            'password' => getenv('ARANGODB_PASSWORD'),
-            'database' => getenv('ARANGODB_DBNAME'),
-            'host' => getenv('ARANGODB_HOST'),
-            'port' => getenv('ARANGODB_PORT')
+            'username' => $_ENV['ARANGODB_USERNAME'],
+            'password' => $_ENV['ARANGODB_PASSWORD'],
+            'database' => $_ENV['ARANGODB_DBNAME'],
+            'host' => $_ENV['ARANGODB_HOST'],
+            'port' => $_ENV['ARANGODB_PORT']
         ]);
 
         $this->assertNotNull($connection);
         $this->assertInstanceOf(Database::class, $connection->getDatabase());
-        $this->assertEquals(getenv('ARANGODB_DBNAME'), $connection->getDatabase()->getDatabaseName());
-        $this->assertEquals(getenv('ARANGODB_DBNAME'), $connection->getDatabaseName());
+        $this->assertEquals($_ENV['ARANGODB_DBNAME'], $connection->getDatabase()->getDatabaseName());
+        $this->assertEquals($_ENV['ARANGODB_DBNAME'], $connection->getDatabaseName());
     }
 
     public function testGetBaseUri()
     {
         $connection = new Connection([
-            'username' => getenv('ARANGODB_USERNAME'),
-            'password' => getenv('ARANGODB_PASSWORD'),
-            'database' => getenv('ARANGODB_DBNAME'),
-            'host' => getenv('ARANGODB_HOST'),
-            'port' => getenv('ARANGODB_PORT')
+            'username' => $_ENV['ARANGODB_USERNAME'],
+            'password' => $_ENV['ARANGODB_PASSWORD'],
+            'database' => $_ENV['ARANGODB_DBNAME'],
+            'host' => $_ENV['ARANGODB_HOST'],
+            'port' => $_ENV['ARANGODB_PORT']
         ]);
 
         $this->assertNotNull($connection);
-        $this->assertEquals(sprintf("%s:%d", getenv('ARANGODB_HOST'), getenv('ARANGODB_PORT')), $connection->getBaseUri());
+        $this->assertEquals(sprintf("%s:%d", $_ENV['ARANGODB_HOST'], $_ENV['ARANGODB_PORT']), $connection->getBaseUri());
     }
 
     public function testGetAuthorizationHeader()
     {
         $connection = new Connection([
-            'username' => getenv('ARANGODB_USERNAME'),
-            'password' => getenv('ARANGODB_PASSWORD'),
-            'database' => getenv('ARANGODB_DBNAME'),
-            'host' => getenv('ARANGODB_HOST'),
-            'port' => getenv('ARANGODB_PORT')
+            'username' => $_ENV['ARANGODB_USERNAME'],
+            'password' => $_ENV['ARANGODB_PASSWORD'],
+            'database' => $_ENV['ARANGODB_DBNAME'],
+            'host' => $_ENV['ARANGODB_HOST'],
+            'port' => $_ENV['ARANGODB_PORT']
         ]);
 
         $this->assertNotNull($connection);

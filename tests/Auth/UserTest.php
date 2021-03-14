@@ -288,8 +288,8 @@ class UserTest extends TestCase
     public function testThrowDuplicatedUserException()
     {
         $user = new User([
-            'user' => getenv('ARANGODB_USERNAME'),
-            'password' => getenv('ARANGODB_PASSWORD'),
+            'user' => $_ENV['ARANGODB_USERNAME'],
+            'password' => $_ENV['ARANGODB_PASSWORD'],
             'active' => true,
         ], $this->getConnectionObject());
 
