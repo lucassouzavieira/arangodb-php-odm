@@ -20,7 +20,7 @@ abstract class TestCase extends BaseTestCase
 
     public function loadEnvironment()
     {
-        $this->env = Dotenv::create(dirname(__FILE__) . DIRECTORY_SEPARATOR . '../');
+        $this->env = Dotenv::createImmutable(dirname(__FILE__) . DIRECTORY_SEPARATOR . '../');
         $this->env->load();
     }
 
