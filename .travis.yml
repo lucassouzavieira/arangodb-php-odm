@@ -25,6 +25,7 @@ branches:
   only:
     - master
     - develop
+    - php-8.0-upgrade
 
 install:
   - composer self-update
