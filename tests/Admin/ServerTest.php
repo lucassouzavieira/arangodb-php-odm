@@ -20,7 +20,7 @@ class ServerTest extends TestCase
     {
         $version = Server::version($this->getConnectionObject());
         $this->assertIsString($version);
-        $this->assertEquals(getenv('ARANGODB_VERSION'), $version);
+        $this->assertEquals($_ENV['ARANGODB_VERSION'], $version);
     }
 
     public function testVersionThrowServerException()

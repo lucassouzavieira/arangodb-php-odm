@@ -23,7 +23,7 @@ class DatabaseTest extends TestCase
     public function testGetDatabaseName()
     {
         $db = new Database($this->getConnectionObject());
-        $this->assertEquals(getenv('ARANGODB_DBNAME'), $db->getDatabaseName());
+        $this->assertEquals($_ENV['ARANGODB_DBNAME'], $db->getDatabaseName());
     }
 
     public function testGetInfo()
@@ -31,7 +31,7 @@ class DatabaseTest extends TestCase
         $db = new Database($this->getConnectionObject());
         $info = $db->getInfo();
         $this->assertIsArray($db->getInfo());
-        $this->assertEquals($info['name'], getenv('ARANGODB_DBNAME'));
+        $this->assertEquals($info['name'], $_ENV['ARANGODB_DBNAME']);
     }
 
     public function testCreateCollection()

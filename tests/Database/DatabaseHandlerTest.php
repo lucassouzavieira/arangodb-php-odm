@@ -33,7 +33,7 @@ class DatabaseHandlerTest extends TestCase
         $conn = $this->getConnectionObject();
         $current = DatabaseHandler::current($conn);
         $this->assertIsArray($current);
-        $this->assertEquals($current['name'], getenv('ARANGODB_DBNAME'));
+        $this->assertEquals($current['name'], $_ENV['ARANGODB_DBNAME']);
     }
 
     public function testCurrentThrowDatabaseException()
@@ -58,7 +58,7 @@ class DatabaseHandlerTest extends TestCase
         $this->assertInstanceOf(ArrayList::class, $list);
         $this->assertTrue(in_array('tdba', $list->toArray()));
         $this->assertTrue(in_array('tdba', $list->toArray()));
-        $this->assertTrue(in_array(getenv('ARANGODB_DBNAME'), $list->toArray()));
+        $this->assertTrue(in_array($_ENV['ARANGODB_DBNAME'], $list->toArray()));
 
         $this->assertTrue(DatabaseHandler::drop($conn, 'tdba'));
         $this->assertTrue(DatabaseHandler::drop($conn, 'tdbb'));
@@ -105,7 +105,7 @@ class DatabaseHandlerTest extends TestCase
     {
         $conn = $this->getConnectionObject();
         $this->expectException(DatabaseException::class);
-        $result = DatabaseHandler::create($conn, getenv('ARANGODB_DBNAME'));
+        $result = DatabaseHandler::create($conn, $_ENV['ARANGODB_DBNAME']);
         $this->assertTrue($result);
     }
 

@@ -20,7 +20,7 @@ abstract class TestCase extends BaseTestCase
 
     public function loadEnvironment()
     {
-        $this->env = Dotenv::create(dirname(__FILE__) . DIRECTORY_SEPARATOR . '../');
+        $this->env = Dotenv::createImmutable(dirname(__FILE__) . DIRECTORY_SEPARATOR . '../');
         $this->env->load();
     }
 
@@ -37,11 +37,11 @@ abstract class TestCase extends BaseTestCase
     public function getConnectionObject(MockHandler $mock = null)
     {
         $connection = new Connection([
-            'username' => getenv('ARANGODB_USERNAME'),
-            'password' => getenv('ARANGODB_PASSWORD'),
-            'database' => getenv('ARANGODB_DBNAME'),
-            'host' => getenv('ARANGODB_HOST'),
-            'port' => getenv('ARANGODB_PORT')
+            'username' => $_ENV['ARANGODB_USERNAME'],
+            'password' => $_ENV['ARANGODB_PASSWORD'],
+            'database' => $_ENV['ARANGODB_DBNAME'],
+            'host' => $_ENV['ARANGODB_HOST'],
+            'port' => $_ENV['ARANGODB_PORT']
         ]);
 
         if ($mock) {
