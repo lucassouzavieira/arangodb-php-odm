@@ -13,13 +13,13 @@ env:
   - ARANGO_SERVER=3.4.10
   - ARANGO_SERVER=3.5.6
   - ARANGO_SERVER=3.6.8
-  - ARANGO_SERVER=3.7.9
+  - ARANGO_SERVER=3.7.12
 
 include:
   - env: LINT=1
-    php: 7.3
+    php: 8.0
   - env: COVERAGE=1
-    php: 7.3
+    php: 8.0
 
 branches:
   only:
