@@ -568,7 +568,8 @@ class Collection implements \JsonSerializable
     {
         try {
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
-            $response = $this->connection->delete(sprintf("%s/%s", $uri, $this->getName()));
+            $uri = $this->isSystem() ? sprintf("%s/%s?isSystem=true", $uri, $this->getName()) : sprintf("%s/%s", $uri, $this->getName());
+            $response = $this->connection->delete($uri);
             $data = json_decode((string)$response->getBody(), true);
             return true;
         } catch (ClientException $exception) {
