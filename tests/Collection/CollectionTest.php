@@ -843,6 +843,10 @@ class CollectionTest extends TestCase
     public function testGetRevision()
     {
         $db = new Database($this->getConnectionObject());
+
+        $this->assertFalse($db->hasCollection("test_first"));
+        $this->assertFalse($db->hasCollection("test_snd"));
+
         $coll1 = new Collection('test_first', $db, ['revision' => '7854980051561']);
         $coll2 = new Collection('test_snd', $db);
 
@@ -853,7 +857,15 @@ class CollectionTest extends TestCase
 
         // Get checksum
         $this->assertEquals("7854980051561", $coll1->getRevision()); // Empty collection.
-        $this->assertEquals("0", $coll2->getRevision()); // Empty collection.
+
+        $compare_to = "0";
+
+        // 3.8+ specific behaviors. Default revision number is 54.
+        if ((float)Server::version($this->getConnectionObject()) >= 3.8) {
+            $compare_to = "54";
+        }
+
+        $this->assertEquals($compare_to, $coll2->getRevision()); // Empty collection.
 
         $this->assertTrue($coll1->drop());
         $this->assertTrue($coll2->drop());
