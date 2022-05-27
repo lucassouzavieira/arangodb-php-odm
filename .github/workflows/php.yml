@@ -1,4 +1,4 @@
-name: Building scripts
+name: PHP 7.4
 
 on:
   push:
@@ -12,10 +12,6 @@ permissions:
 jobs:
   arango_3_8:
     runs-on: ubuntu-latest
-    uses: shivammathur/setup-php@v2
-    with:
-      php-version: '7.4'
-
     services:
       arangodb:
         image: 'arangodb/arangodb:3.8.0'
@@ -25,6 +21,12 @@ jobs:
           ARANGO_ROOT_PASSWORD: testing
 
     steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          coverage: xdebug
+
       - name: Check out repository code
         uses: actions/checkout@v3
 
