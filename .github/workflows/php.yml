@@ -10,27 +10,28 @@ permissions:
   contents: read
 
 jobs:
-  build:
-
+  arango3.8:
     runs-on: ubuntu-latest
+    services:
+      arangodb:
+        image: 'arangodb/arangodb:3.8.0'
+        ports:
+          - 8529:8529
+        env:
+          ARANGO_ROOT_PASSWORD: testing
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Add testing configuration
+        run: cp .env.testing .env
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      
+      - name: Install dependencies
+        run: composer install --no-interaction
 
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v3
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
+      - name: Wait ArangoDB to init
+        run: sleep 30
 
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
-
-    - name: Run test suite
-      run: vendor/bin/phpunit -c phpunit.xml
+      - name: Run tests suites
+        run: vendor/bin/phpunit -c phpunit.xml
