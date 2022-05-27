@@ -19,12 +19,16 @@ jobs:
           - 8529:8529
         env:
           ARANGO_ROOT_PASSWORD: testing
+    strategy:
+      fail-fast: false
+      matrix:
+        php-versions: ['8.0', '8.1']
 
     steps:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: ${{ matrix.php-versions }}
           coverage: xdebug
 
       - name: Check out repository code
