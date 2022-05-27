@@ -12,6 +12,10 @@ permissions:
 jobs:
   arango_3_8:
     runs-on: ubuntu-latest
+    uses: shivammathur/setup-php@v2
+    with:
+      php-version: '7.4'
+
     services:
       arangodb:
         image: 'arangodb/arangodb:3.8.0'
