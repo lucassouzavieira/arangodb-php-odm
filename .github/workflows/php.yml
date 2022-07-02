@@ -37,6 +37,9 @@ jobs:
       - name: Add testing configuration
         run: cp .env.testing .env
 
+      - name: Add ArangoDB version to .env
+        run: echo -e "\nARANGODB_VERSION=$ARANGO_SERVER" >> .env
+
       - name: Install dependencies
         run: composer install --no-interaction
 

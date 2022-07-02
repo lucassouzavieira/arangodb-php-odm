@@ -172,7 +172,7 @@ class ArrayList implements ListInterface
      *
      * @return mixed
      */
-    public function current()
+    public function current(): mixed
     {
         return $this->content[$this->position];
     }
@@ -180,7 +180,7 @@ class ArrayList implements ListInterface
     /**
      * Move forward to next element
      */
-    public function next()
+    public function next(): void
     {
         $this->position++;
     }
@@ -190,7 +190,7 @@ class ArrayList implements ListInterface
      *
      * @return mixed
      */
-    public function key()
+    public function key(): mixed
     {
         return $this->position;
     }
@@ -200,7 +200,7 @@ class ArrayList implements ListInterface
      *
      * @return bool
      */
-    public function valid()
+    public function valid(): bool
     {
         return isset($this->content[$this->position]);
     }
@@ -208,7 +208,7 @@ class ArrayList implements ListInterface
     /**
      * Rewind the Iterator to the first element
      */
-    public function rewind()
+    public function rewind(): void
     {
         $this->position = 0;
     }
@@ -218,7 +218,7 @@ class ArrayList implements ListInterface
      *
      * @return int
      */
-    public function count()
+    public function count(): int
     {
         return count($this->content);
     }

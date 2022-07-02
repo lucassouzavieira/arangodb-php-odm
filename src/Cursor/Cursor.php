@@ -87,7 +87,7 @@ class Cursor extends Base
      *
      * @return mixed
      */
-    public function current()
+    public function current(): mixed
     {
         return $this->result->get($this->position);
     }
@@ -95,7 +95,7 @@ class Cursor extends Base
     /**
      * Move forward to next element.
      */
-    public function next()
+    public function next(): void
     {
         $this->position++;
     }
@@ -105,7 +105,7 @@ class Cursor extends Base
      *
      * @return mixed
      */
-    public function key()
+    public function key(): mixed
     {
         return $this->position;
     }
@@ -117,7 +117,7 @@ class Cursor extends Base
      *
      * @throws CursorException
      */
-    public function valid()
+    public function valid(): bool
     {
         // We still have results.
         if ($this->position <= ($this->length - 1)) {
@@ -136,7 +136,7 @@ class Cursor extends Base
     /**
      * Rewind the Iterator to the first element.
      */
-    public function rewind()
+    public function rewind(): void
     {
         $this->position = 0;
     }
@@ -224,7 +224,7 @@ class Cursor extends Base
     /**
      * @inheritDoc
      */
-    public function count()
+    public function count(): int
     {
         return $this->result->count();
     }

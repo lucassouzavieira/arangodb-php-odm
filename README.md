@@ -6,11 +6,6 @@
 
 ## A new PHP driver for ArangoDB
 
-### Build Status
-
-- develop [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?branch=develop)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
-- master [![Build Status](https://travis-ci.com/lucassouzavieira/arangodb-php-odm.svg?branch=master)](https://travis-ci.com/lucassouzavieira/arangodb-php-odm)
-
 ## Installation
 
 ### Using composer
