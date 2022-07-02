@@ -25,7 +25,7 @@ class TraversalCursor extends Cursor
      *
      * @throws InvalidParameterException|MissingParameterException
      */
-    public function current()
+    public function current(): mixed
     {
         $current = $this->result->get($this->position);
 
