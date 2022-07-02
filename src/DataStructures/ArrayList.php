@@ -162,7 +162,7 @@ class ArrayList implements ListInterface
      *
      * @return array|mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return $this->content;
     }

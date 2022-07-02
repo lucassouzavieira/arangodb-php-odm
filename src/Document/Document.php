@@ -361,7 +361,7 @@ class Document implements EntityInterface
      * @return array|mixed
      * @see \JsonSerializable::jsonSerialize()
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return $this->toArray();
     }

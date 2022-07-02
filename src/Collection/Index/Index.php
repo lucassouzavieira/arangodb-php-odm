@@ -242,7 +242,7 @@ class Index implements IndexInterface
     /**
      * @see \JsonSerializable::jsonSerialize()
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return $this->toArray();
     }
