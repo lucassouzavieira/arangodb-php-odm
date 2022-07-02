@@ -47,7 +47,7 @@ class CollectionCursor extends Cursor
      * @throws InvalidParameterException|MissingParameterException
      * @see \Iterator::current()
      */
-    public function current()
+    public function current(): mixed
     {
         if ($this->collection->isGraph()) {
             return new Edge($this->result->get($this->position), $this->collection);
