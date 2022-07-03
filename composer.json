@@ -24,7 +24,9 @@
     "guzzlehttp/psr7": "^2.3",
     "guzzlehttp/guzzle": "^7.4",
     "symfony/service-contracts": "3.0.2",
-    "symfony/event-dispatcher-contracts": "3.0.2"
+    "symfony/event-dispatcher-contracts": "3.0.2",
+    "symfony/deprecation-contracts": "3.0.2",
+    "symfony/string": "6.0.10"
   },
   "require-dev": {
     "phpunit/phpunit": "^9.5",
