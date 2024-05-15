@@ -1,0 +1,2424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+            <title>Arango PHP ODM</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Arango PHP ODM</a></h1>
+    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+        </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/arangodb.html" class="">ArangoDB</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/arangodb-admin.html" class="">Admin</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-aql.html" class="">AQL</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-auth.html" class="">Auth</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-batch.html" class="">Batch</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-collection.html" class="">Collection</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-connection.html" class="">Connection</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-cursor.html" class="">Cursor</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-database.html" class="">Database</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-datastructures.html" class="">DataStructures</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-document.html" class="">Document</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-entity.html" class="">Entity</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-exceptions.html" class="">Exceptions</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-foxx.html" class="">Foxx</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-graph.html" class="">Graph</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-http.html" class="">Http</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-transaction.html" class="">Transaction</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-validation.html" class="">Validation</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-view.html" class="">View</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+                <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/ArangoDB.html" class="">ArangoDB</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/ArangoDB-Admin.html" class="">Admin</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-AQL.html" class="">AQL</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Auth.html" class="">Auth</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Batch.html" class="">Batch</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Collection.html" class="">Collection</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Connection.html" class="">Connection</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Cursor.html" class="">Cursor</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Database.html" class="">Database</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-DataStructures.html" class="">DataStructures</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Document.html" class="">Document</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Handler.html" class="">Handler</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Exceptions.html" class="">Exceptions</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Validation.html" class="">Validation</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Foxx.html" class="">Foxx</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Graph.html" class="">Graph</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Http.html" class="">Http</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Transaction.html" class="">Transaction</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-View.html" class="">View</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+            
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+    </section>
+
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/arangodb.html">ArangoDB</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/arangodb-graph.html">Graph</a></li>
+    </ul>
+
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    Graph
+
+    
+            <div class="phpdocumentor-element__package">
+            in package
+            <ul class="phpdocumentor-breadcrumbs">
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/ArangoDB.html">ArangoDB</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/ArangoDB-Graph.html">Graph</a></li>
+                            </ul>
+        </div>
+    
+            <span class="phpdocumentor-element__implements">
+            implements
+                            <abbr title="\JsonSerializable">JsonSerializable</abbr>                    </span>
+    
+    </h2>
+
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">28</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.28" class="phpdocumentor-element-found-in__source" data-line="28" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+            <p class="phpdocumentor-summary">Represents an ArangoDB Graph.</p>
+
+
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Lucas S. Vieira</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+
+
+<h3 id="toc">
+    Table of Contents
+    <a href="classes/ArangoDB-Graph-Graph.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h3>
+
+
+
+    <h4 id="toc-interfaces">
+        Interfaces
+        <a href="classes/ArangoDB-Graph-Graph.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <dl class="phpdocumentor-table-of-contents">
+                    <dt class="phpdocumentor-table-of-contents__entry -interface"><abbr title="\JsonSerializable">JsonSerializable</abbr></dt>    </dl>
+
+
+
+
+
+
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/ArangoDB-Graph-Graph.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method___construct">__construct()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Graph constructor.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method___toString">__toString()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns a string representation of graph object.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_addEdge">addEdge()</a>
+    <span>
+                                &nbsp;: <a href="classes/ArangoDB-Document-Edge.html"><abbr title="\ArangoDB\Document\Edge">Edge</abbr></a>|false    </span>
+</dt>
+<dd>Creates a new edge in the collection.&lt;br&gt;
+Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_addEdgeDefinition">addEdgeDefinition()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Adds an edge definition to graph.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_addVertex">addVertex()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Adds a vertex to graph.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_addVertexCollection">addVertexCollection()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Adds a vertex collection to the set of orphan collections of the graph.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_delete">delete()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Removes a graph from server, if possible.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_dropEdge">dropEdge()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Drops an edge from graph.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_dropEdgeDefinition">dropEdgeDefinition()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Remove one edge definition from the graph.&lt;br&gt;
+This will only remove the edge collection,
+the vertex collections remain untouched and can still be used in your queries.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_dropVertex">dropVertex()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Drops a vertex from graph.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_dropVertexCollection">dropVertexCollection()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph.&lt;br&gt;
+It can only remove vertex collections that are no longer part of edge definitions,&lt;br&gt;
+if they are used in edge definitions you are required to modify those first.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_getEdge">getEdge()</a>
+    <span>
+                                &nbsp;: <a href="classes/ArangoDB-Document-Edge.html"><abbr title="\ArangoDB\Document\Edge">Edge</abbr></a>|false    </span>
+</dt>
+<dd>Returns an edge document.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_getEdgeDefinitions">getEdgeDefinitions()</a>
+    <span>
+                                &nbsp;: <a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>    </span>
+</dt>
+<dd>Return all edge definitions of graph.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_getId">getId()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns the graph ID.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_getKey">getKey()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns the graph key.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_getMinReplicationFactor">getMinReplicationFactor()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Returns the minimal replication factor used for every new collection in the graph.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_getName">getName()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Gets the graph name.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_getNumberOfShards">getNumberOfShards()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Returns the number of shards that is used for every collection within this graph.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_getOrphanCollections">getOrphanCollections()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Returns the orphan collections in the graph.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_getReplicationFactor">getReplicationFactor()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Returns the replication factor used when initially creating collections for this graph.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_getRevision">getRevision()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Gets the graph revision.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_getVertex">getVertex()</a>
+    <span>
+                                &nbsp;: <a href="classes/ArangoDB-Document-Vertex.html"><abbr title="\ArangoDB\Document\Vertex">Vertex</abbr></a>|false    </span>
+</dt>
+<dd>Gets a vertex from the given collection.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_getVertexCollections">getVertexCollections()</a>
+    <span>
+                                &nbsp;: <a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>    </span>
+</dt>
+<dd>Lists all vertex collections within this graph.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_isNew">isNew()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Returns true if is a new graph.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_isSmart">isSmart()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>If this graph is a smartGraph.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_jsonSerialize">jsonSerialize()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|mixed    </span>
+</dt>
+<dd>Return a JSON representation of graph attributes.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_save">save()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Save the Graph on server, if possible.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_toArray">toArray()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Returns a array representation of graph.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Graph-Graph.html#method_traversal">traversal()</a>
+    <span>
+                                &nbsp;: <a href="classes/ArangoDB-Cursor-TraversalCursor.html"><abbr title="\ArangoDB\Cursor\TraversalCursor">TraversalCursor</abbr></a>    </span>
+</dt>
+<dd>Returns a graph traversal.</dd>
+
+    </dl>
+
+
+
+
+        
+
+        
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/ArangoDB-Graph-Graph.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___construct">
+        __construct()
+        <a href="classes/ArangoDB-Graph-Graph.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">127</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.127" class="phpdocumentor-element-found-in__source" data-line="127" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Graph constructor.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attributes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Database-Database.html"><abbr title="\ArangoDB\Database\Database">Database</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$database</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Graph name.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$attributes</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Graph optional attributes.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$database</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Database-Database.html"><abbr title="\ArangoDB\Database\Database">Database</abbr></a>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Database object.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#method___construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Validation-Exceptions-InvalidParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a>|<a href="classes/ArangoDB-Validation-Exceptions-MissingParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></a>|<a href="classes/ArangoDB-Exceptions-Exception.html"><abbr title="\ArangoDB\Exceptions\Exception">Exception</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___toString">
+        __toString()
+        <a href="classes/ArangoDB-Graph-Graph.html#method___toString" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">168</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.168" class="phpdocumentor-element-found-in__source" data-line="168" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a string representation of graph object.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addEdge">
+        addEdge()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_addEdge" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">772</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.772" class="phpdocumentor-element-found-in__source" data-line="772" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Creates a new edge in the collection.&lt;br&gt;
+Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">addEdge</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collection</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attributes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$waitForSync</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$returnNew</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Document-Edge.html"><abbr title="\ArangoDB\Document\Edge">Edge</abbr></a>|false</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>Furthermore the edge has to be valid in the definition of the used.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$collection</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The name of the edge collection the edge belongs to.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$attributes</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The object attributes to be stored. Must contains '_to' and '_from' keys.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$waitForSync</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Define if the request should wait until synced to disk. Default is true.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$returnNew</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Define if the response should contain the complete new version of the document. Default is false.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#method_addEdge#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Exceptions-Exception.html"><abbr title="\ArangoDB\Exceptions\Exception">Exception</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Document-Edge.html"><abbr title="\ArangoDB\Document\Edge">Edge</abbr></a>|false</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>A Edge object if edge exists. False if no graph with this name could be found <br>
+or this collection is not part of the graph or one of the vertices ('_to' or '_from') does not exist.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addEdgeDefinition">
+        addEdgeDefinition()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_addEdgeDefinition" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">398</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.398" class="phpdocumentor-element-found-in__source" data-line="398" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Adds an edge definition to graph.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">addEdgeDefinition</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collection</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$from</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$to</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$collection</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Edge collection name.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$from</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>List of vertex collection names.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$to</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>List of vertex collection names.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#method_addEdgeDefinition#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addVertex">
+        addVertex()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_addVertex" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">641</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.641" class="phpdocumentor-element-found-in__source" data-line="641" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Adds a vertex to graph.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">addVertex</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collection</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attributes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$waitForSync</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$returnNew</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$collection</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The name of the vertex collection the vertex should be inserted into.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$attributes</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The object attributes to be stored.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$waitForSync</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Define if the request should wait until synced to disk. Default is true.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$returnNew</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Define if the response should contain the complete new version of the document. Default is true.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#method_addVertex#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Exceptions-Exception.html"><abbr title="\ArangoDB\Exceptions\Exception">Exception</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the vertex could be added. False if no graph with this name could be found<br>
+or if a graph is found but the collection is not part of the graph.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addVertexCollection">
+        addVertexCollection()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_addVertexCollection" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">520</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.520" class="phpdocumentor-element-found-in__source" data-line="520" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Adds a vertex collection to the set of orphan collections of the graph.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">addVertexCollection</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collection</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>If the collection does not exist, it will be created.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$collection</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The name of the vertex collection.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#method_addVertexCollection#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Exceptions-Exception.html"><abbr title="\ArangoDB\Exceptions\Exception">Exception</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_delete">
+        delete()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_delete" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">325</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.325" class="phpdocumentor-element-found-in__source" data-line="325" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Removes a graph from server, if possible.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">delete</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dropCollections</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dropCollections</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>If set true, drop collections of this graph as well. <br>
+Collections will only be dropped if they are not used in other graphs.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#method_delete#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Exceptions-Exception.html"><abbr title="\ArangoDB\Exceptions\Exception">Exception</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if operation was successful, false otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_dropEdge">
+        dropEdge()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_dropEdge" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">815</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.815" class="phpdocumentor-element-found-in__source" data-line="815" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Drops an edge from graph.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">dropEdge</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collection</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$edge</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$waitForSync</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$returnOld</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$collection</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The name of the edge collection the edge belongs to.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$edge</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The <i>_key</i> attribute of the edge.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$waitForSync</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Define if the request should wait until synced to disk. Default is true.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$returnOld</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Define if the response should contain the complete new version of the document. Default is false.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#method_dropEdge#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Exceptions-Exception.html"><abbr title="\ArangoDB\Exceptions\Exception">Exception</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the edge could be removed. False if no graph with this name could be found<br>
+or if a graph is found but the collection is not part of the graph.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_dropEdgeDefinition">
+        dropEdgeDefinition()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_dropEdgeDefinition" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">438</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.438" class="phpdocumentor-element-found-in__source" data-line="438" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Remove one edge definition from the graph.&lt;br&gt;
+This will only remove the edge collection,
+the vertex collections remain untouched and can still be used in your queries.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">dropEdgeDefinition</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collection</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dropCollection</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$waitForSync</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$collection</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Edge collection name.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dropCollection</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Drop the collection as well. Collection will only be dropped if it is not used in other graphs.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$waitForSync</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Define if the request should wait until synced to disk.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#method_dropEdgeDefinition#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_dropVertex">
+        dropVertex()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_dropVertex" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">684</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.684" class="phpdocumentor-element-found-in__source" data-line="684" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Drops a vertex from graph.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">dropVertex</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collection</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$vertex</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$waitForSync</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$returnOld</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$collection</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The name of the vertex collection the vertex belongs to.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$vertex</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The <i>_key</i> attribute of the vertex.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$waitForSync</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Define if the request should wait until synced to disk. Default is true.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$returnOld</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Define if the response should contain the complete new version of the document. Default is false.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#method_dropVertex#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Exceptions-Exception.html"><abbr title="\ArangoDB\Exceptions\Exception">Exception</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the vertex could be removed. False if no graph with this name could be found<br>
+or if a graph is found but the collection is not part of the graph.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_dropVertexCollection">
+        dropVertexCollection()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_dropVertexCollection" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">559</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.559" class="phpdocumentor-element-found-in__source" data-line="559" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph.&lt;br&gt;
+It can only remove vertex collections that are no longer part of edge definitions,&lt;br&gt;
+if they are used in edge definitions you are required to modify those first.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">dropVertexCollection</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collection</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dropCollection</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$collection</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The name of the vertex collection.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dropCollection</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Drop the collection as well. Collection will only be dropped if it is not used in other graphs.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#method_dropVertexCollection#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Exceptions-Exception.html"><abbr title="\ArangoDB\Exceptions\Exception">Exception</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getEdge">
+        getEdge()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_getEdge" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">727</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.727" class="phpdocumentor-element-found-in__source" data-line="727" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns an edge document.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getEdge</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collection</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$edge</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Document-Edge.html"><abbr title="\ArangoDB\Document\Edge">Edge</abbr></a>|false</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$collection</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The name of the edge collection the edge belongs to.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$edge</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The <i>_key</i> attribute of the edge.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#method_getEdge#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Exceptions-Exception.html"><abbr title="\ArangoDB\Exceptions\Exception">Exception</abbr></a>|<a href="classes/ArangoDB-Validation-Exceptions-MissingParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></a>|<a href="classes/ArangoDB-Validation-Exceptions-InvalidParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Document-Edge.html"><abbr title="\ArangoDB\Document\Edge">Edge</abbr></a>|false</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>A Edge object if edge exists. False if no graph with this name could be found<br>
+or this collection is not part of the graph or the edge does not exist.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getEdgeDefinitions">
+        getEdgeDefinitions()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_getEdgeDefinitions" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">383</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.383" class="phpdocumentor-element-found-in__source" data-line="383" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return all edge definitions of graph.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getEdgeDefinitions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getId">
+        getId()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_getId" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">178</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.178" class="phpdocumentor-element-found-in__source" data-line="178" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the graph ID.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getId</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getKey">
+        getKey()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_getKey" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">188</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.188" class="phpdocumentor-element-found-in__source" data-line="188" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the graph key.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getKey</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getMinReplicationFactor">
+        getMinReplicationFactor()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_getMinReplicationFactor" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">258</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.258" class="phpdocumentor-element-found-in__source" data-line="258" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the minimal replication factor used for every new collection in the graph.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getMinReplicationFactor</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getName">
+        getName()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_getName" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">208</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.208" class="phpdocumentor-element-found-in__source" data-line="208" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets the graph name.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getName</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getNumberOfShards">
+        getNumberOfShards()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_getNumberOfShards" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">238</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.238" class="phpdocumentor-element-found-in__source" data-line="238" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the number of shards that is used for every collection within this graph.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getNumberOfShards</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getOrphanCollections">
+        getOrphanCollections()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_getOrphanCollections" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">268</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.268" class="phpdocumentor-element-found-in__source" data-line="268" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the orphan collections in the graph.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getOrphanCollections</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getReplicationFactor">
+        getReplicationFactor()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_getReplicationFactor" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">248</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.248" class="phpdocumentor-element-found-in__source" data-line="248" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the replication factor used when initially creating collections for this graph.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getReplicationFactor</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getRevision">
+        getRevision()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_getRevision" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">228</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.228" class="phpdocumentor-element-found-in__source" data-line="228" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets the graph revision.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getRevision</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getVertex">
+        getVertex()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_getVertex" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">598</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.598" class="phpdocumentor-element-found-in__source" data-line="598" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets a vertex from the given collection.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getVertex</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collection</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$vertex</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Document-Vertex.html"><abbr title="\ArangoDB\Document\Vertex">Vertex</abbr></a>|false</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$collection</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The name of the vertex collection the vertex belongs to.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$vertex</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The <i>_key</i> attribute of the vertex.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#method_getVertex#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Validation-Exceptions-InvalidParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a>|<a href="classes/ArangoDB-Validation-Exceptions-MissingParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Document-Vertex.html"><abbr title="\ArangoDB\Document\Vertex">Vertex</abbr></a>|false</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>A Vertex object if vertex exists. False if no graph with this name could be found<br>
+or this collection is not part of the graph or the vertex does not exist.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getVertexCollections">
+        getVertexCollections()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_getVertexCollections" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">485</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.485" class="phpdocumentor-element-found-in__source" data-line="485" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Lists all vertex collections within this graph.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getVertexCollections</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#method_getVertexCollections#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Exceptions-Exception.html"><abbr title="\ArangoDB\Exceptions\Exception">Exception</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isNew">
+        isNew()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_isNew" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">198</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.198" class="phpdocumentor-element-found-in__source" data-line="198" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns true if is a new graph.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isNew</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isSmart">
+        isSmart()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_isSmart" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">218</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.218" class="phpdocumentor-element-found-in__source" data-line="218" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">If this graph is a smartGraph.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isSmart</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_jsonSerialize">
+        jsonSerialize()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_jsonSerialize" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">868</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.868" class="phpdocumentor-element-found-in__source" data-line="868" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return a JSON representation of graph attributes.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">jsonSerialize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|mixed</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_save">
+        save()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_save" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">280</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.280" class="phpdocumentor-element-found-in__source" data-line="280" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Save the Graph on server, if possible.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">save</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#method_save#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Exceptions-Exception.html"><abbr title="\ArangoDB\Exceptions\Exception">Exception</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if operation was successful, false otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_toArray">
+        toArray()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_toArray" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">355</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.355" class="phpdocumentor-element-found-in__source" data-line="355" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a array representation of graph.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">toArray</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_traversal">
+        traversal()
+        <a href="classes/ArangoDB-Graph-Graph.html#method_traversal" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">858</span>
+
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.858" class="phpdocumentor-element-found-in__source" data-line="858" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a graph traversal.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">traversal</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Document-Vertex.html"><abbr title="\ArangoDB\Document\Vertex">Vertex</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$vertex</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$direction</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">Traversal::GRAPH_DIRECTION_ANY</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$depth</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Cursor-TraversalCursor.html"><abbr title="\ArangoDB\Cursor\TraversalCursor">TraversalCursor</abbr></a></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$vertex</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Document-Vertex.html"><abbr title="\ArangoDB\Document\Vertex">Vertex</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The start vertex.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$direction</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">Traversal::GRAPH_DIRECTION_ANY</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Direction for traversal. Must be either &quot;outbound&quot;, &quot;inbound&quot;, or &quot;any&quot;.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$depth</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">0</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Visits only nodes in at least the given depth.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Graph.html#method_traversal#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Cursor-Exceptions-CursorException.html"><abbr title="\ArangoDB\Cursor\Exceptions\CursorException">CursorException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Exceptions-Exception.html"><abbr title="\ArangoDB\Exceptions\Exception">Exception</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Cursor-TraversalCursor.html"><abbr title="\ArangoDB\Cursor\TraversalCursor">TraversalCursor</abbr></a></span>
+            </section>
+
+</article>
+            </section>
+
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Graph/Graph.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
+
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
+
+                    var xhr = new XMLHttpRequest();
+
+                    xhr.open('GET', src, true);
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+                            Prism.highlightElement(code);
+                            return;
+                        }
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
+                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
+                    }
+                    modal.classList.add("phpdocumentor-modal__open");
+
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
+                    });
+                });
+            });
+        })();
+    </script>
+
+    </article>
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                                                                <li><a href="classes/ArangoDB-Graph-Graph.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+            
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method___construct">__construct()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method___toString">__toString()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_addEdge">addEdge()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_addEdgeDefinition">addEdgeDefinition()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_addVertex">addVertex()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_addVertexCollection">addVertexCollection()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_delete">delete()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_dropEdge">dropEdge()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_dropEdgeDefinition">dropEdgeDefinition()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_dropVertex">dropVertex()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_dropVertexCollection">dropVertexCollection()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_getEdge">getEdge()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_getEdgeDefinitions">getEdgeDefinitions()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_getId">getId()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_getKey">getKey()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_getMinReplicationFactor">getMinReplicationFactor()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_getName">getName()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_getNumberOfShards">getNumberOfShards()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_getOrphanCollections">getOrphanCollections()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_getReplicationFactor">getReplicationFactor()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_getRevision">getRevision()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_getVertex">getVertex()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_getVertexCollections">getVertexCollections()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_isNew">isNew()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_isSmart">isSmart()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_jsonSerialize">jsonSerialize()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_save">save()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_toArray">toArray()</a></li>
+                                            <li><a href="classes/ArangoDB-Graph-Graph.html#method_traversal">traversal()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+        </div>
+        <a href="classes/ArangoDB-Graph-Graph.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+</body>
+</html>

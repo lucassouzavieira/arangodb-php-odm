@@ -1,0 +1,3051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+            <title>Arango PHP ODM</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Arango PHP ODM</a></h1>
+    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+        </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/arangodb.html" class="">ArangoDB</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/arangodb-admin.html" class="">Admin</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-aql.html" class="">AQL</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-auth.html" class="">Auth</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-batch.html" class="">Batch</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-collection.html" class="">Collection</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-connection.html" class="">Connection</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-cursor.html" class="">Cursor</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-database.html" class="">Database</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-datastructures.html" class="">DataStructures</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-document.html" class="">Document</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-entity.html" class="">Entity</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-exceptions.html" class="">Exceptions</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-foxx.html" class="">Foxx</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-graph.html" class="">Graph</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-http.html" class="">Http</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-transaction.html" class="">Transaction</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-validation.html" class="">Validation</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-view.html" class="">View</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+                <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/ArangoDB.html" class="">ArangoDB</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/ArangoDB-Admin.html" class="">Admin</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-AQL.html" class="">AQL</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Auth.html" class="">Auth</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Batch.html" class="">Batch</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Collection.html" class="">Collection</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Connection.html" class="">Connection</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Cursor.html" class="">Cursor</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Database.html" class="">Database</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-DataStructures.html" class="">DataStructures</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Document.html" class="">Document</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Handler.html" class="">Handler</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Exceptions.html" class="">Exceptions</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Validation.html" class="">Validation</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Foxx.html" class="">Foxx</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Graph.html" class="">Graph</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Http.html" class="">Http</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Transaction.html" class="">Transaction</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-View.html" class="">View</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+            
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+    </section>
+
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/arangodb.html">ArangoDB</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/arangodb-http.html">Http</a></li>
+    </ul>
+
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    Api
+
+    
+            <div class="phpdocumentor-element__package">
+            in package
+            <ul class="phpdocumentor-breadcrumbs">
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/ArangoDB.html">ArangoDB</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/ArangoDB-Http.html">Http</a></li>
+                            </ul>
+        </div>
+    
+    
+    </h2>
+
+<div class="phpdocumentor-label-line">
+
+
+    <div class="phpdocumentor-label phpdocumentor-label--success"><span>Abstract</span><span>Yes</span></div>
+
+</div>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">11</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.11" class="phpdocumentor-element-found-in__source" data-line="11" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+            <p class="phpdocumentor-summary">API Helper to Arango HTTP Interface</p>
+
+
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Http-Api.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">copyright</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>2018 Lucas S. Vieira</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+
+
+<h3 id="toc">
+    Table of Contents
+    <a href="classes/ArangoDB-Http-Api.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h3>
+
+
+
+
+
+
+
+<h4 id="toc-constants">
+    Constants
+    <a href="classes/ArangoDB-Http-Api.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_ENGINE">ADMIN_ENGINE</a>
+    <span>
+        &nbsp;= &quot;/_api/engine&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_FLUSH_WAL">ADMIN_FLUSH_WAL</a>
+    <span>
+        &nbsp;= &quot;/_admin/wal/flush&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_LOG">ADMIN_LOG</a>
+    <span>
+        &nbsp;= &quot;/_admin/log&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_LOG_LEVEL">ADMIN_LOG_LEVEL</a>
+    <span>
+        &nbsp;= &quot;/_admin/log/level&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_ROUTING_RELOAD">ADMIN_ROUTING_RELOAD</a>
+    <span>
+        &nbsp;= &quot;/_admin/routing/reload&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_SERVER_AVAILABILITY">ADMIN_SERVER_AVAILABILITY</a>
+    <span>
+        &nbsp;= &quot;/_admin/server/availability&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_SERVER_ROLE">ADMIN_SERVER_ROLE</a>
+    <span>
+        &nbsp;= &quot;/_admin/server/role&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_STATISTICS">ADMIN_STATISTICS</a>
+    <span>
+        &nbsp;= &quot;/_admin/statistics&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_STATISTICS_DESCRIPTION">ADMIN_STATISTICS_DESCRIPTION</a>
+    <span>
+        &nbsp;= &quot;/_admin/statistics-description&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_TASKS">ADMIN_TASKS</a>
+    <span>
+        &nbsp;= &quot;/_api/tasks&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_TIME">ADMIN_TIME</a>
+    <span>
+        &nbsp;= &quot;/_admin/time&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_VERSION">ADMIN_VERSION</a>
+    <span>
+        &nbsp;= &quot;/_api/version&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_WAL_PROPERTIES">ADMIN_WAL_PROPERTIES</a>
+    <span>
+        &nbsp;= &quot;_admin/wal/properties&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_WAL_TRANSACTIONS">ADMIN_WAL_TRANSACTIONS</a>
+    <span>
+        &nbsp;= &quot;_admin/wal/transactions&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ALL">ALL</a>
+    <span>
+        &nbsp;= &quot;/_api/simple/all&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ALL_KEYS">ALL_KEYS</a>
+    <span>
+        &nbsp;= &quot;/_api/simple/all&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ANY">ANY</a>
+    <span>
+        &nbsp;= &quot;/_api/simple/any&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_AQL_USER_FUNCTION">AQL_USER_FUNCTION</a>
+    <span>
+        &nbsp;= &quot;/_api/aqlfunction&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_AUTH_BASE">AUTH_BASE</a>
+    <span>
+        &nbsp;= &quot;/_open/auth&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_BATCH">BATCH</a>
+    <span>
+        &nbsp;= &quot;/_api/batch&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION">COLLECTION</a>
+    <span>
+        &nbsp;= &quot;/_api/collection&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_CHECKSUM">COLLECTION_CHECKSUM</a>
+    <span>
+        &nbsp;= &quot;/checksum&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_COUNT">COLLECTION_COUNT</a>
+    <span>
+        &nbsp;= &quot;/count&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_LOAD">COLLECTION_LOAD</a>
+    <span>
+        &nbsp;= &quot;/load&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_PROPERTIES">COLLECTION_PROPERTIES</a>
+    <span>
+        &nbsp;= &quot;/properties&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_RECALCULATE_COUNT">COLLECTION_RECALCULATE_COUNT</a>
+    <span>
+        &nbsp;= &quot;/recalculateCount&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_RENAME">COLLECTION_RENAME</a>
+    <span>
+        &nbsp;= &quot;/rename&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_REVISION">COLLECTION_REVISION</a>
+    <span>
+        &nbsp;= &quot;/revision&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_ROTATE">COLLECTION_ROTATE</a>
+    <span>
+        &nbsp;= &quot;/rotate&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_TRUNCATE">COLLECTION_TRUNCATE</a>
+    <span>
+        &nbsp;= &quot;/truncate&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_CURRENT_DATABASE">CURRENT_DATABASE</a>
+    <span>
+        &nbsp;= &quot;/_api/database/current&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_CURSOR">CURSOR</a>
+    <span>
+        &nbsp;= &quot;/_api/cursor&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_DATABASE">DATABASE</a>
+    <span>
+        &nbsp;= &quot;/_api/database&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_DB">DB</a>
+    <span>
+        &nbsp;= &quot;/_db/&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_DOCUMENT">DOCUMENT</a>
+    <span>
+        &nbsp;= &quot;/_api/document&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_EDGE">EDGE</a>
+    <span>
+        &nbsp;= &quot;/_api/document&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_EDGES">EDGES</a>
+    <span>
+        &nbsp;= &quot;/_api/edges&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_ENDPOINT">ENDPOINT</a>
+    <span>
+        &nbsp;= &quot;/_api/endpoint&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_EXAMPLE">EXAMPLE</a>
+    <span>
+        &nbsp;= &quot;/_api/simple/by-example&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_EXPLAIN">EXPLAIN</a>
+    <span>
+        &nbsp;= &quot;/_api/explain&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_FIRST_EXAMPLE">FIRST_EXAMPLE</a>
+    <span>
+        &nbsp;= &quot;/_api/simple/first-example&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_FOXX">FOXX</a>
+    <span>
+        &nbsp;= &quot;/_api/foxx&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_FOXX_SERVICE">FOXX_SERVICE</a>
+    <span>
+        &nbsp;= &quot;/_api/foxx/service&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_FULLTEXT">FULLTEXT</a>
+    <span>
+        &nbsp;= &quot;/_api/simple/fulltext&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_GRAPH">GRAPH</a>
+    <span>
+        &nbsp;= &quot;/_api/gharial&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_IMPORT">IMPORT</a>
+    <span>
+        &nbsp;= &quot;/_api/import&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_INDEX">INDEX</a>
+    <span>
+        &nbsp;= &quot;/_api/index&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_JWT_AUTH_BASE">JWT_AUTH_BASE</a>
+    <span>
+        &nbsp;= &quot;/_open/auth&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_LOOKUP_BY_KEYS">LOOKUP_BY_KEYS</a>
+    <span>
+        &nbsp;= &quot;/_api/simple/lookup-by_keys&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_PART_EDGE">PART_EDGE</a>
+    <span>
+        &nbsp;= &quot;vertex&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_PART_VERTEX">PART_VERTEX</a>
+    <span>
+        &nbsp;= &quot;vertex&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_QUERY">QUERY</a>
+    <span>
+        &nbsp;= &quot;/_api/query&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_QUERY_CACHE">QUERY_CACHE</a>
+    <span>
+        &nbsp;= &quot;/_api/query-cache&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_REMOVE_BY_EXAMPLE">REMOVE_BY_EXAMPLE</a>
+    <span>
+        &nbsp;= &quot;/_api/simple/remove-by-example&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_REMOVE_BY_KEYS">REMOVE_BY_KEYS</a>
+    <span>
+        &nbsp;= &quot;/_api/simple/remove-by-keys&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_REPLACE_BY_EXAMPLE">REPLACE_BY_EXAMPLE</a>
+    <span>
+        &nbsp;= &quot;/_api/simple/replace-by-example&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_TRANSACTION">TRANSACTION</a>
+    <span>
+        &nbsp;= &quot;/_api/transaction&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_TRANSACTION_BEGIN">TRANSACTION_BEGIN</a>
+    <span>
+        &nbsp;= &quot;/_api/transaction/begin&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_TRAVERSAL">TRAVERSAL</a>
+    <span>
+        &nbsp;= &quot;/_api/traversal&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_UPDATE_BY_EXAMPLE">UPDATE_BY_EXAMPLE</a>
+    <span>
+        &nbsp;= &quot;/_api/simple/update-by-example&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_UPLOAD">UPLOAD</a>
+    <span>
+        &nbsp;= &quot;/_api/upload&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_USER">USER</a>
+    <span>
+        &nbsp;= &quot;/_api/user&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/ArangoDB-Http-Api.html#constant_USER_DATABASES">USER_DATABASES</a>
+    <span>
+        &nbsp;= &quot;/_api/database/user&quot;                            </span>
+</dt>
+
+    </dl>
+
+
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/ArangoDB-Http-Api.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Http-Api.html#method_addQuery">addQuery()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Add an URI query</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Http-Api.html#method_addUriParam">addUriParam()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Add an URI param to an URI</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Http-Api.html#method_buildDatabaseUri">buildDatabaseUri()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Builds URIs for access to Arango HTTP Interface</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Http-Api.html#method_buildSystemUri">buildSystemUri()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Builds URIs for access some special endpoints on Arango HTTP Interface</dd>
+
+    </dl>
+
+
+
+
+        
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/ArangoDB-Http-Api.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ADMIN_ENGINE">
+        ADMIN_ENGINE
+        <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_ENGINE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">65</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.65" class="phpdocumentor-element-found-in__source" data-line="65" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ADMIN_ENGINE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/engine&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ADMIN_FLUSH_WAL">
+        ADMIN_FLUSH_WAL
+        <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_FLUSH_WAL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">70</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.70" class="phpdocumentor-element-found-in__source" data-line="70" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ADMIN_FLUSH_WAL</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_admin/wal/flush&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ADMIN_LOG">
+        ADMIN_LOG
+        <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_LOG" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">69</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.69" class="phpdocumentor-element-found-in__source" data-line="69" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ADMIN_LOG</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_admin/log&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ADMIN_LOG_LEVEL">
+        ADMIN_LOG_LEVEL
+        <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_LOG_LEVEL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">73</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.73" class="phpdocumentor-element-found-in__source" data-line="73" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ADMIN_LOG_LEVEL</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_admin/log/level&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ADMIN_ROUTING_RELOAD">
+        ADMIN_ROUTING_RELOAD
+        <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_ROUTING_RELOAD" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">74</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.74" class="phpdocumentor-element-found-in__source" data-line="74" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ADMIN_ROUTING_RELOAD</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_admin/routing/reload&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ADMIN_SERVER_AVAILABILITY">
+        ADMIN_SERVER_AVAILABILITY
+        <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_SERVER_AVAILABILITY" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">67</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.67" class="phpdocumentor-element-found-in__source" data-line="67" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ADMIN_SERVER_AVAILABILITY</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_admin/server/availability&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ADMIN_SERVER_ROLE">
+        ADMIN_SERVER_ROLE
+        <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_SERVER_ROLE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">66</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.66" class="phpdocumentor-element-found-in__source" data-line="66" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ADMIN_SERVER_ROLE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_admin/server/role&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ADMIN_STATISTICS">
+        ADMIN_STATISTICS
+        <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_STATISTICS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">75</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.75" class="phpdocumentor-element-found-in__source" data-line="75" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ADMIN_STATISTICS</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_admin/statistics&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ADMIN_STATISTICS_DESCRIPTION">
+        ADMIN_STATISTICS_DESCRIPTION
+        <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_STATISTICS_DESCRIPTION" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">76</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.76" class="phpdocumentor-element-found-in__source" data-line="76" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ADMIN_STATISTICS_DESCRIPTION</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_admin/statistics-description&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ADMIN_TASKS">
+        ADMIN_TASKS
+        <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_TASKS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">63</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.63" class="phpdocumentor-element-found-in__source" data-line="63" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ADMIN_TASKS</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/tasks&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ADMIN_TIME">
+        ADMIN_TIME
+        <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_TIME" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">68</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.68" class="phpdocumentor-element-found-in__source" data-line="68" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ADMIN_TIME</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_admin/time&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ADMIN_VERSION">
+        ADMIN_VERSION
+        <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_VERSION" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">64</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.64" class="phpdocumentor-element-found-in__source" data-line="64" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ADMIN_VERSION</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/version&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ADMIN_WAL_PROPERTIES">
+        ADMIN_WAL_PROPERTIES
+        <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_WAL_PROPERTIES" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">71</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.71" class="phpdocumentor-element-found-in__source" data-line="71" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ADMIN_WAL_PROPERTIES</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;_admin/wal/properties&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ADMIN_WAL_TRANSACTIONS">
+        ADMIN_WAL_TRANSACTIONS
+        <a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_WAL_TRANSACTIONS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">72</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.72" class="phpdocumentor-element-found-in__source" data-line="72" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ADMIN_WAL_TRANSACTIONS</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;_admin/wal/transactions&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ALL">
+        ALL
+        <a href="classes/ArangoDB-Http-Api.html#constant_ALL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">51</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.51" class="phpdocumentor-element-found-in__source" data-line="51" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ALL</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/simple/all&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ALL_KEYS">
+        ALL_KEYS
+        <a href="classes/ArangoDB-Http-Api.html#constant_ALL_KEYS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">52</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.52" class="phpdocumentor-element-found-in__source" data-line="52" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ALL_KEYS</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/simple/all&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ANY">
+        ANY
+        <a href="classes/ArangoDB-Http-Api.html#constant_ANY" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">53</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.53" class="phpdocumentor-element-found-in__source" data-line="53" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ANY</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/simple/any&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_AQL_USER_FUNCTION">
+        AQL_USER_FUNCTION
+        <a href="classes/ArangoDB-Http-Api.html#constant_AQL_USER_FUNCTION" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">25</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.25" class="phpdocumentor-element-found-in__source" data-line="25" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">AQL_USER_FUNCTION</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/aqlfunction&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_AUTH_BASE">
+        AUTH_BASE
+        <a href="classes/ArangoDB-Http-Api.html#constant_AUTH_BASE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">81</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.81" class="phpdocumentor-element-found-in__source" data-line="81" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">AUTH_BASE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_open/auth&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_BATCH">
+        BATCH
+        <a href="classes/ArangoDB-Http-Api.html#constant_BATCH" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">21</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.21" class="phpdocumentor-element-found-in__source" data-line="21" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">BATCH</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/batch&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COLLECTION">
+        COLLECTION
+        <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">27</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.27" class="phpdocumentor-element-found-in__source" data-line="27" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COLLECTION</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/collection&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COLLECTION_CHECKSUM">
+        COLLECTION_CHECKSUM
+        <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_CHECKSUM" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">32</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.32" class="phpdocumentor-element-found-in__source" data-line="32" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COLLECTION_CHECKSUM</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/checksum&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COLLECTION_COUNT">
+        COLLECTION_COUNT
+        <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_COUNT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">29</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.29" class="phpdocumentor-element-found-in__source" data-line="29" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COLLECTION_COUNT</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/count&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COLLECTION_LOAD">
+        COLLECTION_LOAD
+        <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_LOAD" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">28</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.28" class="phpdocumentor-element-found-in__source" data-line="28" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COLLECTION_LOAD</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/load&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COLLECTION_PROPERTIES">
+        COLLECTION_PROPERTIES
+        <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_PROPERTIES" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">35</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.35" class="phpdocumentor-element-found-in__source" data-line="35" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COLLECTION_PROPERTIES</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/properties&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COLLECTION_RECALCULATE_COUNT">
+        COLLECTION_RECALCULATE_COUNT
+        <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_RECALCULATE_COUNT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">36</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.36" class="phpdocumentor-element-found-in__source" data-line="36" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COLLECTION_RECALCULATE_COUNT</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/recalculateCount&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COLLECTION_RENAME">
+        COLLECTION_RENAME
+        <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_RENAME" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">30</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.30" class="phpdocumentor-element-found-in__source" data-line="30" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COLLECTION_RENAME</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/rename&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COLLECTION_REVISION">
+        COLLECTION_REVISION
+        <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_REVISION" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">33</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.33" class="phpdocumentor-element-found-in__source" data-line="33" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COLLECTION_REVISION</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/revision&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COLLECTION_ROTATE">
+        COLLECTION_ROTATE
+        <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_ROTATE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">31</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.31" class="phpdocumentor-element-found-in__source" data-line="31" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COLLECTION_ROTATE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/rotate&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COLLECTION_TRUNCATE">
+        COLLECTION_TRUNCATE
+        <a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_TRUNCATE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">34</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.34" class="phpdocumentor-element-found-in__source" data-line="34" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COLLECTION_TRUNCATE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/truncate&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_CURRENT_DATABASE">
+        CURRENT_DATABASE
+        <a href="classes/ArangoDB-Http-Api.html#constant_CURRENT_DATABASE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">42</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.42" class="phpdocumentor-element-found-in__source" data-line="42" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CURRENT_DATABASE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/database/current&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_CURSOR">
+        CURSOR
+        <a href="classes/ArangoDB-Http-Api.html#constant_CURSOR" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">18</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.18" class="phpdocumentor-element-found-in__source" data-line="18" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CURSOR</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/cursor&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DATABASE">
+        DATABASE
+        <a href="classes/ArangoDB-Http-Api.html#constant_DATABASE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">41</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.41" class="phpdocumentor-element-found-in__source" data-line="41" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DATABASE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/database&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DB">
+        DB
+        <a href="classes/ArangoDB-Http-Api.html#constant_DB" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">80</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.80" class="phpdocumentor-element-found-in__source" data-line="80" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DB</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_db/&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DOCUMENT">
+        DOCUMENT
+        <a href="classes/ArangoDB-Http-Api.html#constant_DOCUMENT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">13</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.13" class="phpdocumentor-element-found-in__source" data-line="13" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DOCUMENT</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/document&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_EDGE">
+        EDGE
+        <a href="classes/ArangoDB-Http-Api.html#constant_EDGE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">14</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.14" class="phpdocumentor-element-found-in__source" data-line="14" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">EDGE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/document&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_EDGES">
+        EDGES
+        <a href="classes/ArangoDB-Http-Api.html#constant_EDGES" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">15</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.15" class="phpdocumentor-element-found-in__source" data-line="15" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">EDGES</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/edges&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ENDPOINT">
+        ENDPOINT
+        <a href="classes/ArangoDB-Http-Api.html#constant_ENDPOINT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">40</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.40" class="phpdocumentor-element-found-in__source" data-line="40" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ENDPOINT</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/endpoint&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_EXAMPLE">
+        EXAMPLE
+        <a href="classes/ArangoDB-Http-Api.html#constant_EXAMPLE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">57</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.57" class="phpdocumentor-element-found-in__source" data-line="57" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">EXAMPLE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/simple/by-example&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_EXPLAIN">
+        EXPLAIN
+        <a href="classes/ArangoDB-Http-Api.html#constant_EXPLAIN" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">20</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.20" class="phpdocumentor-element-found-in__source" data-line="20" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">EXPLAIN</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/explain&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FIRST_EXAMPLE">
+        FIRST_EXAMPLE
+        <a href="classes/ArangoDB-Http-Api.html#constant_FIRST_EXAMPLE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">58</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.58" class="phpdocumentor-element-found-in__source" data-line="58" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FIRST_EXAMPLE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/simple/first-example&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FOXX">
+        FOXX
+        <a href="classes/ArangoDB-Http-Api.html#constant_FOXX" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">77</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.77" class="phpdocumentor-element-found-in__source" data-line="77" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FOXX</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/foxx&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FOXX_SERVICE">
+        FOXX_SERVICE
+        <a href="classes/ArangoDB-Http-Api.html#constant_FOXX_SERVICE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">78</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.78" class="phpdocumentor-element-found-in__source" data-line="78" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FOXX_SERVICE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/foxx/service&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FULLTEXT">
+        FULLTEXT
+        <a href="classes/ArangoDB-Http-Api.html#constant_FULLTEXT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">54</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.54" class="phpdocumentor-element-found-in__source" data-line="54" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FULLTEXT</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/simple/fulltext&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_GRAPH">
+        GRAPH
+        <a href="classes/ArangoDB-Http-Api.html#constant_GRAPH" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">16</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.16" class="phpdocumentor-element-found-in__source" data-line="16" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">GRAPH</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/gharial&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_IMPORT">
+        IMPORT
+        <a href="classes/ArangoDB-Http-Api.html#constant_IMPORT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">19</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.19" class="phpdocumentor-element-found-in__source" data-line="19" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">IMPORT</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/import&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_INDEX">
+        INDEX
+        <a href="classes/ArangoDB-Http-Api.html#constant_INDEX" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">17</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.17" class="phpdocumentor-element-found-in__source" data-line="17" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">INDEX</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/index&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_JWT_AUTH_BASE">
+        JWT_AUTH_BASE
+        <a href="classes/ArangoDB-Http-Api.html#constant_JWT_AUTH_BASE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">82</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.82" class="phpdocumentor-element-found-in__source" data-line="82" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">JWT_AUTH_BASE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_open/auth&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LOOKUP_BY_KEYS">
+        LOOKUP_BY_KEYS
+        <a href="classes/ArangoDB-Http-Api.html#constant_LOOKUP_BY_KEYS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">50</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.50" class="phpdocumentor-element-found-in__source" data-line="50" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">LOOKUP_BY_KEYS</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/simple/lookup-by_keys&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PART_EDGE">
+        PART_EDGE
+        <a href="classes/ArangoDB-Http-Api.html#constant_PART_EDGE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">48</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.48" class="phpdocumentor-element-found-in__source" data-line="48" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PART_EDGE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;vertex&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PART_VERTEX">
+        PART_VERTEX
+        <a href="classes/ArangoDB-Http-Api.html#constant_PART_VERTEX" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">47</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.47" class="phpdocumentor-element-found-in__source" data-line="47" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PART_VERTEX</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;vertex&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_QUERY">
+        QUERY
+        <a href="classes/ArangoDB-Http-Api.html#constant_QUERY" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">22</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.22" class="phpdocumentor-element-found-in__source" data-line="22" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">QUERY</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/query&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_QUERY_CACHE">
+        QUERY_CACHE
+        <a href="classes/ArangoDB-Http-Api.html#constant_QUERY_CACHE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.44" class="phpdocumentor-element-found-in__source" data-line="44" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">QUERY_CACHE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/query-cache&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_REMOVE_BY_EXAMPLE">
+        REMOVE_BY_EXAMPLE
+        <a href="classes/ArangoDB-Http-Api.html#constant_REMOVE_BY_EXAMPLE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">60</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.60" class="phpdocumentor-element-found-in__source" data-line="60" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">REMOVE_BY_EXAMPLE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/simple/remove-by-example&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_REMOVE_BY_KEYS">
+        REMOVE_BY_KEYS
+        <a href="classes/ArangoDB-Http-Api.html#constant_REMOVE_BY_KEYS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">55</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.55" class="phpdocumentor-element-found-in__source" data-line="55" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">REMOVE_BY_KEYS</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/simple/remove-by-keys&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_REPLACE_BY_EXAMPLE">
+        REPLACE_BY_EXAMPLE
+        <a href="classes/ArangoDB-Http-Api.html#constant_REPLACE_BY_EXAMPLE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">61</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.61" class="phpdocumentor-element-found-in__source" data-line="61" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">REPLACE_BY_EXAMPLE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/simple/replace-by-example&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TRANSACTION">
+        TRANSACTION
+        <a href="classes/ArangoDB-Http-Api.html#constant_TRANSACTION" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">23</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.23" class="phpdocumentor-element-found-in__source" data-line="23" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TRANSACTION</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/transaction&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TRANSACTION_BEGIN">
+        TRANSACTION_BEGIN
+        <a href="classes/ArangoDB-Http-Api.html#constant_TRANSACTION_BEGIN" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">24</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.24" class="phpdocumentor-element-found-in__source" data-line="24" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TRANSACTION_BEGIN</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/transaction/begin&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TRAVERSAL">
+        TRAVERSAL
+        <a href="classes/ArangoDB-Http-Api.html#constant_TRAVERSAL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">39</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.39" class="phpdocumentor-element-found-in__source" data-line="39" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TRAVERSAL</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/traversal&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_UPDATE_BY_EXAMPLE">
+        UPDATE_BY_EXAMPLE
+        <a href="classes/ArangoDB-Http-Api.html#constant_UPDATE_BY_EXAMPLE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">59</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.59" class="phpdocumentor-element-found-in__source" data-line="59" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">UPDATE_BY_EXAMPLE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/simple/update-by-example&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_UPLOAD">
+        UPLOAD
+        <a href="classes/ArangoDB-Http-Api.html#constant_UPLOAD" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">45</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.45" class="phpdocumentor-element-found-in__source" data-line="45" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">UPLOAD</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/upload&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_USER">
+        USER
+        <a href="classes/ArangoDB-Http-Api.html#constant_USER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">38</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.38" class="phpdocumentor-element-found-in__source" data-line="38" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">USER</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/user&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_USER_DATABASES">
+        USER_DATABASES
+        <a href="classes/ArangoDB-Http-Api.html#constant_USER_DATABASES" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">43</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.43" class="phpdocumentor-element-found-in__source" data-line="43" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">USER_DATABASES</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;/_api/database/user&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+            </section>
+
+        
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/ArangoDB-Http-Api.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addQuery">
+        addQuery()
+        <a href="classes/ArangoDB-Http-Api.html#method_addQuery" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">106</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.106" class="phpdocumentor-element-found-in__source" data-line="106" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Add an URI query</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">addQuery</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$baseUri</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$baseUri</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Base URI to add a query.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Query data.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The modified URI with the Query.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addUriParam">
+        addUriParam()
+        <a href="classes/ArangoDB-Http-Api.html#method_addUriParam" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">93</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.93" class="phpdocumentor-element-found-in__source" data-line="93" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Add an URI param to an URI</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">addUriParam</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$baseUri</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$param</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$baseUri</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Base URI to add a parameter.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$param</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Parameter value.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The modified URI.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_buildDatabaseUri">
+        buildDatabaseUri()
+        <a href="classes/ArangoDB-Http-Api.html#method_buildDatabaseUri" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">120</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.120" class="phpdocumentor-element-found-in__source" data-line="120" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Builds URIs for access to Arango HTTP Interface</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">buildDatabaseUri</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$baseUri</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$database</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$apiEndpoint</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$baseUri</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Base URI to add a parameter.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$database</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Database name.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$apiEndpoint</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Base Api endpoint (One of Api class constants).</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The modified database URI.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_buildSystemUri">
+        buildSystemUri()
+        <a href="classes/ArangoDB-Http-Api.html#method_buildSystemUri" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Http/Api.php"><a href="files/src-http-api.html"><abbr title="src/Http/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">133</span>
+
+            <a href="classes/ArangoDB-Http-Api.html#source-view.133" class="phpdocumentor-element-found-in__source" data-line="133" data-modal="source-view" data-src="files/src/Http/Api.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Builds URIs for access some special endpoints on Arango HTTP Interface</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">buildSystemUri</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$baseUri</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$endpoint</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$baseUri</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Base URI to add a parameter.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$endpoint</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>One of Api class constants.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The modified system URI.</p>
+</section>
+
+            </section>
+
+</article>
+            </section>
+
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Http/Api.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
+
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
+
+                    var xhr = new XMLHttpRequest();
+
+                    xhr.open('GET', src, true);
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+                            Prism.highlightElement(code);
+                            return;
+                        }
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
+                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
+                    }
+                    modal.classList.add("phpdocumentor-modal__open");
+
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
+                    });
+                });
+            });
+        })();
+    </script>
+
+    </article>
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                        <li><a href="classes/ArangoDB-Http-Api.html#toc-constants">Constants</a></li>
+                                                                                <li><a href="classes/ArangoDB-Http-Api.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+                            <li class="phpdocumentor-on-this-page-section__title">Constants</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_ENGINE">ADMIN_ENGINE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_FLUSH_WAL">ADMIN_FLUSH_WAL</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_LOG">ADMIN_LOG</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_LOG_LEVEL">ADMIN_LOG_LEVEL</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_ROUTING_RELOAD">ADMIN_ROUTING_RELOAD</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_SERVER_AVAILABILITY">ADMIN_SERVER_AVAILABILITY</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_SERVER_ROLE">ADMIN_SERVER_ROLE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_STATISTICS">ADMIN_STATISTICS</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_STATISTICS_DESCRIPTION">ADMIN_STATISTICS_DESCRIPTION</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_TASKS">ADMIN_TASKS</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_TIME">ADMIN_TIME</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_VERSION">ADMIN_VERSION</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_WAL_PROPERTIES">ADMIN_WAL_PROPERTIES</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ADMIN_WAL_TRANSACTIONS">ADMIN_WAL_TRANSACTIONS</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ALL">ALL</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ALL_KEYS">ALL_KEYS</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ANY">ANY</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_AQL_USER_FUNCTION">AQL_USER_FUNCTION</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_AUTH_BASE">AUTH_BASE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_BATCH">BATCH</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION">COLLECTION</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_CHECKSUM">COLLECTION_CHECKSUM</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_COUNT">COLLECTION_COUNT</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_LOAD">COLLECTION_LOAD</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_PROPERTIES">COLLECTION_PROPERTIES</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_RECALCULATE_COUNT">COLLECTION_RECALCULATE_COUNT</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_RENAME">COLLECTION_RENAME</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_REVISION">COLLECTION_REVISION</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_ROTATE">COLLECTION_ROTATE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_COLLECTION_TRUNCATE">COLLECTION_TRUNCATE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_CURRENT_DATABASE">CURRENT_DATABASE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_CURSOR">CURSOR</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_DATABASE">DATABASE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_DB">DB</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_DOCUMENT">DOCUMENT</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_EDGE">EDGE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_EDGES">EDGES</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_ENDPOINT">ENDPOINT</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_EXAMPLE">EXAMPLE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_EXPLAIN">EXPLAIN</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_FIRST_EXAMPLE">FIRST_EXAMPLE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_FOXX">FOXX</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_FOXX_SERVICE">FOXX_SERVICE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_FULLTEXT">FULLTEXT</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_GRAPH">GRAPH</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_IMPORT">IMPORT</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_INDEX">INDEX</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_JWT_AUTH_BASE">JWT_AUTH_BASE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_LOOKUP_BY_KEYS">LOOKUP_BY_KEYS</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_PART_EDGE">PART_EDGE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_PART_VERTEX">PART_VERTEX</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_QUERY">QUERY</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_QUERY_CACHE">QUERY_CACHE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_REMOVE_BY_EXAMPLE">REMOVE_BY_EXAMPLE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_REMOVE_BY_KEYS">REMOVE_BY_KEYS</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_REPLACE_BY_EXAMPLE">REPLACE_BY_EXAMPLE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_TRANSACTION">TRANSACTION</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_TRANSACTION_BEGIN">TRANSACTION_BEGIN</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_TRAVERSAL">TRAVERSAL</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_UPDATE_BY_EXAMPLE">UPDATE_BY_EXAMPLE</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_UPLOAD">UPLOAD</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_USER">USER</a></li>
+                                                    <li><a href="classes/ArangoDB-Http-Api.html#constant_USER_DATABASES">USER_DATABASES</a></li>
+                                            </ul>
+                </li>
+            
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li><a href="classes/ArangoDB-Http-Api.html#method_addQuery">addQuery()</a></li>
+                                            <li><a href="classes/ArangoDB-Http-Api.html#method_addUriParam">addUriParam()</a></li>
+                                            <li><a href="classes/ArangoDB-Http-Api.html#method_buildDatabaseUri">buildDatabaseUri()</a></li>
+                                            <li><a href="classes/ArangoDB-Http-Api.html#method_buildSystemUri">buildSystemUri()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+        </div>
+        <a href="classes/ArangoDB-Http-Api.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+</body>
+</html>

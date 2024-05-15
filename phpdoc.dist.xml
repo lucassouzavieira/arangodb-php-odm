@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor configVersion="3.0">
+    <title>Arango PHP ODM</title>
+    <paths>
+        <output>docs/</output>
+    </paths>
+    <version number="3.12.0">
+        <!--Zero or more repetitions:-->
+        <api format="php">
+            <source dsn=".">
+                <path>src/</path>
+            </source>
+            <output>api</output>
+            <ignore hidden="true" symlinks="true">
+                <path>tests/*</path>
+                <path>docs/*</path>
+                <path>vendor/*</path>
+            </ignore>
+            <extensions>
+                <!--1 or more repetitions:-->
+                <extension>php</extension>
+            </extensions>
+            <!--Optional:-->
+            <visibility>api</visibility>
+            <!--Optional:-->
+            <default-package-name>ArangoDB</default-package-name>
+            <!--Optional:-->
+            <include-source>true</include-source>
+            <!--Optional:-->
+            <markers>
+                <!--1 or more repetitions:-->
+                <marker>TODO</marker>
+                <marker>FIXME</marker>
+            </markers>
+        </api>
+        <!--Zero or more repetitions:-->
+        <guide format="rst">
+            <source dsn=".">
+                <!--1 or more repetitions:-->
+                <path>support/docs</path>
+            </source>
+            <!--Optional:-->
+            <output>docs</output>
+        </guide>
+    </version>
+</phpdocumentor>

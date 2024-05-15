@@ -1,0 +1,2306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+            <title>Arango PHP ODM</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Arango PHP ODM</a></h1>
+    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+        </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/arangodb.html" class="">ArangoDB</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/arangodb-admin.html" class="">Admin</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-aql.html" class="">AQL</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-auth.html" class="">Auth</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-batch.html" class="">Batch</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-collection.html" class="">Collection</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-connection.html" class="">Connection</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-cursor.html" class="">Cursor</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-database.html" class="">Database</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-datastructures.html" class="">DataStructures</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-document.html" class="">Document</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-entity.html" class="">Entity</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-exceptions.html" class="">Exceptions</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-foxx.html" class="">Foxx</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-graph.html" class="">Graph</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-http.html" class="">Http</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-transaction.html" class="">Transaction</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-validation.html" class="">Validation</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/arangodb-view.html" class="">View</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+                <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/ArangoDB.html" class="">ArangoDB</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/ArangoDB-Admin.html" class="">Admin</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-AQL.html" class="">AQL</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Auth.html" class="">Auth</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Batch.html" class="">Batch</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Collection.html" class="">Collection</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Connection.html" class="">Connection</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Cursor.html" class="">Cursor</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Database.html" class="">Database</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-DataStructures.html" class="">DataStructures</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Document.html" class="">Document</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Handler.html" class="">Handler</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Exceptions.html" class="">Exceptions</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Validation.html" class="">Validation</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Foxx.html" class="">Foxx</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Graph.html" class="">Graph</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Http.html" class="">Http</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-Transaction.html" class="">Transaction</a>
+                
+            </li>
+                    <li>
+                <a href="packages/ArangoDB-View.html" class="">View</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+            
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+    </section>
+
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/arangodb.html">ArangoDB</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/arangodb-collection.html">Collection</a></li>
+    </ul>
+
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    Collection
+
+    
+            <div class="phpdocumentor-element__package">
+            in package
+            <ul class="phpdocumentor-breadcrumbs">
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/ArangoDB.html">ArangoDB</a></li>
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/ArangoDB-Collection.html">Collection</a></li>
+                            </ul>
+        </div>
+    
+            <span class="phpdocumentor-element__implements">
+            implements
+                            <abbr title="\JsonSerializable">JsonSerializable</abbr>                    </span>
+    
+    </h2>
+
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">33</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.33" class="phpdocumentor-element-found-in__source" data-line="33" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+            <p class="phpdocumentor-summary">Represents an ArangoDB collection</p>
+
+
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Lucas S. Vieira</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+
+
+<h3 id="toc">
+    Table of Contents
+    <a href="classes/ArangoDB-Collection-Collection.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h3>
+
+
+
+    <h4 id="toc-interfaces">
+        Interfaces
+        <a href="classes/ArangoDB-Collection-Collection.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <dl class="phpdocumentor-table-of-contents">
+                    <dt class="phpdocumentor-table-of-contents__entry -interface"><abbr title="\JsonSerializable">JsonSerializable</abbr></dt>    </dl>
+
+
+
+
+
+
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/ArangoDB-Collection-Collection.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method___construct">__construct()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Collection constructor.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method___get">__get()</a>
+    <span>
+                                &nbsp;: mixed|null    </span>
+</dt>
+<dd>Get some attribute</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method___set">__set()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Set a attribute</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method___toString">__toString()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Return an string representation of document</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_addIndex">addIndex()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Create a index for collection</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_all">all()</a>
+    <span>
+                                &nbsp;: <a href="classes/ArangoDB-Cursor-Contracts-CursorInterface.html"><abbr title="\ArangoDB\Cursor\Contracts\CursorInterface">CursorInterface</abbr></a>|bool    </span>
+</dt>
+<dd>Returns a cursor for access all documents on this Collection</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_count">count()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Return the number of documents in a collection.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_drop">drop()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Drops the collection on database</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_dropIndex">dropIndex()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Drops a index of collection</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_findByKey">findByKey()</a>
+    <span>
+                                &nbsp;: <a href="classes/ArangoDB-Document-Document.html"><abbr title="\ArangoDB\Document\Document">Document</abbr></a>|false    </span>
+</dt>
+<dd>Find a document by it&#039;s key</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_getAttributes">getAttributes()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Return the collection attributes on array</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_getChecksum">getChecksum()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Return the checksum of collection metadata</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_getDatabase">getDatabase()</a>
+    <span>
+                                &nbsp;: <a href="classes/ArangoDB-Database-Database.html"><abbr title="\ArangoDB\Database\Database">Database</abbr></a>    </span>
+</dt>
+<dd>Returns the database where collection belongs</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_getGloballyUniqueId">getGloballyUniqueId()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Return the globally Unique ID of collection</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_getId">getId()</a>
+    <span>
+                                &nbsp;: string|null    </span>
+</dt>
+<dd>Return the ID of collection</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_getIndexes">getIndexes()</a>
+    <span>
+                                &nbsp;: <a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>    </span>
+</dt>
+<dd>Return all indexes of collection</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_getName">getName()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Return the name of collection</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_getRevision">getRevision()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Return the revision of collection</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_getStatus">getStatus()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Return the status of collection</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_getStatusDescription">getStatusDescription()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Return a string description of status</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_getType">getType()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Return the collection type</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_isGraph">isGraph()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Return if the collection is a graph collection</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_isNew">isNew()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Returns true if is a new object</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_isSystem">isSystem()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks if the collection is a system collection</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_jsonSerialize">jsonSerialize()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_load">load()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Loads the collection on server</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_recalculateCount">recalculateCount()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Recalculates the document count of a collection, if it ever becomes inconsistent.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_rename">rename()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Renames the collection</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_save">save()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Saves or update the collection.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_setAttributes">setAttributes()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Set collection attributes</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_toArray">toArray()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Return an array representation of collection</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ArangoDB-Collection-Collection.html#method_truncate">truncate()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Truncate the collection</dd>
+
+    </dl>
+
+
+
+
+        
+
+        
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/ArangoDB-Collection-Collection.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___construct">
+        __construct()
+        <a href="classes/ArangoDB-Collection-Collection.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">156</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.156" class="phpdocumentor-element-found-in__source" data-line="156" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Collection constructor.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Database-Database.html"><abbr title="\ArangoDB\Database\Database">Database</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$database</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attributes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$database</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Database-Database.html"><abbr title="\ArangoDB\Database\Database">Database</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$attributes</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method___construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Validation-Exceptions-MissingParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></a>|<a href="classes/ArangoDB-Validation-Exceptions-InvalidParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___get">
+        __get()
+        <a href="classes/ArangoDB-Collection-Collection.html#method___get" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">187</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.187" class="phpdocumentor-element-found-in__source" data-line="187" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get some attribute</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">mixed|null</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___set">
+        __set()
+        <a href="classes/ArangoDB-Collection-Collection.html#method___set" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">203</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.203" class="phpdocumentor-element-found-in__source" data-line="203" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Set a attribute</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__set</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method___set#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___toString">
+        __toString()
+        <a href="classes/ArangoDB-Collection-Collection.html#method___toString" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">176</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.176" class="phpdocumentor-element-found-in__source" data-line="176" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return an string representation of document</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addIndex">
+        addIndex()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_addIndex" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">449</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.449" class="phpdocumentor-element-found-in__source" data-line="449" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Create a index for collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">addIndex</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html"><abbr title="\ArangoDB\Collection\Contracts\IndexInterface">IndexInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$index</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$index</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html"><abbr title="\ArangoDB\Collection\Contracts\IndexInterface">IndexInterface</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method_addIndex#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_all">
+        all()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_all" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">220</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.220" class="phpdocumentor-element-found-in__source" data-line="220" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a cursor for access all documents on this Collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">all</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Cursor-Contracts-CursorInterface.html"><abbr title="\ArangoDB\Cursor\Contracts\CursorInterface">CursorInterface</abbr></a>|bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method_all#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Validation-Exceptions-InvalidParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a>|<a href="classes/ArangoDB-Cursor-Exceptions-CursorException.html"><abbr title="\ArangoDB\Cursor\Exceptions\CursorException">CursorException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Cursor-Contracts-CursorInterface.html"><abbr title="\ArangoDB\Cursor\Contracts\CursorInterface">CursorInterface</abbr></a>|bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Cursor if collection exists on database. False otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_count">
+        count()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_count" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">637</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.637" class="phpdocumentor-element-found-in__source" data-line="637" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the number of documents in a collection.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">count</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method_count#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Total count of documents on collection.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_drop">
+        drop()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_drop" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">537</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.537" class="phpdocumentor-element-found-in__source" data-line="537" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Drops the collection on database</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">drop</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method_drop#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_dropIndex">
+        dropIndex()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_dropIndex" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">476</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.476" class="phpdocumentor-element-found-in__source" data-line="476" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Drops a index of collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">dropIndex</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html"><abbr title="\ArangoDB\Collection\Contracts\IndexInterface">IndexInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$index</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$index</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html"><abbr title="\ArangoDB\Collection\Contracts\IndexInterface">IndexInterface</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method_dropIndex#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_findByKey">
+        findByKey()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_findByKey" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">607</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.607" class="phpdocumentor-element-found-in__source" data-line="607" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Find a document by it&#039;s key</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">findByKey</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$isVertex</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Document-Document.html"><abbr title="\ArangoDB\Document\Document">Document</abbr></a>|false</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Document key</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$isVertex</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>If the collection is a vertex in a graph, passing true will return document as Vertex object.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method_findByKey#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Validation-Exceptions-InvalidParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a>|<a href="classes/ArangoDB-Validation-Exceptions-MissingParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Document-Document.html"><abbr title="\ArangoDB\Document\Document">Document</abbr></a>|false</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getAttributes">
+        getAttributes()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_getAttributes" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">234</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.234" class="phpdocumentor-element-found-in__source" data-line="234" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the collection attributes on array</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getAttributes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getChecksum">
+        getChecksum()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_getChecksum" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">372</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.372" class="phpdocumentor-element-found-in__source" data-line="372" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the checksum of collection metadata</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getChecksum</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method_getChecksum#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getDatabase">
+        getDatabase()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_getDatabase" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">258</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.258" class="phpdocumentor-element-found-in__source" data-line="258" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the database where collection belongs</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getDatabase</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Database-Database.html"><abbr title="\ArangoDB\Database\Database">Database</abbr></a></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Database-Database.html"><abbr title="\ArangoDB\Database\Database">Database</abbr></a></span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getGloballyUniqueId">
+        getGloballyUniqueId()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_getGloballyUniqueId" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">288</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.288" class="phpdocumentor-element-found-in__source" data-line="288" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the globally Unique ID of collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getGloballyUniqueId</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getId">
+        getId()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_getId" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">278</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.278" class="phpdocumentor-element-found-in__source" data-line="278" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the ID of collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getId</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>String if collection exists on database. Null if not.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getIndexes">
+        getIndexes()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_getIndexes" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">396</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.396" class="phpdocumentor-element-found-in__source" data-line="396" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return all indexes of collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getIndexes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method_getIndexes#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Validation-Exceptions-InvalidParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a>|<a href="classes/ArangoDB-Exceptions-IndexException.html"><abbr title="\ArangoDB\Exceptions\IndexException">IndexException</abbr></a>|<a href="classes/ArangoDB-Validation-Exceptions-MissingParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getName">
+        getName()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_getName" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">268</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.268" class="phpdocumentor-element-found-in__source" data-line="268" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the name of collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getName</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getRevision">
+        getRevision()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_getRevision" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">424</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.424" class="phpdocumentor-element-found-in__source" data-line="424" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the revision of collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getRevision</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method_getRevision#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getStatus">
+        getStatus()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_getStatus" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">298</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.298" class="phpdocumentor-element-found-in__source" data-line="298" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the status of collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getStatus</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>A integer between 0 and 6</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getStatusDescription">
+        getStatusDescription()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_getStatusDescription" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">308</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.308" class="phpdocumentor-element-found-in__source" data-line="308" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return a string description of status</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getStatusDescription</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getType">
+        getType()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_getType" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">318</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.318" class="phpdocumentor-element-found-in__source" data-line="318" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the collection type</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getType</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isGraph">
+        isGraph()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_isGraph" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">348</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.348" class="phpdocumentor-element-found-in__source" data-line="348" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return if the collection is a graph collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isGraph</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isNew">
+        isNew()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_isNew" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">338</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.338" class="phpdocumentor-element-found-in__source" data-line="338" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns true if is a new object</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isNew</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isSystem">
+        isSystem()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_isSystem" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">328</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.328" class="phpdocumentor-element-found-in__source" data-line="328" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks if the collection is a system collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isSystem</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if is a system collection. False otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_jsonSerialize">
+        jsonSerialize()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_jsonSerialize" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">695</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.695" class="phpdocumentor-element-found-in__source" data-line="695" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">jsonSerialize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method_jsonSerialize#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\JsonSerializable::jsonSerialize()">JsonSerializable::jsonSerialize()</abbr></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_load">
+        load()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_load" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">583</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.583" class="phpdocumentor-element-found-in__source" data-line="583" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Loads the collection on server</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">load</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$count</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$count</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method_load#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_recalculateCount">
+        recalculateCount()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_recalculateCount" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">657</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.657" class="phpdocumentor-element-found-in__source" data-line="657" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Recalculates the document count of a collection, if it ever becomes inconsistent.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">recalculateCount</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method_recalculateCount#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_rename">
+        rename()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_rename" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">678</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.678" class="phpdocumentor-element-found-in__source" data-line="678" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Renames the collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">rename</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$newName</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$newName</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The new name of collection.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method_rename#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_save">
+        save()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_save" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">509</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.509" class="phpdocumentor-element-found-in__source" data-line="509" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Saves or update the collection.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">save</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>Except for 'waitForSync', 'journalSize' and 'name', a collection can not be modified after creation.
+For change 'name', the method 'rename' must be used.</p>
+</section>
+
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method_save#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setAttributes">
+        setAttributes()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_setAttributes" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">244</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.244" class="phpdocumentor-element-found-in__source" data-line="244" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Set collection attributes</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setAttributes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_toArray">
+        toArray()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_toArray" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">358</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.358" class="phpdocumentor-element-found-in__source" data-line="358" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return an array representation of collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">toArray</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_truncate">
+        truncate()
+        <a href="classes/ArangoDB-Collection-Collection.html#method_truncate" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Collection.php"><a href="files/src-collection-collection.html"><abbr title="src/Collection/Collection.php">Collection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">563</span>
+
+            <a href="classes/ArangoDB-Collection-Collection.html#source-view.563" class="phpdocumentor-element-found-in__source" data-line="563" data-modal="source-view" data-src="files/src/Collection/Collection.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Truncate the collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">truncate</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-Collection.html#method_truncate#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+            </section>
+
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Collection/Collection.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
+
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
+
+                    var xhr = new XMLHttpRequest();
+
+                    xhr.open('GET', src, true);
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+                            Prism.highlightElement(code);
+                            return;
+                        }
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
+                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
+                    }
+                    modal.classList.add("phpdocumentor-modal__open");
+
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
+                    });
+                });
+            });
+        })();
+    </script>
+
+    </article>
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                                                                <li><a href="classes/ArangoDB-Collection-Collection.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+            
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method___construct">__construct()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method___get">__get()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method___set">__set()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method___toString">__toString()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_addIndex">addIndex()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_all">all()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_count">count()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_drop">drop()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_dropIndex">dropIndex()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_findByKey">findByKey()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_getAttributes">getAttributes()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_getChecksum">getChecksum()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_getDatabase">getDatabase()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_getGloballyUniqueId">getGloballyUniqueId()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_getId">getId()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_getIndexes">getIndexes()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_getName">getName()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_getRevision">getRevision()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_getStatus">getStatus()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_getStatusDescription">getStatusDescription()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_getType">getType()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_isGraph">isGraph()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_isNew">isNew()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_isSystem">isSystem()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_jsonSerialize">jsonSerialize()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_load">load()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_recalculateCount">recalculateCount()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_rename">rename()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_save">save()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_setAttributes">setAttributes()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_toArray">toArray()</a></li>
+                                            <li><a href="classes/ArangoDB-Collection-Collection.html#method_truncate">truncate()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+        </div>
+        <a href="classes/ArangoDB-Collection-Collection.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+</body>
+</html>
