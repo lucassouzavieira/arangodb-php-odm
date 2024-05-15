@@ -11,7 +11,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Entity\Contracts\EntityInterface;
 
 /**
- * Represents an user defined aql function on server.
+ * Represents a user defined AQL function on server.
  *
  * @package ArangoDB\AQL\Functions
  * @author  Lucas S. Vieira
@@ -20,56 +20,44 @@ class AQLFunction implements EntityInterface
 {
     /**
      * Fully qualified name of user function.
-     *
-     * @var string
      */
-    protected $name;
+    protected string $name;
 
     /**
      * String representation of function body.
-     *
-     * @var string
      */
-    protected $code;
+    protected string $code;
 
     /**
      * An optional boolean value to indicate whether the function results are fully deterministic. <br>
      * (function return value solely depends on the input value and return value is the same for repeated calls with same input)
-     *
-     * @var bool
      */
-    protected $isDeterministic;
+    protected bool $isDeterministic;
 
     /**
-     * If the entity is not an representation of a existing user function on server,
+     * If the entity is not a representation of an existing user function on server,
      * this property is true.
-     *
-     * @var bool
      */
-    protected $isNew;
+    protected bool $isNew;
 
     /**
      * Connection object.
-     *
-     * @var Connection
      */
-    protected $connection;
+    protected Connection|null $connection;
 
     /**
      * Stores the deletion data for an AQLFunction object.
-     *
-     * @var array
      */
-    protected $deletion = [];
+    protected array $deletion = [];
 
     /**
      * AQLFunction constructor.
      *
-     * @param string          $name            The AQL function name.
-     * @param string          $code            The AQL function code.
-     * @param Connection|null $connection      Connection object to use.
-     * @param bool            $isDeterministic Indicates if the function results are deterministic.
-     * @param bool            $isNew           Indicates if the function object is a new one or not.
+     * @param string $name The AQL function name.
+     * @param string $code The AQL function code.
+     * @param Connection|null $connection Connection object to use.
+     * @param bool $isDeterministic Indicates if the function results are deterministic.
+     * @param bool $isNew Indicates if the function object is a new one or not.
      */
     public function __construct(string $name, string $code, Connection $connection = null, bool $isDeterministic = true, bool $isNew = true)
     {
@@ -134,7 +122,7 @@ class AQLFunction implements EntityInterface
     /**
      * If this AQL function has a connection set or not.
      *
-     * @return bool True if has a connection object. False otherwise.
+     * @return bool True if it has a connection object. False otherwise.
      */
     public function hasConnection(): bool
     {
@@ -171,8 +159,7 @@ class AQLFunction implements EntityInterface
         } catch (ClientException $exception) {
             // Unknown error.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $serverException;
+            throw new ServerException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -197,8 +184,7 @@ class AQLFunction implements EntityInterface
         } catch (ClientException $exception) {
             // Unknown error.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $serverException;
+            throw new ServerException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 

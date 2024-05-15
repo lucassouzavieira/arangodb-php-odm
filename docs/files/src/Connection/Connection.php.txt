@@ -24,10 +24,8 @@ class Connection extends Authenticable
 {
     /**
      * Default headers to send to server.
-     *
-     * @var array
      */
-    protected $defaultHeaders = [];
+    protected array $defaultHeaders = [];
 
     /**
      * Connection constructor.

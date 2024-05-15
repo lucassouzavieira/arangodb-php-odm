@@ -238,7 +238,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\AQL\\Functions\\AQLFunction",
             "name": "AQLFunction",
-            "summary": "Represents\u0020an\u0020user\u0020defined\u0020aql\u0020function\u0020on\u0020server.",
+            "summary": "Represents\u0020a\u0020user\u0020defined\u0020AQL\u0020function\u0020on\u0020server.",
             "url": "classes/ArangoDB-AQL-Functions-AQLFunction.html"
         },                {
             "fqsen": "\\ArangoDB\\AQL\\Functions\\AQLFunction\u003A\u003A__construct\u0028\u0029",
@@ -1243,7 +1243,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\DataStructures\\ArrayList\u003A\u003Aget\u0028\u0029",
             "name": "get",
-            "summary": "Get\u0020a\u0020value\u0020by\u0020it\u0027s\u0020key",
+            "summary": "Get\u0020a\u0020value\u0020by\u0020its\u0020key",
             "url": "classes/ArangoDB-DataStructures-ArrayList.html#method_get"
         },                {
             "fqsen": "\\ArangoDB\\DataStructures\\ArrayList\u003A\u003Apush\u0028\u0029",
@@ -1383,7 +1383,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\Document\\Document\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
-            "summary": "Return\u0020an\u0020string\u0020representation\u0020of\u0020document.",
+            "summary": "Return\u0020a\u0020string\u0020representation\u0020of\u0020document.",
             "url": "classes/ArangoDB-Document-Document.html#method___toString"
         },                {
             "fqsen": "\\ArangoDB\\Document\\Document\u003A\u003A__get\u0028\u0029",
