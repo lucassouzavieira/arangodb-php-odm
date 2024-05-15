@@ -12,7 +12,7 @@ use ArangoDB\Exceptions\Storage\DataSourceNotFoundException;
  */
 abstract class Factory
 {
-    protected static $exceptions = [
+    protected static array $exceptions = [
         1203 => DataSourceNotFoundException::class
     ];
 

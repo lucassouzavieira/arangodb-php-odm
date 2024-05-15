@@ -74,8 +74,7 @@ abstract class Admin
         } catch (ClientException $exception) {
             // Unknown error.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $serverException;
+            throw new ServerException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -97,8 +96,7 @@ abstract class Admin
         } catch (ClientException $exception) {
             // Unknown error.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $serverException;
+            throw new ServerException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -127,8 +125,7 @@ abstract class Admin
         } catch (ClientException $exception) {
             // Unknown error.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $serverException;
+            throw new ServerException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -160,8 +157,7 @@ abstract class Admin
         } catch (ClientException $exception) {
             // Unknown error.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $serverException;
+            throw new ServerException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -200,8 +196,7 @@ abstract class Admin
                 $message = "Not Implemented";
             }
 
-            $serverException = new ServerException($message, $exception, $code);
-            throw $serverException;
+            throw new ServerException($message, $exception, $code);
         }
     }
 
@@ -226,8 +221,7 @@ abstract class Admin
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
             $message = isset($response['errorMessage']) ? $response['errorMessage'] : "Unknown error";
             $code = isset($response['errorNum']) ? $response['errorNum'] : $exception->getResponse()->getStatusCode();
-            $serverException = new ServerException($message, $exception, $code);
-            throw $serverException;
+            throw new ServerException($message, $exception, $code);
         }
     }
 }

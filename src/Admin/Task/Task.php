@@ -224,8 +224,7 @@ class Task implements EntityInterface
         } catch (ClientException $exception) {
             // Unknown error.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $serverException;
+            throw new ServerException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -253,8 +252,7 @@ class Task implements EntityInterface
 
             // Unknown error.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $serverException;
+            throw new ServerException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 

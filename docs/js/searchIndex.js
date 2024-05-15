@@ -238,7 +238,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\AQL\\Functions\\AQLFunction",
             "name": "AQLFunction",
-            "summary": "Represents\u0020an\u0020user\u0020defined\u0020aql\u0020function\u0020on\u0020server.",
+            "summary": "Represents\u0020a\u0020user\u0020defined\u0020AQL\u0020function\u0020on\u0020server.",
             "url": "classes/ArangoDB-AQL-Functions-AQLFunction.html"
         },                {
             "fqsen": "\\ArangoDB\\AQL\\Functions\\AQLFunction\u003A\u003A__construct\u0028\u0029",
@@ -1243,7 +1243,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\DataStructures\\ArrayList\u003A\u003Aget\u0028\u0029",
             "name": "get",
-            "summary": "Get\u0020a\u0020value\u0020by\u0020it\u0027s\u0020key",
+            "summary": "Get\u0020a\u0020value\u0020by\u0020its\u0020key",
             "url": "classes/ArangoDB-DataStructures-ArrayList.html#method_get"
         },                {
             "fqsen": "\\ArangoDB\\DataStructures\\ArrayList\u003A\u003Apush\u0028\u0029",
@@ -1383,7 +1383,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\Document\\Document\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
-            "summary": "Return\u0020an\u0020string\u0020representation\u0020of\u0020document.",
+            "summary": "Return\u0020a\u0020string\u0020representation\u0020of\u0020document.",
             "url": "classes/ArangoDB-Document-Document.html#method___toString"
         },                {
             "fqsen": "\\ArangoDB\\Document\\Document\u003A\u003A__get\u0028\u0029",
@@ -1688,7 +1688,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\Graph\\Graph\u003A\u003AdropEdgeDefinition\u0028\u0029",
             "name": "dropEdgeDefinition",
-            "summary": "Remove\u0020one\u0020edge\u0020definition\u0020from\u0020the\u0020graph.\u003Cbr\u003E\nThis\u0020will\u0020only\u0020remove\u0020the\u0020edge\u0020collection,\nthe\u0020vertex\u0020collections\u0020remain\u0020untouched\u0020and\u0020can\u0020still\u0020be\u0020used\u0020in\u0020your\u0020queries.",
+            "summary": "Remove\u0020one\u0020edge\u0020definition\u0020from\u0020the\u0020graph\u003Cbr\u003E\nThis\u0020will\u0020only\u0020remove\u0020the\u0020edge\u0020collection,\nthe\u0020vertex\u0020collections\u0020remain\u0020untouched\u0020and\u0020can\u0020still\u0020be\u0020used\u0020in\u0020your\u0020queries.",
             "url": "classes/ArangoDB-Graph-Graph.html#method_dropEdgeDefinition"
         },                {
             "fqsen": "\\ArangoDB\\Graph\\Graph\u003A\u003AgetVertexCollections\u0028\u0029",
@@ -1703,7 +1703,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\Graph\\Graph\u003A\u003AdropVertexCollection\u0028\u0029",
             "name": "dropVertexCollection",
-            "summary": "Removes\u0020a\u0020vertex\u0020collection\u0020from\u0020the\u0020graph\u0020and\u0020optionally\u0020deletes\u0020the\u0020collection,\u0020if\u0020it\u0020is\u0020not\u0020used\u0020in\u0020any\u0020other\u0020graph.\u003Cbr\u003E\nIt\u0020can\u0020only\u0020remove\u0020vertex\u0020collections\u0020that\u0020are\u0020no\u0020longer\u0020part\u0020of\u0020edge\u0020definitions,\u003Cbr\u003E\nif\u0020they\u0020are\u0020used\u0020in\u0020edge\u0020definitions\u0020you\u0020are\u0020required\u0020to\u0020modify\u0020those\u0020first.",
+            "summary": "Removes\u0020a\u0020vertex\u0020collection\u0020from\u0020the\u0020graph\u0020and\u0020optionally\u0020deletes\u0020the\u0020collection,\u0020if\u0020it\u0020is\u0020not\u0020used\u0020in\u0020any\u0020other\u0020graph\u003Cbr\u003E\nIt\u0020can\u0020only\u0020remove\u0020vertex\u0020collections\u0020that\u0020are\u0020no\u0020longer\u0020part\u0020of\u0020edge\u0020definitions,\u003Cbr\u003E\nif\u0020they\u0020are\u0020used\u0020in\u0020edge\u0020definitions\u0020you\u0020are\u0020required\u0020to\u0020modify\u0020those\u0020first.",
             "url": "classes/ArangoDB-Graph-Graph.html#method_dropVertexCollection"
         },                {
             "fqsen": "\\ArangoDB\\Graph\\Graph\u003A\u003AgetVertex\u0028\u0029",
@@ -1728,7 +1728,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\Graph\\Graph\u003A\u003AaddEdge\u0028\u0029",
             "name": "addEdge",
-            "summary": "Creates\u0020a\u0020new\u0020edge\u0020in\u0020the\u0020collection.\u003Cbr\u003E\nWithin\u0020the\u0020attributes\u0020the\u0020edge\u0020has\u0020to\u0020contain\u0020a\u0020_from\u0020and\u0020_to\u0020value\u0020referencing\u0020to\u0020valid\u0020vertices\u0020in\u0020the\u0020graph.",
+            "summary": "Creates\u0020a\u0020new\u0020edge\u0020in\u0020the\u0020collection.\u003Cbr\u003E\nWithin\u0020the\u0020attributes\u0020the\u0020edge\u0020has\u0020to\u0020contain\u0020a\u0020_from\u0020and\u0020_to\u0020value\u0020referencing\u0020to\u0020valid\u0020vertices\u0020in\u0020the\u0020graph\nFurthermore,\u0020the\u0020edge\u0020has\u0020to\u0020be\u0020valid\u0020in\u0020the\u0020definition\u0020of\u0020the\u0020used.",
             "url": "classes/ArangoDB-Graph-Graph.html#method_addEdge"
         },                {
             "fqsen": "\\ArangoDB\\Graph\\Graph\u003A\u003AdropEdge\u0028\u0029",

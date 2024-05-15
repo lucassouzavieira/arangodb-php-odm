@@ -264,9 +264,9 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.28" class="phpdocumentor-element-found-in__source" data-line="28" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.27" class="phpdocumentor-element-found-in__source" data-line="27" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
             <p class="phpdocumentor-summary">Represents an ArangoDB Graph.</p>
@@ -337,10 +337,11 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ArangoDB-Graph-Graph.html#method_addEdge">addEdge()</a>
     <span>
-                                &nbsp;: <a href="classes/ArangoDB-Document-Edge.html"><abbr title="\ArangoDB\Document\Edge">Edge</abbr></a>|false    </span>
+                                &nbsp;: bool    </span>
 </dt>
 <dd>Creates a new edge in the collection.&lt;br&gt;
-Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph.</dd>
+Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph
+Furthermore, the edge has to be valid in the definition of the used.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ArangoDB-Graph-Graph.html#method_addEdgeDefinition">addEdgeDefinition()</a>
@@ -382,7 +383,7 @@ Within the attributes the edge has to contain a _from and _to value referencing 
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Remove one edge definition from the graph.&lt;br&gt;
+<dd>Remove one edge definition from the graph&lt;br&gt;
 This will only remove the edge collection,
 the vertex collections remain untouched and can still be used in your queries.</dd>
 
@@ -398,7 +399,7 @@ the vertex collections remain untouched and can still be used in your queries.</
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph.&lt;br&gt;
+<dd>Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph&lt;br&gt;
 It can only remove vertex collections that are no longer part of edge definitions,&lt;br&gt;
 if they are used in edge definitions you are required to modify those first.</dd>
 
@@ -524,7 +525,7 @@ if they are used in edge definitions you are required to modify those first.</dd
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ArangoDB-Graph-Graph.html#method_traversal">traversal()</a>
     <span>
-                                &nbsp;: <a href="classes/ArangoDB-Cursor-TraversalCursor.html"><abbr title="\ArangoDB\Cursor\TraversalCursor">TraversalCursor</abbr></a>    </span>
+                                &nbsp;: <a href="classes/ArangoDB-Graph-Traversal-Traversal.html"><abbr title="\ArangoDB\Graph\Traversal\Traversal">Traversal</abbr></a>    </span>
 </dt>
 <dd>Returns a graph traversal.</dd>
 
@@ -557,9 +558,9 @@ if they are used in edge definitions you are required to modify those first.</dd
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">127</span>
+    <span class="phpdocumentor-element-found-in__line">108</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.127" class="phpdocumentor-element-found-in__source" data-line="127" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.108" class="phpdocumentor-element-found-in__source" data-line="108" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Graph constructor.</p>
@@ -635,9 +636,9 @@ if they are used in edge definitions you are required to modify those first.</dd
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">168</span>
+    <span class="phpdocumentor-element-found-in__line">149</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.168" class="phpdocumentor-element-found-in__source" data-line="168" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.149" class="phpdocumentor-element-found-in__source" data-line="149" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns a string representation of graph object.</p>
@@ -672,23 +673,22 @@ if they are used in edge definitions you are required to modify those first.</dd
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">772</span>
+    <span class="phpdocumentor-element-found-in__line">742</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.772" class="phpdocumentor-element-found-in__source" data-line="772" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.742" class="phpdocumentor-element-found-in__source" data-line="742" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Creates a new edge in the collection.&lt;br&gt;
-Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph.</p>
+Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph
+Furthermore, the edge has to be valid in the definition of the used.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">addEdge</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collection</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attributes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$waitForSync</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$returnNew</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Document-Edge.html"><abbr title="\ArangoDB\Document\Edge">Edge</abbr></a>|false</span></code>
+                    <span class="phpdocumentor-signature__name">addEdge</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collection</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attributes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$waitForSync</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$returnNew</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
-        <section class="phpdocumentor-description"><p>Furthermore the edge has to be valid in the definition of the used.</p>
-</section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -705,7 +705,7 @@ Within the attributes the edge has to contain a _from and _to value referencing 
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The object attributes to be stored. Must contains '_to' and '_from' keys.</p>
+                    <section class="phpdocumentor-description"><p>The object attributes to be stored. Must contain '_to' and '_from' keys.</p>
 </section>
 
             </dd>
@@ -748,9 +748,9 @@ Within the attributes the edge has to contain a _from and _to value referencing 
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Document-Edge.html"><abbr title="\ArangoDB\Document\Edge">Edge</abbr></a>|false</span>
+        <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>A Edge object if edge exists. False if no graph with this name could be found <br>
+                <section class="phpdocumentor-description"><p>True if Edge object exists. False if no graph with this name could be found <br>
 or this collection is not part of the graph or one of the vertices ('_to' or '_from') does not exist.</p>
 </section>
 
@@ -771,9 +771,9 @@ or this collection is not part of the graph or one of the vertices ('_to' or '_f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">398</span>
+    <span class="phpdocumentor-element-found-in__line">377</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.398" class="phpdocumentor-element-found-in__source" data-line="398" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.377" class="phpdocumentor-element-found-in__source" data-line="377" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Adds an edge definition to graph.</p>
@@ -853,9 +853,9 @@ or this collection is not part of the graph or one of the vertices ('_to' or '_f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">641</span>
+    <span class="phpdocumentor-element-found-in__line">614</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.641" class="phpdocumentor-element-found-in__source" data-line="641" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.614" class="phpdocumentor-element-found-in__source" data-line="614" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Adds a vertex to graph.</p>
@@ -949,9 +949,9 @@ or if a graph is found but the collection is not part of the graph.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">520</span>
+    <span class="phpdocumentor-element-found-in__line">496</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.520" class="phpdocumentor-element-found-in__source" data-line="520" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.496" class="phpdocumentor-element-found-in__source" data-line="496" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Adds a vertex collection to the set of orphan collections of the graph.</p>
@@ -1015,9 +1015,9 @@ or if a graph is found but the collection is not part of the graph.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">325</span>
+    <span class="phpdocumentor-element-found-in__line">305</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.325" class="phpdocumentor-element-found-in__source" data-line="325" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.305" class="phpdocumentor-element-found-in__source" data-line="305" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Removes a graph from server, if possible.</p>
@@ -1084,9 +1084,9 @@ Collections will only be dropped if they are not used in other graphs.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">815</span>
+    <span class="phpdocumentor-element-found-in__line">784</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.815" class="phpdocumentor-element-found-in__source" data-line="815" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.784" class="phpdocumentor-element-found-in__source" data-line="784" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Drops an edge from graph.</p>
@@ -1180,12 +1180,12 @@ or if a graph is found but the collection is not part of the graph.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">438</span>
+    <span class="phpdocumentor-element-found-in__line">416</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.438" class="phpdocumentor-element-found-in__source" data-line="438" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.416" class="phpdocumentor-element-found-in__source" data-line="416" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Remove one edge definition from the graph.&lt;br&gt;
+        <p class="phpdocumentor-summary">Remove one edge definition from the graph&lt;br&gt;
 This will only remove the edge collection,
 the vertex collections remain untouched and can still be used in your queries.</p>
 
@@ -1264,9 +1264,9 @@ the vertex collections remain untouched and can still be used in your queries.</
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">684</span>
+    <span class="phpdocumentor-element-found-in__line">656</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.684" class="phpdocumentor-element-found-in__source" data-line="684" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.656" class="phpdocumentor-element-found-in__source" data-line="656" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Drops a vertex from graph.</p>
@@ -1360,12 +1360,12 @@ or if a graph is found but the collection is not part of the graph.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">559</span>
+    <span class="phpdocumentor-element-found-in__line">534</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.559" class="phpdocumentor-element-found-in__source" data-line="559" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.534" class="phpdocumentor-element-found-in__source" data-line="534" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph.&lt;br&gt;
+        <p class="phpdocumentor-summary">Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph&lt;br&gt;
 It can only remove vertex collections that are no longer part of edge definitions,&lt;br&gt;
 if they are used in edge definitions you are required to modify those first.</p>
 
@@ -1435,9 +1435,9 @@ if they are used in edge definitions you are required to modify those first.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">727</span>
+    <span class="phpdocumentor-element-found-in__line">698</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.727" class="phpdocumentor-element-found-in__source" data-line="727" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.698" class="phpdocumentor-element-found-in__source" data-line="698" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns an edge document.</p>
@@ -1513,9 +1513,9 @@ or this collection is not part of the graph or the edge does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">383</span>
+    <span class="phpdocumentor-element-found-in__line">362</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.383" class="phpdocumentor-element-found-in__source" data-line="383" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.362" class="phpdocumentor-element-found-in__source" data-line="362" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Return all edge definitions of graph.</p>
@@ -1550,9 +1550,9 @@ or this collection is not part of the graph or the edge does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">178</span>
+    <span class="phpdocumentor-element-found-in__line">159</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.178" class="phpdocumentor-element-found-in__source" data-line="178" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.159" class="phpdocumentor-element-found-in__source" data-line="159" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns the graph ID.</p>
@@ -1587,9 +1587,9 @@ or this collection is not part of the graph or the edge does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">188</span>
+    <span class="phpdocumentor-element-found-in__line">169</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.188" class="phpdocumentor-element-found-in__source" data-line="188" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.169" class="phpdocumentor-element-found-in__source" data-line="169" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns the graph key.</p>
@@ -1624,9 +1624,9 @@ or this collection is not part of the graph or the edge does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">258</span>
+    <span class="phpdocumentor-element-found-in__line">239</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.258" class="phpdocumentor-element-found-in__source" data-line="258" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.239" class="phpdocumentor-element-found-in__source" data-line="239" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns the minimal replication factor used for every new collection in the graph.</p>
@@ -1661,9 +1661,9 @@ or this collection is not part of the graph or the edge does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">208</span>
+    <span class="phpdocumentor-element-found-in__line">189</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.208" class="phpdocumentor-element-found-in__source" data-line="208" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.189" class="phpdocumentor-element-found-in__source" data-line="189" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Gets the graph name.</p>
@@ -1698,9 +1698,9 @@ or this collection is not part of the graph or the edge does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">238</span>
+    <span class="phpdocumentor-element-found-in__line">219</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.238" class="phpdocumentor-element-found-in__source" data-line="238" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.219" class="phpdocumentor-element-found-in__source" data-line="219" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns the number of shards that is used for every collection within this graph.</p>
@@ -1735,9 +1735,9 @@ or this collection is not part of the graph or the edge does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">268</span>
+    <span class="phpdocumentor-element-found-in__line">249</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.268" class="phpdocumentor-element-found-in__source" data-line="268" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.249" class="phpdocumentor-element-found-in__source" data-line="249" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns the orphan collections in the graph.</p>
@@ -1772,9 +1772,9 @@ or this collection is not part of the graph or the edge does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">248</span>
+    <span class="phpdocumentor-element-found-in__line">229</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.248" class="phpdocumentor-element-found-in__source" data-line="248" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.229" class="phpdocumentor-element-found-in__source" data-line="229" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns the replication factor used when initially creating collections for this graph.</p>
@@ -1809,9 +1809,9 @@ or this collection is not part of the graph or the edge does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">228</span>
+    <span class="phpdocumentor-element-found-in__line">209</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.228" class="phpdocumentor-element-found-in__source" data-line="228" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.209" class="phpdocumentor-element-found-in__source" data-line="209" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Gets the graph revision.</p>
@@ -1846,9 +1846,9 @@ or this collection is not part of the graph or the edge does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">598</span>
+    <span class="phpdocumentor-element-found-in__line">572</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.598" class="phpdocumentor-element-found-in__source" data-line="598" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.572" class="phpdocumentor-element-found-in__source" data-line="572" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Gets a vertex from the given collection.</p>
@@ -1924,9 +1924,9 @@ or this collection is not part of the graph or the vertex does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">485</span>
+    <span class="phpdocumentor-element-found-in__line">462</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.485" class="phpdocumentor-element-found-in__source" data-line="485" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.462" class="phpdocumentor-element-found-in__source" data-line="462" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Lists all vertex collections within this graph.</p>
@@ -1976,9 +1976,9 @@ or this collection is not part of the graph or the vertex does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">198</span>
+    <span class="phpdocumentor-element-found-in__line">179</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.198" class="phpdocumentor-element-found-in__source" data-line="198" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.179" class="phpdocumentor-element-found-in__source" data-line="179" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns true if is a new graph.</p>
@@ -2013,9 +2013,9 @@ or this collection is not part of the graph or the vertex does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">218</span>
+    <span class="phpdocumentor-element-found-in__line">199</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.218" class="phpdocumentor-element-found-in__source" data-line="218" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.199" class="phpdocumentor-element-found-in__source" data-line="199" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">If this graph is a smartGraph.</p>
@@ -2050,9 +2050,9 @@ or this collection is not part of the graph or the vertex does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">868</span>
+    <span class="phpdocumentor-element-found-in__line">836</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.868" class="phpdocumentor-element-found-in__source" data-line="868" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.836" class="phpdocumentor-element-found-in__source" data-line="836" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Return a JSON representation of graph attributes.</p>
@@ -2087,9 +2087,9 @@ or this collection is not part of the graph or the vertex does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">280</span>
+    <span class="phpdocumentor-element-found-in__line">261</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.280" class="phpdocumentor-element-found-in__source" data-line="280" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.261" class="phpdocumentor-element-found-in__source" data-line="261" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Save the Graph on server, if possible.</p>
@@ -2143,9 +2143,9 @@ or this collection is not part of the graph or the vertex does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">355</span>
+    <span class="phpdocumentor-element-found-in__line">334</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.355" class="phpdocumentor-element-found-in__source" data-line="355" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.334" class="phpdocumentor-element-found-in__source" data-line="334" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns a array representation of graph.</p>
@@ -2180,16 +2180,16 @@ or this collection is not part of the graph or the vertex does not exist.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Graph.php"><a href="files/src-graph-graph.html"><abbr title="src/Graph/Graph.php">Graph.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">858</span>
+    <span class="phpdocumentor-element-found-in__line">826</span>
 
-            <a href="classes/ArangoDB-Graph-Graph.html#source-view.858" class="phpdocumentor-element-found-in__source" data-line="858" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
+            <a href="classes/ArangoDB-Graph-Graph.html#source-view.826" class="phpdocumentor-element-found-in__source" data-line="826" data-modal="source-view" data-src="files/src/Graph/Graph.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns a graph traversal.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">traversal</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Document-Vertex.html"><abbr title="\ArangoDB\Document\Vertex">Vertex</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$vertex</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$direction</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">Traversal::GRAPH_DIRECTION_ANY</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$depth</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Cursor-TraversalCursor.html"><abbr title="\ArangoDB\Cursor\TraversalCursor">TraversalCursor</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">traversal</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Document-Vertex.html"><abbr title="\ArangoDB\Document\Vertex">Vertex</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$vertex</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$direction</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">Traversal::GRAPH_DIRECTION_ANY</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$depth</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Graph-Traversal-Traversal.html"><abbr title="\ArangoDB\Graph\Traversal\Traversal">Traversal</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -2244,7 +2244,7 @@ or this collection is not part of the graph or the vertex does not exist.</p>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Cursor-TraversalCursor.html"><abbr title="\ArangoDB\Cursor\TraversalCursor">TraversalCursor</abbr></a></span>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Graph-Traversal-Traversal.html"><abbr title="\ArangoDB\Graph\Traversal\Traversal">Traversal</abbr></a></span>
             </section>
 
 </article>

@@ -20,17 +20,13 @@ class RestClient
 {
     /**
      * Base URI string.
-     *
-     * @var string
      */
-    protected $baseUri;
+    protected string $baseUri;
 
     /**
      * Guzzle HTTP client.
-     *
-     * @var Client
      */
-    protected $httpClient;
+    protected Client $httpClient;
 
     /**
      * RestClient constructor.
@@ -59,11 +55,11 @@ class RestClient
      * @param mixed $data Data to send.
      * @param array $headers Additional headers.
      *
-     * @return mixed|ResponseInterface
+     * @return ResponseInterface
      *
      * @throws GuzzleException
      */
-    public function get($url, $data = [], $headers = []): ResponseInterface
+    public function get(string $url, array $data = [], array $headers = []): ResponseInterface
     {
         $request = new Request('GET', $url, $headers, json_encode($data));
         return $this->httpClient->send($request->withoutHeader('content-length'));
@@ -76,11 +72,11 @@ class RestClient
      * @param mixed $data Data to send.
      * @param array $headers Additional headers.
      *
-     * @return mixed|ResponseInterface
+     * @return ResponseInterface
      *
      * @throws GuzzleException
      */
-    public function post($url, $data = [], $headers = []): ResponseInterface
+    public function post(string $url, array $data = [], array $headers = []): ResponseInterface
     {
         $request = new Request('POST', $url, $headers, json_encode($data));
         return $this->httpClient->send($request);
@@ -97,7 +93,7 @@ class RestClient
      *
      * @throws GuzzleException
      */
-    public function put($url, $data = [], $headers = []): ResponseInterface
+    public function put(string $url, array $data = [], array $headers = []): ResponseInterface
     {
         $request = new Request('PUT', $url, $headers, json_encode($data));
         return $this->httpClient->send($request);
@@ -110,11 +106,11 @@ class RestClient
      * @param mixed $data Data to send
      * @param array $headers Additional headers.
      *
-     * @return mixed|ResponseInterface
+     * @return ResponseInterface
      *
      * @throws GuzzleException
      */
-    public function patch($url, $data = [], $headers = []): ResponseInterface
+    public function patch(string $url, array $data = [], array $headers = []): ResponseInterface
     {
         $request = new Request('PATCH', $url, $headers, json_encode($data));
         return $this->httpClient->send($request);
@@ -127,11 +123,11 @@ class RestClient
      * @param mixed $data Data to send.
      * @param array $headers Additional headers.
      *
-     * @return mixed|ResponseInterface
+     * @return ResponseInterface
      *
      * @throws GuzzleException
      */
-    public function delete($url, $data = [], $headers = []): ResponseInterface
+    public function delete(string $url, array $data = [], array $headers = []): ResponseInterface
     {
         $request = new Request('DELETE', $url, $headers, json_encode($data));
         return $this->httpClient->send($request);
@@ -142,7 +138,7 @@ class RestClient
      *
      * @param string $method HTTP method to use.
      * @param string $url URL to request.
-     * @param string $body Body to sent.
+     * @param string $body Body to be sent.
      * @param array $headers Additional headers.
      *
      * @return ResponseInterface

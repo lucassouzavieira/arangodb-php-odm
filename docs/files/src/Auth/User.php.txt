@@ -23,46 +23,34 @@ class User implements EntityInterface
 {
     /**
      * Name of user on server.
-     *
-     * @var string
      */
-    protected $user;
+    protected string $user;
 
     /**
      * Password of user.
      * Used only of new users that will be created on server.
-     *
-     * @var string
      */
-    protected $password = '';
+    protected string $password = '';
 
     /**
      * If user is active or not on database.
-     *
-     * @var bool
      */
-    protected $active;
+    protected bool $active;
 
     /**
      * Extra data about the user.
-     *
-     * @var array|null
      */
-    protected $extra = null;
+    protected array|null $extra = null;
 
     /**
      * If user is a new User or an existing one.
-     *
-     * @var bool
      */
-    protected $isNew;
+    protected bool $isNew;
 
     /**
      * Connection object to use.
-     *
-     * @var Connection
      */
-    protected $connection;
+    protected Connection|null $connection;
 
     /**
      * User constructor.
@@ -105,7 +93,7 @@ class User implements EntityInterface
     /**
      * String representation of User object.
      *
-     * @return false|mixed|string
+     * @return string
      */
     public function __toString()
     {
@@ -119,7 +107,7 @@ class User implements EntityInterface
      *
      * @return mixed|null Attribute value.
      */
-    public function __get($name)
+    public function __get(string $name)
     {
         if (in_array($name, ['extra', 'user', 'active'])) {
             return $this->{$name};
@@ -173,7 +161,7 @@ class User implements EntityInterface
      *
      * @return array|null
      */
-    public function getExtra()
+    public function getExtra(): array|null
     {
         return $this->extra;
     }
@@ -221,13 +209,12 @@ class User implements EntityInterface
 
             $this->connection->$method($uri, $data);
             $this->isNew = false;
-            $this->password = null;
+            $this->password = '';
 
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $duplicatedException = new UserException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $duplicatedException;
+            throw new UserException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -246,7 +233,7 @@ class User implements EntityInterface
 
             $response = $this->connection->delete($uri);
             $this->isNew = false;
-            $this->password = null;
+            $this->password = '';
 
             return true;
         } catch (ClientException $exception) {

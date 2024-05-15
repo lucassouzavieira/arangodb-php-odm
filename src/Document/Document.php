@@ -82,10 +82,8 @@ class Document implements EntityInterface
 
     /**
      * Default patch options
-     *
-     * @var array
      */
-    protected $patchDefaultOptions = [
+    protected array $patchDefaultOptions = [
         'keepNull' => false,
         'mergeObjects' => true,
         'waitForSync' => true,
@@ -96,10 +94,8 @@ class Document implements EntityInterface
 
     /**
      * Default update options
-     *
-     * @var array
      */
-    protected $updateDefaultOptions = [
+    protected array $updateDefaultOptions = [
         'waitForSync' => true,
         'ignoreRevs' => true,
         'returnOld' => false,
@@ -140,7 +136,7 @@ class Document implements EntityInterface
     }
 
     /**
-     * Return an string representation of document.
+     * Return a string representation of document.
      *
      * @return string
      */
@@ -291,8 +287,7 @@ class Document implements EntityInterface
             return $this->update($options);
         } catch (GuzzleException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -315,8 +310,7 @@ class Document implements EntityInterface
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -338,8 +332,7 @@ class Document implements EntityInterface
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 

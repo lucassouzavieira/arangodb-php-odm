@@ -80,11 +80,9 @@ abstract class Import
         } catch (ClientException $exception) {
             // Unknown error.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $serverException;
+            throw new ServerException($response['errorMessage'], $exception, $response['errorNum']);
         } catch (DatabaseException $exception) {
-            $serverException = new ServerException($exception->getMessage(), $exception, $exception->getCode());
-            throw $serverException;
+            throw new ServerException($exception->getMessage(), $exception, $exception->getCode());
         }
     }
 }

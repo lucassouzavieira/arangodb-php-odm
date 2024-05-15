@@ -13,38 +13,28 @@ class View
 {
     /**
      * View ID.
-     *
-     * @var string
      */
-    protected $id;
+    protected string $id;
 
     /**
      * Globally unique ID.
-     *
-     * @var string
      */
-    protected $globallyUniqueId;
+    protected string $globallyUniqueId;
 
     /**
      * The name of the View.
-     *
-     * @var string
      */
-    protected $name;
+    protected string $name;
 
     /**
      * The type of View
-     *
-     * @var string
      */
-    protected $type;
+    protected string $type;
 
     /**
      * If the View is a new one or a representation of an existing view on server.
-     *
-     * @var bool
      */
-    protected $isNew;
+    protected bool $isNew;
 
     /**
      * The view links
@@ -58,19 +48,17 @@ class View
      * View properties.
      * Check ArangoDB Server documentation for more details.
      *
-     * @var array
      * @see https://www.arangodb.com/docs/stable/arangosearch-views.html#view-properties
      */
-    protected $attributes = [];
+    protected array $attributes = [];
 
     /**
      * View properties default values.
      * Check ArangoDB Server documentation for more details.
      *
-     * @var array
      * @see https://www.arangodb.com/docs/stable/arangosearch-views.html#view-properties
      */
-    protected $defaults = [
+    protected array $defaults = [
         'writebufferActive' => 0,
         'writebufferSizeMax' => 33554432,
         'writebufferIdle' => 64,

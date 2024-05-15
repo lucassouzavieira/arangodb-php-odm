@@ -17,7 +17,7 @@ class EdgeDefinition
      *
      * @var array
      */
-    protected $to = [];
+    protected array $to = [];
 
     /**
      * List of vertex collection names. <br>
@@ -25,14 +25,14 @@ class EdgeDefinition
      *
      * @var array
      */
-    protected $from = [];
+    protected array $from = [];
 
     /**
      * Name of the edge collection.
      *
      * @var string
      */
-    protected $collection;
+    protected string $collection;
 
     /**
      * EdgeDefinition constructor.

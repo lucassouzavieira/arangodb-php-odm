@@ -60,8 +60,7 @@ abstract class Server
             return $data['name'];
         } catch (\Exception $exception) {
             // Unknown error.
-            $serverException = new ServerException($exception->getMessage(), $exception, $exception->getCode());
-            throw $serverException;
+            throw new ServerException($exception->getMessage(), $exception, $exception->getCode());
         }
     }
 
@@ -88,8 +87,7 @@ abstract class Server
             return strtolower($data['role']);
         } catch (\Exception $exception) {
             // Unknown error.
-            $serverException = new ServerException($exception->getMessage(), $exception, $exception->getCode());
-            throw $serverException;
+            throw new ServerException($exception->getMessage(), $exception, $exception->getCode());
         }
     }
 
@@ -117,8 +115,7 @@ abstract class Server
 
             // Unknown error.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $serverException;
+            throw new ServerException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -139,8 +136,7 @@ abstract class Server
             return $data;
         } catch (BadResponseException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $serverException;
+            throw new ServerException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 }

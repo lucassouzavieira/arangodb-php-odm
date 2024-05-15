@@ -9,7 +9,7 @@
 ## Installation
 
 ### Using composer
-  - Run the command bellow on your project root.<br>
+  - Run the command below on your project root.<br>
     `composer require lvieira/arangodb-php-odm`
 
 ## Usage
@@ -27,7 +27,7 @@ $connection = new Connection([
     'database' => 'YourDatabase',
 ]);
 
-// Alternatively, you can set an host and a port to connect
+// Alternatively, you can set a host and a port to connect
 $connection = new Connection([
     'host' => 'http://yourarangohost',
     'port' => 8529,
@@ -68,25 +68,25 @@ $connection = new Connection([
 
 $database = $connection->getDatabase();
 
-// With database object, we can retrive informations about it.
+// With a database object, we can retrieve information about it.
 $infoAboutCurrentDatabase = $database->getInfo();
 
-// Check if database has a collection
+// Check if the database has a collection
 if($database->hasCollection('my_collection_name')){
     echo "Collection exists!";
 } else {
-    echo "Collection doesn't exists"; 
+    echo "Collection doesn't exist"; 
 }
 
-// We can also create collections in database
+// We can also create collections in the database
 $collection = $database->createCollection('my_new_colletion');
 
 // Or retrieve existing collections
 $collection = $database->getCollection('my_existing_collection');
 
-// With Database class we can create and drop databases
+// With the Database class we can create and drop databases
 
-// Lists the databases on server
+// Lists the databases on the server
 $dbList = Database::list($connection);
 
 // You can create a new database using the existing connection
@@ -116,13 +116,13 @@ $connection = new Connection([
 
 $database = $connection->getDatabase();
 
-// If collection exists on database, the object will be a representation of it.
+// If a collection exists on a database, the object will represent it.
 $collection = new Collection('my_collection_name', $database);
 
-// If collection not exists, you can create it with method 'save'
+// If the collection does not exist, you can create it with the method 'save'
 $collection->save();
 
-// Get all documents from collection
+// Get all documents from the collection
 foreach ($collection->all() as $document){
     // Do something.
 }
@@ -175,7 +175,7 @@ $document->save();
 $document->status = 'active';
 $document->save(); // Will update your document on server;
 
-// Delete the document from collection.
+// Delete the document from the collection.
 $document->delete();
 ```
 
@@ -206,7 +206,7 @@ try {
     $transaction = new JavascriptTransaction($this->getConnectionObject(), $action, $options);
     $result = $transaction->execute(); // Will return 1.
 } catch (TransactionException $transactionException) {
-    // Throws an TransactionException in case of error.
+    // Throws a TransactionException in case of error.
     return $transactionException->getMessage();
 }
 ```
@@ -265,8 +265,8 @@ try {
 
 ## Documentation
 
-Check the [full documentation](https://lucassouzavieira.github.io/arangodb-php-odm/v1.0.0/index.html) of project:
+Check the [API Reference](https://lucassouzavieira.github.io/arangodb-php-odm/).
 
 ## Contributing
 
-[Check how contribute in this project](CONTRIBUTING.md)
+[Check how to contribute to this project](CONTRIBUTING.md)

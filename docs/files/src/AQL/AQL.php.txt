@@ -45,8 +45,7 @@ abstract class AQL
 
             // Unknown error.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $aqlException = new AQLException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $aqlException;
+            throw new AQLException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -76,8 +75,7 @@ abstract class AQL
         } catch (ClientException $exception) {
             // Unknown error.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $serverException = new ServerException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $serverException;
+            throw new ServerException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 }

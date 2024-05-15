@@ -59,8 +59,7 @@ final class JavascriptTransaction extends Transaction
         } catch (BadResponseException $exception) {
             // An error was returned from server.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $transactionException = new TransactionException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $transactionException;
+            throw new TransactionException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 }
