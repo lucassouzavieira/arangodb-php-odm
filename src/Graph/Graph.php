@@ -29,69 +29,51 @@ class Graph implements \JsonSerializable
 {
     /**
      * The internal id of this graph.
-     *
-     * @var string
      */
-    protected $id;
+    protected string $id;
 
     /**
      * The name of graph.
-     *
-     * @var string
      */
-    protected $key;
+    protected string $key;
 
     /**
      * If this graph is a new one or a representation of existing document.
-     *
-     * @var bool
      */
-    protected $isNew;
+    protected bool $isNew;
 
     /**
      * Graph name.
-     *
-     * @var string
      */
-    protected $name;
+    protected string $name;
 
     /**
      * Flag if the graph is a smart graph.
-     *
-     * @var bool
      */
-    protected $isSmart;
+    protected bool $isSmart;
 
     /**
      * The revision of graph.
      * Can be used to make sure to not override concurrent modifications to this graph.
-     *
-     * @var string
      */
-    protected $revision;
+    protected string $revision;
 
     /**
      * Number of shards created for every new collection in the graph.
-     *
-     * @var int
      */
-    protected $numberOfShards;
+    protected int $numberOfShards;
 
     /**
      * The replication factor used for every new collection in the graph.
-     *
-     * @var int
      */
-    protected $replicationFactor;
+    protected int $replicationFactor;
 
     /**
      * The minimal replication factor used for every new collection in the graph.<br>
      * If one shard has less than minReplicationFactor copies,
      * we cannot write to this shard, but to all others.
-     *
-     * @var int
      */
-    protected $minReplicationFactor;
+    protected int $minReplicationFactor;
 
     /**
      * An array of definitions for the relations of graph.
@@ -106,7 +88,7 @@ class Graph implements \JsonSerializable
      *
      * @var array
      */
-    protected $orphanCollections = [];
+    protected array $orphanCollections = [];
 
     /**
      * Database object of graph
@@ -307,8 +289,7 @@ class Graph implements \JsonSerializable
             return false;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -342,8 +323,7 @@ class Graph implements \JsonSerializable
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -418,8 +398,7 @@ class Graph implements \JsonSerializable
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -470,8 +449,7 @@ class Graph implements \JsonSerializable
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -502,8 +480,7 @@ class Graph implements \JsonSerializable
             return new ArrayList($data['collections']);
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -539,8 +516,7 @@ class Graph implements \JsonSerializable
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -579,8 +555,7 @@ class Graph implements \JsonSerializable
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -620,8 +595,7 @@ class Graph implements \JsonSerializable
                 return false;
             }
 
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -663,8 +637,7 @@ class Graph implements \JsonSerializable
                 return false;
             }
 
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -708,8 +681,7 @@ class Graph implements \JsonSerializable
                 return false;
             }
 
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -749,8 +721,7 @@ class Graph implements \JsonSerializable
                 return false;
             }
 
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -794,8 +765,7 @@ class Graph implements \JsonSerializable
                 return false;
             }
 
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -839,8 +809,7 @@ class Graph implements \JsonSerializable
                 return false;
             }
 
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
