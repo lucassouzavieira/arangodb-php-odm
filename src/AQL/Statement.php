@@ -169,7 +169,7 @@ class Statement implements StatementInterface
      *
      * @return string
      */
-    private function output(string $parameter)
+    private function output(string $parameter): string
     {
         $value = $this->container->get($parameter);
         $format = $this->formats[gettype($value)];
