@@ -43,7 +43,7 @@ class AQLFunction implements EntityInterface
     /**
      * Connection object.
      */
-    protected Connection $connection;
+    protected Connection|null $connection;
 
     /**
      * Stores the deletion data for an AQLFunction object.

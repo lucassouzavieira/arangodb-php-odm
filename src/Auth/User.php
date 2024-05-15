@@ -50,7 +50,7 @@ class User implements EntityInterface
     /**
      * Connection object to use.
      */
-    protected Connection $connection;
+    protected Connection|null $connection;
 
     /**
      * User constructor.
