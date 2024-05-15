@@ -24,17 +24,17 @@ abstract class Authenticable
     /**
      * @var array
      */
-    protected $options;
+    protected array $options;
 
     /**
      * @var array JWT token
      */
-    protected $authToken;
+    protected array $authToken;
 
     /**
      * @var RestClient
      */
-    protected $restClient;
+    protected RestClient $restClient;
 
     /**
      * Authenticable constructor.
@@ -62,11 +62,9 @@ abstract class Authenticable
             $this->authToken = json_decode((string)$response->getBody(), true);
         } catch (BadResponseException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $authException = new AuthException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $authException;
+            throw new AuthException($response['errorMessage'], $exception, $response['errorNum']);
         } catch (ConnectException $exception) {
-            $connectionException = new ConnectionException($exception->getMessage(), $exception);
-            throw $connectionException;
+            throw new ConnectionException($exception->getMessage(), $exception);
         }
     }
 

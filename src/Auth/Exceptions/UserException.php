@@ -17,11 +17,11 @@ class UserException extends BaseException
     /**
      * UserException constructor.
      *
-     * @param $message
+     * @param string $message
      * @param Throwable|null $previous
      * @param int $code
      */
-    public function __construct($message, Throwable $previous = null, $code = 0)
+    public function __construct(string $message, Throwable $previous = null, int $code = 0)
     {
         parent::__construct($message, $previous, $code);
     }
