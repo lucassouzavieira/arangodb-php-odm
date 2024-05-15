@@ -68,9 +68,9 @@ class ArrayList implements ListInterface
     }
 
     /**
-     * Get a value by it's key
+     * Get a value by its key
      *
-     * @param $key Key to verify on list.
+     * @param int|string $key Key to verify on list.
      * @return mixed
      */
     public function get($key)
