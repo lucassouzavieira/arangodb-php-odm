@@ -41,7 +41,7 @@ class CollectionTest extends TestCase
     {
         $collection = new Collection('any', $this->getConnectionObject()->getDatabase());
         $this->assertInstanceOf(Collection::class, $collection);
-        $this->assertObjectHasAttribute('connection', $collection);
+        $this->assertObjectHasProperty('connection', $collection);
     }
 
     public function testGetDatabase()
@@ -233,11 +233,6 @@ class CollectionTest extends TestCase
 
     public function testAddTTLIndex()
     {
-        // Skip this test for 3.4 version.
-        if ((float)Server::version($this->getConnectionObject()) < 3.5) {
-            $this->markTestSkipped("ArangoDB versions before the 3.5 doesn't have TTL index feature");
-        }
-
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
 
@@ -770,40 +765,6 @@ class CollectionTest extends TestCase
         $this->assertTrue($collection->load());
     }
 
-    public function testUnload()
-    {
-        $db = new Database($this->getConnectionObject());
-        $collection = new Collection('test_first_name', $db);
-
-        // Check if collection is created.
-        // After creation, ArangoDB server usually loads the collection
-        $this->assertTrue($collection->save());
-        $this->assertTrue($collection->load()); // Loads the collection
-
-        // Unload
-        $this->assertTrue($collection->unload());
-        $this->assertTrue(in_array($collection->getStatus(), [2, 4])); // Check collection status.
-
-        $this->assertTrue($collection->drop());
-    }
-
-    public function testUnloadThrowDatabaseException()
-    {
-        $mock = new MockHandler([
-            new Response(200, [], json_encode(['result' => []])),
-            new Response(200, [], json_encode(['result' => []])),
-            new Response(200, [], json_encode(['result' => []])),
-            new Response(403, [], json_encode($this->mockServerError()))
-        ]);
-
-        $db = new Database($this->getConnectionObject($mock));
-        $collection = new Collection('test_first_name', $db);
-
-        // Unload
-        $this->expectException(DatabaseException::class);
-        $this->assertTrue($collection->unload());
-    }
-
     public function testGetChecksum()
     {
         $db = new Database($this->getConnectionObject());
@@ -858,13 +819,7 @@ class CollectionTest extends TestCase
         // Get checksum
         $this->assertEquals("7854980051561", $coll1->getRevision()); // Empty collection.
 
-        $compare_to = "0";
-
-        // 3.8+ specific behaviors. Default revision number is 54.
-        if ((float)Server::version($this->getConnectionObject()) >= 3.8) {
-            $compare_to = "54";
-        }
-
+        $compare_to = "54"; // 3.8+ specific behaviors. Default revision number is 54.
         $this->assertEquals($compare_to, $coll2->getRevision()); // Empty collection.
 
         $this->assertTrue($coll1->drop());

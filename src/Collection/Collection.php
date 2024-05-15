@@ -660,28 +660,6 @@ class Collection implements \JsonSerializable
     }
 
     /**
-     * Unload the collection on server
-     *
-     * @return bool
-     * @throws DatabaseException|GuzzleException
-     */
-    public function unload(): bool
-    {
-        try {
-            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
-            $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_UNLOAD));
-            $data = json_decode((string)$response->getBody(), true);
-            $this->status = (int)$data['status'];
-
-            // Collection must be unloaded or being unloaded by server
-            return $data['status'] === self::$unloadedStatus || $data['status'] === self::$unloadingStatus;
-        } catch (ClientException $exception) {
-            $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-        }
-    }
-
-    /**
      * Return the number of documents in a collection.
      *
      * @return int Total count of documents on collection.
