@@ -54,7 +54,7 @@ jobs:
   arango_3_12:
     runs-on: ubuntu-latest
     env:
-      ARANGO_SERVER: 3.12
+      ARANGO_SERVER: 3.12.0
     services:
       arangodb:
         image: 'arangodb/arangodb:3.12.0'

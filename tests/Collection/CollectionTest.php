@@ -148,7 +148,7 @@ class CollectionTest extends TestCase
         $collection = new Collection('test_save_coll', $db);
 
         // Check if collection is created.
-        $this->assertNull($collection->getGloballyUniqueId());
+        $this->assertEmpty($collection->getGloballyUniqueId());
 
         $this->assertTrue($collection->save());
 
