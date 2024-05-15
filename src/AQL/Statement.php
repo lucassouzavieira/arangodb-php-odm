@@ -159,7 +159,7 @@ class Statement implements StatementInterface
             $query = str_replace($parameter, $this->output($parameter), $query);
         }
 
-        return utf8_encode($query);
+        return mb_convert_encoding($query, "UTF-8", mb_detect_encoding($query));
     }
 
     /**
