@@ -1,68 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="vendor/autoload.php" colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true">
-    <php>
-        <ini name="error_reporting" value="-1"/>
-    </php>
-    <testsuites>
-        <testsuite name="Admin">
-            <directory suffix="Test.php">tests/Admin</directory>
-        </testsuite>
-        <testsuite name="AQL">
-            <directory suffix="Test.php">tests/AQL</directory>
-        </testsuite>
-        <testsuite name="Auth">
-            <directory suffix="Test.php">tests/Auth</directory>
-        </testsuite>
-        <testsuite name="Batch">
-            <directory suffix="Test.php">tests/Batch</directory>
-        </testsuite>
-        <testsuite name="Cursor">
-            <directory suffix="Test.php">tests/Cursor</directory>
-        </testsuite>
-        <testsuite name="Collection">
-            <directory suffix="Test.php">tests/Collection</directory>
-        </testsuite>
-        <testsuite name="Connection">
-            <directory suffix="Test.php">tests/Connection</directory>
-        </testsuite>
-        <testsuite name="Document">
-            <directory suffix="Test.php">tests/Document</directory>
-        </testsuite>
-        <testsuite name="Graph">
-            <directory suffix="Test.php">tests/Graph</directory>
-        </testsuite>
-        <testsuite name="Database">
-            <directory suffix="Test.php">tests/Database</directory>
-        </testsuite>
-        <testsuite name="Http">
-            <directory suffix="Test.php">tests/Http</directory>
-        </testsuite>
-        <testsuite name="DataStructures">
-            <directory suffix="Test.php">tests/DataStructures</directory>
-        </testsuite>
-        <testsuite name="Validation">
-            <directory suffix="Test.php">tests/Validation</directory>
-        </testsuite>
-        <testsuite name="Transaction">
-            <directory suffix="Test.php">tests/Transaction</directory>
-        </testsuite>
-        <testsuite name="View">
-            <directory suffix="Test.php">tests/View</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">src/</directory>
-        </whitelist>
-    </filter>
-    <logging>
-        <log type="coverage-html"
-             target="build"
-             lowUpperBound="30"
-             highLowerBound="80"/>
-        <log type="coverage-clover" target="build/logs/coverage.xml"/>
-    </logging>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="vendor/autoload.php" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <coverage processUncoveredFiles="true">
+    <include>
+      <directory suffix=".php">src/</directory>
+    </include>
+    <report>
+      <clover outputFile="build/logs/coverage.xml"/>
+      <html outputDirectory="build" lowUpperBound="30" highLowerBound="80"/>
+    </report>
+  </coverage>
+  <php>
+    <ini name="error_reporting" value="-1"/>
+  </php>
+  <testsuites>
+    <testsuite name="Admin">
+      <directory suffix="Test.php">tests/Admin</directory>
+    </testsuite>
+    <testsuite name="AQL">
+      <directory suffix="Test.php">tests/AQL</directory>
+    </testsuite>
+    <testsuite name="Auth">
+      <directory suffix="Test.php">tests/Auth</directory>
+    </testsuite>
+    <testsuite name="Batch">
+      <directory suffix="Test.php">tests/Batch</directory>
+    </testsuite>
+    <testsuite name="Cursor">
+      <directory suffix="Test.php">tests/Cursor</directory>
+    </testsuite>
+    <testsuite name="Collection">
+      <directory suffix="Test.php">tests/Collection</directory>
+    </testsuite>
+    <testsuite name="Connection">
+      <directory suffix="Test.php">tests/Connection</directory>
+    </testsuite>
+    <testsuite name="Document">
+      <directory suffix="Test.php">tests/Document</directory>
+    </testsuite>
+    <testsuite name="Graph">
+      <directory suffix="Test.php">tests/Graph</directory>
+    </testsuite>
+    <testsuite name="Database">
+      <directory suffix="Test.php">tests/Database</directory>
+    </testsuite>
+    <testsuite name="Http">
+      <directory suffix="Test.php">tests/Http</directory>
+    </testsuite>
+    <testsuite name="DataStructures">
+      <directory suffix="Test.php">tests/DataStructures</directory>
+    </testsuite>
+    <testsuite name="Validation">
+      <directory suffix="Test.php">tests/Validation</directory>
+    </testsuite>
+    <testsuite name="Transaction">
+      <directory suffix="Test.php">tests/Transaction</directory>
+    </testsuite>
+    <testsuite name="View">
+      <directory suffix="Test.php">tests/View</directory>
+    </testsuite>
+  </testsuites>
+  <logging/>
 </phpunit>
