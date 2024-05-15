@@ -7,7 +7,6 @@ use ArangoDB\Http\Api;
 use ArangoDB\Document\Edge;
 use ArangoDB\Document\Vertex;
 use ArangoDB\Database\Database;
-use ArangoDB\Cursor\TraversalCursor;
 use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Graph\Traversal\Traversal;
 use GuzzleHttp\Exception\ClientException;
@@ -403,7 +402,7 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Remove one edge definition from the graph.<br>
+     * Remove one edge definition from the graph<br>
      * This will only remove the edge collection,
      * the vertex collections remain untouched and can still be used in your queries.
      *
@@ -521,7 +520,7 @@ class Graph implements \JsonSerializable
     }
 
     /**
-     * Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph.<br>
+     * Removes a vertex collection from the graph and optionally deletes the collection, if it is not used in any other graph<br>
      * It can only remove vertex collections that are no longer part of edge definitions,<br>
      * if they are used in edge definitions you are required to modify those first.
      *
@@ -727,15 +726,15 @@ class Graph implements \JsonSerializable
 
     /**
      * Creates a new edge in the collection.<br>
-     * Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph.
-     * Furthermore the edge has to be valid in the definition of the used.
+     * Within the attributes the edge has to contain a _from and _to value referencing to valid vertices in the graph
+     * Furthermore, the edge has to be valid in the definition of the used.
      *
      * @param string $collection The name of the edge collection the edge belongs to.
-     * @param array $attributes The object attributes to be stored. Must contains '_to' and '_from' keys.
+     * @param array $attributes The object attributes to be stored. Must contain '_to' and '_from' keys.
      * @param bool $waitForSync Define if the request should wait until synced to disk. Default is true.
      * @param bool $returnNew Define if the response should contain the complete new version of the document. Default is false.
      *
-     * @return Edge|false A Edge object if edge exists. False if no graph with this name could be found <br>
+     * @return bool True if Edge object exists. False if no graph with this name could be found <br>
      * or this collection is not part of the graph or one of the vertices ('_to' or '_from') does not exist.
      *
      * @throws DatabaseException|GuzzleException|ArangoException
@@ -820,7 +819,7 @@ class Graph implements \JsonSerializable
      * @param int $depth Visits only nodes in at least the given depth.
      * @param string $direction Direction for traversal. Must be either "outbound", "inbound", or "any".
      *
-     * @return TraversalCursor
+     * @return Traversal
      *
      * @throws CursorException|GuzzleException|ArangoException
      */
