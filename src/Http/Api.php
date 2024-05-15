@@ -17,7 +17,6 @@ abstract class Api
     const INDEX = "/_api/index";
     const CURSOR = "/_api/cursor";
     const IMPORT = "/_api/import";
-    const EXPORT = "/_api/export";
     const EXPLAIN = "/_api/explain";
     const BATCH = "/_api/batch";
     const QUERY = "/_api/query";
@@ -28,7 +27,6 @@ abstract class Api
     const COLLECTION = "/_api/collection";
     const COLLECTION_LOAD = "/load";
     const COLLECTION_COUNT = "/count";
-    const COLLECTION_UNLOAD = "/unload";
     const COLLECTION_RENAME = "/rename";
     const COLLECTION_ROTATE = "/rotate";
     const COLLECTION_CHECKSUM = "/checksum";
