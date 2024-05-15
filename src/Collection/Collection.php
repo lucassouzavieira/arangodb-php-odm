@@ -22,6 +22,7 @@ use ArangoDB\Exceptions\Database\DatabaseException;
 use ArangoDB\Validation\Collection\CollectionValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
+use JsonSerializable;
 
 /**
  * Represents an ArangoDB collection
@@ -29,42 +30,32 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
  * @package ArangoDB\Collection
  * @author Lucas S. Vieira
  */
-class Collection implements \JsonSerializable
+class Collection implements JsonSerializable
 {
     /**
      * Attributes of collection
-     *
-     * @var array
      */
-    protected $attributes;
+    protected array $attributes;
 
     /**
      * If the collection is a new one or a representation of an existing collection on server
-     *
-     * @var bool
      */
-    protected $isNew;
+    protected bool $isNew;
 
     /**
      * Database object
-     *
-     * @var Database
      */
-    protected $database;
+    protected Database $database;
 
     /**
      * Connection object
-     *
-     * @var Connection
      */
-    protected $connection;
+    protected Connection $connection;
 
     /**
      * Fields to be set directly
-     *
-     * @var array
      */
-    protected $descriptorAttributes = [
+    protected array $descriptorAttributes = [
         'id' => null,
         'objectId' => null,
         'name' => '',
@@ -72,7 +63,7 @@ class Collection implements \JsonSerializable
         'status' => 0,
         'cacheEnabled' => false,
         'isSystem' => false,
-        'globallyUniqueId' => null,
+        'globallyUniqueId' => '',
         'revision' => 0,
         'count' => 0,
         'checksum' => ''
@@ -83,17 +74,15 @@ class Collection implements \JsonSerializable
      *
      * @var array
      */
-    protected $typeStrings = [
+    protected array $typeStrings = [
         2 => 'document',
         3 => 'graph'
     ];
 
     /**
      * Status descriptions
-     *
-     * @var array
      */
-    protected $statusStrings = [
+    protected array $statusStrings = [
         0 => 'unknown',
         1 => 'unknown',
         2 => 'unloaded',
@@ -105,52 +94,38 @@ class Collection implements \JsonSerializable
 
     /**
      * Unknown status of collection
-     *
-     * @var int
      */
-    protected static $unknownStatus = 1;
+    protected static int $unknownStatus = 1;
 
     /**
      * Unloaded status of collection
-     *
-     * @var int
      */
-    protected static $unloadedStatus = 2;
+    protected static int $unloadedStatus = 2;
 
     /**
      * Loaded status of collection
-     *
-     * @var int
      */
-    protected static $loadedStatus = 3;
+    protected static int $loadedStatus = 3;
 
     /**
      * Deleted status of collection
-     *
-     * @var int
      */
-    protected static $deletedStatus = 5;
+    protected static int $deletedStatus = 5;
 
     /**
      * Loading status of collection
-     *
-     * @var int
      */
-    protected static $loadingStatus = 6;
+    protected static int $loadingStatus = 6;
 
     /**
      * Unloading status of collection
-     *
-     * @var int
      */
-    protected static $unloadingStatus = 4;
+    protected static int $unloadingStatus = 4;
 
     /**
      * Default values when creating collections
-     *
-     * @var array
      */
-    private $defaults = [
+    private array $defaults = [
         'journalSize' => 1048576,
         'replicationFactor' => 1,
         'waitForSync' => false,
@@ -310,7 +285,7 @@ class Collection implements \JsonSerializable
      *
      * @return string
      */
-    public function getGloballyUniqueId()
+    public function getGloballyUniqueId(): string
     {
         return $this->attributes['globallyUniqueId'];
     }
@@ -408,8 +383,7 @@ class Collection implements \JsonSerializable
             return $this->checksum;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -437,8 +411,7 @@ class Collection implements \JsonSerializable
             return $indexes;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -462,8 +435,7 @@ class Collection implements \JsonSerializable
             return $this->revision;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -490,8 +462,7 @@ class Collection implements \JsonSerializable
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -553,8 +524,7 @@ class Collection implements \JsonSerializable
             return $this->update();
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -599,8 +569,7 @@ class Collection implements \JsonSerializable
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -621,8 +590,7 @@ class Collection implements \JsonSerializable
             return $this->status === self::$loadedStatus;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -655,28 +623,6 @@ class Collection implements \JsonSerializable
                 return false;
             }
 
-            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-        }
-    }
-
-    /**
-     * Unload the collection on server
-     *
-     * @return bool
-     * @throws DatabaseException|GuzzleException
-     */
-    public function unload(): bool
-    {
-        try {
-            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
-            $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_UNLOAD));
-            $data = json_decode((string)$response->getBody(), true);
-            $this->status = (int)$data['status'];
-
-            // Collection must be unloaded or being unloaded by server
-            return $data['status'] === self::$unloadedStatus || $data['status'] === self::$unloadingStatus;
-        } catch (ClientException $exception) {
-            $response = json_decode((string)$exception->getResponse()->getBody(), true);
             throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
@@ -739,8 +685,7 @@ class Collection implements \JsonSerializable
             return !$data['error'];
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
