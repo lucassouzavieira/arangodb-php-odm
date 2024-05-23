@@ -10,7 +10,7 @@ use ArangoDB\AQL\Exceptions\StatementException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Represents an prepared AQL Statement
+ * Represents a prepared AQL Statement
  *
  * @package ArangoDB\AQL
  * @author  Lucas S. Vieira
@@ -22,7 +22,7 @@ class Statement implements StatementInterface
      *
      * @var string
      */
-    protected $query;
+    protected string $query;
 
     /**
      * If the statement use an alias for collection,
@@ -31,7 +31,7 @@ class Statement implements StatementInterface
      *
      * @var string
      */
-    protected $collectionAlias = '';
+    protected string $collectionAlias = '';
 
     /**
      * Validator for binding values or params
@@ -45,7 +45,7 @@ class Statement implements StatementInterface
      *
      * @var array
      */
-    protected $queryParameters = [];
+    protected array $queryParameters = [];
 
     /**
      * Contains all references calling 'bindValue' method
@@ -59,7 +59,7 @@ class Statement implements StatementInterface
      *
      * @var array
      */
-    protected $formats = [
+    protected array $formats = [
         'float' => "%F",
         'integer' => "%d",
         'string' => "'%s'",
@@ -153,7 +153,7 @@ class Statement implements StatementInterface
 
         foreach ($this->queryParameters as $parameter) {
             if (!$this->container->has($parameter)) {
-                throw new StatementException("Parameter ($parameter) was not defined for this statement");
+                throw new StatementException(sprintf("Parameter (%s) was not defined for this statement", $parameter));
             }
 
             $query = str_replace($parameter, $this->output($parameter), $query);
