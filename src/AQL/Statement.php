@@ -31,7 +31,7 @@ class Statement implements StatementInterface
      *
      * @var string
      */
-    protected string $collectionAlias = '';
+    protected string $collectionAlias = "";
 
     /**
      * Validator for binding values or params
@@ -60,11 +60,11 @@ class Statement implements StatementInterface
      * @var array
      */
     protected array $formats = [
-        'float' => "%F",
-        'integer' => "%d",
-        'string' => "'%s'",
-        'boolean' => "%s",
-        'collection' => "%s"
+        "float" => "%F",
+        "integer" => "%d",
+        "string" => "'%s'",
+        "boolean" => "%s",
+        "collection" => "%s",
     ];
 
     /**
@@ -117,7 +117,7 @@ class Statement implements StatementInterface
      */
     public function hasAliases(): bool
     {
-        return (bool)count($this->queryParameters);
+        return (bool) count($this->queryParameters);
     }
 
     /**
@@ -153,7 +153,11 @@ class Statement implements StatementInterface
 
         foreach ($this->queryParameters as $parameter) {
             if (!$this->container->has($parameter)) {
-                throw new StatementException(sprintf("Parameter (%s) was not defined for this statement", $parameter));
+                $message = sprintf(
+                    "Parameter (%s) was not defined for this statement",
+                    $parameter,
+                );
+                throw new StatementException($message);
             }
 
             $query = str_replace($parameter, $this->output($parameter), $query);
@@ -175,11 +179,11 @@ class Statement implements StatementInterface
         $format = $this->formats[gettype($value)];
 
         if ($this->isCollectionAlias($parameter)) {
-            $format = $this->formats['collection'];
+            $format = $this->formats["collection"];
         }
 
         if (is_bool($value)) {
-            $value = $value ? 'true' : 'false';
+            $value = $value ? "true" : "false";
         }
 
         return sprintf($format, $value);
@@ -206,20 +210,25 @@ class Statement implements StatementInterface
     {
         // Check if a collection alias was defined
         $matches = [];
-        preg_match_all('~(IN @\w+)~', $this->query, $matches, PREG_PATTERN_ORDER);
+        preg_match_all(
+            "~(IN @\w+)~",
+            $this->query,
+            $matches,
+            PREG_PATTERN_ORDER,
+        );
         $matches = array_pop($matches);
 
         if (count($matches)) {
             // Stores if found.
             $collection = [];
             $match = array_pop($matches);
-            preg_match_all('~(@\w+)~', $match, $collection, PREG_PATTERN_ORDER);
+            preg_match_all("~(@\w+)~", $match, $collection, PREG_PATTERN_ORDER);
             $occurrence = array_shift($collection);
             $this->collectionAlias = array_pop($occurrence);
         }
 
         $matches = [];
-        preg_match_all('~(@\w+)~', $this->query, $matches, PREG_PATTERN_ORDER);
+        preg_match_all("~(@\w+)~", $this->query, $matches, PREG_PATTERN_ORDER);
         $this->queryParameters = array_pop($matches);
     }
 
@@ -230,7 +239,7 @@ class Statement implements StatementInterface
      *
      * @return bool
      */
-    private function isCollectionAlias(string $alias = '@collection'): bool
+    private function isCollectionAlias(string $alias = "@collection"): bool
     {
         return $this->collectionAlias === $alias;
     }
