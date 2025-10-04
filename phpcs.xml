@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ruleset name="ArangoDB-PHP-ODM">
+    <description>ArangoDB-PHP-ODM Code Standards</description>
+
+    <file>src/</file>
+
+    <exclude-pattern>tests/**/*.php</exclude-pattern>
+
+    <rule ref="PSR12">
+        <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine"/>
+        <exclude name="Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore"/>
+    </rule>
+
+    <rule ref="Generic.Files.LineLength.TooLong">
+        <severity>0</severity>
+    </rule>
+</ruleset>
