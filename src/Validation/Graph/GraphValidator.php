@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ArangoDB\Validation\Graph;
@@ -74,8 +75,10 @@ class GraphValidator extends Validator
                     continue;
                 }
 
-                if (!(isset($edgeDefinition['collection']) && isset($edgeDefinition['to'])
-                    && isset($edgeDefinition['from']))) {
+                if (
+                    !(isset($edgeDefinition['collection']) && isset($edgeDefinition['to'])
+                    && isset($edgeDefinition['from']))
+                ) {
                     $message = "'edgeDefinition[$key]' parameter must contains the following keys: 'collection', 'from' and 'to'";
                     throw new Exception($message);
                 };

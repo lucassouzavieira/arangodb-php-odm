@@ -9,6 +9,7 @@ build/
 cache/
 coverage.xml
 *.phar
+.phpactor.json
 
 # Ignore documentation generation script
 documentation.php

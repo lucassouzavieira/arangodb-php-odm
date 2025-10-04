@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ArangoDB\AQL;
@@ -10,7 +11,7 @@ use ArangoDB\AQL\Exceptions\StatementException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Represents an prepared AQL Statement
+ * Represents a prepared AQL Statement
  *
  * @package ArangoDB\AQL
  * @author  Lucas S. Vieira
@@ -22,7 +23,7 @@ class Statement implements StatementInterface
      *
      * @var string
      */
-    protected $query;
+    protected string $query;
 
     /**
      * If the statement use an alias for collection,
@@ -31,7 +32,7 @@ class Statement implements StatementInterface
      *
      * @var string
      */
-    protected $collectionAlias = '';
+    protected string $collectionAlias = "";
 
     /**
      * Validator for binding values or params
@@ -45,7 +46,7 @@ class Statement implements StatementInterface
      *
      * @var array
      */
-    protected $queryParameters = [];
+    protected array $queryParameters = [];
 
     /**
      * Contains all references calling 'bindValue' method
@@ -59,12 +60,12 @@ class Statement implements StatementInterface
      *
      * @var array
      */
-    protected $formats = [
-        'float' => "%F",
-        'integer' => "%d",
-        'string' => "'%s'",
-        'boolean' => "%s",
-        'collection' => "%s"
+    protected array $formats = [
+        "float" => "%F",
+        "integer" => "%d",
+        "string" => "'%s'",
+        "boolean" => "%s",
+        "collection" => "%s",
     ];
 
     /**
@@ -117,7 +118,7 @@ class Statement implements StatementInterface
      */
     public function hasAliases(): bool
     {
-        return (bool)count($this->queryParameters);
+        return (bool) count($this->queryParameters);
     }
 
     /**
@@ -153,7 +154,11 @@ class Statement implements StatementInterface
 
         foreach ($this->queryParameters as $parameter) {
             if (!$this->container->has($parameter)) {
-                throw new StatementException("Parameter ($parameter) was not defined for this statement");
+                $message = sprintf(
+                    "Parameter (%s) was not defined for this statement",
+                    $parameter,
+                );
+                throw new StatementException($message);
             }
 
             $query = str_replace($parameter, $this->output($parameter), $query);
@@ -175,11 +180,11 @@ class Statement implements StatementInterface
         $format = $this->formats[gettype($value)];
 
         if ($this->isCollectionAlias($parameter)) {
-            $format = $this->formats['collection'];
+            $format = $this->formats["collection"];
         }
 
         if (is_bool($value)) {
-            $value = $value ? 'true' : 'false';
+            $value = $value ? "true" : "false";
         }
 
         return sprintf($format, $value);
@@ -206,20 +211,25 @@ class Statement implements StatementInterface
     {
         // Check if a collection alias was defined
         $matches = [];
-        preg_match_all('~(IN @\w+)~', $this->query, $matches, PREG_PATTERN_ORDER);
+        preg_match_all(
+            "~(IN @\w+)~",
+            $this->query,
+            $matches,
+            PREG_PATTERN_ORDER,
+        );
         $matches = array_pop($matches);
 
         if (count($matches)) {
             // Stores if found.
             $collection = [];
             $match = array_pop($matches);
-            preg_match_all('~(@\w+)~', $match, $collection, PREG_PATTERN_ORDER);
+            preg_match_all("~(@\w+)~", $match, $collection, PREG_PATTERN_ORDER);
             $occurrence = array_shift($collection);
             $this->collectionAlias = array_pop($occurrence);
         }
 
         $matches = [];
-        preg_match_all('~(@\w+)~', $this->query, $matches, PREG_PATTERN_ORDER);
+        preg_match_all("~(@\w+)~", $this->query, $matches, PREG_PATTERN_ORDER);
         $this->queryParameters = array_pop($matches);
     }
 
@@ -230,7 +240,7 @@ class Statement implements StatementInterface
      *
      * @return bool
      */
-    private function isCollectionAlias(string $alias = '@collection'): bool
+    private function isCollectionAlias(string $alias = "@collection"): bool
     {
         return $this->collectionAlias === $alias;
     }

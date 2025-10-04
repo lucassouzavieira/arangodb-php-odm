@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ArangoDB\Validation\Rules;
@@ -157,7 +158,7 @@ abstract class Rules
      */
     public static function equalsOrGreaterThan(int $reference)
     {
-        return new class($reference) implements RuleInterface {
+        return new class ($reference) implements RuleInterface {
             /**
              * Reference value.
              *
@@ -225,7 +226,7 @@ abstract class Rules
      */
     public static function in(array $values)
     {
-        return new class($values) implements RuleInterface {
+        return new class ($values) implements RuleInterface {
             /**
              * @var array
              */
@@ -264,7 +265,7 @@ abstract class Rules
      */
     public static function callbackValidation(callable $callback)
     {
-        return new class($callback) implements RuleInterface {
+        return new class ($callback) implements RuleInterface {
             /**
              * @var callable
              */
