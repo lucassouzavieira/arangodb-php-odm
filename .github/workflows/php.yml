@@ -10,54 +10,13 @@ permissions:
   contents: read
 
 jobs:
-  arango_3_11:
-    runs-on: ubuntu-latest
-    env:
-      ARANGO_SERVER: 3.11.8
-    services:
-      arangodb:
-        image: 'arangodb/arangodb:3.11.8'
-        ports:
-          - 8529:8529
-        env:
-          ARANGO_ROOT_PASSWORD: testing
-    strategy:
-      fail-fast: false
-      matrix:
-        php-versions: ['8.2', '8.3']
-
-    steps:
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php-versions }}
-          coverage: xdebug
-
-      - name: Check out repository code
-        uses: actions/checkout@v3
-
-      - name: Add testing configuration
-        run: cp .env.testing .env
-
-      - name: Add ArangoDB version to .env
-        run: echo -e "\nARANGODB_VERSION=$ARANGO_SERVER" >> .env
-
-      - name: Install dependencies
-        run: composer install --no-interaction
-
-      - name: Wait ArangoDB to init
-        run: sleep 30
-
-      - name: Run tests suites
-        run: vendor/bin/phpunit -c phpunit.xml
-
   arango_3_12:
     runs-on: ubuntu-latest
     env:
-      ARANGO_SERVER: 3.12.0
+      ARANGO_SERVER: 3.12.5
     services:
       arangodb:
-        image: 'arangodb/arangodb:3.12.0'
+        image: 'arangodb/arangodb:3.12.5'
         ports:
           - 8529:8529
         env:
@@ -65,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: ['8.2', '8.3']
+        php-versions: ['8.2', '8.3', '8.4']
 
     steps:
       - name: Setup PHP
