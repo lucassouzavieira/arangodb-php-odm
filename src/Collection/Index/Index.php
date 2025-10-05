@@ -119,9 +119,9 @@ class Index implements IndexInterface
      *
      * @return mixed
      */
-    public function __toString()
+    public function __toString(): string
     {
-        return print_r($this->toArray(), true);
+        return json_encode($this->toArray(), JSON_PRETTY_PRINT);
     }
 
     /**
@@ -198,7 +198,7 @@ class Index implements IndexInterface
      *
      * @return Collection|null A collection object or null if the index was not set to an collection yet
      */
-    public function getCollection()
+    public function getCollection(): ?Collection
     {
         return $this->collection;
     }

@@ -165,13 +165,13 @@ class Collection implements JsonSerializable
     }
 
     /**
-     * Return an string representation of document
+     * Return a string representation of document
      *
      * @return string
      */
     public function __toString()
     {
-        return print_r($this->toArray(), true);
+        return json_encode($this->toArray(), JSON_PRETTY_PRINT);
     }
 
     /**

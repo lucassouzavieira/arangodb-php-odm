@@ -65,11 +65,11 @@ class Cursor extends Base
     }
 
     /**
-     * Return an string representation of document.
+     * Return a string representation of document.
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         $object = [
             'id' => $this->getId(),
@@ -80,7 +80,7 @@ class Cursor extends Base
             'fetches' => $this->fetches,
         ];
 
-        return print_r(array_merge($this->options, $object), true);
+        return json_encode(array_merge($this->options, $object), JSON_PRETTY_PRINT);
     }
 
     /**
