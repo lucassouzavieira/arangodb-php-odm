@@ -149,7 +149,7 @@ class Graph implements \JsonSerializable
      */
     public function __toString()
     {
-        return print_r($this->toArray(), true);
+        return json_encode($this->toArray(), JSON_PRETTY_PRINT);
     }
 
     /**
