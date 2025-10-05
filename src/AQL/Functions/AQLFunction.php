@@ -153,7 +153,7 @@ class AQLFunction implements EntityInterface
             throw new ServerException(
                 sprintf("%s", $response['errorMessage']),
                 $exception,
-                sprintf("%s", $response['errorNum'])
+                $response['errorNum']
             );
         }
     }
@@ -206,7 +206,7 @@ class AQLFunction implements EntityInterface
             throw new ServerException(
                 sprintf("%s", $response['errorMessage']),
                 $exception,
-                sprintf("%s", $response['errorNum'])
+                $response['errorNum']
             );
         }
     }
