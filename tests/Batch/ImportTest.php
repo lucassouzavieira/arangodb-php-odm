@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Batch;
 
 use Unit\TestCase;

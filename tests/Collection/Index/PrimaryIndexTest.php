@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Collection\Index;
 
 use ArangoDB\Exceptions\IndexException;

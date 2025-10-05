@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\AQL;
 
 use Unit\TestCase;

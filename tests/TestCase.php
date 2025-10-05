@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase as BaseTestCase;
  */
 abstract class TestCase extends BaseTestCase
 {
-    protected $env;
+    protected Dotenv $env;
 
     public function loadEnvironment(): void
     {
@@ -35,7 +35,7 @@ abstract class TestCase extends BaseTestCase
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ReflectionException
      */
-    public function getConnectionObject(MockHandler $mock = null)
+    public function getConnectionObject(MockHandler $mock = null): Connection
     {
         $connection = new Connection([
             'username' => $_ENV['ARANGODB_USERNAME'],

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Document;
 
 use ArangoDB\Document\Edge;

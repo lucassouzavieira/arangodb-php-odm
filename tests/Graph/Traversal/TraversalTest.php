@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Graph\Traversal;
 
 use ArangoDB\Document\Vertex;

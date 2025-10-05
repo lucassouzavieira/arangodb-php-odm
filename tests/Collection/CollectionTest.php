@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Collection;
 
 use ArangoDB\Admin\Server;

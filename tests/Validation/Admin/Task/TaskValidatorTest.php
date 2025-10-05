@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Validation\Admin\Task;
 
 use Unit\TestCase;

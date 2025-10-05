@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Transaction;
 
 use Unit\TestCase;

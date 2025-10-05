@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Validation\Rules;
 
 use Unit\TestCase;

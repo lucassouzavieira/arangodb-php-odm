@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Database;
 
 use Unit\TestCase;

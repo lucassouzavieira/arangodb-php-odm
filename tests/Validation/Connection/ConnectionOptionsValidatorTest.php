@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Validation\Connection;
 
 use Unit\TestCase;

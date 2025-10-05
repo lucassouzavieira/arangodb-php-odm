@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Validation\Collection;
 
 use Unit\TestCase;

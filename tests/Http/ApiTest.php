@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Http;
 
 use Unit\TestCase;

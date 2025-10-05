@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Collection\GeneralIndex;
 
 use Unit\TestCase;
