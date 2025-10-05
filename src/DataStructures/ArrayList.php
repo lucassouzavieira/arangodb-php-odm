@@ -14,17 +14,23 @@ use ArangoDB\DataStructures\Contracts\ListInterface;
  */
 class ArrayList implements ListInterface
 {
+    use CountTrait;
+    use IteratorTrait;
+    use SerializeTrait;
+
     /**
      * List of data
+     *
      * @var array
      */
-    protected $content;
+    protected array $content;
 
     /**
      * Current index
+     *
      * @var int
      */
-    protected $position = 0;
+    protected int $position = 0;
 
     /**
      * ArrayList constructor.
@@ -51,7 +57,7 @@ class ArrayList implements ListInterface
      *
      * @return mixed
      */
-    public function first()
+    public function first(): mixed
     {
         $content = array_values($this->content);
         return array_shift($content);
@@ -62,7 +68,7 @@ class ArrayList implements ListInterface
      *
      * @return mixed
      */
-    public function last()
+    public function last(): mixed
     {
         $content = array_values($this->content);
         return array_pop($content);
@@ -74,7 +80,7 @@ class ArrayList implements ListInterface
      * @param int|string $key KeyType to verify on list.
      * @return mixed
      */
-    public function get(int|string $key)
+    public function get(int|string $key): mixed
     {
         if (array_key_exists($key, $this->content)) {
             return $this->content[$key];
@@ -116,12 +122,11 @@ class ArrayList implements ListInterface
     }
 
     /**
-     * Remove a value by it's key on list
+     * Remove a value by its key on list
      *
      * @param $key int|string to remove from list.
-     * @return mixed
      */
-    public function remove(int|string $key)
+    public function remove(int|string $key): void
     {
         unset($this->content[$key]);
     }
@@ -156,71 +161,5 @@ class ArrayList implements ListInterface
         foreach ($list as $item) {
             $this->push($item);
         }
-    }
-
-    /**
-     * Return a JSON representation of list
-     *
-     * @return array|mixed
-     */
-    public function jsonSerialize(): mixed
-    {
-        return $this->content;
-    }
-
-    /**
-     * Return the current element
-     *
-     * @return mixed
-     */
-    public function current(): mixed
-    {
-        return $this->content[$this->position];
-    }
-
-    /**
-     * Move forward to next element
-     */
-    public function next(): void
-    {
-        $this->position++;
-    }
-
-    /**
-     * Return the key of the current element
-     *
-     * @return mixed
-     */
-    public function key(): mixed
-    {
-        return $this->position;
-    }
-
-    /**
-     * Checks if current position is valid
-     *
-     * @return bool
-     */
-    public function valid(): bool
-    {
-        return isset($this->content[$this->position]);
-    }
-
-    /**
-     * Rewind the Iterator to the first element
-     */
-    public function rewind(): void
-    {
-        $this->position = 0;
-    }
-
-    /**
-     * Count elements of an object
-     *
-     * @return int
-     */
-    public function count(): int
-    {
-        return count($this->content);
     }
 }
