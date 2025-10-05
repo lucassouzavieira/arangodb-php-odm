@@ -3,7 +3,7 @@
 namespace Unit\Collection;
 
 use ArangoDB\Admin\Server;
-use ArangoDB\Collection\Key;
+use ArangoDB\Collection\KeyType;
 use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Document\Vertex;
@@ -525,7 +525,7 @@ class CollectionTest extends TestCase
     {
         $keyOptions = [
             'allowUserKeys' => false,
-            'type' => Key::UUID,
+            'type' => KeyType::UUID,
         ];
 
         $db = new Database($this->getConnectionObject());

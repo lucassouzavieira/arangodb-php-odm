@@ -8,7 +8,7 @@ namespace ArangoDB\Collection;
  * @package ArangoDB\Collection
  * @author Lucas S. Vieira
  */
-class Key
+class KeyType
 {
     public const string TRADITIONAL = 'traditional';
     public const string AUTOINCREMENT = 'autoincrement';

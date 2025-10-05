@@ -136,7 +136,7 @@ class Collection implements JsonSerializable
         'type' => 2,
         'keyOptions' => [
             'allowUserKeys' => true,
-            'type' => Key::TRADITIONAL,
+            'type' => KeyType::TRADITIONAL,
         ],
     ];
 

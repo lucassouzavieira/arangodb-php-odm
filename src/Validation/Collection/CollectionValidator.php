@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace ArangoDB\Validation\Collection;
 
-use ArangoDB\Collection\Key;
-use ArangoDB\Validation\Exceptions\InvalidKeyOptionException;
+use ArangoDB\Collection\KeyType;
 use ArangoDB\Validation\Validator;
 use ArangoDB\Validation\Rules\Rules;
-use ArangoDB\Validation\Exceptions\InvalidParameterException;
+use ArangoDB\Validation\Exceptions\InvalidKeyOptionException;
 
 /**
  * Validate the collection options values. <br>
@@ -69,11 +68,11 @@ class CollectionValidator extends Validator
          * @throws InvalidKeyOptionException
          */
         return function (array $keyOptions) {
-            if (array_key_exists('offset', $keyOptions) && $keyOptions['type'] != Key::AUTOINCREMENT) {
+            if (array_key_exists('offset', $keyOptions) && $keyOptions['type'] != KeyType::AUTOINCREMENT) {
                 throw new InvalidKeyOptionException("offset", $keyOptions['type']);
             }
 
-            if (array_key_exists('increment', $keyOptions) && $keyOptions['type'] != Key::AUTOINCREMENT) {
+            if (array_key_exists('increment', $keyOptions) && $keyOptions['type'] != KeyType::AUTOINCREMENT) {
                 throw new InvalidKeyOptionException("increment", $keyOptions['type']);
             }
 

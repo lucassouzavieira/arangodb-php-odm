@@ -3,7 +3,7 @@
 namespace Unit\Validation\Collection;
 
 use Unit\TestCase;
-use ArangoDB\Collection\Key;
+use ArangoDB\Collection\KeyType;
 use ArangoDB\Validation\Exceptions\InvalidKeyOptionException;
 use ArangoDB\Validation\Collection\CollectionValidator;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
@@ -25,7 +25,7 @@ class CollectionValidatorTest extends TestCase
             'type' => rand(2, 3),
             'keyOptions' => [
                 'allowUserKeys' => (bool)rand(0, 1),
-                'type' => Key::AUTOINCREMENT,
+                'type' => KeyType::AUTOINCREMENT,
                 'lastValue' => 0
             ],
         ];
@@ -88,7 +88,7 @@ class CollectionValidatorTest extends TestCase
         $mock = $this->mockCollectionArray();
         $mock['keyOptions'] = [
             'allowUserKeys' => (bool)rand(0, 1),
-            'type' => Key::UUID,
+            'type' => KeyType::UUID,
             'offset' => 1,
             'lastValue' => 0
         ];
@@ -99,7 +99,7 @@ class CollectionValidatorTest extends TestCase
         $mock = $this->mockCollectionArray();
         $mock['keyOptions'] = [
             'allowUserKeys' => (bool)rand(0, 1),
-            'type' => Key::TRADITIONAL,
+            'type' => KeyType::TRADITIONAL,
             'offset' => 1,
             'lastValue' => 0
         ];
@@ -110,7 +110,7 @@ class CollectionValidatorTest extends TestCase
         $mock = $this->mockCollectionArray();
         $mock['keyOptions'] = [
             'allowUserKeys' => (bool)rand(0, 1),
-            'type' => Key::PADDED,
+            'type' => KeyType::PADDED,
             'offset' => 1,
             'lastValue' => 0
         ];
@@ -124,7 +124,7 @@ class CollectionValidatorTest extends TestCase
         $mock = $this->mockCollectionArray();
         $mock['keyOptions'] = [
             'allowUserKeys' => (bool)rand(0, 1),
-            'type' => Key::AUTOINCREMENT,
+            'type' => KeyType::AUTOINCREMENT,
             'offset' => 1,
             'lastValue' => 0
         ];
