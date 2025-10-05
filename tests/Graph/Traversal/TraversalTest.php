@@ -32,6 +32,6 @@ class TraversalTest extends BaseGraphTest
 
         $this->expectException(Exception::class);
         $this->expectExceptionMessage("The given Vertex object hasn't a Connection set.");
-        $traversal = Traversal::traversalQuery($vertex, "traversal_test_graph", Traversal::GRAPH_DIRECTION_OUTBOUND, 2);
+        Traversal::traversalQuery($vertex, "traversal_test_graph", Traversal::GRAPH_DIRECTION_OUTBOUND, 2);
     }
 }

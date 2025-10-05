@@ -132,7 +132,7 @@ abstract class DatabaseHandler extends ManagesConnection
      * @return array An array with information about database.
      *
      * @throws GuzzleException|DatabaseException
-     * @see https://www.arangodb.com/docs/stable/http/database-database-management.html#information-of-the-database
+     * @see https://docs.arangodb.com/3.12/develop/http-api/databases/#get-information-about-the-current-database
      */
     public static function current(Connection $connection): array
     {

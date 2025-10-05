@@ -118,13 +118,13 @@ class Graph implements \JsonSerializable
         $this->isNew = !(isset($attributes['_rev']) && isset($attributes['_id']));
 
         // Set the given options or fallback to a default value.
-        $this->id = isset($attributes['_id']) ? $attributes['_id'] : '';
-        $this->revision = isset($attributes['_rev']) ? $attributes['_rev'] : '';
-        $this->numberOfShards = isset($attributes['numberOfShards']) ? $attributes['numberOfShards'] : 1;
-        $this->replicationFactor = isset($attributes['replicationFactor']) ? $attributes['replicationFactor'] : 1;
-        $this->minReplicationFactor = isset($attributes['minReplicationFactor']) ? $attributes['minReplicationFactor'] : 1;
-        $this->isSmart = isset($attributes['isSmart']) ? $attributes['isSmart'] : false;
-        $this->orphanCollections = isset($attributes['orphanCollections']) ? $attributes['orphanCollections'] : [];
+        $this->id = $attributes['_id'] ?? '';
+        $this->revision = $attributes['_rev'] ?? '';
+        $this->numberOfShards = $attributes['numberOfShards'] ?? 1;
+        $this->replicationFactor = $attributes['replicationFactor'] ?? 1;
+        $this->minReplicationFactor = $attributes['minReplicationFactor'] ?? 1;
+        $this->isSmart = $attributes['isSmart'] ?? false;
+        $this->orphanCollections = $attributes['orphanCollections'] ?? [];
         $this->edgeDefinitions = new ArrayList();
 
         // Edge definitions passed as array.
@@ -301,9 +301,9 @@ class Graph implements \JsonSerializable
      *
      * @return bool True if operation was successful, false otherwise.
      *
-     * @throws DatabaseException|GuzzleException|ArangoException
+     * @throws DatabaseException|GuzzleException
      */
-    public function delete($dropCollections = false): bool
+    public function delete(bool $dropCollections = false): bool
     {
         try {
             if (!$this->database) {
@@ -319,7 +319,7 @@ class Graph implements \JsonSerializable
             $uri = Api::buildSystemUri($connection->getBaseUri(), Api::GRAPH);
             $uri = Api::addUriParam($uri, $this->getName());
             $uri = $dropCollections ? Api::addQuery($uri, ['dropCollections' => $dropCollections]) : $uri;
-            $response = $connection->delete($uri);
+            $connection->delete($uri);
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
