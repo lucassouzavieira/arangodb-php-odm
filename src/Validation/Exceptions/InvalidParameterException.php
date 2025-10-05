@@ -18,9 +18,9 @@ class InvalidParameterException extends BaseException
     /**
      * Parameter name.
      *
-     * @var string
+     * @var string|int
      */
-    protected string $parameter;
+    protected string|int $parameter;
 
     /**
      * Parameter value.
