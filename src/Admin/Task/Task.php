@@ -41,7 +41,7 @@ class Task implements EntityInterface
      *
      * @var array
      */
-    protected $attributes;
+    protected array $attributes;
 
     /**
      * Connection object.
@@ -55,7 +55,7 @@ class Task implements EntityInterface
      *
      * @var array
      */
-    protected $defaultOptions = [
+    protected array $defaultOptions = [
         'offset' => 30,
         'period' => 30,
         'params' => []
@@ -67,7 +67,7 @@ class Task implements EntityInterface
      *
      * @var bool
      */
-    protected $isNew = true;
+    protected bool $isNew = true;
 
     /**
      * Task constructor.
@@ -260,7 +260,7 @@ class Task implements EntityInterface
     /**
      * Return a JSON representation of Task object.
      *
-     * @return array|mixed
+     * @return mixed
      */
     public function jsonSerialize(): mixed
     {

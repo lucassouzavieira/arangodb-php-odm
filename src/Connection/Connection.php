@@ -84,7 +84,7 @@ class Connection extends Authenticable
      *
      * @param array $headers The default array to add on all requests.
      */
-    public function setDefaultHeaders(array $headers)
+    public function setDefaultHeaders(array $headers): void
     {
         $this->defaultHeaders = $headers;
     }

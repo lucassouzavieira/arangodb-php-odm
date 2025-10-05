@@ -74,7 +74,7 @@ abstract class Authenticable
      *
      * @return array
      */
-    protected function getAuthorizationHeader()
+    protected function getAuthorizationHeader(): array
     {
         $header = [];
         if (is_array($this->authToken)) {
@@ -103,7 +103,7 @@ abstract class Authenticable
      *
      * @return string
      */
-    private function getAuthenticationEndpoint()
+    private function getAuthenticationEndpoint(): string
     {
         return sprintf(Api::DB . "%s" . Api::AUTH_BASE, $this->getDatabaseName());
     }

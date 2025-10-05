@@ -74,7 +74,7 @@ class ArrayList implements ListInterface
      * @param int|string $key KeyType to verify on list.
      * @return mixed
      */
-    public function get($key)
+    public function get(int|string $key)
     {
         if (array_key_exists($key, $this->content)) {
             return $this->content[$key];
@@ -88,7 +88,7 @@ class ArrayList implements ListInterface
      *
      * @param mixed $value Value to add.
      */
-    public function push($value): void
+    public function push(mixed $value): void
     {
         $this->content[] = $value;
     }
@@ -96,10 +96,10 @@ class ArrayList implements ListInterface
     /**
      * Put a object into list on given key
      *
-     * @param string|integer $key KeyType for manage the value.
+     * @param integer|string $key KeyType for manage the value.
      * @param mixed $value Value to add.
      */
-    public function put($key, $value): void
+    public function put(int|string $key, mixed $value): void
     {
         $this->content[$key] = $value;
     }
@@ -107,10 +107,10 @@ class ArrayList implements ListInterface
     /**
      * Check if a given key exists on list
      *
-     * @param $key Key to verify on list.
+     * @param $key int|string to verify on list.
      * @return bool True if key exists, false otherwise.
      */
-    public function has($key): bool
+    public function has(int|string $key): bool
     {
         return array_key_exists($key, $this->content);
     }
@@ -118,10 +118,10 @@ class ArrayList implements ListInterface
     /**
      * Remove a value by it's key on list
      *
-     * @param $key Key to remove from list.
+     * @param $key int|string to remove from list.
      * @return mixed
      */
-    public function remove($key)
+    public function remove(int|string $key)
     {
         unset($this->content[$key]);
     }
