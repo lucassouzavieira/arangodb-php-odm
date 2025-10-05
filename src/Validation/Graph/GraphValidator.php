@@ -63,7 +63,7 @@ class GraphValidator extends Validator
      *
      * @return \Closure
      */
-    private static function validateEdgeDefinitionsParameter()
+    private static function validateEdgeDefinitionsParameter(): \Closure
     {
         /**
          * @param $edgeDefinitions array|ArrayList

@@ -71,7 +71,7 @@ class ArrayList implements ListInterface
     /**
      * Get a value by its key
      *
-     * @param int|string $key Key to verify on list.
+     * @param int|string $key KeyType to verify on list.
      * @return mixed
      */
     public function get($key)
@@ -96,7 +96,7 @@ class ArrayList implements ListInterface
     /**
      * Put a object into list on given key
      *
-     * @param string|integer $key Key for manage the value.
+     * @param string|integer $key KeyType for manage the value.
      * @param mixed $value Value to add.
      */
     public function put($key, $value): void

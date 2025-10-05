@@ -25,7 +25,7 @@ class CollectionCursor extends Cursor
      *
      * @var Collection
      */
-    protected $collection;
+    protected Collection $collection;
 
     /**
      * CollectionCursor constructor.

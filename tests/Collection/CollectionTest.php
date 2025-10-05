@@ -3,6 +3,7 @@
 namespace Unit\Collection;
 
 use ArangoDB\Admin\Server;
+use ArangoDB\Collection\KeyType;
 use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
 use ArangoDB\Document\Vertex;
@@ -385,7 +386,7 @@ class CollectionTest extends TestCase
 
         $list = $collection->getIndexes();
 
-        // Try to drop an non-existent index
+        // Try to drop a non-existent index
         $this->expectException(DatabaseException::class);
         $collection->dropIndex($list->last());
     }
@@ -511,6 +512,24 @@ class CollectionTest extends TestCase
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
+
+        // Check if collection is created.
+        $this->assertNull($collection->getId());
+
+        $this->assertTrue($collection->save());
+        $this->assertIsString($collection->getId());
+        $this->assertTrue($collection->drop());
+    }
+
+    public function testSaveWithNonDefaultOptions()
+    {
+        $keyOptions = [
+            'allowUserKeys' => false,
+            'type' => KeyType::UUID,
+        ];
+
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db, ['keyOptions' => $keyOptions]);
 
         // Check if collection is created.
         $this->assertNull($collection->getId());

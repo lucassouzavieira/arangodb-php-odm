@@ -17,7 +17,7 @@ abstract class Rules
      *
      * @return RuleInterface
      */
-    public static function arr()
+    public static function arr(): RuleInterface
     {
         return new class () implements RuleInterface {
             /**
@@ -39,7 +39,7 @@ abstract class Rules
      *
      * @return RuleInterface
      */
-    public static function string()
+    public static function string(): RuleInterface
     {
         return new class () implements RuleInterface {
             /**
@@ -61,7 +61,7 @@ abstract class Rules
      *
      * @return RuleInterface
      */
-    public static function numeric()
+    public static function numeric(): RuleInterface
     {
         return new class () implements RuleInterface {
             /**
@@ -83,7 +83,7 @@ abstract class Rules
      *
      * @return RuleInterface
      */
-    public static function integer()
+    public static function integer(): RuleInterface
     {
         return new class () implements RuleInterface {
             /**
@@ -105,7 +105,7 @@ abstract class Rules
      *
      * @return RuleInterface
      */
-    public static function boolean()
+    public static function boolean(): RuleInterface
     {
         return new class () implements RuleInterface {
             /**
@@ -128,7 +128,7 @@ abstract class Rules
      * @return RuleInterface
      * @see https://www.php.net/manual/en/language.types.intro.php
      */
-    public static function isPrimitive()
+    public static function isPrimitive(): RuleInterface
     {
         return new class () implements RuleInterface {
             /**
@@ -156,7 +156,7 @@ abstract class Rules
      *
      * @return RuleInterface
      */
-    public static function equalsOrGreaterThan(int $reference)
+    public static function equalsOrGreaterThan(int $reference): RuleInterface
     {
         return new class ($reference) implements RuleInterface {
             /**
@@ -199,7 +199,7 @@ abstract class Rules
      *
      * @return RuleInterface
      */
-    public static function uri()
+    public static function uri(): RuleInterface
     {
         return new class () implements RuleInterface {
             /**
@@ -224,7 +224,7 @@ abstract class Rules
      *
      * @return RuleInterface
      */
-    public static function in(array $values)
+    public static function in(array $values): RuleInterface
     {
         return new class ($values) implements RuleInterface {
             /**
@@ -263,7 +263,7 @@ abstract class Rules
      *
      * @return RuleInterface
      */
-    public static function callbackValidation(callable $callback)
+    public static function callbackValidation(callable $callback): RuleInterface
     {
         return new class ($callback) implements RuleInterface {
             /**

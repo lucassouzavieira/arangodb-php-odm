@@ -44,7 +44,7 @@ interface ListInterface extends \Iterator, \JsonSerializable, \Countable
     /**
      * Put a object into list on given key
      *
-     * @param string|integer $key Key for manage the value.
+     * @param string|integer $key KeyType for manage the value.
      * @param mixed $value Value to add.
      */
     public function put($key, $value): void;

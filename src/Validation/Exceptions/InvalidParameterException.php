@@ -18,16 +18,16 @@ class InvalidParameterException extends BaseException
     /**
      * Parameter name.
      *
-     * @var string
+     * @var string|int
      */
-    protected $parameter;
+    protected string|int $parameter;
 
     /**
      * Parameter value.
      *
      * @var mixed
      */
-    protected $value;
+    protected mixed $value;
 
     /**
      * InvalidParameterException constructor.
