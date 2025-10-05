@@ -25,21 +25,21 @@ final class StreamTransaction extends Transaction
      *
      * @var string
      */
-    protected $id;
+    protected string $id;
 
     /**
      * Transaction status
      *
      * @var string
      */
-    protected $status = '';
+    protected string $status = '';
 
     /**
      * If the transaction object is already started
      *
      * @var bool
      */
-    protected $started = false;
+    protected bool $started = false;
 
     /**
      * StreamTransaction constructor.
@@ -47,7 +47,7 @@ final class StreamTransaction extends Transaction
      * @param Connection $connection Connection object to use.
      * @param array $options Transaction options.
      *
-     * @throws TransactionException|InvalidParameterException|MissingParameterException
+     * @throws InvalidParameterException|MissingParameterException
      */
     public function __construct(Connection $connection, array $options = [])
     {
@@ -79,7 +79,7 @@ final class StreamTransaction extends Transaction
      *
      * @throws TransactionException|BadResponseException|GuzzleException
      */
-    public function begin()
+    public function begin(): void
     {
         try {
             $response = $this->connection->post(sprintf(Api::TRANSACTION_BEGIN), $this->options);
@@ -91,8 +91,7 @@ final class StreamTransaction extends Transaction
         } catch (BadResponseException $exception) {
             // An error was returned from server.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $transactionException = new TransactionException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $transactionException;
+            throw new TransactionException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -101,7 +100,7 @@ final class StreamTransaction extends Transaction
      *
      * @throws TransactionException|BadResponseException|GuzzleException
      */
-    public function commit()
+    public function commit(): void
     {
         try {
             if ($this->started) {
@@ -127,7 +126,7 @@ final class StreamTransaction extends Transaction
      *
      * @throws TransactionException|BadResponseException|GuzzleException
      */
-    public function abort()
+    public function abort(): void
     {
         try {
             if ($this->started) {

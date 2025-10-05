@@ -26,7 +26,7 @@ final class JavascriptTransaction extends Transaction
      *
      * @var string
      */
-    protected $action;
+    protected string $action;
 
     /**
      * JavascriptTransaction constructor.
@@ -35,7 +35,7 @@ final class JavascriptTransaction extends Transaction
      * @param string $action JavaScript code to execute on server
      * @param array $options Transaction options.
      *
-     * @throws TransactionException|InvalidParameterException|MissingParameterException
+     * @throws InvalidParameterException|MissingParameterException
      */
     public function __construct(Connection $connection, string $action, array $options = [])
     {
@@ -50,7 +50,7 @@ final class JavascriptTransaction extends Transaction
      * @return mixed The result value of transaction
      * @throws TransactionException|GuzzleException
      */
-    public function execute()
+    public function execute(): mixed
     {
         try {
             $options = array_merge($this->options, ['action' => $this->action]);
