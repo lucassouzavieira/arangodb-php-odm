@@ -89,7 +89,7 @@ class JavascriptTransactionTest extends TestCase
         $action = "function () { var db = require('@arangodb').db; throw 'JS error'; }";
         $transaction = new JavascriptTransaction($this->getConnectionObject(), $action, $options);
         $this->expectExceptionMessage('JS error');
-        $result = $transaction->execute();
+        $transaction->execute();
     }
 
     public function testExecuteThrowTransactionExceptionOnNonSettedReadTransactions()

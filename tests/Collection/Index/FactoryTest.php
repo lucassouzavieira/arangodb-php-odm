@@ -19,7 +19,7 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 class FactoryTest extends TestCase
 {
-    public function mockPrimaryArray()
+    public function mockPrimaryArray(): array
     {
         return [
             'fields' => [
@@ -67,7 +67,7 @@ class FactoryTest extends TestCase
         ];
     }
 
-    public function mockGeoSpatialArray()
+    public function mockGeoSpatialArray(): array
     {
         return [
             'fields' => [
@@ -84,7 +84,7 @@ class FactoryTest extends TestCase
         ];
     }
 
-    public function mockFullTextArray()
+    public function mockFullTextArray(): array
     {
         return [
             'fields' => [
@@ -100,7 +100,7 @@ class FactoryTest extends TestCase
         ];
     }
 
-    public function mockSkipListArray()
+    public function mockSkipListArray(): array
     {
         return [
             'fields' => [
@@ -116,7 +116,7 @@ class FactoryTest extends TestCase
         ];
     }
 
-    public function mockPersistentArray()
+    public function mockPersistentArray(): array
     {
         return [
             'fields' => [
@@ -131,7 +131,7 @@ class FactoryTest extends TestCase
         ];
     }
 
-    public function mockTTLArray()
+    public function mockTTLArray(): array
     {
         return [
             'fields' => [
@@ -147,7 +147,7 @@ class FactoryTest extends TestCase
         ];
     }
 
-    public function mockGenericArray()
+    public function mockGenericArray(): array
     {
         return [
             'fields' => [

@@ -8,7 +8,7 @@ use ArangoDB\AQL\BindContainer;
 use ArangoDB\DataStructures\ArrayList;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
-class BindContainterTest extends TestCase
+class BindContainerTest extends TestCase
 {
     public function testPut()
     {

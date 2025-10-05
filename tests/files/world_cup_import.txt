@@ -19,3 +19,4 @@
 {"year": 2010, "host": "South Africa", "winners": "Spain"}
 {"year": 2014, "host": "Brazil", "winners": "Germany"}
 {"year": 2018, "host": "Russia", "winners": "France"}
+{"year": 2022, "host": "Qatar", "winners": "Argentina"}

@@ -10,7 +10,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 class CollectionValidatorTest extends TestCase
 {
-    protected function mockCollectionArray()
+    protected function mockCollectionArray(): array
     {
         $buckets = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024];
         return [

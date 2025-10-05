@@ -11,7 +11,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 class EdgeValidatorTest extends TestCase
 {
-    public function getMockAttributes()
+    public function getMockAttributes(): array
     {
         return [
             '_from' => 'cities/sao_luis',

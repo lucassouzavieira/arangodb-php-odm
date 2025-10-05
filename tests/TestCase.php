@@ -18,7 +18,7 @@ abstract class TestCase extends BaseTestCase
 {
     protected $env;
 
-    public function loadEnvironment()
+    public function loadEnvironment(): void
     {
         $this->env = Dotenv::createImmutable(dirname(__FILE__) . DIRECTORY_SEPARATOR . '../');
         $this->env->load();
@@ -27,6 +27,7 @@ abstract class TestCase extends BaseTestCase
     /**
      * @param MockHandler|null $mock
      * @return Connection
+     *
      * @throws \ArangoDB\Auth\Exceptions\AuthException
      * @throws \ArangoDB\Exceptions\ConnectionException
      * @throws \ArangoDB\Validation\Exceptions\InvalidParameterException
@@ -59,7 +60,7 @@ abstract class TestCase extends BaseTestCase
         return $connection;
     }
 
-    public function mockServerError()
+    public function mockServerError(): array
     {
         return [
             'error' => true,

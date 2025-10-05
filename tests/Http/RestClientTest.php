@@ -9,7 +9,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 class RestClientTest extends TestCase
 {
-    public function testThowInvalidParameterException()
+    public function testThrowInvalidParameterException()
     {
         $invalidUri = "any.thing.com";
         $this->expectException(InvalidParameterException::class);

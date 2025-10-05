@@ -11,7 +11,7 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 class GraphValidatorTest extends TestCase
 {
-    public function mockGraphAttributes($withDescriptors = false)
+    public function mockGraphAttributes($withDescriptors = false): array
     {
         $descriptors = [
             '_id' => '_graphs/mygraph',

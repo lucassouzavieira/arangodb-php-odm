@@ -13,7 +13,7 @@ abstract class DocumentTestCase extends TestCase
         parent::setUp();
     }
 
-    public function getAttributes($withDescriptors = false)
+    public function getAttributes($withDescriptors = false): array
     {
         $descriptors = [
             '_id' => 'sd/178538',

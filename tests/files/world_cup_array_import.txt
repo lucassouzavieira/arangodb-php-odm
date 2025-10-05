@@ -20,3 +20,4 @@
 [2010, "South Africa", "Spain"]
 [2014, "Brazil", "Germany"]
 [2018, "Russia", "France"]
+[2022, "Qatar", "Argentina"]
