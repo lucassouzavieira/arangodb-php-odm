@@ -41,18 +41,14 @@ class CollectionValidator extends Validator
     {
         return [
             'name' => Rules::string(),
-            'journalSize' => Rules::integer(),
             'replicationFactor' => Rules::equalsOrGreaterThan(1),
             'waitForSync' => Rules::boolean(),
-            'doCompact' => Rules::boolean(),
             'shardingStrategy' => Rules::in(['community-compat', 'enterprise-compat', 'enterprise-smart-edge-compat', 'hash', 'enterprise-hash-smart-edge']),
-            'isVolatile' => Rules::boolean(),
             'shardKeys' => Rules::arr(),
             'numberOfShards' => Rules::equalsOrGreaterThan(1),
             'isSystem' => Rules::boolean(),
             'type' => Rules::in([2, 3]),
             'keyOptions' => Rules::arr(),
-            'indexBuckets' => Rules::in([2, 4, 8, 16, 32, 64, 128, 256, 512, 1024])
         ];
     }
 }

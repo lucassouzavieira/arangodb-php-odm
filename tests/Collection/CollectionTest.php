@@ -55,7 +55,6 @@ class CollectionTest extends TestCase
         $this->assertEquals('any', $collection->name);
 
         $this->assertFalse($collection->waitForSync);
-        $this->assertTrue($collection->doCompact);
         $this->assertNull($collection->id);
 
         $this->assertNull($collection->randomProperty);
@@ -66,12 +65,10 @@ class CollectionTest extends TestCase
         $collection = new Collection('any', $this->getConnectionObject()->getDatabase());
         $this->assertEquals('any', $collection->name);
         $collection->waitForSync = true;
-        $collection->doCompact = false;
         $collection->name = 'newAny';
 
         $this->assertNull($collection->id);
         $this->assertTrue($collection->waitForSync);
-        $this->assertFalse($collection->doCompact);
         $this->assertEquals('newAny', $collection->name);
 
         $this->assertNull($collection->randomProperty);

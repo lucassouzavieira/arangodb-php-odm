@@ -14,12 +14,9 @@ class CollectionValidatorTest extends TestCase
         $buckets = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024];
         return [
             'name' => random_bytes(10),
-            'journalSize' => rand(1048576, 2097152),
             'replicationFactor' => rand(1, 10),
             'waitForSync' => (bool)rand(0, 1),
-            'doCompact' => (bool)rand(0, 1),
             'shardingStrategy' => 'community-compat',
-            'isVolatile' => (bool)rand(0, 1),
             'shardKeys' => ["_key"],
             'numberOfShards' => rand(1, 10),
             'isSystem' => (bool)rand(0, 1),
@@ -29,7 +26,6 @@ class CollectionValidatorTest extends TestCase
                 'type' => 'traditional',
                 'lastValue' => 0
             ],
-            'indexBuckets' => $buckets[rand(0, 9)]
         ];
     }
 

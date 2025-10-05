@@ -127,12 +127,9 @@ class Collection implements JsonSerializable
      * Default values when creating collections
      */
     private array $defaults = [
-        'journalSize' => 1048576,
         'replicationFactor' => 1,
         'waitForSync' => false,
-        'doCompact' => true,
         'shardingStrategy' => 'community-compat',
-        'isVolatile' => false,
         'shardKeys' => ["_key"],
         'numberOfShards' => 1,
         'isSystem' => false,
@@ -142,7 +139,6 @@ class Collection implements JsonSerializable
             'type' => 'traditional',
             'lastValue' => 0
         ],
-        'indexBuckets' => 16
     ];
 
     /**
@@ -501,7 +497,7 @@ class Collection implements JsonSerializable
 
     /**
      * Saves or update the collection.
-     * Except for 'waitForSync', 'journalSize' and 'name', a collection can not be modified after creation.
+     * Except for 'waitForSync' and 'name', a collection can not be modified after creation.
      * For change 'name', the method 'rename' must be used.
      *
      * @return bool
@@ -596,7 +592,7 @@ class Collection implements JsonSerializable
     }
 
     /**
-     * Find a document by it's key
+     * Find a document by its key
      *
      * @param string $key Document key
      * @param bool $isVertex If the collection is a vertex in a graph, passing true will return document as Vertex object.
@@ -729,7 +725,6 @@ class Collection implements JsonSerializable
     {
         return [
             'waitForSync' => $this->attributes['waitForSync'],
-            'journalSize' => $this->attributes['journalSize']
         ];
     }
 
@@ -740,7 +735,7 @@ class Collection implements JsonSerializable
      *
      * @throws GuzzleException
      */
-    private function update()
+    private function update(): bool
     {
         $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
         $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_PROPERTIES), $this->getUpdateParameters());
