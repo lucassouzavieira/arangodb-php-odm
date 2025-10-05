@@ -17,7 +17,7 @@ abstract class ManagesConnection implements ManagesConnectionInterface
      *
      * @var Connection
      */
-    protected $connection;
+    protected Connection $connection;
 
     /**
      * Sets a connection for class.

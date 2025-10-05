@@ -454,7 +454,7 @@ class Collection implements JsonSerializable
             $uri = Api::addQuery(Api::INDEX, ['collection' => $this->getName()]);
             $response = $this->connection->post($uri, $index->getCreateData());
 
-            $data = json_decode((string)$response->getBody(), true);
+            json_decode((string)$response->getBody(), true);
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
