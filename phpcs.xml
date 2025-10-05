@@ -12,6 +12,6 @@
     </rule>
 
     <rule ref="Generic.Files.LineLength.TooLong">
-        <severity>0</severity>
+        <severity>1</severity>
     </rule>
 </ruleset>
