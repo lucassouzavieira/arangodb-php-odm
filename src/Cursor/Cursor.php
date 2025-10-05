@@ -24,7 +24,7 @@ class Cursor extends Base
      *
      * @var string
      */
-    protected $uri = Api::CURSOR;
+    protected string $uri = Api::CURSOR;
 
     /**
      * Statement to execute.
@@ -39,7 +39,7 @@ class Cursor extends Base
      *
      * @var array
      */
-    protected $defaultOptions = [
+    protected array $defaultOptions = [
         'cache' => true,
         'memoryLimit' => 0,
         'ttl' => 60,
@@ -152,9 +152,9 @@ class Cursor extends Base
     public function delete(): bool
     {
         try {
-            if (!is_null($this->id)) {
+            if ($this->id !== null) {
                 $response = $this->connection->delete(sprintf($this->uri . "/%s", $this->getId()));
-                $data = json_decode((string)$response->getBody(), true);
+                json_decode((string)$response->getBody(), true);
                 $this->id = null;
                 $this->hasMore = false;
                 return true;
@@ -163,8 +163,7 @@ class Cursor extends Base
             return false;
         } catch (GuzzleException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $cursorException = new CursorException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $cursorException;
+            throw new CursorException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -179,11 +178,11 @@ class Cursor extends Base
             $response = $this->connection->post(sprintf($this->uri), $this->getBody());
             $data = json_decode((string)$response->getBody(), true);
             $this->fetches++;
-            $this->hasMore = isset($data[self::HAS_MORE]) ? $data[self::HAS_MORE] : false;
+            $this->hasMore = $data[self::HAS_MORE] ?? false;
             $this->appendResults($data[self::RESULT]);
             $this->length = count($data[self::RESULT]);
-            $this->count = isset($data[self::COUNT]) ? $data[self::COUNT] : $this->length;
-            $this->id = isset($data[self::ID]) ? $data[self::ID] : null;
+            $this->count = $data[self::COUNT] ?? $this->length;
+            $this->id = $data[self::ID] ?? null;
 
             if (!$this->hasMore) {
                 $this->id = null;
@@ -202,7 +201,7 @@ class Cursor extends Base
     public function fetch(): void
     {
         try {
-            if (!is_null($this->id)) {
+            if ($this->id !== null) {
                 $response = $this->connection->put(sprintf($this->uri . "/%s", $this->getId()));
                 $data = json_decode((string)$response->getBody(), true);
                 $this->fetches++;
@@ -217,8 +216,7 @@ class Cursor extends Base
             throw new CursorException("Cursor id is null");
         } catch (GuzzleException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $cursorException = new CursorException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $cursorException;
+            throw new CursorException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -245,7 +243,7 @@ class Cursor extends Base
      *
      * @param array $results
      */
-    protected function appendResults(array $results)
+    protected function appendResults(array $results): void
     {
         $this->result->append(new ArrayList($results));
     }

@@ -56,28 +56,28 @@ abstract class Base implements CursorInterface, \Countable
      *
      * @var boolean
      */
-    protected $hasMore;
+    protected bool $hasMore;
 
     /**
      * Current position
      *
      * @var int
      */
-    protected $position = 0;
+    protected int $position = 0;
 
     /**
      * Total length of current set
      *
      * @var int
      */
-    protected $length;
+    protected int $length;
 
     /**
      * Full cont of the result set
      *
      * @var int
      */
-    protected $fullCount;
+    protected int $fullCount;
 
     /**
      * Extra data (stats)
@@ -91,81 +91,81 @@ abstract class Base implements CursorInterface, \Countable
      *
      * @var int
      */
-    protected $fetches = 0;
+    protected int $fetches = 0;
 
     /**
      * If the result query was served from cached results
      *
      * @var bool
      */
-    protected $cached = false;
+    protected bool $cached = false;
 
     /**
      * Number of documents in cursor,
      *
      * @var int
      */
-    protected $count;
+    protected int $count;
 
     /**
      * Cursor ID entry
      */
-    protected const ID = 'id';
+    protected const string ID = 'id';
 
     /**
      * 'hasMore' flag
      */
-    protected const HAS_MORE = 'hasMore';
+    protected const string HAS_MORE = 'hasMore';
 
     /**
      * Cursor result entry
      */
-    protected const RESULT = 'result';
+    protected const string RESULT = 'result';
 
     /**
      * Cursor extra entry
      */
-    protected const EXTRA = 'extra';
+    protected const string EXTRA = 'extra';
 
     /**
      * Cursor stats entry
      */
-    protected const STATS = 'stats';
+    protected const string STATS = 'stats';
 
     /**
      * Cursor count entry
      */
-    protected const COUNT = 'count';
+    protected const string COUNT = 'count';
 
     /**
      * Cursor fullCount entry
      */
-    protected const FULL_COUNT = 'fullCount';
+    protected const string FULL_COUNT = 'fullCount';
 
     /**
      * Cursor cache entry
      */
-    protected const CACHE = 'cache';
+    protected const string CACHE = 'cache';
 
     /**
      * Cursor cached entry
      */
-    protected const CACHED = 'cached';
+    protected const string CACHED = 'cached';
 
     /**
      * Cursor type entry
      */
-    protected const TYPE = 'objectType';
+    protected const string TYPE = 'objectType';
 
     /**
      * Cursor baseUrl entry
      */
-    protected const BASE_URL = 'baseurl';
+    protected const string BASE_URL = 'baseurl';
 
     /**
      * Cursor sanitize option
      */
-    protected const SANITIZE = '_sanitize';
+    protected const string SANITIZE = '_sanitize';
 
     /**
      * Return if the Cursor has cached results on server

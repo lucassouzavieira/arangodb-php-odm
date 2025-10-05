@@ -121,21 +121,11 @@ class AQLFunction implements EntityInterface
     }
 
     /**
-     * If this AQL function has a connection set or not.
-     *
-     * @return bool True if it has a connection object. False otherwise.
-     */
-    public function hasConnection(): bool
-    {
-        return !($this->connection === null);
-    }
-
-    /**
      * Sets a connection to use.
      *
      * @param Connection $connection Connection object to use.
      */
-    public function setConnection(Connection $connection)
+    public function setConnection(Connection $connection): void
     {
         $this->connection = $connection;
     }
@@ -160,8 +150,36 @@ class AQLFunction implements EntityInterface
         } catch (ClientException $exception) {
             // Unknown error.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            throw new ServerException($response['errorMessage'], $exception, $response['errorNum']);
+            throw new ServerException(
+                sprintf("%s", $response['errorMessage']),
+                $exception,
+                $response['errorNum']
+            );
         }
+    }
+
+    /**
+     * If this AQL function has a connection set or not.
+     *
+     * @return bool True if it has a connection object. False otherwise.
+     */
+    public function hasConnection(): bool
+    {
+        return !($this->connection === null);
+    }
+
+    /**
+     * Returns a array representation of AQL function object.
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return [
+            'name' => $this->name,
+            'code' => $this->code,
+            'isDeterministic' => $this->isDeterministic,
+        ];
     }
 
     /**
@@ -185,22 +203,12 @@ class AQLFunction implements EntityInterface
         } catch (ClientException $exception) {
             // Unknown error.
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            throw new ServerException($response['errorMessage'], $exception, $response['errorNum']);
+            throw new ServerException(
+                sprintf("%s", $response['errorMessage']),
+                $exception,
+                $response['errorNum']
+            );
         }
-    }
-
-    /**
-     * Returns a array representation of AQL function object.
-     *
-     * @return array
-     */
-    public function toArray(): array
-    {
-        return [
-            'name' => $this->name,
-            'code' => $this->code,
-            'isDeterministic' => $this->isDeterministic,
-        ];
     }
 
     /**
