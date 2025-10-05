@@ -59,7 +59,7 @@ class TaskValidator extends Validator
      *
      * @return \Closure
      */
-    private function validateParamsCallback()
+    private function validateParamsCallback(): \Closure
     {
         return function (array $params) {
             $validator = Rules::isPrimitive();

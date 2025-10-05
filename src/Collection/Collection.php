@@ -136,8 +136,7 @@ class Collection implements JsonSerializable
         'type' => 2,
         'keyOptions' => [
             'allowUserKeys' => true,
-            'type' => 'traditional',
-            'lastValue' => 0
+            'type' => Key::TRADITIONAL,
         ],
     ];
 
@@ -214,7 +213,7 @@ class Collection implements JsonSerializable
      * @return CursorInterface|bool Cursor if collection exists on database. False otherwise.
      * @throws GuzzleException|InvalidParameterException|CursorException
      */
-    public function all()
+    public function all(): bool|CollectionCursor
     {
         if (!$this->isNew()) {
             return new CollectionCursor($this);
@@ -272,7 +271,7 @@ class Collection implements JsonSerializable
      *
      * @return string|null String if collection exists on database. Null if not.
      */
-    public function getId()
+    public function getId(): ?string
     {
         return ($this->attributes['objectId'] === null) ? $this->attributes['id'] : $this->attributes['objectId'];
     }

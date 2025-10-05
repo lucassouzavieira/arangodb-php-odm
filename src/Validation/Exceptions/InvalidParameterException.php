@@ -20,14 +20,14 @@ class InvalidParameterException extends BaseException
      *
      * @var string
      */
-    protected $parameter;
+    protected string $parameter;
 
     /**
      * Parameter value.
      *
      * @var mixed
      */
-    protected $value;
+    protected mixed $value;
 
     /**
      * InvalidParameterException constructor.

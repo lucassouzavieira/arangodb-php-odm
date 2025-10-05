@@ -55,10 +55,10 @@ class TransactionOptionsValidator extends Validator
      *
      * @return \Closure
      */
-    private static function validateCollectionsParameter()
+    private static function validateCollectionsParameter(): \Closure
     {
         return function (array $collections) {
-            // Must contains one or more of following attributes:
+            // Must contain one or more of following attributes:
             // 'write', 'read' or 'exclusive'
             if (!isset($collections['write']) && !isset($collections['read']) && !isset($collections['exclusive'])) {
                 // None of required keys on 'collections'.
