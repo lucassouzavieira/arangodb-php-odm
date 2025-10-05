@@ -289,7 +289,7 @@ class Collection implements JsonSerializable
     /**
      * Return the status of collection
      *
-     * @return int A integer between 0 and 6
+     * @return int An integer between 0 and 6
      */
     public function getStatus(): int
     {
@@ -536,7 +536,7 @@ class Collection implements JsonSerializable
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
             $uri = $this->isSystem() ? sprintf("%s/%s?isSystem=true", $uri, $this->getName()) : sprintf("%s/%s", $uri, $this->getName());
             $response = $this->connection->delete($uri);
-            $data = json_decode((string)$response->getBody(), true);
+            json_decode((string)$response->getBody(), true);
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
@@ -561,29 +561,8 @@ class Collection implements JsonSerializable
         try {
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
             $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_TRUNCATE));
-            $data = json_decode((string)$response->getBody(), true);
+            json_decode((string)$response->getBody(), true);
             return true;
-        } catch (ClientException $exception) {
-            $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-        }
-    }
-
-    /**
-     * Loads the collection on server
-     *
-     * @param bool $count
-     * @return bool
-     * @throws DatabaseException|GuzzleException
-     */
-    public function load(bool $count = true): bool
-    {
-        try {
-            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
-            $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_LOAD), ['count' => $count]);
-            $data = json_decode((string)$response->getBody(), true);
-            $this->status = (int)$data['status'];
-            return $this->status === self::$loadedStatus;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
             throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
@@ -723,6 +702,7 @@ class Collection implements JsonSerializable
     protected function getUpdateParameters(): array
     {
         return [
+            'cacheEnabled' => $this->attributes['cacheEnabled'],
             'waitForSync' => $this->attributes['waitForSync'],
         ];
     }

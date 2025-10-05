@@ -745,41 +745,6 @@ class CollectionTest extends TestCase
         $this->assertIsBool($collection->count());
     }
 
-    public function testLoad()
-    {
-        $db = new Database($this->getConnectionObject());
-        $collection = new Collection('test_first_name', $db, ['status' => 2]);
-
-        $this->assertEquals(2, $collection->getStatus());
-
-        // Check if collection is created.
-        // After creation, ArangoDB server usually loads the collection
-        $this->assertTrue($collection->save());
-
-        // Load
-        $this->assertTrue($collection->load());
-        $this->assertEquals(3, $collection->getStatus()); // Check loaded status.
-
-        $this->assertTrue($collection->drop());
-    }
-
-    public function testLoadThrowDatabaseException()
-    {
-        $mock = new MockHandler([
-            new Response(200, [], json_encode(['result' => []])),
-            new Response(200, [], json_encode(['result' => []])),
-            new Response(200, [], json_encode(['result' => []])),
-            new Response(403, [], json_encode($this->mockServerError()))
-        ]);
-
-        $db = new Database($this->getConnectionObject($mock));
-        $collection = new Collection('test_first_name', $db);
-
-        // Load
-        $this->expectException(DatabaseException::class);
-        $this->assertTrue($collection->load());
-    }
-
     public function testGetChecksum()
     {
         $db = new Database($this->getConnectionObject());

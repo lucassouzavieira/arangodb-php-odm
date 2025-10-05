@@ -201,7 +201,7 @@ class Cursor extends Base
     public function fetch(): void
     {
         try {
-            if (!is_null($this->id)) {
+            if ($this->id !== null) {
                 $response = $this->connection->put(sprintf($this->uri . "/%s", $this->getId()));
                 $data = json_decode((string)$response->getBody(), true);
                 $this->fetches++;
