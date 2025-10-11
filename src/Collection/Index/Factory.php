@@ -38,6 +38,7 @@ final class Factory
             'geo' => GeoSpatialIndex::class,
             'skiplist' => SkipListIndex::class,
             'ttl' => TTLIndex::class,
+            'inverted' => InvertedIndex::class
         ];
 
         if (!array_key_exists($attributes['type'], $indexes)) {
@@ -59,6 +60,10 @@ final class Factory
 
         if ($attributes['type'] === 'ttl') {
             return new TTLIndex($attributes['fields'], $attributes['expireAfter'], $attributes);
+        }
+
+        if ($attributes['type'] === 'inverted') {
+            return new InvertedIndex($attributes['fields'], $attributes);
         }
 
         $class = $indexes[$attributes['type']];

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Auth;
 
 use ArangoDB\Admin\Admin;

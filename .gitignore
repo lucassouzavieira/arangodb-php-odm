@@ -11,9 +11,6 @@ coverage.xml
 *.phar
 .phpactor.json
 
-# Ignore documentation generation script
-documentation.php
-
 # Removed from dist package
 /docs               export-ignore
 /tests              export-ignore
@@ -22,3 +19,6 @@ documentation.php
 /.gitignore         export-ignore
 /.travis.yml        export-ignore
 /phpunit.xml        export-ignore
+/phpdoc.dist.xml    export-ignore
+/phpcs.xml          export-ignore
+/Makefile           export-ignore

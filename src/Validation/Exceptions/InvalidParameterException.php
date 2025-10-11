@@ -18,16 +18,16 @@ class InvalidParameterException extends BaseException
     /**
      * Parameter name.
      *
-     * @var string
+     * @var string|int
      */
-    protected $parameter;
+    protected string|int $parameter;
 
     /**
      * Parameter value.
      *
      * @var mixed
      */
-    protected $value;
+    protected mixed $value;
 
     /**
      * InvalidParameterException constructor.
@@ -36,7 +36,7 @@ class InvalidParameterException extends BaseException
      * @param mixed $value Parameter value.
      * @param Throwable|null $previous Previous exception or error.
      */
-    public function __construct($parameter, $value, Throwable $previous = null)
+    public function __construct($parameter, $value, ?Throwable $previous = null)
     {
         $this->value = is_array($value) ? json_encode($value) : $value;
         $this->parameter = $parameter;

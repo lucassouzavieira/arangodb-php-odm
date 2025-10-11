@@ -39,12 +39,11 @@ abstract class DatabaseHandler extends ManagesConnection
 
             $uri = Api::buildSystemUri($connection->getBaseUri(), Api::DATABASE);
             $response = $connection->post($uri, $db);
-            $data = json_decode((string)$response->getBody(), true);
+            json_decode((string)$response->getBody(), true);
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -64,7 +63,7 @@ abstract class DatabaseHandler extends ManagesConnection
             $uri = Api::buildSystemUri($connection->getBaseUri(), Api::DATABASE);
             $uri = sprintf("%s/%s", $uri, $database);
             $response = $connection->delete($uri);
-            $data = json_decode((string)$response->getBody(), true);
+            json_decode((string)$response->getBody(), true);
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
@@ -98,8 +97,7 @@ abstract class DatabaseHandler extends ManagesConnection
             return new ArrayList($data['result']);
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -122,8 +120,7 @@ abstract class DatabaseHandler extends ManagesConnection
             return new ArrayList($data['result']);
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 
@@ -135,7 +132,7 @@ abstract class DatabaseHandler extends ManagesConnection
      * @return array An array with information about database.
      *
      * @throws GuzzleException|DatabaseException
-     * @see https://www.arangodb.com/docs/stable/http/database-database-management.html#information-of-the-database
+     * @see https://docs.arangodb.com/3.12/develop/http-api/databases/#get-information-about-the-current-database
      */
     public static function current(Connection $connection): array
     {
@@ -147,8 +144,7 @@ abstract class DatabaseHandler extends ManagesConnection
             return $data['result'];
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-            throw $databaseException;
+            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
         }
     }
 }

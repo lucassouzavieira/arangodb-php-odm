@@ -27,21 +27,21 @@ class Traversal
      *
      * @var string
      */
-    public const GRAPH_DIRECTION_INBOUND = 'INBOUND';
+    public const string GRAPH_DIRECTION_INBOUND = 'INBOUND';
 
     /**
      * Outbound graph direction.
      *
      * @var string
      */
-    public const GRAPH_DIRECTION_OUTBOUND = 'OUTBOUND';
+    public const string GRAPH_DIRECTION_OUTBOUND = 'OUTBOUND';
 
     /**
      * Any graph direction.
      *
      * @var string
      */
-    public const GRAPH_DIRECTION_ANY = 'ANY';
+    public const string GRAPH_DIRECTION_ANY = 'ANY';
 
     /**
      * The traversal query
@@ -72,7 +72,7 @@ class Traversal
      *
      * @throws CursorException|GuzzleException
      */
-    public function __construct(Statement $statement, Connection $connection = null)
+    public function __construct(Statement $statement, ?Connection $connection = null)
     {
         $this->statement = $statement;
         $this->connection = $connection;
@@ -83,23 +83,13 @@ class Traversal
     }
 
     /**
-     * Sets a connection to use for traversal.
-     *
-     * @param Connection $connection
-     */
-    public function setConnection(Connection $connection): void
-    {
-        $this->connection = $connection;
-    }
-
-    /**
      * Returns the query,
      *
      * @return string
      *
      * @throws StatementException
      */
-    public function toAql()
+    public function toAql(): string
     {
         return $this->statement->toAql();
     }

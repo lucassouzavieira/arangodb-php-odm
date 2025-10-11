@@ -34,14 +34,14 @@ class Task implements EntityInterface
      *
      * @var string
      */
-    protected $type = 'unknown';
+    protected string $type = 'unknown';
 
     /**
      * Attributes of task.
      *
      * @var array
      */
-    protected $attributes;
+    protected array $attributes;
 
     /**
      * Connection object.
@@ -55,7 +55,7 @@ class Task implements EntityInterface
      *
      * @var array
      */
-    protected $defaultOptions = [
+    protected array $defaultOptions = [
         'offset' => 30,
         'period' => 30,
         'params' => []
@@ -67,7 +67,7 @@ class Task implements EntityInterface
      *
      * @var bool
      */
-    protected $isNew = true;
+    protected bool $isNew = true;
 
     /**
      * Task constructor.
@@ -79,7 +79,7 @@ class Task implements EntityInterface
      *
      * @throws InvalidParameterException|MissingParameterException
      */
-    public function __construct(string $name, string $command, Connection $connection = null, array $options = [])
+    public function __construct(string $name, string $command, ?Connection $connection = null, array $options = [])
     {
         $attributes = array_merge($this->defaultOptions, ['name' => $name, 'command' => $command], $options);
         $validator = new TaskValidator($attributes);
@@ -186,7 +186,7 @@ class Task implements EntityInterface
      *
      * @param Connection $connection Connection object to use.
      */
-    public function setConnection(Connection $connection)
+    public function setConnection(Connection $connection): void
     {
         $this->connection = $connection;
     }
@@ -260,7 +260,7 @@ class Task implements EntityInterface
     /**
      * Return a JSON representation of Task object.
      *
-     * @return array|mixed
+     * @return mixed
      */
     public function jsonSerialize(): mixed
     {

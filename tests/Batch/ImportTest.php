@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Batch;
 
 use Unit\TestCase;
@@ -36,7 +35,7 @@ class ImportTest extends TestCase
 
         $this->assertIsArray($result);
         $this->assertArrayHasKey('created', $result);
-        $this->assertEquals(21, $result['created']);
+        $this->assertEquals(22, $result['created']);
     }
 
     public function testImportFromJsonDocumentsThrowServerExceptionOnNonExistentCollection()
@@ -81,7 +80,7 @@ class ImportTest extends TestCase
 
         $this->assertIsArray($result);
         $this->assertArrayHasKey('created', $result);
-        $this->assertEquals(21, $result['created']);
+        $this->assertEquals(22, $result['created']);
     }
 
     public function testImportFromArrayDocumentsThrowServerExceptionOnNonExistentCollection()

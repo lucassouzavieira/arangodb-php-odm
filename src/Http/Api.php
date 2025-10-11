@@ -82,7 +82,7 @@ abstract class Api
     public const JWT_AUTH_BASE = "/_open/auth";
 
     /**
-     * Add an URI param to an URI
+     * Add a param to the URI
      *
      * @param string $baseUri Base URI to add a parameter.
      * @param string|integer $param Parameter value.
@@ -95,7 +95,7 @@ abstract class Api
     }
 
     /**
-     * Add an URI query
+     * Add a URI query
      *
      * @param string $baseUri Base URI to add a query.
      * @param array $data Query data.

@@ -112,7 +112,7 @@ class Document implements EntityInterface
      *
      * @throws InvalidParameterException
      */
-    public function __construct(array $attributes = [], Collection $collection = null)
+    public function __construct(array $attributes = [], ?Collection $collection = null)
     {
         $this->validator = new DocumentValidator($attributes);
         $this->validator->validate();
@@ -141,9 +141,9 @@ class Document implements EntityInterface
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
-        return print_r($this->toArray(), true);
+        return json_encode($this->toArray(), JSON_PRETTY_PRINT);
     }
 
     /**

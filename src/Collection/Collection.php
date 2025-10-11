@@ -127,22 +127,17 @@ class Collection implements JsonSerializable
      * Default values when creating collections
      */
     private array $defaults = [
-        'journalSize' => 1048576,
         'replicationFactor' => 1,
         'waitForSync' => false,
-        'doCompact' => true,
         'shardingStrategy' => 'community-compat',
-        'isVolatile' => false,
         'shardKeys' => ["_key"],
         'numberOfShards' => 1,
         'isSystem' => false,
         'type' => 2,
         'keyOptions' => [
             'allowUserKeys' => true,
-            'type' => 'traditional',
-            'lastValue' => 0
+            'type' => KeyType::TRADITIONAL,
         ],
-        'indexBuckets' => 16
     ];
 
     /**
@@ -170,13 +165,13 @@ class Collection implements JsonSerializable
     }
 
     /**
-     * Return an string representation of document
+     * Return a string representation of document
      *
      * @return string
      */
     public function __toString()
     {
-        return print_r($this->toArray(), true);
+        return json_encode($this->toArray(), JSON_PRETTY_PRINT);
     }
 
     /**
@@ -218,7 +213,7 @@ class Collection implements JsonSerializable
      * @return CursorInterface|bool Cursor if collection exists on database. False otherwise.
      * @throws GuzzleException|InvalidParameterException|CursorException
      */
-    public function all()
+    public function all(): bool|CollectionCursor
     {
         if (!$this->isNew()) {
             return new CollectionCursor($this);
@@ -276,7 +271,7 @@ class Collection implements JsonSerializable
      *
      * @return string|null String if collection exists on database. Null if not.
      */
-    public function getId()
+    public function getId(): ?string
     {
         return ($this->attributes['objectId'] === null) ? $this->attributes['id'] : $this->attributes['objectId'];
     }
@@ -294,7 +289,7 @@ class Collection implements JsonSerializable
     /**
      * Return the status of collection
      *
-     * @return int A integer between 0 and 6
+     * @return int An integer between 0 and 6
      */
     public function getStatus(): int
     {
@@ -459,7 +454,7 @@ class Collection implements JsonSerializable
             $uri = Api::addQuery(Api::INDEX, ['collection' => $this->getName()]);
             $response = $this->connection->post($uri, $index->getCreateData());
 
-            $data = json_decode((string)$response->getBody(), true);
+            json_decode((string)$response->getBody(), true);
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
@@ -501,7 +496,7 @@ class Collection implements JsonSerializable
 
     /**
      * Saves or update the collection.
-     * Except for 'waitForSync', 'journalSize' and 'name', a collection can not be modified after creation.
+     * Except for 'waitForSync' and 'name', a collection can not be modified after creation.
      * For change 'name', the method 'rename' must be used.
      *
      * @return bool
@@ -541,7 +536,7 @@ class Collection implements JsonSerializable
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
             $uri = $this->isSystem() ? sprintf("%s/%s?isSystem=true", $uri, $this->getName()) : sprintf("%s/%s", $uri, $this->getName());
             $response = $this->connection->delete($uri);
-            $data = json_decode((string)$response->getBody(), true);
+            json_decode((string)$response->getBody(), true);
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
@@ -566,7 +561,7 @@ class Collection implements JsonSerializable
         try {
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
             $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_TRUNCATE));
-            $data = json_decode((string)$response->getBody(), true);
+            json_decode((string)$response->getBody(), true);
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
@@ -575,28 +570,7 @@ class Collection implements JsonSerializable
     }
 
     /**
-     * Loads the collection on server
-     *
-     * @param bool $count
-     * @return bool
-     * @throws DatabaseException|GuzzleException
-     */
-    public function load(bool $count = true): bool
-    {
-        try {
-            $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
-            $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_LOAD), ['count' => $count]);
-            $data = json_decode((string)$response->getBody(), true);
-            $this->status = (int)$data['status'];
-            return $this->status === self::$loadedStatus;
-        } catch (ClientException $exception) {
-            $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-        }
-    }
-
-    /**
-     * Find a document by it's key
+     * Find a document by its key
      *
      * @param string $key Document key
      * @param bool $isVertex If the collection is a vertex in a graph, passing true will return document as Vertex object.
@@ -728,8 +702,8 @@ class Collection implements JsonSerializable
     protected function getUpdateParameters(): array
     {
         return [
+            'cacheEnabled' => $this->attributes['cacheEnabled'],
             'waitForSync' => $this->attributes['waitForSync'],
-            'journalSize' => $this->attributes['journalSize']
         ];
     }
 
@@ -740,7 +714,7 @@ class Collection implements JsonSerializable
      *
      * @throws GuzzleException
      */
-    private function update()
+    private function update(): bool
     {
         $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabase()->getDatabaseName(), Api::COLLECTION);
         $response = $this->connection->put(sprintf("%s/%s%s", $uri, $this->getName(), Api::COLLECTION_PROPERTIES), $this->getUpdateParameters());

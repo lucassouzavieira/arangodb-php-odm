@@ -10,7 +10,7 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 class UserValidatorTest extends TestCase
 {
-    public function getOptions()
+    public function getOptions(): array
     {
         return [
             'user' => 'Username',

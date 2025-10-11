@@ -10,7 +10,7 @@ use ArangoDB\Validation\Transaction\TransactionOptionsValidator;
 
 class TransactionOptionsValidatorTest extends TestCase
 {
-    public function getOptions()
+    public function getOptions(): array
     {
         return [
             'collections' => [

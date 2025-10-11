@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Document;
 
 use ArangoDB\Document\Edge;
@@ -13,7 +12,7 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 class EdgeTest extends DocumentTestCase
 {
-    public function getAttributes($withDescriptors = false)
+    public function getAttributes($withDescriptors = false): array
     {
         $fake = parent::getAttributes($withDescriptors);
         $edgeDescriptors = [

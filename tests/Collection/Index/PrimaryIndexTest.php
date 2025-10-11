@@ -1,7 +1,6 @@
 <?php
 
-
-namespace Unit\Collection\GeneralIndex;
+namespace Unit\Collection\Index;
 
 use ArangoDB\Exceptions\IndexException;
 use Unit\TestCase;

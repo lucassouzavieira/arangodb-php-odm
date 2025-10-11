@@ -76,7 +76,7 @@ class View
      * @param string $type The type of View
      * @param array $attributes View attributes
      *
-     * @see https://www.arangodb.com/docs/stable/arangosearch-views.html#view-properties
+     * @see https://docs.arangodb.com/3.12/index-and-search/arangosearch/arangosearch-views-reference/#view-properties
      */
     public function __construct(string $name, string $type = "arangosearch", array $attributes = [])
     {
@@ -85,8 +85,8 @@ class View
         $this->attributes = array_merge($this->defaults, $attributes);
 
         $this->isNew = true;
-        $this->id = isset($this->attributes['id']) ? $this->attributes['id'] : '';
-        $this->globallyUniqueId = isset($this->attributes['globallyUniqueId']) ? $this->attributes['globallyUniqueId'] : '';
+        $this->id = $this->attributes['id'] ?? '';
+        $this->globallyUniqueId = $this->attributes['globallyUniqueId'] ?? '';
 
         if ($this->id && $this->globallyUniqueId) {
             $this->isNew = false;

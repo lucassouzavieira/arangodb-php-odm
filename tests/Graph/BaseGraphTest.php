@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Graph;
 
 use Unit\TestCase;
@@ -32,7 +31,7 @@ abstract class BaseGraphTest extends TestCase
         parent::tearDown();
     }
 
-    public function mockEdgeDefinitions()
+    public function mockEdgeDefinitions(): array
     {
         return [
             'collection' => 'edge_coll',

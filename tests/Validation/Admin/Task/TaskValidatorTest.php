@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Validation\Admin\Task;
 
 use Unit\TestCase;
@@ -11,7 +10,7 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 class TaskValidatorTest extends TestCase
 {
-    public function getOptions()
+    public function getOptions(): array
     {
         return [
             'params' => [

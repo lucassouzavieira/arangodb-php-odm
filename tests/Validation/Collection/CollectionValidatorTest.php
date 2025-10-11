@@ -1,36 +1,33 @@
 <?php
 
-
 namespace Unit\Validation\Collection;
 
 use Unit\TestCase;
+use ArangoDB\Collection\KeyType;
+use ArangoDB\Validation\Exceptions\InvalidKeyOptionException;
 use ArangoDB\Validation\Collection\CollectionValidator;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 class CollectionValidatorTest extends TestCase
 {
-    protected function mockCollectionArray()
+    protected function mockCollectionArray(): array
     {
         $buckets = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024];
         return [
             'name' => random_bytes(10),
-            'journalSize' => rand(1048576, 2097152),
             'replicationFactor' => rand(1, 10),
             'waitForSync' => (bool)rand(0, 1),
-            'doCompact' => (bool)rand(0, 1),
             'shardingStrategy' => 'community-compat',
-            'isVolatile' => (bool)rand(0, 1),
             'shardKeys' => ["_key"],
             'numberOfShards' => rand(1, 10),
             'isSystem' => (bool)rand(0, 1),
             'type' => rand(2, 3),
             'keyOptions' => [
                 'allowUserKeys' => (bool)rand(0, 1),
-                'type' => 'traditional',
+                'type' => KeyType::AUTOINCREMENT,
                 'lastValue' => 0
             ],
-            'indexBuckets' => $buckets[rand(0, 9)]
         ];
     }
 
@@ -83,6 +80,55 @@ class CollectionValidatorTest extends TestCase
 
         $collectionValidator = new CollectionValidator($mock);
         $this->expectException(InvalidParameterException::class);
+        $this->assertTrue($collectionValidator->validate());
+    }
+
+    public function testThrowInvalidKeyOptionException()
+    {
+        $mock = $this->mockCollectionArray();
+        $mock['keyOptions'] = [
+            'allowUserKeys' => (bool)rand(0, 1),
+            'type' => KeyType::UUID,
+            'offset' => 1,
+            'lastValue' => 0
+        ];
+        $collectionValidator = new CollectionValidator($mock);
+        $this->expectException(InvalidKeyOptionException::class);
+        $this->assertTrue($collectionValidator->validate());
+
+        $mock = $this->mockCollectionArray();
+        $mock['keyOptions'] = [
+            'allowUserKeys' => (bool)rand(0, 1),
+            'type' => KeyType::TRADITIONAL,
+            'offset' => 1,
+            'lastValue' => 0
+        ];
+        $collectionValidator = new CollectionValidator($mock);
+        $this->expectException(InvalidKeyOptionException::class);
+        $this->assertTrue($collectionValidator->validate());
+
+        $mock = $this->mockCollectionArray();
+        $mock['keyOptions'] = [
+            'allowUserKeys' => (bool)rand(0, 1),
+            'type' => KeyType::PADDED,
+            'offset' => 1,
+            'lastValue' => 0
+        ];
+        $collectionValidator = new CollectionValidator($mock);
+        $this->expectException(InvalidKeyOptionException::class);
+        $this->assertTrue($collectionValidator->validate());
+    }
+
+    public function testAllowExtraOptionsForAutoIncrementKeyType()
+    {
+        $mock = $this->mockCollectionArray();
+        $mock['keyOptions'] = [
+            'allowUserKeys' => (bool)rand(0, 1),
+            'type' => KeyType::AUTOINCREMENT,
+            'offset' => 1,
+            'lastValue' => 0
+        ];
+        $collectionValidator = new CollectionValidator($mock);
         $this->assertTrue($collectionValidator->validate());
     }
 }

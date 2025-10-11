@@ -23,14 +23,14 @@ abstract class Transaction
      *
      * @var Connection
      */
-    protected $connection;
+    protected Connection $connection;
 
     /**
      * StreamTransaction options
      *
      * @var array
      */
-    protected $options;
+    protected array $options;
 
     /**
      * Some default options for transaction
@@ -40,7 +40,7 @@ abstract class Transaction
      *
      * @var array
      */
-    protected $defaultOptions = [
+    protected array $defaultOptions = [
         'maxTransactionSize' => 32000000,
         'waitForSync' => true,
         'allowImplicit' => false,
@@ -54,7 +54,7 @@ abstract class Transaction
      * @param Connection $connection Connection object to use.
      * @param array $options Transaction options.
      *
-     * @throws TransactionException|InvalidParameterException|MissingParameterException
+     * @throws InvalidParameterException|MissingParameterException
      */
     public function __construct(Connection $connection, array $options = [])
     {

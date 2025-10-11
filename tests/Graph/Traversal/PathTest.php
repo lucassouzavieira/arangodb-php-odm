@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Graph\Traversal;
 
 use ArangoDB\Document\Edge;
@@ -13,7 +12,7 @@ use ArangoDB\Validation\Exceptions\MissingParameterException;
 
 class PathTest extends BaseGraphTest
 {
-    protected function mockData()
+    protected function mockData(): array
     {
         return [
             'edges' => [

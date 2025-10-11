@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Cursor;
 
 use ArangoDB\Document\Edge;

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Graph;
 
 use Unit\TestCase;

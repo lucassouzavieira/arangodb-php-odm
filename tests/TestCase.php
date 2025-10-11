@@ -16,9 +16,9 @@ use PHPUnit\Framework\TestCase as BaseTestCase;
  */
 abstract class TestCase extends BaseTestCase
 {
-    protected $env;
+    protected Dotenv $env;
 
-    public function loadEnvironment()
+    public function loadEnvironment(): void
     {
         $this->env = Dotenv::createImmutable(dirname(__FILE__) . DIRECTORY_SEPARATOR . '../');
         $this->env->load();
@@ -27,6 +27,7 @@ abstract class TestCase extends BaseTestCase
     /**
      * @param MockHandler|null $mock
      * @return Connection
+     *
      * @throws \ArangoDB\Auth\Exceptions\AuthException
      * @throws \ArangoDB\Exceptions\ConnectionException
      * @throws \ArangoDB\Validation\Exceptions\InvalidParameterException
@@ -34,7 +35,7 @@ abstract class TestCase extends BaseTestCase
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ReflectionException
      */
-    public function getConnectionObject(MockHandler $mock = null)
+    public function getConnectionObject(?MockHandler $mock = null): Connection
     {
         $connection = new Connection([
             'username' => $_ENV['ARANGODB_USERNAME'],
@@ -59,7 +60,7 @@ abstract class TestCase extends BaseTestCase
         return $connection;
     }
 
-    public function mockServerError()
+    public function mockServerError(): array
     {
         return [
             'error' => true,

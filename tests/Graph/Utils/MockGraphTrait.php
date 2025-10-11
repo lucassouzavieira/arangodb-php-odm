@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Unit\Graph\Utils;
 
 use ArangoDB\Graph\Graph;
