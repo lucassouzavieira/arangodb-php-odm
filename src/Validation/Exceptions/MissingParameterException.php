@@ -28,7 +28,7 @@ class MissingParameterException extends BaseException
      * @param string $parameter Parameter name.
      * @param Throwable|null $previous Previous exception or error.
      */
-    public function __construct(string $parameter, Throwable $previous = null)
+    public function __construct(string $parameter, ?Throwable $previous = null)
     {
         $this->parameter = $parameter;
         $message = "Missing '$parameter' on: " . $this->getFile() . " in line " . $this->getLine();

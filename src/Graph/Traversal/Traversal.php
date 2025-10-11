@@ -72,7 +72,7 @@ class Traversal
      *
      * @throws CursorException|GuzzleException
      */
-    public function __construct(Statement $statement, Connection $connection = null)
+    public function __construct(Statement $statement, ?Connection $connection = null)
     {
         $this->statement = $statement;
         $this->connection = $connection;

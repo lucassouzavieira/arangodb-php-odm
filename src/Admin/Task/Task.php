@@ -27,14 +27,14 @@ class Task implements EntityInterface
      *
      * @var string
      */
-    protected $id;
+    protected string $id;
 
     /**
      * Task type.
      *
      * @var string
      */
-    protected $type = 'unknown';
+    protected string $type = 'unknown';
 
     /**
      * Attributes of task.
@@ -79,7 +79,7 @@ class Task implements EntityInterface
      *
      * @throws InvalidParameterException|MissingParameterException
      */
-    public function __construct(string $name, string $command, Connection $connection = null, array $options = [])
+    public function __construct(string $name, string $command, ?Connection $connection = null, array $options = [])
     {
         $attributes = array_merge($this->defaultOptions, ['name' => $name, 'command' => $command], $options);
         $validator = new TaskValidator($attributes);
@@ -186,7 +186,7 @@ class Task implements EntityInterface
      *
      * @param Connection $connection Connection object to use.
      */
-    public function setConnection(Connection $connection)
+    public function setConnection(Connection $connection): void
     {
         $this->connection = $connection;
     }

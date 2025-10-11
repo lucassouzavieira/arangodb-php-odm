@@ -106,7 +106,7 @@ class Graph implements \JsonSerializable
      *
      * @throws InvalidParameterException|MissingParameterException|ArangoException
      */
-    public function __construct(string $name, array $attributes = [], Database $database = null)
+    public function __construct(string $name, array $attributes = [], ?Database $database = null)
     {
         $this->name = $this->key = $name;
 

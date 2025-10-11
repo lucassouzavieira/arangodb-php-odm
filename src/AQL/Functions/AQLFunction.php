@@ -60,7 +60,7 @@ class AQLFunction implements EntityInterface
      * @param bool $isDeterministic Indicates if the function results are deterministic.
      * @param bool $isNew Indicates if the function object is a new one or not.
      */
-    public function __construct(string $name, string $code, Connection $connection = null, bool $isDeterministic = true, bool $isNew = true)
+    public function __construct(string $name, string $code, ?Connection $connection = null, bool $isDeterministic = true, bool $isNew = true)
     {
         $this->name = $name;
         $this->code = $code;
