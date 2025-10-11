@@ -49,7 +49,7 @@ class Edge extends Document
      *
      * @throws InvalidParameterException|MissingParameterException
      */
-    public function __construct(array $attributes = [], Collection $collection = null)
+    public function __construct(array $attributes = [], ?Collection $collection = null)
     {
         $validator = new EdgeValidator($attributes);
         $validator->validate();

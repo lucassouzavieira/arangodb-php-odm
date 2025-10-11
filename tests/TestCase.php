@@ -35,7 +35,7 @@ abstract class TestCase extends BaseTestCase
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ReflectionException
      */
-    public function getConnectionObject(MockHandler $mock = null): Connection
+    public function getConnectionObject(?MockHandler $mock = null): Connection
     {
         $connection = new Connection([
             'username' => $_ENV['ARANGODB_USERNAME'],

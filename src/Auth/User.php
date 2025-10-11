@@ -62,7 +62,7 @@ class User implements EntityInterface
      *
      * @throws InvalidParameterException|MissingParameterException
      */
-    public function __construct(array $attributes = [], Connection $connection = null, bool $isNew = true)
+    public function __construct(array $attributes = [], ?Connection $connection = null, bool $isNew = true)
     {
         $validator = new UserValidator($attributes);
         $validator->validate();

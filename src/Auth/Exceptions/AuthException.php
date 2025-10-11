@@ -22,7 +22,7 @@ class AuthException extends BaseException
      * @param Throwable|null $previous
      * @param int $code
      */
-    public function __construct(string $message, Throwable $previous = null, $code = 0)
+    public function __construct(string $message, ?Throwable $previous = null, $code = 0)
     {
         parent::__construct($message, $previous, $code);
     }

@@ -36,7 +36,7 @@ class InvalidKeyOptionException extends BaseException
      * @param string $value Parameter value.
      * @param Throwable|null $previous Previous exception or error.
      */
-    public function __construct(string $parameter, $value, Throwable $previous = null)
+    public function __construct(string $parameter, $value, ?Throwable $previous = null)
     {
         $message = "Parameter '$parameter' can not be used for collection with key type of '$value'.";
         parent::__construct($message, $previous);
