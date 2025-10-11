@@ -21,42 +21,42 @@ class Index implements IndexInterface
      *
      * @var string
      */
-    protected $id;
+    protected string $id;
 
     /**
      * Index name.
      *
      * @var string
      */
-    protected $name;
+    protected string $name;
 
     /**
      * Sparse
      *
      * @var bool
      */
-    protected $sparse;
+    protected bool $sparse;
 
     /**
      * Index type
      *
      * @var string
      */
-    protected $type;
+    protected string $type;
 
     /**
      * Unique constraint
      *
      * @var bool
      */
-    protected $unique;
+    protected bool $unique;
 
     /**
      * Fields of index
      *
      * @var array
      */
-    protected $fields;
+    protected array $fields;
 
     /**
      * Collection where the index belongs to
@@ -71,21 +71,21 @@ class Index implements IndexInterface
      *
      * @var bool
      */
-    protected $isNew;
+    protected bool $isNew;
 
     /**
      * Valid indexes types
      *
      * @var array
      */
-    protected static $indexTypes = [
-        'fulltext', 'general', 'geo', 'hash', 'persistent', 'skiplist', 'ttl', 'primary', 'edge'
+    protected static array $indexTypes = [
+        'fulltext', 'general', 'geo', 'hash', 'persistent', 'skiplist', 'ttl', 'primary', 'edge', 'inverted'
     ];
 
     /**
      * Index constructor.
      *
-     * @param string $type The index type. Must be one of following values: 'fulltext', 'general', 'geo', 'hash', 'persistent', 'skiplist' or 'ttl'
+     * @param string $type The index type. Must be one of following values: 'fulltext', 'general', 'geo', 'hash', 'persistent', 'skiplist', 'inverted' or 'ttl'
      * @param array $fields An array of attribute names. Normally with just one attribute.
      *
      * @param array $attributes
@@ -97,20 +97,30 @@ class Index implements IndexInterface
             throw new InvalidParameterException("type", $type);
         }
 
+        $fieldNames = [];
+
         foreach ($fields as $key => $field) {
-            if (!is_string($field)) {
-                throw new InvalidParameterException("fields[$key]", $field);
+            if (is_string($field)) {
+                array_push($fieldNames, $field);
+                continue;
             }
+
+            if (is_array($field)) {
+                array_push($fieldNames, $field['name']);
+                continue;
+            }
+
+            throw new InvalidParameterException("fields[$key]", $field);
         }
 
         $this->type = $type;
         $this->fields = $fields;
 
         // Default values;
-        $this->id = isset($attributes['id']) ? $attributes['id'] : '';
-        $this->name = isset($attributes['name']) ? $attributes['name'] : '';
-        $this->unique = isset($attributes['unique']) ? $attributes['unique'] : false;
-        $this->sparse = isset($attributes['sparse']) ? $attributes['sparse'] : false;
+        $this->id = $attributes['id'] ?? '';
+        $this->name = $attributes['name'] ?? '';
+        $this->unique = $attributes['unique'] ?? false;
+        $this->sparse = $attributes['sparse'] ?? false;
         $this->isNew = !isset($attributes['id']);
     }
 

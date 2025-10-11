@@ -8,14 +8,14 @@ use ArangoDB\Exceptions\IndexException;
 
 class EdgeIndexTest extends TestCase
 {
-    public function testGetCreateData()
+    public function testGetCreateData(): void
     {
         $index = new EdgeIndex(['custom_field' => 'any']);
         $this->expectException(IndexException::class);
         $data = $index->getCreateData();
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $index = new EdgeIndex(['custom_field' => 'any']);
         $this->assertEquals('edge', $index->getType());

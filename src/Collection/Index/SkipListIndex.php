@@ -11,6 +11,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  *
  * @package ArangoDB\Collection\Index
  * @author Lucas S. Vieira
+ * @deprecated
  */
 final class SkipListIndex extends HashIndex
 {
