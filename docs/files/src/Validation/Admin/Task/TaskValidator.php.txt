@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ArangoDB\Validation\Admin\Task;
@@ -58,7 +59,7 @@ class TaskValidator extends Validator
      *
      * @return \Closure
      */
-    private function validateParamsCallback()
+    private function validateParamsCallback(): \Closure
     {
         return function (array $params) {
             $validator = Rules::isPrimitive();

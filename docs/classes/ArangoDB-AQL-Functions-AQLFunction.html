@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/arangodb.html" class="">ArangoDB</a>
@@ -135,7 +135,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/ArangoDB.html" class="">ArangoDB</a>
@@ -217,14 +217,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -266,12 +266,13 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Functions/AQLFunction.php"><a href="files/src-aql-functions-aqlfunction.html"><abbr title="src/AQL/Functions/AQLFunction.php">AQLFunction.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
-            <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#source-view.19" class="phpdocumentor-element-found-in__source" data-line="19" data-modal="source-view" data-src="files/src/AQL/Functions/AQLFunction.php.txt"></a>
+            <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#source-view.20" class="phpdocumentor-element-found-in__source" data-line="20" data-modal="source-view" data-src="files/src/AQL/Functions/AQLFunction.php.txt"></a>
     </aside>
 
             <p class="phpdocumentor-summary">Represents a user defined AQL function on server.</p>
+
 
 
 
@@ -291,6 +292,8 @@
 
                                     </dd>
                                             </dl>
+
+
 
 
 
@@ -316,99 +319,6 @@
 
 
 
-<h4 id="toc-methods">
-    Methods
-    <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
-
-</h4>
-<dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method___construct">__construct()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd>AQLFunction constructor.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_delete">delete()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Removes an AQL function from server, if possible</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_getCode">getCode()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Returns the AQL function code.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_getDeletionData">getDeletionData()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
-</dt>
-<dd>If the object has performed a delete operation, this method will return the deletion data.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_getName">getName()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Returns the AQL function name.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_hasConnection">hasConnection()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>If this AQL function has a connection set or not.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_isDeterministic">isDeterministic()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Indicates if the function results are deterministic. &lt;br&gt;</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_isNew">isNew()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>If the AQLFunction object is a new created AQLFunction (and not exists on server) &lt;br&gt;
-or if it is a representation of an existing one.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_jsonSerialize">jsonSerialize()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|mixed    </span>
-</dt>
-<dd>Return a JSON representation of AQL function object.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_save">save()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Saves the AQL function on server.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_setConnection">setConnection()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd>Sets a connection to use.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_toArray">toArray()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
-</dt>
-<dd>Returns a array representation of AQL function object.</dd>
-
-    </dl>
-
 
 
 
@@ -416,553 +326,7 @@ or if it is a representation of an existing one.</dd>
 
         
 
-            <section class="phpdocumentor-methods">
-        <h3 class="phpdocumentor-elements__header" id="methods">
-            Methods
-            <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
-
-        </h3>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method___construct">
-        __construct()
-        <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Functions/AQLFunction.php"><a href="files/src-aql-functions-aqlfunction.html"><abbr title="src/AQL/Functions/AQLFunction.php">AQLFunction.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">62</span>
-
-            <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#source-view.62" class="phpdocumentor-element-found-in__source" data-line="62" data-modal="source-view" data-src="files/src/AQL/Functions/AQLFunction.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">AQLFunction constructor.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$code</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Connection-Connection.html"><abbr title="\ArangoDB\Connection\Connection">Connection</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$connection</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$isDeterministic</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$isNew</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$name</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The AQL function name.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$code</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The AQL function code.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$connection</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Connection-Connection.html"><abbr title="\ArangoDB\Connection\Connection">Connection</abbr></a>|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Connection object to use.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$isDeterministic</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Indicates if the function results are deterministic.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$isNew</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Indicates if the function object is a new one or not.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_delete">
-        delete()
-        <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_delete" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Functions/AQLFunction.php"><a href="files/src-aql-functions-aqlfunction.html"><abbr title="src/AQL/Functions/AQLFunction.php">AQLFunction.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">173</span>
-
-            <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#source-view.173" class="phpdocumentor-element-found-in__source" data-line="173" data-modal="source-view" data-src="files/src/AQL/Functions/AQLFunction.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">Removes an AQL function from server, if possible</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">delete</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_delete#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-ServerException.html"><abbr title="\ArangoDB\Exceptions\ServerException">ServerException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                                            </dl>
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>True if operation was successful, false otherwise</p>
-</section>
-
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getCode">
-        getCode()
-        <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_getCode" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Functions/AQLFunction.php"><a href="files/src-aql-functions-aqlfunction.html"><abbr title="src/AQL/Functions/AQLFunction.php">AQLFunction.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">97</span>
-
-            <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#source-view.97" class="phpdocumentor-element-found-in__source" data-line="97" data-modal="source-view" data-src="files/src/AQL/Functions/AQLFunction.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">Returns the AQL function code.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getCode</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getDeletionData">
-        getDeletionData()
-        <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_getDeletionData" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Functions/AQLFunction.php"><a href="files/src-aql-functions-aqlfunction.html"><abbr title="src/AQL/Functions/AQLFunction.php">AQLFunction.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">117</span>
-
-            <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#source-view.117" class="phpdocumentor-element-found-in__source" data-line="117" data-modal="source-view" data-src="files/src/AQL/Functions/AQLFunction.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">If the object has performed a delete operation, this method will return the deletion data.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getDeletionData</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getName">
-        getName()
-        <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_getName" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Functions/AQLFunction.php"><a href="files/src-aql-functions-aqlfunction.html"><abbr title="src/AQL/Functions/AQLFunction.php">AQLFunction.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">87</span>
-
-            <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#source-view.87" class="phpdocumentor-element-found-in__source" data-line="87" data-modal="source-view" data-src="files/src/AQL/Functions/AQLFunction.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">Returns the AQL function name.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getName</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_hasConnection">
-        hasConnection()
-        <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_hasConnection" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Functions/AQLFunction.php"><a href="files/src-aql-functions-aqlfunction.html"><abbr title="src/AQL/Functions/AQLFunction.php">AQLFunction.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">127</span>
-
-            <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#source-view.127" class="phpdocumentor-element-found-in__source" data-line="127" data-modal="source-view" data-src="files/src/AQL/Functions/AQLFunction.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">If this AQL function has a connection set or not.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">hasConnection</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>True if it has a connection object. False otherwise.</p>
-</section>
-
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_isDeterministic">
-        isDeterministic()
-        <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_isDeterministic" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Functions/AQLFunction.php"><a href="files/src-aql-functions-aqlfunction.html"><abbr title="src/AQL/Functions/AQLFunction.php">AQLFunction.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">107</span>
-
-            <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#source-view.107" class="phpdocumentor-element-found-in__source" data-line="107" data-modal="source-view" data-src="files/src/AQL/Functions/AQLFunction.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">Indicates if the function results are deterministic. &lt;br&gt;</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">isDeterministic</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_isNew">
-        isNew()
-        <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_isNew" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Functions/AQLFunction.php"><a href="files/src-aql-functions-aqlfunction.html"><abbr title="src/AQL/Functions/AQLFunction.php">AQLFunction.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">77</span>
-
-            <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#source-view.77" class="phpdocumentor-element-found-in__source" data-line="77" data-modal="source-view" data-src="files/src/AQL/Functions/AQLFunction.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">If the AQLFunction object is a new created AQLFunction (and not exists on server) &lt;br&gt;
-or if it is a representation of an existing one.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">isNew</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_jsonSerialize">
-        jsonSerialize()
-        <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_jsonSerialize" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Functions/AQLFunction.php"><a href="files/src-aql-functions-aqlfunction.html"><abbr title="src/AQL/Functions/AQLFunction.php">AQLFunction.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">210</span>
-
-            <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#source-view.210" class="phpdocumentor-element-found-in__source" data-line="210" data-modal="source-view" data-src="files/src/AQL/Functions/AQLFunction.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">Return a JSON representation of AQL function object.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">jsonSerialize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|mixed</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_save">
-        save()
-        <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_save" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Functions/AQLFunction.php"><a href="files/src-aql-functions-aqlfunction.html"><abbr title="src/AQL/Functions/AQLFunction.php">AQLFunction.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">149</span>
-
-            <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#source-view.149" class="phpdocumentor-element-found-in__source" data-line="149" data-modal="source-view" data-src="files/src/AQL/Functions/AQLFunction.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">Saves the AQL function on server.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">save</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_save#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-ServerException.html"><abbr title="\ArangoDB\Exceptions\ServerException">ServerException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                                            </dl>
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>True if operation was successful, false otherwise.</p>
-</section>
-
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_setConnection">
-        setConnection()
-        <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_setConnection" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Functions/AQLFunction.php"><a href="files/src-aql-functions-aqlfunction.html"><abbr title="src/AQL/Functions/AQLFunction.php">AQLFunction.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">137</span>
-
-            <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#source-view.137" class="phpdocumentor-element-found-in__source" data-line="137" data-modal="source-view" data-src="files/src/AQL/Functions/AQLFunction.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">Sets a connection to use.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setConnection</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Connection-Connection.html"><abbr title="\ArangoDB\Connection\Connection">Connection</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$connection</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$connection</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Connection-Connection.html"><abbr title="\ArangoDB\Connection\Connection">Connection</abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Connection object to use.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_toArray">
-        toArray()
-        <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_toArray" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Functions/AQLFunction.php"><a href="files/src-aql-functions-aqlfunction.html"><abbr title="src/AQL/Functions/AQLFunction.php">AQLFunction.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">196</span>
-
-            <a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#source-view.196" class="phpdocumentor-element-found-in__source" data-line="196" data-modal="source-view" data-src="files/src/AQL/Functions/AQLFunction.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">Returns a array representation of AQL function object.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">toArray</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            </section>
-
-</article>
-            </section>
-
+        
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
@@ -999,6 +363,8 @@ or if it is a representation of an existing one.</p>
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
                             return;
                         }
 
@@ -1066,28 +432,10 @@ or if it is a representation of an existing one.</p>
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                <li><a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#toc-methods">Methods</a></li>
-                                    </ul>
+                                                                            </ul>
             </li>
             
             
-                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
-            <li>
-                <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_delete">delete()</a></li>
-                                            <li><a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_getCode">getCode()</a></li>
-                                            <li><a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_getDeletionData">getDeletionData()</a></li>
-                                            <li><a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_getName">getName()</a></li>
-                                            <li><a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_hasConnection">hasConnection()</a></li>
-                                            <li><a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_isDeterministic">isDeterministic()</a></li>
-                                            <li><a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_isNew">isNew()</a></li>
-                                            <li><a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_jsonSerialize">jsonSerialize()</a></li>
-                                            <li><a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_save">save()</a></li>
-                                            <li><a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_setConnection">setConnection()</a></li>
-                                            <li><a href="classes/ArangoDB-AQL-Functions-AQLFunction.html#method_toArray">toArray()</a></li>
-                                    </ul>
-            </li>
                     </ul>
     </section>
 

@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/arangodb.html" class="">ArangoDB</a>
@@ -135,7 +135,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/ArangoDB.html" class="">ArangoDB</a>
@@ -217,14 +217,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -246,14 +246,6 @@
 
 </h3>
 
-<h4 id="packages">
-    Packages
-    <a href="packages/ArangoDB-Exceptions.html#packages" class="headerlink"><i class="fas fa-link"></i></a>
-
-</h4>
-<dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -package"><a href="packages/ArangoDB-Exceptions-Storage.html"><abbr title="\ArangoDB\Exceptions\Storage">Storage</abbr></a></dt>
-    </dl>
 
 
 
@@ -263,7 +255,7 @@
 
     </h4>
     <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ArangoDB-Exceptions-BaseException.html"><abbr title="\ArangoDB\Exceptions\BaseException">BaseException</abbr></a></dt><dd>Basic exception class for driver</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a></dt><dd>DatabaseException</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ArangoDB-Exceptions-Exception.html"><abbr title="\ArangoDB\Exceptions\Exception">Exception</abbr></a></dt><dd>Exception</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ArangoDB-Exceptions-Factory.html"><abbr title="\ArangoDB\Exceptions\Factory">Factory</abbr></a></dt><dd>Class Factory</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ArangoDB-Exceptions-IndexException.html"><abbr title="\ArangoDB\Exceptions\IndexException">IndexException</abbr></a></dt><dd>IndexException</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ArangoDB-Exceptions-ServerException.html"><abbr title="\ArangoDB\Exceptions\ServerException">ServerException</abbr></a></dt><dd>ServerException</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ArangoDB-Exceptions-TransactionException.html"><abbr title="\ArangoDB\Exceptions\TransactionException">TransactionException</abbr></a></dt><dd>Class TransactionException</dd>    </dl>
+                    <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ArangoDB-Exceptions-BaseException.html"><abbr title="\ArangoDB\Exceptions\BaseException">BaseException</abbr></a></dt><dd>Basic exception class for driver</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a></dt><dd>DatabaseException</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ArangoDB-Exceptions-Exception.html"><abbr title="\ArangoDB\Exceptions\Exception">Exception</abbr></a></dt><dd>Exception</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ArangoDB-Exceptions-IndexException.html"><abbr title="\ArangoDB\Exceptions\IndexException">IndexException</abbr></a></dt><dd>IndexException</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ArangoDB-Exceptions-ServerException.html"><abbr title="\ArangoDB\Exceptions\ServerException">ServerException</abbr></a></dt><dd>ServerException</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ArangoDB-Exceptions-TransactionException.html"><abbr title="\ArangoDB\Exceptions\TransactionException">TransactionException</abbr></a></dt><dd>Class TransactionException</dd>    </dl>
 
 
 
@@ -311,6 +303,8 @@
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
                             return;
                         }
 

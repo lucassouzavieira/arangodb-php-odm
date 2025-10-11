@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/arangodb.html" class="">ArangoDB</a>
@@ -135,7 +135,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/ArangoDB.html" class="">ArangoDB</a>
@@ -217,14 +217,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -265,6 +265,13 @@
     <dl class="phpdocumentor-table-of-contents">
                     <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></dt><dd>Class ArrayList</dd>    </dl>
 
+    <h4 id="toc-traits">
+        Traits
+        <a href="namespaces/arangodb-datastructures.html#toc-traits" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/ArangoDB-DataStructures-CountTrait.html"><abbr title="\ArangoDB\DataStructures\CountTrait">CountTrait</abbr></a></dt>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/ArangoDB-DataStructures-IteratorTrait.html"><abbr title="\ArangoDB\DataStructures\IteratorTrait">IteratorTrait</abbr></a></dt>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/ArangoDB-DataStructures-SerializeTrait.html"><abbr title="\ArangoDB\DataStructures\SerializeTrait">SerializeTrait</abbr></a></dt>    </dl>
 
 
 
@@ -311,6 +318,8 @@
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
                             return;
                         }
 
@@ -379,7 +388,8 @@
             <li>
                 <ul class="phpdocumentor-list -clean">
                                                                                                     <li><a href="namespaces/arangodb-datastructures.html#toc-classes">Classes</a></li>
-                                                                                                                    </ul>
+                                                            <li><a href="namespaces/arangodb-datastructures.html#toc-traits">Traits</a></li>
+                                                                                                </ul>
             </li>
 
             

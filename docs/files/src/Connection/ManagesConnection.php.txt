@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ArangoDB\Connection;
@@ -16,7 +17,7 @@ abstract class ManagesConnection implements ManagesConnectionInterface
      *
      * @var Connection
      */
-    protected $connection;
+    protected Connection $connection;
 
     /**
      * Sets a connection for class.

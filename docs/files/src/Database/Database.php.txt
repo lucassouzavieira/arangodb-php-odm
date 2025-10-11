@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ArangoDB\Database;
@@ -28,28 +29,28 @@ class Database extends DatabaseHandler
      *
      * @var string
      */
-    protected $database;
+    protected string $database;
 
     /**
      * Collections of database
      *
      * @var ArrayList
      */
-    protected $collections;
+    protected ArrayList $collections;
 
     /**
      * Information about database
      *
      * @var array
      */
-    protected $info;
+    protected array $info;
 
     /**
      * Connection to use to manage database
      *
      * @var Connection
      */
-    protected $connection;
+    protected Connection $connection;
 
     /**
      * Database constructor.
@@ -102,7 +103,7 @@ class Database extends DatabaseHandler
         try {
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->getDatabaseName(), Api::COLLECTION);
             $uri = sprintf("%s/%s", $uri, $collection);
-            $response = $this->connection->get($uri);
+            $this->connection->get($uri);
             return true;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);

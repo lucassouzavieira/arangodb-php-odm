@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ArangoDB\Collection\Index;
@@ -10,6 +11,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  *
  * @package ArangoDB\Collection\Index
  * @author Lucas S. Vieira
+ * @deprecated
  */
 class HashIndex extends Index
 {

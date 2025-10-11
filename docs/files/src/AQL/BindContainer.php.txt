@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ArangoDB\AQL;
@@ -35,11 +36,11 @@ class BindContainer extends ArrayList
      * Add validation to value being set.
      * All values must be primitives data types
      *
-     * @param  int|string $key
-     * @param  mixed      $value
+     * @param int|string $key
+     * @param mixed $value
      * @throws InvalidParameterException
      */
-    public function put($key, $value): void
+    public function put(int|string $key, mixed $value): void
     {
         $this->validator->setAttributes($value);
         if ($this->validator->validate()) {

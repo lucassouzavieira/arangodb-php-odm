@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/arangodb.html" class="">ArangoDB</a>
@@ -135,7 +135,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/ArangoDB.html" class="">ArangoDB</a>
@@ -217,14 +217,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -256,12 +256,13 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Contracts/EntityInterface.php"><a href="files/src-entity-contracts-entityinterface.html"><abbr title="src/Entity/Contracts/EntityInterface.php">EntityInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 
-            <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#source-view.12" class="phpdocumentor-element-found-in__source" data-line="12" data-modal="source-view" data-src="files/src/Entity/Contracts/EntityInterface.php.txt"></a>
+            <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#source-view.13" class="phpdocumentor-element-found-in__source" data-line="13" data-modal="source-view" data-src="files/src/Entity/Contracts/EntityInterface.php.txt"></a>
     </aside>
 
             <p class="phpdocumentor-summary">Entity interface.</p>
+
 
 
 
@@ -284,6 +285,8 @@
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -299,211 +302,13 @@
 
 
 
-<h4 id="toc-methods">
-    Methods
-    <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
-
-</h4>
-<dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#method_delete">delete()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Removes a entity on server, if possible.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#method_isNew">isNew()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Returns true if is a new object.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#method_save">save()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Save a entity on server, if possible.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#method_toArray">toArray()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
-</dt>
-<dd>Returns a array representation of entity.</dd>
-
-    </dl>
 
 
 
 
         
 
-            <section class="phpdocumentor-methods">
-        <h3 class="phpdocumentor-elements__header" id="methods">
-            Methods
-            <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
-
-        </h3>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_delete">
-        delete()
-        <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#method_delete" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Contracts/EntityInterface.php"><a href="files/src-entity-contracts-entityinterface.html"><abbr title="src/Entity/Contracts/EntityInterface.php">EntityInterface.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">33</span>
-
-            <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#source-view.33" class="phpdocumentor-element-found-in__source" data-line="33" data-modal="source-view" data-src="files/src/Entity/Contracts/EntityInterface.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">Removes a entity on server, if possible.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">delete</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>True if operation was successful, false otherwise.</p>
-</section>
-
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_isNew">
-        isNew()
-        <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#method_isNew" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Contracts/EntityInterface.php"><a href="files/src-entity-contracts-entityinterface.html"><abbr title="src/Entity/Contracts/EntityInterface.php">EntityInterface.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">19</span>
-
-            <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#source-view.19" class="phpdocumentor-element-found-in__source" data-line="19" data-modal="source-view" data-src="files/src/Entity/Contracts/EntityInterface.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">Returns true if is a new object.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">isNew</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_save">
-        save()
-        <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#method_save" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Contracts/EntityInterface.php"><a href="files/src-entity-contracts-entityinterface.html"><abbr title="src/Entity/Contracts/EntityInterface.php">EntityInterface.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">26</span>
-
-            <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#source-view.26" class="phpdocumentor-element-found-in__source" data-line="26" data-modal="source-view" data-src="files/src/Entity/Contracts/EntityInterface.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">Save a entity on server, if possible.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">save</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>True if operation was successful, false otherwise.</p>
-</section>
-
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_toArray">
-        toArray()
-        <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#method_toArray" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Entity/Contracts/EntityInterface.php"><a href="files/src-entity-contracts-entityinterface.html"><abbr title="src/Entity/Contracts/EntityInterface.php">EntityInterface.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">40</span>
-
-            <a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#source-view.40" class="phpdocumentor-element-found-in__source" data-line="40" data-modal="source-view" data-src="files/src/Entity/Contracts/EntityInterface.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">Returns a array representation of entity.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">toArray</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            </section>
-
-</article>
-            </section>
-
+        
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
@@ -540,6 +345,8 @@
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
                             return;
                         }
 
@@ -611,15 +418,6 @@
                     <li><a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#toc-methods">Methods</a></li>
                 </ul>
             </li>
-                            <li class="phpdocumentor-on-this-page-section__title">Methods</li>
-                <li>
-                    <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#method_delete">delete()</a></li>
-                                                    <li><a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#method_isNew">isNew()</a></li>
-                                                    <li><a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#method_save">save()</a></li>
-                                                    <li><a href="classes/ArangoDB-Entity-Contracts-EntityInterface.html#method_toArray">toArray()</a></li>
-                                            </ul>
-                </li>
             
                     </ul>
     </section>

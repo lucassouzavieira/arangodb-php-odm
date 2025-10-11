@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ArangoDB\Auth;
@@ -61,7 +62,7 @@ class User implements EntityInterface
      *
      * @throws InvalidParameterException|MissingParameterException
      */
-    public function __construct(array $attributes = [], Connection $connection = null, bool $isNew = true)
+    public function __construct(array $attributes = [], ?Connection $connection = null, bool $isNew = true)
     {
         $validator = new UserValidator($attributes);
         $validator->validate();
@@ -85,7 +86,7 @@ class User implements EntityInterface
      *
      * @return array
      */
-    public function __debugInfo()
+    public function __debugInfo(): array
     {
         return $this->toArray();
     }
@@ -97,7 +98,7 @@ class User implements EntityInterface
      */
     public function __toString()
     {
-        return print_r($this->toArray(), true);
+        return json_encode($this->toArray(), JSON_PRETTY_PRINT);
     }
 
     /**
@@ -223,7 +224,7 @@ class User implements EntityInterface
      *
      * @return bool True if user was removed, false otherwise (e.g. user not exists).
      *
-     * @throws GuzzleException|InvalidParameterException|UserException
+     * @throws GuzzleException|UserException
      */
     public function delete(): bool
     {
