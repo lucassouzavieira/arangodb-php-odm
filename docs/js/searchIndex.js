@@ -938,7 +938,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\Collection\\Index\\FullTextIndex\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
-            "summary": "Returns\u0020a\u0020array\u0020representation\u0020of\u0020index",
+            "summary": "Returns\u0020an\u0020array\u0020representation\u0020of\u0020index",
             "url": "classes/ArangoDB-Collection-Index-FullTextIndex.html#method_toArray"
         },                {
             "fqsen": "\\ArangoDB\\Collection\\Index\\FullTextIndex\u003A\u003A\u0024minLength",
@@ -948,7 +948,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\Collection\\Index\\GeoSpatialIndex",
             "name": "GeoSpatialIndex",
-            "summary": "Represents\u0020a\u0020geo\u002Dspatial\u0020index\u0020on\u0020a\u0020collection",
+            "summary": "Represents\u0020a\u0020geospatial\u0020index\u0020on\u0020a\u0020collection",
             "url": "classes/ArangoDB-Collection-Index-GeoSpatialIndex.html"
         },                {
             "fqsen": "\\ArangoDB\\Collection\\Index\\GeoSpatialIndex\u003A\u003A__construct\u0028\u0029",
@@ -968,12 +968,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\Collection\\Index\\GeoSpatialIndex\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
-            "summary": "Returns\u0020a\u0020array\u0020representation\u0020of\u0020index",
+            "summary": "Returns\u0020an\u0020array\u0020representation\u0020of\u0020index",
             "url": "classes/ArangoDB-Collection-Index-GeoSpatialIndex.html#method_toArray"
         },                {
             "fqsen": "\\ArangoDB\\Collection\\Index\\GeoSpatialIndex\u003A\u003A\u0024geoJson",
             "name": "geoJson",
-            "summary": "If\u0020a\u0020geo\u002Dspatial\u0020index\u0020on\u0020a\u0020location\u0020is\u0020constructed\nand\u0020geoJson\u0020is\u0020true,\u0020then\u0020the\u0020order\u0020within\u0020the\u0020array\u0020is\u0020longitude\nfollowed\u0020by\u0020latitude.",
+            "summary": "If\u0020a\u0020geospatial\u0020index\u0020on\u0020a\u0020location\u0020is\u0020constructed\nand\u0020geoJson\u0020is\u0020true,\u0020then\u0020the\u0020order\u0020within\u0020the\u0020array\u0020is\u0020longitude\nfollowed\u0020by\u0020latitude.",
             "url": "classes/ArangoDB-Collection-Index-GeoSpatialIndex.html#property_geoJson"
         },                {
             "fqsen": "\\ArangoDB\\Collection\\Index\\HashIndex",
@@ -1073,7 +1073,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\Collection\\Index\\Index\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
-            "summary": "Returns\u0020a\u0020array\u0020representation\u0020of\u0020entity",
+            "summary": "Returns\u0020an\u0020array\u0020representation\u0020of\u0020entity",
             "url": "classes/ArangoDB-Collection-Index-Index.html#method_toArray"
         },                {
             "fqsen": "\\ArangoDB\\Collection\\Index\\Index\u003A\u003AgetCreateData\u0028\u0029",
@@ -1088,7 +1088,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\Collection\\Index\\Index\u003A\u003A\u0024id",
             "name": "id",
-            "summary": "Index\u0020Id.",
+            "summary": "Index\u0020ID.",
             "url": "classes/ArangoDB-Collection-Index-Index.html#property_id"
         },                {
             "fqsen": "\\ArangoDB\\Collection\\Index\\Index\u003A\u003A\u0024name",
@@ -1173,7 +1173,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\Collection\\Index\\PrimaryIndex\u003A\u003AgetCreateData\u0028\u0029",
             "name": "getCreateData",
-            "summary": "This\u0020type\u0020of\u0020Index\u0020cannot\u0020be\u0020create\/deleted\u0020explicitly\u0020by\u0020user.",
+            "summary": "This\u0020type\u0020of\u0020Index\u0020cannot\u0020be\u0020created\/deleted\u0020explicitly\u0020by\u0020user.",
             "url": "classes/ArangoDB-Collection-Index-PrimaryIndex.html#method_getCreateData"
         },                {
             "fqsen": "\\ArangoDB\\Collection\\Index\\SkipListIndex",
@@ -1208,12 +1208,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArangoDB\\Collection\\Index\\TTLIndex\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
-            "summary": "Returns\u0020a\u0020array\u0020representation\u0020of\u0020index",
+            "summary": "Returns\u0020an\u0020array\u0020representation\u0020of\u0020index",
             "url": "classes/ArangoDB-Collection-Index-TTLIndex.html#method_toArray"
         },                {
             "fqsen": "\\ArangoDB\\Collection\\Index\\TTLIndex\u003A\u003A\u0024expiresAfter",
             "name": "expiresAfter",
-            "summary": "Time\u0020\u0028in\u0020seconds\u0029\u0020after\u0020a\u0020document\u0027s\u0020creation\u0020after\u0020which\u0020the\u0020documents\u0020counts\u0020as\u0020expired",
+            "summary": "Time\u0020\u0028in\u0020seconds\u0029\u0020after\u0020a\u0020document\u0027s\u0020creation\u0020after\u0020which\u0020the\u0020documents\u0020count\u0020as\u0020expired",
             "url": "classes/ArangoDB-Collection-Index-TTLIndex.html#property_expiresAfter"
         },                {
             "fqsen": "\\ArangoDB\\Collection\\IndexableTrait",

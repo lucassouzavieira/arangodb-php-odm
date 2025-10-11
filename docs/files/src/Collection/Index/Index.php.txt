@@ -17,7 +17,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 class Index implements IndexInterface
 {
     /**
-     * Index Id.
+     * Index ID.
      *
      * @var string
      */
@@ -223,7 +223,7 @@ class Index implements IndexInterface
     }
 
     /**
-     * Returns a array representation of entity
+     * Returns an array representation of entity
      *
      * @return array
      */

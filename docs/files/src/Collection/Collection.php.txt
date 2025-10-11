@@ -501,7 +501,7 @@ class Collection implements JsonSerializable
      *
      * @throws DatabaseException|GuzzleException|InvalidParameterException|MissingParameterException
      */
-    public function findByKey(string $key, bool $isVertex = false)
+    public function findByKey(string $key, bool $isVertex = false): Document|false
     {
         try {
             $uri = Api::buildDatabaseUri($this->connection->getBaseUri(), $this->connection->getDatabaseName(), Api::DOCUMENT);
