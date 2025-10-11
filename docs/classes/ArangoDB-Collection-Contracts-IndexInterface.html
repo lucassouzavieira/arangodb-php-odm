@@ -303,13 +303,411 @@
 
 
 
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_getCollection">getCollection()</a>
+    <span>
+                                &nbsp;: <a href="classes/ArangoDB-Collection-Collection.html"><abbr title="\ArangoDB\Collection\Collection">Collection</abbr></a>|null    </span>
+</dt>
+<dd>Returns the collection where the index belongs to</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_getCreateData">getCreateData()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Return data for create index on server</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_getId">getId()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns the index id</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_getName">getName()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns the index name</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_getType">getType()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns the index type</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_isNew">isNew()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>If the index is a new one</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_isSparse">isSparse()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>If index is sparse</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_isUnique">isUnique()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>If index was set to use &#039;unique&#039; constraint</dd>
+
+    </dl>
 
 
 
 
         
 
-        
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getCollection">
+        getCollection()
+        <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_getCollection" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Contracts/IndexInterface.php"><a href="files/src-collection-contracts-indexinterface.html"><abbr title="src/Collection/Contracts/IndexInterface.php">IndexInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">71</span>
+
+            <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#source-view.71" class="phpdocumentor-element-found-in__source" data-line="71" data-modal="source-view" data-src="files/src/Collection/Contracts/IndexInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the collection where the index belongs to</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getCollection</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Collection-Collection.html"><abbr title="\ArangoDB\Collection\Collection">Collection</abbr></a>|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Collection-Collection.html"><abbr title="\ArangoDB\Collection\Collection">Collection</abbr></a>|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>A collection object or null if the index was not set to an collection yet</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getCreateData">
+        getCreateData()
+        <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_getCreateData" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Contracts/IndexInterface.php"><a href="files/src-collection-contracts-indexinterface.html"><abbr title="src/Collection/Contracts/IndexInterface.php">IndexInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">64</span>
+
+            <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#source-view.64" class="phpdocumentor-element-found-in__source" data-line="64" data-modal="source-view" data-src="files/src/Collection/Contracts/IndexInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return data for create index on server</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getCreateData</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getId">
+        getId()
+        <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_getId" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Contracts/IndexInterface.php"><a href="files/src-collection-contracts-indexinterface.html"><abbr title="src/Collection/Contracts/IndexInterface.php">IndexInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">43</span>
+
+            <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#source-view.43" class="phpdocumentor-element-found-in__source" data-line="43" data-modal="source-view" data-src="files/src/Collection/Contracts/IndexInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the index id</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getId</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getName">
+        getName()
+        <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_getName" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Contracts/IndexInterface.php"><a href="files/src-collection-contracts-indexinterface.html"><abbr title="src/Collection/Contracts/IndexInterface.php">IndexInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">50</span>
+
+            <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#source-view.50" class="phpdocumentor-element-found-in__source" data-line="50" data-modal="source-view" data-src="files/src/Collection/Contracts/IndexInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the index name</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getName</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getType">
+        getType()
+        <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_getType" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Contracts/IndexInterface.php"><a href="files/src-collection-contracts-indexinterface.html"><abbr title="src/Collection/Contracts/IndexInterface.php">IndexInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">57</span>
+
+            <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#source-view.57" class="phpdocumentor-element-found-in__source" data-line="57" data-modal="source-view" data-src="files/src/Collection/Contracts/IndexInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the index type</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getType</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isNew">
+        isNew()
+        <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_isNew" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Contracts/IndexInterface.php"><a href="files/src-collection-contracts-indexinterface.html"><abbr title="src/Collection/Contracts/IndexInterface.php">IndexInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">22</span>
+
+            <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#source-view.22" class="phpdocumentor-element-found-in__source" data-line="22" data-modal="source-view" data-src="files/src/Collection/Contracts/IndexInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">If the index is a new one</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isNew</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True for new one index. False for a existing index.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isSparse">
+        isSparse()
+        <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_isSparse" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Contracts/IndexInterface.php"><a href="files/src-collection-contracts-indexinterface.html"><abbr title="src/Collection/Contracts/IndexInterface.php">IndexInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">36</span>
+
+            <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#source-view.36" class="phpdocumentor-element-found-in__source" data-line="36" data-modal="source-view" data-src="files/src/Collection/Contracts/IndexInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">If index is sparse</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isSparse</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isUnique">
+        isUnique()
+        <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_isUnique" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/Contracts/IndexInterface.php"><a href="files/src-collection-contracts-indexinterface.html"><abbr title="src/Collection/Contracts/IndexInterface.php">IndexInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">29</span>
+
+            <a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#source-view.29" class="phpdocumentor-element-found-in__source" data-line="29" data-modal="source-view" data-src="files/src/Collection/Contracts/IndexInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">If index was set to use &#039;unique&#039; constraint</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isUnique</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
@@ -419,6 +817,19 @@
                     <li><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#toc-methods">Methods</a></li>
                 </ul>
             </li>
+                            <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_getCollection">getCollection()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_getCreateData">getCreateData()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_getId">getId()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_getName">getName()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_getType">getType()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_isNew">isNew()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_isSparse">isSparse()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html#method_isUnique">isUnique()</a></li>
+                                            </ul>
+                </li>
             
                     </ul>
     </section>

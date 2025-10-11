@@ -306,17 +306,566 @@
 
 
 
+<h4 id="toc-constants">
+    Constants
+    <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/ArangoDB-Graph-Traversal-Traversal.html#constant_GRAPH_DIRECTION_ANY">GRAPH_DIRECTION_ANY</a>
+    <span>
+        &nbsp;= &#039;ANY&#039;                            </span>
+</dt>
+<dd>Any graph direction.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/ArangoDB-Graph-Traversal-Traversal.html#constant_GRAPH_DIRECTION_INBOUND">GRAPH_DIRECTION_INBOUND</a>
+    <span>
+        &nbsp;= &#039;INBOUND&#039;                            </span>
+</dt>
+<dd>Inbound graph direction.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/ArangoDB-Graph-Traversal-Traversal.html#constant_GRAPH_DIRECTION_OUTBOUND">GRAPH_DIRECTION_OUTBOUND</a>
+    <span>
+        &nbsp;= &#039;OUTBOUND&#039;                            </span>
+</dt>
+<dd>Outbound graph direction.</dd>
+
+    </dl>
 
 
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Graph-Traversal-Traversal.html#property_connection">$connection</a>
+    <span>
+                        &nbsp;: <a href="classes/ArangoDB-Connection-Connection.html"><abbr title="\ArangoDB\Connection\Connection">Connection</abbr></a>            </span>
+</dt>
+<dd>Connection to use to manage database</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Graph-Traversal-Traversal.html#property_cursor">$cursor</a>
+    <span>
+                        &nbsp;: <a href="classes/ArangoDB-Cursor-Cursor.html"><abbr title="\ArangoDB\Cursor\Cursor">Cursor</abbr></a>            </span>
+</dt>
+<dd>Cursor object</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Graph-Traversal-Traversal.html#property_statement">$statement</a>
+    <span>
+                        &nbsp;: <a href="classes/ArangoDB-AQL-Statement.html"><abbr title="\ArangoDB\AQL\Statement">Statement</abbr></a>            </span>
+</dt>
+<dd>The traversal query</dd>
+
+    </dl>
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Graph-Traversal-Traversal.html#method___construct">__construct()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Traversal constructor.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Graph-Traversal-Traversal.html#method_toAql">toAql()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns the query,</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Graph-Traversal-Traversal.html#method_traversalQuery">traversalQuery()</a>
+    <span>
+                                &nbsp;: <a href="classes/ArangoDB-Graph-Traversal-Traversal.html"><abbr title="\ArangoDB\Graph\Traversal\Traversal">Traversal</abbr></a>    </span>
+</dt>
+<dd>Returns a default traversal</dd>
+
+    </dl>
 
 
 
         
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_GRAPH_DIRECTION_ANY">
+        GRAPH_DIRECTION_ANY
+        <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#constant_GRAPH_DIRECTION_ANY" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Traversal/Traversal.php"><a href="files/src-graph-traversal-traversal.html"><abbr title="src/Graph/Traversal/Traversal.php">Traversal.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
+
+            <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#source-view.44" class="phpdocumentor-element-found-in__source" data-line="44" data-modal="source-view" data-src="files/src/Graph/Traversal/Traversal.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Any graph direction.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">GRAPH_DIRECTION_ANY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;ANY&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_GRAPH_DIRECTION_INBOUND">
+        GRAPH_DIRECTION_INBOUND
+        <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#constant_GRAPH_DIRECTION_INBOUND" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Traversal/Traversal.php"><a href="files/src-graph-traversal-traversal.html"><abbr title="src/Graph/Traversal/Traversal.php">Traversal.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">30</span>
+
+            <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#source-view.30" class="phpdocumentor-element-found-in__source" data-line="30" data-modal="source-view" data-src="files/src/Graph/Traversal/Traversal.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Inbound graph direction.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">GRAPH_DIRECTION_INBOUND</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;INBOUND&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_GRAPH_DIRECTION_OUTBOUND">
+        GRAPH_DIRECTION_OUTBOUND
+        <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#constant_GRAPH_DIRECTION_OUTBOUND" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Traversal/Traversal.php"><a href="files/src-graph-traversal-traversal.html"><abbr title="src/Graph/Traversal/Traversal.php">Traversal.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">37</span>
+
+            <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#source-view.37" class="phpdocumentor-element-found-in__source" data-line="37" data-modal="source-view" data-src="files/src/Graph/Traversal/Traversal.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Outbound graph direction.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">GRAPH_DIRECTION_OUTBOUND</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;OUTBOUND&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+            </section>
 
         
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
-        
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_connection">
+        $connection
+        <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#property_connection" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Traversal/Traversal.php"><a href="files/src-graph-traversal-traversal.html"><abbr title="src/Graph/Traversal/Traversal.php">Traversal.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">58</span>
+
+            <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#source-view.58" class="phpdocumentor-element-found-in__source" data-line="58" data-modal="source-view" data-src="files/src/Graph/Traversal/Traversal.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Connection to use to manage database</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/ArangoDB-Connection-Connection.html"><abbr title="\ArangoDB\Connection\Connection">Connection</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$connection</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_cursor">
+        $cursor
+        <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#property_cursor" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Traversal/Traversal.php"><a href="files/src-graph-traversal-traversal.html"><abbr title="src/Graph/Traversal/Traversal.php">Traversal.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">65</span>
+
+            <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#source-view.65" class="phpdocumentor-element-found-in__source" data-line="65" data-modal="source-view" data-src="files/src/Graph/Traversal/Traversal.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Cursor object</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/ArangoDB-Cursor-Cursor.html"><abbr title="\ArangoDB\Cursor\Cursor">Cursor</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$cursor</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_statement">
+        $statement
+        <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#property_statement" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Traversal/Traversal.php"><a href="files/src-graph-traversal-traversal.html"><abbr title="src/Graph/Traversal/Traversal.php">Traversal.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">51</span>
+
+            <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#source-view.51" class="phpdocumentor-element-found-in__source" data-line="51" data-modal="source-view" data-src="files/src/Graph/Traversal/Traversal.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">The traversal query</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/ArangoDB-AQL-Statement.html"><abbr title="\ArangoDB\AQL\Statement">Statement</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$statement</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+            </section>
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___construct">
+        __construct()
+        <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Traversal/Traversal.php"><a href="files/src-graph-traversal-traversal.html"><abbr title="src/Graph/Traversal/Traversal.php">Traversal.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">75</span>
+
+            <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#source-view.75" class="phpdocumentor-element-found-in__source" data-line="75" data-modal="source-view" data-src="files/src/Graph/Traversal/Traversal.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Traversal constructor.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-AQL-Statement.html"><abbr title="\ArangoDB\AQL\Statement">Statement</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$statement</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Connection-Connection.html"><abbr title="\ArangoDB\Connection\Connection">Connection</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$connection</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$statement</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-AQL-Statement.html"><abbr title="\ArangoDB\AQL\Statement">Statement</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>AQL Statement for traversal.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$connection</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Connection-Connection.html"><abbr title="\ArangoDB\Connection\Connection">Connection</abbr></a>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The connection object to use.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#method___construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Cursor-Exceptions-CursorException.html"><abbr title="\ArangoDB\Cursor\Exceptions\CursorException">CursorException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_toAql">
+        toAql()
+        <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#method_toAql" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Traversal/Traversal.php"><a href="files/src-graph-traversal-traversal.html"><abbr title="src/Graph/Traversal/Traversal.php">Traversal.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">92</span>
+
+            <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#source-view.92" class="phpdocumentor-element-found-in__source" data-line="92" data-modal="source-view" data-src="files/src/Graph/Traversal/Traversal.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the query,</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">toAql</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#method_toAql#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-AQL-Exceptions-StatementException.html"><abbr title="\ArangoDB\AQL\Exceptions\StatementException">StatementException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_traversalQuery">
+        traversalQuery()
+        <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#method_traversalQuery" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Graph/Traversal/Traversal.php"><a href="files/src-graph-traversal-traversal.html"><abbr title="src/Graph/Traversal/Traversal.php">Traversal.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">109</span>
+
+            <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#source-view.109" class="phpdocumentor-element-found-in__source" data-line="109" data-modal="source-view" data-src="files/src/Graph/Traversal/Traversal.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a default traversal</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">traversalQuery</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Document-Vertex.html"><abbr title="\ArangoDB\Document\Vertex">Vertex</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$vertex</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$graph</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$direction</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::GRAPH_DIRECTION_ANY</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$depth</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Graph-Traversal-Traversal.html"><abbr title="\ArangoDB\Graph\Traversal\Traversal">Traversal</abbr></a></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$vertex</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Document-Vertex.html"><abbr title="\ArangoDB\Document\Vertex">Vertex</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Vertex to start graph traversal.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$graph</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The graph to traverse.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$direction</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">self::GRAPH_DIRECTION_ANY</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Direction for traversal.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$depth</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">0</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Visits only nodes in at least the given depth.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Graph-Traversal-Traversal.html#method_traversalQuery#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Cursor-Exceptions-CursorException.html"><abbr title="\ArangoDB\Cursor\Exceptions\CursorException">CursorException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Exceptions-Exception.html"><abbr title="\ArangoDB\Exceptions\Exception">Exception</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Graph-Traversal-Traversal.html"><abbr title="\ArangoDB\Graph\Traversal\Traversal">Traversal</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Traversal object.</p>
+</section>
+
+            </section>
+
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
@@ -422,10 +971,37 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                            </ul>
+                                        <li><a href="classes/ArangoDB-Graph-Traversal-Traversal.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/ArangoDB-Graph-Traversal-Traversal.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/ArangoDB-Graph-Traversal-Traversal.html#toc-methods">Methods</a></li>
+                                    </ul>
             </li>
+                            <li class="phpdocumentor-on-this-page-section__title">Constants</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/ArangoDB-Graph-Traversal-Traversal.html#constant_GRAPH_DIRECTION_ANY">GRAPH_DIRECTION_ANY</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Graph-Traversal-Traversal.html#constant_GRAPH_DIRECTION_INBOUND">GRAPH_DIRECTION_INBOUND</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Graph-Traversal-Traversal.html#constant_GRAPH_DIRECTION_OUTBOUND">GRAPH_DIRECTION_OUTBOUND</a></li>
+                                            </ul>
+                </li>
             
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/ArangoDB-Graph-Traversal-Traversal.html#property_connection">$connection</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Graph-Traversal-Traversal.html#property_cursor">$cursor</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Graph-Traversal-Traversal.html#property_statement">$statement</a></li>
+                                            </ul>
+                </li>
             
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/ArangoDB-Graph-Traversal-Traversal.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Graph-Traversal-Traversal.html#method_toAql">toAql()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Graph-Traversal-Traversal.html#method_traversalQuery">traversalQuery()</a></li>
+                                    </ul>
+            </li>
                     </ul>
     </section>
 

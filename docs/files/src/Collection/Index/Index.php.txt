@@ -98,15 +98,14 @@ class Index implements IndexInterface
         }
 
         $fieldNames = [];
-
         foreach ($fields as $key => $field) {
             if (is_string($field)) {
-                array_push($fieldNames, $field);
+                $fieldNames[] = $field;
                 continue;
             }
 
             if (is_array($field)) {
-                array_push($fieldNames, $field['name']);
+                $fieldNames[] = $field['name'];
                 continue;
             }
 
@@ -114,7 +113,7 @@ class Index implements IndexInterface
         }
 
         $this->type = $type;
-        $this->fields = $fields;
+        $this->fields = $fieldNames;
 
         // Default values;
         $this->id = $attributes['id'] ?? '';

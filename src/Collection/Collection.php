@@ -4,26 +4,23 @@ declare(strict_types=1);
 
 namespace ArangoDB\Collection;
 
+use JsonSerializable;
 use ArangoDB\Http\Api;
 use ArangoDB\Document\Edge;
 use ArangoDB\Document\Vertex;
 use ArangoDB\Document\Document;
 use ArangoDB\Database\Database;
+use ArangoDB\Exceptions\Exception;
 use ArangoDB\Connection\Connection;
 use ArangoDB\Cursor\CollectionCursor;
-use ArangoDB\Collection\Index\Factory;
-use ArangoDB\DataStructures\ArrayList;
-use ArangoDB\Exceptions\IndexException;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use ArangoDB\Cursor\Contracts\CursorInterface;
 use ArangoDB\Cursor\Exceptions\CursorException;
-use ArangoDB\Collection\Contracts\IndexInterface;
 use ArangoDB\Exceptions\Database\DatabaseException;
 use ArangoDB\Validation\Collection\CollectionValidator;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 use ArangoDB\Validation\Exceptions\MissingParameterException;
-use JsonSerializable;
 
 /**
  * Represents an ArangoDB collection
@@ -33,23 +30,33 @@ use JsonSerializable;
  */
 class Collection implements JsonSerializable
 {
+    use IndexableTrait;
+
     /**
      * Attributes of collection
+     *
+     * @var array
      */
     protected array $attributes;
 
     /**
      * If the collection is a new one or a representation of an existing collection on server
+     *
+     * @var bool
      */
     protected bool $isNew;
 
     /**
      * Database object
+     *
+     * @var Database
      */
     protected Database $database;
 
     /**
      * Connection object
+     *
+     * @var Connection
      */
     protected Connection $connection;
 
@@ -82,6 +89,8 @@ class Collection implements JsonSerializable
 
     /**
      * Status descriptions
+     *
+     * @var array
      */
     protected array $statusStrings = [
         0 => 'unknown',
@@ -190,13 +199,13 @@ class Collection implements JsonSerializable
     }
 
     /**
-     * Set a attribute
+     * Set an attribute
      *
      * @param string $name
      * @param mixed $value
-     * @throws \Exception
+     * @throws Exception
      */
-    public function __set(string $name, $value)
+    public function __set(string $name, mixed $value)
     {
         // Allow defaults attributes to be set.
         if (array_key_exists($name, $this->attributes)) {
@@ -204,7 +213,7 @@ class Collection implements JsonSerializable
             return;
         }
 
-        throw new \Exception("Non-default collection property with name: ($name)");
+        throw new Exception("Non-default collection property with name: ($name)");
     }
 
     /**
@@ -384,34 +393,6 @@ class Collection implements JsonSerializable
     }
 
     /**
-     * Return all indexes of collection
-     *
-     * @return ArrayList
-     * @throws DatabaseException|GuzzleException|InvalidParameterException|IndexException|MissingParameterException
-     */
-    public function getIndexes(): ArrayList
-    {
-        try {
-            if ($this->isNew()) {
-                return new ArrayList();
-            }
-
-            $uri = Api::addQuery(Api::INDEX, ['collection' => $this->getName()]);
-            $response = $this->connection->get($uri);
-            $data = json_decode((string)$response->getBody(), true);
-            $indexes = new ArrayList();
-            foreach ($data['indexes'] as $index) {
-                $indexes->push(Factory::factory($index));
-            }
-
-            return $indexes;
-        } catch (ClientException $exception) {
-            $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-        }
-    }
-
-    /**
      * Return the revision of collection
      *
      * @return string
@@ -432,65 +413,6 @@ class Collection implements JsonSerializable
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
             throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-        }
-    }
-
-    /**
-     * Create a index for collection
-     * @param IndexInterface $index
-     *
-     * @return bool
-     * @throws DatabaseException|GuzzleException
-     */
-    public function addIndex(IndexInterface $index): bool
-    {
-        try {
-            // If the collection is a new one,
-            // we cannot add indexes on server.
-            if ($this->isNew()) {
-                return false;
-            }
-
-            $uri = Api::addQuery(Api::INDEX, ['collection' => $this->getName()]);
-            $response = $this->connection->post($uri, $index->getCreateData());
-
-            json_decode((string)$response->getBody(), true);
-            return true;
-        } catch (ClientException $exception) {
-            $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            throw new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-        }
-    }
-
-    /**
-     * Drops a index of collection
-     * @param IndexInterface $index
-     *
-     * @return bool
-     * @throws DatabaseException|GuzzleException
-     */
-    public function dropIndex(IndexInterface $index): bool
-    {
-        try {
-            // If the collection is a new one, or the index,
-            // we cannot drop it on server.
-            if ($this->isNew() || $index->isNew()) {
-                return false;
-            }
-
-            $uri = Api::addUriParam(Api::INDEX, $index->getId());
-            $response = $this->connection->delete($uri);
-            $data = json_decode((string)$response->getBody(), true);
-            return !$data['error'];
-        } catch (ClientException $exception) {
-            $response = json_decode((string)$exception->getResponse()->getBody(), true);
-            $databaseException = new DatabaseException($response['errorMessage'], $exception, $response['errorNum']);
-
-            if ($exception->getResponse()->getStatusCode() === 404) {
-                return false;
-            }
-
-            throw $databaseException;
         }
     }
 
@@ -587,9 +509,7 @@ class Collection implements JsonSerializable
             $response = $this->connection->get(sprintf("%s/%s", $uri, $handle));
             $data = json_decode((string)$response->getBody(), true);
             $document = $this->isGraph() ? new Edge($data, $this) : new Document($data, $this);
-            $document = $isVertex ? new Vertex($data, $this) : $document;
-
-            return $document;
+            return $isVertex ? new Vertex($data, $this) : $document;
         } catch (ClientException $exception) {
             $response = json_decode((string)$exception->getResponse()->getBody(), true);
 
@@ -665,7 +585,7 @@ class Collection implements JsonSerializable
     }
 
     /**
-     * @see \JsonSerializable::jsonSerialize()
+     * @see JsonSerializable::jsonSerialize
      */
     public function jsonSerialize(): mixed
     {

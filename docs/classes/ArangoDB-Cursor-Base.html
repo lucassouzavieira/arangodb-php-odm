@@ -316,17 +316,1283 @@
 
 
 
+<h4 id="toc-constants">
+    Constants
+    <a href="classes/ArangoDB-Cursor-Base.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#constant_BASE_URL">BASE_URL</a>
+    <span>
+        &nbsp;= &#039;baseurl&#039;                            </span>
+</dt>
+<dd>Cursor baseUrl entry</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#constant_CACHE">CACHE</a>
+    <span>
+        &nbsp;= &#039;cache&#039;                            </span>
+</dt>
+<dd>Cursor cache entry</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#constant_CACHED">CACHED</a>
+    <span>
+        &nbsp;= &#039;cached&#039;                            </span>
+</dt>
+<dd>Cursor cached entry</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#constant_COUNT">COUNT</a>
+    <span>
+        &nbsp;= &#039;count&#039;                            </span>
+</dt>
+<dd>Cursor count entry</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#constant_EXTRA">EXTRA</a>
+    <span>
+        &nbsp;= &#039;extra&#039;                            </span>
+</dt>
+<dd>Cursor extra entry</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#constant_FULL_COUNT">FULL_COUNT</a>
+    <span>
+        &nbsp;= &#039;fullCount&#039;                            </span>
+</dt>
+<dd>Cursor fullCount entry</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#constant_HAS_MORE">HAS_MORE</a>
+    <span>
+        &nbsp;= &#039;hasMore&#039;                            </span>
+</dt>
+<dd>&#039;hasMore&#039; flag</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#constant_ID">ID</a>
+    <span>
+        &nbsp;= &#039;id&#039;                            </span>
+</dt>
+<dd>Cursor ID entry</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#constant_RESULT">RESULT</a>
+    <span>
+        &nbsp;= &#039;result&#039;                            </span>
+</dt>
+<dd>Cursor result entry</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#constant_SANITIZE">SANITIZE</a>
+    <span>
+        &nbsp;= &#039;_sanitize&#039;                            </span>
+</dt>
+<dd>Cursor sanitize option</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#constant_STATS">STATS</a>
+    <span>
+        &nbsp;= &#039;stats&#039;                            </span>
+</dt>
+<dd>Cursor stats entry</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#constant_TYPE">TYPE</a>
+    <span>
+        &nbsp;= &#039;objectType&#039;                            </span>
+</dt>
+<dd>Cursor type entry</dd>
+
+    </dl>
 
 
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/ArangoDB-Cursor-Base.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#property_cached">$cached</a>
+    <span>
+                        &nbsp;: bool            </span>
+</dt>
+<dd>If the result query was served from cached results</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#property_connection">$connection</a>
+    <span>
+                        &nbsp;: <a href="classes/ArangoDB-Connection-Connection.html"><abbr title="\ArangoDB\Connection\Connection">Connection</abbr></a>            </span>
+</dt>
+<dd>Connection object</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#property_count">$count</a>
+    <span>
+                        &nbsp;: int            </span>
+</dt>
+<dd>Number of documents in cursor,</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#property_data">$data</a>
+    <span>
+                        &nbsp;: <a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>            </span>
+</dt>
+<dd>Result data</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#property_extra">$extra</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+</dt>
+<dd>Extra data (stats)</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#property_fetches">$fetches</a>
+    <span>
+                        &nbsp;: int            </span>
+</dt>
+<dd>Number of HTTP calls made to build the cursor</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#property_fullCount">$fullCount</a>
+    <span>
+                        &nbsp;: int            </span>
+</dt>
+<dd>Full cont of the result set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#property_hasMore">$hasMore</a>
+    <span>
+                        &nbsp;: bool            </span>
+</dt>
+<dd>&#039;hasMore&#039; indicator</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#property_id">$id</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+<dd>Cursor id</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#property_length">$length</a>
+    <span>
+                        &nbsp;: int            </span>
+</dt>
+<dd>Total length of current set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#property_options">$options</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+</dt>
+<dd>Cursor Options</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#property_position">$position</a>
+    <span>
+                        &nbsp;: int            </span>
+</dt>
+<dd>Current position</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#property_result">$result</a>
+    <span>
+                        &nbsp;: <a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>            </span>
+</dt>
+<dd>Result set</dd>
+
+    </dl>
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/ArangoDB-Cursor-Base.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#method_getId">getId()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Returns the cursor ID</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#method_isCached">isCached()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Return if the Cursor has cached results on server</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/ArangoDB-Cursor-Base.html#method_fetch">fetch()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Fetch more results from the server</dd>
+
+    </dl>
 
 
 
         
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/ArangoDB-Cursor-Base.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_BASE_URL">
+        BASE_URL
+        <a href="classes/ArangoDB-Cursor-Base.html#constant_BASE_URL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">163</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.163" class="phpdocumentor-element-found-in__source" data-line="163" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Cursor baseUrl entry</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">BASE_URL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;baseurl&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_CACHE">
+        CACHE
+        <a href="classes/ArangoDB-Cursor-Base.html#constant_CACHE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">148</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.148" class="phpdocumentor-element-found-in__source" data-line="148" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Cursor cache entry</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CACHE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;cache&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_CACHED">
+        CACHED
+        <a href="classes/ArangoDB-Cursor-Base.html#constant_CACHED" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">153</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.153" class="phpdocumentor-element-found-in__source" data-line="153" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Cursor cached entry</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CACHED</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;cached&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_COUNT">
+        COUNT
+        <a href="classes/ArangoDB-Cursor-Base.html#constant_COUNT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">138</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.138" class="phpdocumentor-element-found-in__source" data-line="138" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Cursor count entry</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COUNT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;count&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_EXTRA">
+        EXTRA
+        <a href="classes/ArangoDB-Cursor-Base.html#constant_EXTRA" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">128</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.128" class="phpdocumentor-element-found-in__source" data-line="128" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Cursor extra entry</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">EXTRA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;extra&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_FULL_COUNT">
+        FULL_COUNT
+        <a href="classes/ArangoDB-Cursor-Base.html#constant_FULL_COUNT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">143</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.143" class="phpdocumentor-element-found-in__source" data-line="143" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Cursor fullCount entry</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FULL_COUNT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;fullCount&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_HAS_MORE">
+        HAS_MORE
+        <a href="classes/ArangoDB-Cursor-Base.html#constant_HAS_MORE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">118</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.118" class="phpdocumentor-element-found-in__source" data-line="118" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">&#039;hasMore&#039; flag</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">HAS_MORE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;hasMore&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_ID">
+        ID
+        <a href="classes/ArangoDB-Cursor-Base.html#constant_ID" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">113</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.113" class="phpdocumentor-element-found-in__source" data-line="113" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Cursor ID entry</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ID</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;id&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_RESULT">
+        RESULT
+        <a href="classes/ArangoDB-Cursor-Base.html#constant_RESULT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">123</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.123" class="phpdocumentor-element-found-in__source" data-line="123" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Cursor result entry</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">RESULT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;result&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_SANITIZE">
+        SANITIZE
+        <a href="classes/ArangoDB-Cursor-Base.html#constant_SANITIZE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">168</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.168" class="phpdocumentor-element-found-in__source" data-line="168" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Cursor sanitize option</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SANITIZE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;_sanitize&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_STATS">
+        STATS
+        <a href="classes/ArangoDB-Cursor-Base.html#constant_STATS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">133</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.133" class="phpdocumentor-element-found-in__source" data-line="133" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Cursor stats entry</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">STATS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;stats&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_TYPE">
+        TYPE
+        <a href="classes/ArangoDB-Cursor-Base.html#constant_TYPE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">158</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.158" class="phpdocumentor-element-found-in__source" data-line="158" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Cursor type entry</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TYPE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;objectType&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+            </section>
 
         
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/ArangoDB-Cursor-Base.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
-        
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_cached">
+        $cached
+        <a href="classes/ArangoDB-Cursor-Base.html#property_cached" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">101</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.101" class="phpdocumentor-element-found-in__source" data-line="101" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">If the result query was served from cached results</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$cached</span>
+     = <span class="phpdocumentor-signature__default-value">false</span></code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_connection">
+        $connection
+        <a href="classes/ArangoDB-Cursor-Base.html#property_connection" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">38</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.38" class="phpdocumentor-element-found-in__source" data-line="38" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Connection object</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/ArangoDB-Connection-Connection.html"><abbr title="\ArangoDB\Connection\Connection">Connection</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$connection</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_count">
+        $count
+        <a href="classes/ArangoDB-Cursor-Base.html#property_count" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">108</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.108" class="phpdocumentor-element-found-in__source" data-line="108" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Number of documents in cursor,</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">$count</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_data">
+        $data
+        <a href="classes/ArangoDB-Cursor-Base.html#property_data" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">31</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.31" class="phpdocumentor-element-found-in__source" data-line="31" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Result data</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$data</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_extra">
+        $extra
+        <a href="classes/ArangoDB-Cursor-Base.html#property_extra" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">87</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.87" class="phpdocumentor-element-found-in__source" data-line="87" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Extra data (stats)</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$extra</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_fetches">
+        $fetches
+        <a href="classes/ArangoDB-Cursor-Base.html#property_fetches" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">94</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.94" class="phpdocumentor-element-found-in__source" data-line="94" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Number of HTTP calls made to build the cursor</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">$fetches</span>
+     = <span class="phpdocumentor-signature__default-value">0</span></code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_fullCount">
+        $fullCount
+        <a href="classes/ArangoDB-Cursor-Base.html#property_fullCount" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">80</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.80" class="phpdocumentor-element-found-in__source" data-line="80" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Full cont of the result set</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">$fullCount</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_hasMore">
+        $hasMore
+        <a href="classes/ArangoDB-Cursor-Base.html#property_hasMore" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">59</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.59" class="phpdocumentor-element-found-in__source" data-line="59" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">&#039;hasMore&#039; indicator</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$hasMore</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_id">
+        $id
+        <a href="classes/ArangoDB-Cursor-Base.html#property_id" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">24</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.24" class="phpdocumentor-element-found-in__source" data-line="24" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Cursor id</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$id</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_length">
+        $length
+        <a href="classes/ArangoDB-Cursor-Base.html#property_length" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">73</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.73" class="phpdocumentor-element-found-in__source" data-line="73" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Total length of current set</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">$length</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_options">
+        $options
+        <a href="classes/ArangoDB-Cursor-Base.html#property_options" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">45</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.45" class="phpdocumentor-element-found-in__source" data-line="45" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Cursor Options</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$options</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_position">
+        $position
+        <a href="classes/ArangoDB-Cursor-Base.html#property_position" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">66</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.66" class="phpdocumentor-element-found-in__source" data-line="66" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Current position</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">$position</span>
+     = <span class="phpdocumentor-signature__default-value">0</span></code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_result">
+        $result
+        <a href="classes/ArangoDB-Cursor-Base.html#property_result" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">52</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.52" class="phpdocumentor-element-found-in__source" data-line="52" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Result set</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$result</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+            </section>
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/ArangoDB-Cursor-Base.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getId">
+        getId()
+        <a href="classes/ArangoDB-Cursor-Base.html#method_getId" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">185</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.185" class="phpdocumentor-element-found-in__source" data-line="185" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the cursor ID</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getId</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isCached">
+        isCached()
+        <a href="classes/ArangoDB-Cursor-Base.html#method_isCached" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">175</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.175" class="phpdocumentor-element-found-in__source" data-line="175" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return if the Cursor has cached results on server</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isCached</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_fetch">
+        fetch()
+        <a href="classes/ArangoDB-Cursor-Base.html#method_fetch" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Cursor/Base.php"><a href="files/src-cursor-base.html"><abbr title="src/Cursor/Base.php">Base.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">195</span>
+
+            <a href="classes/ArangoDB-Cursor-Base.html#source-view.195" class="phpdocumentor-element-found-in__source" data-line="195" data-modal="source-view" data-src="files/src/Cursor/Base.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Fetch more results from the server</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">fetch</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+    
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
@@ -432,10 +1698,56 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                            </ul>
+                                        <li><a href="classes/ArangoDB-Cursor-Base.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/ArangoDB-Cursor-Base.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/ArangoDB-Cursor-Base.html#toc-methods">Methods</a></li>
+                                    </ul>
             </li>
+                            <li class="phpdocumentor-on-this-page-section__title">Constants</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#constant_BASE_URL">BASE_URL</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#constant_CACHE">CACHE</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#constant_CACHED">CACHED</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#constant_COUNT">COUNT</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#constant_EXTRA">EXTRA</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#constant_FULL_COUNT">FULL_COUNT</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#constant_HAS_MORE">HAS_MORE</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#constant_ID">ID</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#constant_RESULT">RESULT</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#constant_SANITIZE">SANITIZE</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#constant_STATS">STATS</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#constant_TYPE">TYPE</a></li>
+                                            </ul>
+                </li>
             
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#property_cached">$cached</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#property_connection">$connection</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#property_count">$count</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#property_data">$data</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#property_extra">$extra</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#property_fetches">$fetches</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#property_fullCount">$fullCount</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#property_hasMore">$hasMore</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#property_id">$id</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#property_length">$length</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#property_options">$options</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#property_position">$position</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Cursor-Base.html#property_result">$result</a></li>
+                                            </ul>
+                </li>
             
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/ArangoDB-Cursor-Base.html#method_getId">getId()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Cursor-Base.html#method_isCached">isCached()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Cursor-Base.html#method_fetch">fetch()</a></li>
+                                    </ul>
+            </li>
                     </ul>
     </section>
 
