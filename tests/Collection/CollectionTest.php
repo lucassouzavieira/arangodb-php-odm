@@ -2,7 +2,6 @@
 
 namespace Unit\Collection;
 
-use ArangoDB\Admin\Server;
 use ArangoDB\Collection\KeyType;
 use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
