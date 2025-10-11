@@ -11,6 +11,7 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
  *
  * @package ArangoDB\Collection\Index
  * @author Lucas S. Vieira
+ * @deprecated
  */
 final class FullTextIndex extends Index
 {
@@ -19,7 +20,7 @@ final class FullTextIndex extends Index
      *
      * @var int
      */
-    protected $minLength;
+    protected int $minLength;
 
     /**
      * FullTextIndex constructor.
@@ -66,7 +67,7 @@ final class FullTextIndex extends Index
     }
 
     /**
-     * Returns a array representation of index
+     * Returns an array representation of index
      *
      * @return array
      */

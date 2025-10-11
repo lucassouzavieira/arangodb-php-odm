@@ -15,11 +15,11 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 final class TTLIndex extends Index
 {
     /**
-     * Time (in seconds) after a document's creation after which the documents counts as expired
+     * Time (in seconds) after a document's creation after which the documents count as expired
      *
      * @var int
      */
-    protected $expiresAfter;
+    protected int $expiresAfter;
 
     /**
      * TTLIndex constructor.
@@ -61,7 +61,7 @@ final class TTLIndex extends Index
     }
 
     /**
-     * Returns a array representation of index
+     * Returns an array representation of index
      *
      * @return array
      */

@@ -28,7 +28,7 @@ class PrimaryIndex extends Index
     }
 
     /**
-     * This type of Index cannot be create/deleted explicitly by user.
+     * This type of Index cannot be created/deleted explicitly by user.
      * Throws an exception if an attempt of create one is made
      *
      * @return array

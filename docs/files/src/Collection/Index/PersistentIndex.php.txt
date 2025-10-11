@@ -19,7 +19,7 @@ final class PersistentIndex extends Index
      *
      * @var array
      */
-    protected $defaultsOptions = [
+    protected array $defaultsOptions = [
         'unique' => true,
         'sparse' => true,
     ];

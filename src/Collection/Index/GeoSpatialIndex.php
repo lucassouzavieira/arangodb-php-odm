@@ -7,7 +7,7 @@ namespace ArangoDB\Collection\Index;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
- * Represents a geo-spatial index on a collection
+ * Represents a geospatial index on a collection
  *
  * @package ArangoDB\Collection\Index
  * @author Lucas S. Vieira
@@ -15,14 +15,14 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 final class GeoSpatialIndex extends Index
 {
     /**
-     * If a geo-spatial index on a location is constructed
+     * If a geospatial index on a location is constructed
      * and geoJson is true, then the order within the array is longitude
      * followed by latitude.
      *
      * @link https://geojson.org/geojson-spec.html#positions
      * @var bool
      */
-    protected $geoJson;
+    protected bool $geoJson;
 
     /**
      * GeoSpatialIndex constructor.
@@ -64,7 +64,7 @@ final class GeoSpatialIndex extends Index
     }
 
     /**
-     * Returns a array representation of index
+     * Returns an array representation of index
      *
      * @return array
      */

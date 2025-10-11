@@ -17,7 +17,7 @@ interface IndexInterface extends \JsonSerializable
     /**
      * If the index is a new one
      *
-     * @return bool True for new one index. False for a existing index.
+     * @return bool True for new one index. False for an existing index.
      */
     public function isNew(): bool;
 
@@ -66,7 +66,7 @@ interface IndexInterface extends \JsonSerializable
     /**
      * Returns the collection where the index belongs to
      *
-     * @return Collection|null A collection object or null if the index was not set to an collection yet
+     * @return Collection|null A collection object or null if the index was not set to a collection yet
      */
     public function getCollection();
 }
