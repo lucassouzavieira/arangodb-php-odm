@@ -33,14 +33,5 @@
                 <marker>FIXME</marker>
             </markers>
         </api>
-        <!--Zero or more repetitions:-->
-        <guide format="rst">
-            <source dsn=".">
-                <!--1 or more repetitions:-->
-                <path>support/docs</path>
-            </source>
-            <!--Optional:-->
-            <output>docs</output>
-        </guide>
     </version>
 </phpdocumentor>
