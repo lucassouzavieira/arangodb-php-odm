@@ -2,6 +2,7 @@
 
 namespace Unit\Collection\GeneralIndex;
 
+use ArangoDB\Collection\Index\InvertedIndex;
 use Unit\TestCase;
 use ArangoDB\Collection\Index\Index;
 use ArangoDB\Collection\Index\Factory;
@@ -161,6 +162,21 @@ class FactoryTest extends TestCase
         ];
     }
 
+    public function mockInvertedArray(): array
+    {
+        return [
+            'fields' => [
+                'my_field',
+            ],
+            'id' => 'coll/0',
+            'name' => 'inverted_idx',
+            'sparse' => true,
+            'unique' => false,
+            'type' => 'inverted',
+            'selectivityEstimate' => 0.015
+        ];
+    }
+
     public function testFactoryMakesPrimaryIndex()
     {
         $index = Factory::factory($this->mockPrimaryArray());
@@ -207,6 +223,12 @@ class FactoryTest extends TestCase
     {
         $index = Factory::factory($this->mockTTLArray());
         $this->assertInstanceOf(TTLIndex::class, $index);
+    }
+
+    public function testFactoryMakesInvertedIndex()
+    {
+        $index = Factory::factory($this->mockInvertedArray());
+        $this->assertInstanceOf(InvertedIndex::class, $index);
     }
 
     public function testFactoryMakesGenericIndex()

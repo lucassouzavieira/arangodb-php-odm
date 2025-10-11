@@ -38,6 +38,7 @@ final class Factory
             'geo' => GeoSpatialIndex::class,
             'skiplist' => SkipListIndex::class,
             'ttl' => TTLIndex::class,
+            'inverted' => InvertedIndex::class
         ];
 
         if (!array_key_exists($attributes['type'], $indexes)) {
