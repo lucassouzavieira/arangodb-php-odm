@@ -5,11 +5,11 @@ namespace ArangoDB\Collection\Index;
 use ArangoDB\Validation\Exceptions\InvalidParameterException;
 
 /**
-* Inverted index representation
-*
-* @package ArangoDB\Collection\Index
-* @author Lucas S. Vieira
-*/
+ * Inverted index representation
+ *
+ * @package ArangoDB\Collection\Index
+ * @author Lucas S. Vieira
+ */
 final class InvertedIndex extends Index
 {
     /**
@@ -35,6 +35,7 @@ final class InvertedIndex extends Index
      */
     public function __construct(array $fields, array $attributes = [])
     {
+        $attributes = array_merge($this->defaultOptions, $attributes);
         parent::__construct('inverted', $fields, $attributes);
     }
 }

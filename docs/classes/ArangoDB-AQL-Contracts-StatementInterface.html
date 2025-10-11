@@ -299,13 +299,328 @@
 
 
 
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method___toString">__toString()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Get the string representation of query</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method_bindValue">bindValue()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Binds a value to specified parameter name.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method_getBindVars">getBindVars()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Get the bind vars</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method_getQuery">getQuery()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns the query string</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method_hasAliases">hasAliases()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>If the query has some alias (e.g: &quot;@myparam&quot; )
+on it to receive a value after through binding</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method_toAql">toAql()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>&#039;Resolves&#039; the query, returning the string after bind all params and values</dd>
+
+    </dl>
 
 
 
 
         
 
-        
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___toString">
+        __toString()
+        <a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method___toString" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Contracts/StatementInterface.php"><a href="files/src-aql-contracts-statementinterface.html"><abbr title="src/AQL/Contracts/StatementInterface.php">StatementInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">20</span>
+
+            <a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#source-view.20" class="phpdocumentor-element-found-in__source" data-line="20" data-modal="source-view" data-src="files/src/AQL/Contracts/StatementInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the string representation of query</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_bindValue">
+        bindValue()
+        <a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method_bindValue" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Contracts/StatementInterface.php"><a href="files/src-aql-contracts-statementinterface.html"><abbr title="src/AQL/Contracts/StatementInterface.php">StatementInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">30</span>
+
+            <a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#source-view.30" class="phpdocumentor-element-found-in__source" data-line="30" data-modal="source-view" data-src="files/src/AQL/Contracts/StatementInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Binds a value to specified parameter name.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">bindValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameter</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$parameter</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getBindVars">
+        getBindVars()
+        <a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method_getBindVars" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Contracts/StatementInterface.php"><a href="files/src-aql-contracts-statementinterface.html"><abbr title="src/AQL/Contracts/StatementInterface.php">StatementInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">52</span>
+
+            <a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#source-view.52" class="phpdocumentor-element-found-in__source" data-line="52" data-modal="source-view" data-src="files/src/AQL/Contracts/StatementInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the bind vars</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getBindVars</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getQuery">
+        getQuery()
+        <a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method_getQuery" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Contracts/StatementInterface.php"><a href="files/src-aql-contracts-statementinterface.html"><abbr title="src/AQL/Contracts/StatementInterface.php">StatementInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">45</span>
+
+            <a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#source-view.45" class="phpdocumentor-element-found-in__source" data-line="45" data-modal="source-view" data-src="files/src/AQL/Contracts/StatementInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the query string</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getQuery</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hasAliases">
+        hasAliases()
+        <a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method_hasAliases" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Contracts/StatementInterface.php"><a href="files/src-aql-contracts-statementinterface.html"><abbr title="src/AQL/Contracts/StatementInterface.php">StatementInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">38</span>
+
+            <a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#source-view.38" class="phpdocumentor-element-found-in__source" data-line="38" data-modal="source-view" data-src="files/src/AQL/Contracts/StatementInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">If the query has some alias (e.g: &quot;@myparam&quot; )
+on it to receive a value after through binding</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasAliases</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_toAql">
+        toAql()
+        <a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method_toAql" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/AQL/Contracts/StatementInterface.php"><a href="files/src-aql-contracts-statementinterface.html"><abbr title="src/AQL/Contracts/StatementInterface.php">StatementInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">59</span>
+
+            <a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#source-view.59" class="phpdocumentor-element-found-in__source" data-line="59" data-modal="source-view" data-src="files/src/AQL/Contracts/StatementInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">&#039;Resolves&#039; the query, returning the string after bind all params and values</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">toAql</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
@@ -415,6 +730,17 @@
                     <li><a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#toc-methods">Methods</a></li>
                 </ul>
             </li>
+                            <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method___toString">__toString()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method_bindValue">bindValue()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method_getBindVars">getBindVars()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method_getQuery">getQuery()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method_hasAliases">hasAliases()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-AQL-Contracts-StatementInterface.html#method_toAql">toAql()</a></li>
+                                            </ul>
+                </li>
             
                     </ul>
     </section>

@@ -10,7 +10,6 @@
             <source dsn=".">
                 <path>src/</path>
             </source>
-            <output>api</output>
             <ignore hidden="true" symlinks="true">
                 <path>tests/*</path>
                 <path>docs/*</path>
@@ -20,8 +19,6 @@
                 <!--1 or more repetitions:-->
                 <extension>php</extension>
             </extensions>
-            <!--Optional:-->
-            <visibility>api</visibility>
             <!--Optional:-->
             <default-package-name>ArangoDB</default-package-name>
             <!--Optional:-->

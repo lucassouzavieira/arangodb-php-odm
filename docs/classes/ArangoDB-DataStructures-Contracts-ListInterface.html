@@ -303,13 +303,554 @@
 
 
 
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_append">append()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Appends a list to another.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_first">first()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Get the first value of list</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_get">get()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Get a value by its key</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_has">has()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Check if a given key exists on list</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_last">last()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Get the last value of list</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_push">push()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Add a value to list</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_put">put()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Put an object into list on given key</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_remove">remove()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Remove a value by its key on list</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_toArray">toArray()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Return an array representation for list</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_values">values()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Return an array with list values only</dd>
+
+    </dl>
 
 
 
 
         
 
-        
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_append">
+        append()
+        <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_append" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DataStructures/Contracts/ListInterface.php"><a href="files/src-datastructures-contracts-listinterface.html"><abbr title="src/DataStructures/Contracts/ListInterface.php">ListInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">86</span>
+
+            <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#source-view.86" class="phpdocumentor-element-found-in__source" data-line="86" data-modal="source-view" data-src="files/src/DataStructures/Contracts/ListInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Appends a list to another.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">append</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html"><abbr title="\ArangoDB\DataStructures\Contracts\ListInterface">ListInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$list</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$list</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html"><abbr title="\ArangoDB\DataStructures\Contracts\ListInterface">ListInterface</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>ListInterface object to append.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_first">
+        first()
+        <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_first" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DataStructures/Contracts/ListInterface.php"><a href="files/src-datastructures-contracts-listinterface.html"><abbr title="src/DataStructures/Contracts/ListInterface.php">ListInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">20</span>
+
+            <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#source-view.20" class="phpdocumentor-element-found-in__source" data-line="20" data-modal="source-view" data-src="files/src/DataStructures/Contracts/ListInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the first value of list</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">first</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_get">
+        get()
+        <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_get" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DataStructures/Contracts/ListInterface.php"><a href="files/src-datastructures-contracts-listinterface.html"><abbr title="src/DataStructures/Contracts/ListInterface.php">ListInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">35</span>
+
+            <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#source-view.35" class="phpdocumentor-element-found-in__source" data-line="35" data-modal="source-view" data-src="files/src/DataStructures/Contracts/ListInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get a value by its key</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>key to verify on list.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_has">
+        has()
+        <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_has" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DataStructures/Contracts/ListInterface.php"><a href="files/src-datastructures-contracts-listinterface.html"><abbr title="src/DataStructures/Contracts/ListInterface.php">ListInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">58</span>
+
+            <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#source-view.58" class="phpdocumentor-element-found-in__source" data-line="58" data-modal="source-view" data-src="files/src/DataStructures/Contracts/ListInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Check if a given key exists on list</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">has</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Key to verify on list.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if key exists, false otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_last">
+        last()
+        <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_last" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DataStructures/Contracts/ListInterface.php"><a href="files/src-datastructures-contracts-listinterface.html"><abbr title="src/DataStructures/Contracts/ListInterface.php">ListInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">27</span>
+
+            <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#source-view.27" class="phpdocumentor-element-found-in__source" data-line="27" data-modal="source-view" data-src="files/src/DataStructures/Contracts/ListInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the last value of list</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">last</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_push">
+        push()
+        <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_push" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DataStructures/Contracts/ListInterface.php"><a href="files/src-datastructures-contracts-listinterface.html"><abbr title="src/DataStructures/Contracts/ListInterface.php">ListInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">42</span>
+
+            <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#source-view.42" class="phpdocumentor-element-found-in__source" data-line="42" data-modal="source-view" data-src="files/src/DataStructures/Contracts/ListInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Add a value to list</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">push</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Value to add.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_put">
+        put()
+        <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_put" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DataStructures/Contracts/ListInterface.php"><a href="files/src-datastructures-contracts-listinterface.html"><abbr title="src/DataStructures/Contracts/ListInterface.php">ListInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">50</span>
+
+            <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#source-view.50" class="phpdocumentor-element-found-in__source" data-line="50" data-modal="source-view" data-src="files/src/DataStructures/Contracts/ListInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Put an object into list on given key</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">put</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>KeyType for manage the value.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Value to add.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_remove">
+        remove()
+        <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_remove" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DataStructures/Contracts/ListInterface.php"><a href="files/src-datastructures-contracts-listinterface.html"><abbr title="src/DataStructures/Contracts/ListInterface.php">ListInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">65</span>
+
+            <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#source-view.65" class="phpdocumentor-element-found-in__source" data-line="65" data-modal="source-view" data-src="files/src/DataStructures/Contracts/ListInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Remove a value by its key on list</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">remove</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>key to remove from list.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_toArray">
+        toArray()
+        <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_toArray" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DataStructures/Contracts/ListInterface.php"><a href="files/src-datastructures-contracts-listinterface.html"><abbr title="src/DataStructures/Contracts/ListInterface.php">ListInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">72</span>
+
+            <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#source-view.72" class="phpdocumentor-element-found-in__source" data-line="72" data-modal="source-view" data-src="files/src/DataStructures/Contracts/ListInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return an array representation for list</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">toArray</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_values">
+        values()
+        <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_values" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DataStructures/Contracts/ListInterface.php"><a href="files/src-datastructures-contracts-listinterface.html"><abbr title="src/DataStructures/Contracts/ListInterface.php">ListInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">79</span>
+
+            <a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#source-view.79" class="phpdocumentor-element-found-in__source" data-line="79" data-modal="source-view" data-src="files/src/DataStructures/Contracts/ListInterface.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return an array with list values only</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">values</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
@@ -419,6 +960,21 @@
                     <li><a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#toc-methods">Methods</a></li>
                 </ul>
             </li>
+                            <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_append">append()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_first">first()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_get">get()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_has">has()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_last">last()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_push">push()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_put">put()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_remove">remove()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_toArray">toArray()</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-DataStructures-Contracts-ListInterface.html#method_values">values()</a></li>
+                                            </ul>
+                </li>
             
                     </ul>
     </section>

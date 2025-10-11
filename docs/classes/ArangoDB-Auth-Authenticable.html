@@ -308,15 +308,457 @@
 
 
 
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/ArangoDB-Auth-Authenticable.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Auth-Authenticable.html#property_authToken">$authToken</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Auth-Authenticable.html#property_options">$options</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Auth-Authenticable.html#property_restClient">$restClient</a>
+    <span>
+                        &nbsp;: <a href="classes/ArangoDB-Http-RestClient.html"><abbr title="\ArangoDB\Http\RestClient">RestClient</abbr></a>            </span>
+</dt>
+
+    </dl>
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/ArangoDB-Auth-Authenticable.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Auth-Authenticable.html#method___construct">__construct()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Authenticable constructor.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/ArangoDB-Auth-Authenticable.html#method_authenticate">authenticate()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Authenticates a user on ArangoDB Server</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/ArangoDB-Auth-Authenticable.html#method_getAuthorizationHeader">getAuthorizationHeader()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Return the authorization header</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a class="" href="classes/ArangoDB-Auth-Authenticable.html#method_getAuthenticationEndpoint">getAuthenticationEndpoint()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Authentication endpoint for a given database</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a class="" href="classes/ArangoDB-Auth-Authenticable.html#method_getCredentials">getCredentials()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Return authentication credentials</dd>
+
+    </dl>
 
 
 
         
 
         
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/ArangoDB-Auth-Authenticable.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
-        
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_authToken">
+        $authToken
+        <a href="classes/ArangoDB-Auth-Authenticable.html#property_authToken" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Auth/Authenticable.php"><a href="files/src-auth-authenticable.html"><abbr title="src/Auth/Authenticable.php">Authenticable.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">33</span>
+
+            <a href="classes/ArangoDB-Auth-Authenticable.html#source-view.33" class="phpdocumentor-element-found-in__source" data-line="33" data-modal="source-view" data-src="files/src/Auth/Authenticable.php.txt"></a>
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$authToken</span>
+    </code>
+
+    
+        <section class="phpdocumentor-description"><p>JWT token</p>
+</section>
+
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_options">
+        $options
+        <a href="classes/ArangoDB-Auth-Authenticable.html#property_options" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Auth/Authenticable.php"><a href="files/src-auth-authenticable.html"><abbr title="src/Auth/Authenticable.php">Authenticable.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">28</span>
+
+            <a href="classes/ArangoDB-Auth-Authenticable.html#source-view.28" class="phpdocumentor-element-found-in__source" data-line="28" data-modal="source-view" data-src="files/src/Auth/Authenticable.php.txt"></a>
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$options</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_restClient">
+        $restClient
+        <a href="classes/ArangoDB-Auth-Authenticable.html#property_restClient" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Auth/Authenticable.php"><a href="files/src-auth-authenticable.html"><abbr title="src/Auth/Authenticable.php">Authenticable.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">38</span>
+
+            <a href="classes/ArangoDB-Auth-Authenticable.html#source-view.38" class="phpdocumentor-element-found-in__source" data-line="38" data-modal="source-view" data-src="files/src/Auth/Authenticable.php.txt"></a>
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/ArangoDB-Http-RestClient.html"><abbr title="\ArangoDB\Http\RestClient">RestClient</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$restClient</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+            </section>
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/ArangoDB-Auth-Authenticable.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___construct">
+        __construct()
+        <a href="classes/ArangoDB-Auth-Authenticable.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Auth/Authenticable.php"><a href="files/src-auth-authenticable.html"><abbr title="src/Auth/Authenticable.php">Authenticable.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">46</span>
+
+            <a href="classes/ArangoDB-Auth-Authenticable.html#source-view.46" class="phpdocumentor-element-found-in__source" data-line="46" data-modal="source-view" data-src="files/src/Auth/Authenticable.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Authenticable constructor.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$options</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Auth-Authenticable.html#method___construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Validation-Exceptions-InvalidParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Auth-Exceptions-AuthException.html"><abbr title="\ArangoDB\Auth\Exceptions\AuthException">AuthException</abbr></a>|<a href="classes/ArangoDB-Exceptions-ConnectionException.html"><abbr title="\ArangoDB\Exceptions\ConnectionException">ConnectionException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_authenticate">
+        authenticate()
+        <a href="classes/ArangoDB-Auth-Authenticable.html#method_authenticate" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Auth/Authenticable.php"><a href="files/src-auth-authenticable.html"><abbr title="src/Auth/Authenticable.php">Authenticable.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">59</span>
+
+            <a href="classes/ArangoDB-Auth-Authenticable.html#source-view.59" class="phpdocumentor-element-found-in__source" data-line="59" data-modal="source-view" data-src="files/src/Auth/Authenticable.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Authenticates a user on ArangoDB Server</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">authenticate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$credentials</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$credentials</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Auth-Authenticable.html#method_authenticate#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\GuzzleHttp\Exception\RequestException">RequestException</abbr>|<a href="classes/ArangoDB-Auth-Exceptions-AuthException.html"><abbr title="\ArangoDB\Auth\Exceptions\AuthException">AuthException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Exceptions-ConnectionException.html"><abbr title="\ArangoDB\Exceptions\ConnectionException">ConnectionException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getAuthorizationHeader">
+        getAuthorizationHeader()
+        <a href="classes/ArangoDB-Auth-Authenticable.html#method_getAuthorizationHeader" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Auth/Authenticable.php"><a href="files/src-auth-authenticable.html"><abbr title="src/Auth/Authenticable.php">Authenticable.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">77</span>
+
+            <a href="classes/ArangoDB-Auth-Authenticable.html#source-view.77" class="phpdocumentor-element-found-in__source" data-line="77" data-modal="source-view" data-src="files/src/Auth/Authenticable.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the authorization header</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">getAuthorizationHeader</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getAuthenticationEndpoint">
+        getAuthenticationEndpoint()
+        <a href="classes/ArangoDB-Auth-Authenticable.html#method_getAuthenticationEndpoint" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Auth/Authenticable.php"><a href="files/src-auth-authenticable.html"><abbr title="src/Auth/Authenticable.php">Authenticable.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">106</span>
+
+            <a href="classes/ArangoDB-Auth-Authenticable.html#source-view.106" class="phpdocumentor-element-found-in__source" data-line="106" data-modal="source-view" data-src="files/src/Auth/Authenticable.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Authentication endpoint for a given database</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">getAuthenticationEndpoint</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getCredentials">
+        getCredentials()
+        <a href="classes/ArangoDB-Auth-Authenticable.html#method_getCredentials" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Auth/Authenticable.php"><a href="files/src-auth-authenticable.html"><abbr title="src/Auth/Authenticable.php">Authenticable.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">93</span>
+
+            <a href="classes/ArangoDB-Auth-Authenticable.html#source-view.93" class="phpdocumentor-element-found-in__source" data-line="93" data-modal="source-view" data-src="files/src/Auth/Authenticable.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return authentication credentials</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">getCredentials</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
@@ -422,10 +864,30 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                            </ul>
+                                                            <li><a href="classes/ArangoDB-Auth-Authenticable.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/ArangoDB-Auth-Authenticable.html#toc-methods">Methods</a></li>
+                                    </ul>
             </li>
             
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/ArangoDB-Auth-Authenticable.html#property_authToken">$authToken</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Auth-Authenticable.html#property_options">$options</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Auth-Authenticable.html#property_restClient">$restClient</a></li>
+                                            </ul>
+                </li>
             
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/ArangoDB-Auth-Authenticable.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Auth-Authenticable.html#method_authenticate">authenticate()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Auth-Authenticable.html#method_getAuthorizationHeader">getAuthorizationHeader()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Auth-Authenticable.html#method_getAuthenticationEndpoint">getAuthenticationEndpoint()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Auth-Authenticable.html#method_getCredentials">getCredentials()</a></li>
+                                    </ul>
+            </li>
                     </ul>
     </section>
 

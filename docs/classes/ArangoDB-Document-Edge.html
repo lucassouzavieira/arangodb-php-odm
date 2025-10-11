@@ -309,15 +309,1828 @@
 
 
 
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/ArangoDB-Document-Edge.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Document-Document.html#property_attributes">$attributes</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+</dt>
+<dd>Documents attributes</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Document-Document.html#property_collection">$collection</a>
+    <span>
+                        &nbsp;: <a href="classes/ArangoDB-Collection-Collection.html"><abbr title="\ArangoDB\Collection\Collection">Collection</abbr></a>            </span>
+</dt>
+<dd>Collection where document belongs</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Document-Document.html#property_connection">$connection</a>
+    <span>
+                        &nbsp;: <a href="classes/ArangoDB-Connection-Connection.html"><abbr title="\ArangoDB\Connection\Connection">Connection</abbr></a>            </span>
+</dt>
+<dd>Connection to be used</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Document-Edge.html#property_database">$database</a>
+    <span>
+                        &nbsp;: <a href="classes/ArangoDB-Database-Database.html"><abbr title="\ArangoDB\Database\Database">Database</abbr></a>            </span>
+</dt>
+<dd>Database object</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Document-Edge.html#property_from">$from</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd>The edges &#039;_from&#039; attribute</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Document-Document.html#property_id">$id</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd>Document ID</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Document-Document.html#property_isNew">$isNew</a>
+    <span>
+                        &nbsp;: bool            </span>
+</dt>
+<dd>If document is a new one or a representation of existing document</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Document-Document.html#property_key">$key</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd>Document key</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Document-Document.html#property_patchDefaultOptions">$patchDefaultOptions</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+</dt>
+<dd>Default patch options</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Document-Document.html#property_revision">$revision</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd>Document revision</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Document-Edge.html#property_to">$to</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd>The edges &#039;_to&#039; attribute</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Document-Document.html#property_updateDefaultOptions">$updateDefaultOptions</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+</dt>
+<dd>Default update options</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ArangoDB-Document-Document.html#property_validator">$validator</a>
+    <span>
+                        &nbsp;: <a href="classes/ArangoDB-Validation-Rules-RuleInterface.html"><abbr title="\ArangoDB\Validation\Rules\RuleInterface">RuleInterface</abbr></a>            </span>
+</dt>
+<dd>Validate primitive types</dd>
+
+    </dl>
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/ArangoDB-Document-Edge.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Edge.html#method___construct">__construct()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Edge constructor.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method___get">__get()</a>
+    <span>
+                                &nbsp;: mixed|null    </span>
+</dt>
+<dd>Get some attribute.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method___isset">__isset()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Verifies if an attribute is set on document</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method___set">__set()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Set a attribute</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method___toString">__toString()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Return a string representation of document.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method___unset">__unset()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Unset the given attribute of document</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method_delete">delete()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Removes a document on server, if possible</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Edge.html#method_from">from()</a>
+    <span>
+                                &nbsp;: <a href="classes/ArangoDB-Document-Vertex.html"><abbr title="\ArangoDB\Document\Vertex">Vertex</abbr></a>|false    </span>
+</dt>
+<dd>Return the &#039;_from&#039; document</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method_getCollection">getCollection()</a>
+    <span>
+                                &nbsp;: <a href="classes/ArangoDB-Collection-Collection.html"><abbr title="\ArangoDB\Collection\Collection">Collection</abbr></a>|null    </span>
+</dt>
+<dd>Returns the document collection</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method_getId">getId()</a>
+    <span>
+                                &nbsp;: string|null    </span>
+</dt>
+<dd>Returns the document Id</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method_getKey">getKey()</a>
+    <span>
+                                &nbsp;: string|null    </span>
+</dt>
+<dd>Returns the document key</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method_getRevision">getRevision()</a>
+    <span>
+                                &nbsp;: string|null    </span>
+</dt>
+<dd>Returns the document revision</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method_isNew">isNew()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Returns true if is a new object</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method_jsonSerialize">jsonSerialize()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|mixed    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method_save">save()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Save or update the document, if possible</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method_setCollection">setCollection()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Sets the collection to add this document</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Edge.html#method_to">to()</a>
+    <span>
+                                &nbsp;: <a href="classes/ArangoDB-Document-Vertex.html"><abbr title="\ArangoDB\Document\Vertex">Vertex</abbr></a>|false    </span>
+</dt>
+<dd>Return the &#039;_to&#039; document</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method_toArray">toArray()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Returns a array representation of document</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method_setDescriptors">setDescriptors()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Set document descriptors</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/ArangoDB-Document-Document.html#method_update">update()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Update the document.</dd>
+
+    </dl>
 
 
 
         
 
         
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/ArangoDB-Document-Edge.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
-        
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_attributes">
+        $attributes
+        <a href="classes/ArangoDB-Document-Document.html#property_attributes" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">61</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.61" class="phpdocumentor-element-found-in__source" data-line="61" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Documents attributes</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$attributes</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_collection">
+        $collection
+        <a href="classes/ArangoDB-Document-Document.html#property_collection" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">75</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.75" class="phpdocumentor-element-found-in__source" data-line="75" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Collection where document belongs</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/ArangoDB-Collection-Collection.html"><abbr title="\ArangoDB\Collection\Collection">Collection</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$collection</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_connection">
+        $connection
+        <a href="classes/ArangoDB-Document-Document.html#property_connection" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">68</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.68" class="phpdocumentor-element-found-in__source" data-line="68" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Connection to be used</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/ArangoDB-Connection-Connection.html"><abbr title="\ArangoDB\Connection\Connection">Connection</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$connection</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_database">
+        $database
+        <a href="classes/ArangoDB-Document-Edge.html#property_database" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Edge.php"><a href="files/src-document-edge.html"><abbr title="src/Document/Edge.php">Edge.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">42</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.42" class="phpdocumentor-element-found-in__source" data-line="42" data-modal="source-view" data-src="files/src/Document/Edge.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Database object</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/ArangoDB-Database-Database.html"><abbr title="\ArangoDB\Database\Database">Database</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$database</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_from">
+        $from
+        <a href="classes/ArangoDB-Document-Edge.html#property_from" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Edge.php"><a href="files/src-document-edge.html"><abbr title="src/Document/Edge.php">Edge.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">35</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.35" class="phpdocumentor-element-found-in__source" data-line="35" data-modal="source-view" data-src="files/src/Document/Edge.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">The edges &#039;_from&#039; attribute</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$from</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_id">
+        $id
+        <a href="classes/ArangoDB-Document-Document.html#property_id" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">33</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.33" class="phpdocumentor-element-found-in__source" data-line="33" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Document ID</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$id</span>
+     = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_isNew">
+        $isNew
+        <a href="classes/ArangoDB-Document-Document.html#property_isNew" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">54</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.54" class="phpdocumentor-element-found-in__source" data-line="54" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">If document is a new one or a representation of existing document</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$isNew</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_key">
+        $key
+        <a href="classes/ArangoDB-Document-Document.html#property_key" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">40</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.40" class="phpdocumentor-element-found-in__source" data-line="40" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Document key</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$key</span>
+     = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_patchDefaultOptions">
+        $patchDefaultOptions
+        <a href="classes/ArangoDB-Document-Document.html#property_patchDefaultOptions" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">87</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.87" class="phpdocumentor-element-found-in__source" data-line="87" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Default patch options</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$patchDefaultOptions</span>
+     = <span class="phpdocumentor-signature__default-value">[&#039;keepNull&#039; =&gt; false, &#039;mergeObjects&#039; =&gt; true, &#039;waitForSync&#039; =&gt; true, &#039;ignoreRevs&#039; =&gt; true, &#039;returnOld&#039; =&gt; false, &#039;returnNew&#039; =&gt; true]</span></code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_revision">
+        $revision
+        <a href="classes/ArangoDB-Document-Document.html#property_revision" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">47</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.47" class="phpdocumentor-element-found-in__source" data-line="47" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Document revision</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$revision</span>
+     = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_to">
+        $to
+        <a href="classes/ArangoDB-Document-Edge.html#property_to" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Edge.php"><a href="files/src-document-edge.html"><abbr title="src/Document/Edge.php">Edge.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">28</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.28" class="phpdocumentor-element-found-in__source" data-line="28" data-modal="source-view" data-src="files/src/Document/Edge.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">The edges &#039;_to&#039; attribute</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$to</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_updateDefaultOptions">
+        $updateDefaultOptions
+        <a href="classes/ArangoDB-Document-Document.html#property_updateDefaultOptions" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">99</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.99" class="phpdocumentor-element-found-in__source" data-line="99" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Default update options</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$updateDefaultOptions</span>
+     = <span class="phpdocumentor-signature__default-value">[&#039;waitForSync&#039; =&gt; true, &#039;ignoreRevs&#039; =&gt; true, &#039;returnOld&#039; =&gt; false, &#039;returnNew&#039; =&gt; true, &#039;silent&#039; =&gt; false]</span></code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_validator">
+        $validator
+        <a href="classes/ArangoDB-Document-Document.html#property_validator" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">82</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.82" class="phpdocumentor-element-found-in__source" data-line="82" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Validate primitive types</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/ArangoDB-Validation-Rules-RuleInterface.html"><abbr title="\ArangoDB\Validation\Rules\RuleInterface">RuleInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$validator</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+            </section>
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/ArangoDB-Document-Edge.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___construct">
+        __construct()
+        <a href="classes/ArangoDB-Document-Edge.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Edge.php"><a href="files/src-document-edge.html"><abbr title="src/Document/Edge.php">Edge.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">52</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.52" class="phpdocumentor-element-found-in__source" data-line="52" data-modal="source-view" data-src="files/src/Document/Edge.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Edge constructor.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attributes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Collection-Collection.html"><abbr title="\ArangoDB\Collection\Collection">Collection</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collection</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$attributes</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$collection</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Collection-Collection.html"><abbr title="\ArangoDB\Collection\Collection">Collection</abbr></a>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Document-Edge.html#method___construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Validation-Exceptions-InvalidParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a>|<a href="classes/ArangoDB-Validation-Exceptions-MissingParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___get">
+        __get()
+        <a href="classes/ArangoDB-Document-Document.html#method___get" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">156</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.156" class="phpdocumentor-element-found-in__source" data-line="156" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get some attribute.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Attribute name.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">mixed|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Attribute value.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___isset">
+        __isset()
+        <a href="classes/ArangoDB-Document-Document.html#method___isset" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">189</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.189" class="phpdocumentor-element-found-in__source" data-line="189" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Verifies if an attribute is set on document</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__isset</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___set">
+        __set()
+        <a href="classes/ArangoDB-Document-Document.html#method___set" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">173</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.173" class="phpdocumentor-element-found-in__source" data-line="173" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Set a attribute</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__set</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Document-Document.html#method___set#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Validation-Exceptions-InvalidParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___toString">
+        __toString()
+        <a href="classes/ArangoDB-Document-Document.html#method___toString" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">144</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.144" class="phpdocumentor-element-found-in__source" data-line="144" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return a string representation of document.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___unset">
+        __unset()
+        <a href="classes/ArangoDB-Document-Document.html#method___unset" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">199</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.199" class="phpdocumentor-element-found-in__source" data-line="199" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Unset the given attribute of document</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__unset</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_delete">
+        delete()
+        <a href="classes/ArangoDB-Document-Document.html#method_delete" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">324</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.324" class="phpdocumentor-element-found-in__source" data-line="324" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Removes a document on server, if possible</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">delete</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Document-Document.html#method_delete#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true if operation was successful, false otherwise</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_from">
+        from()
+        <a href="classes/ArangoDB-Document-Edge.html#method_from" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Edge.php"><a href="files/src-document-edge.html"><abbr title="src/Document/Edge.php">Edge.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">83</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.83" class="phpdocumentor-element-found-in__source" data-line="83" data-modal="source-view" data-src="files/src/Document/Edge.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the &#039;_from&#039; document</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">from</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Document-Vertex.html"><abbr title="\ArangoDB\Document\Vertex">Vertex</abbr></a>|false</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Document-Edge.html#method_from#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Validation-Exceptions-InvalidParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a>|<a href="classes/ArangoDB-Validation-Exceptions-MissingParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></a>|<a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Document-Vertex.html"><abbr title="\ArangoDB\Document\Vertex">Vertex</abbr></a>|false</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getCollection">
+        getCollection()
+        <a href="classes/ArangoDB-Document-Document.html#method_getCollection" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">249</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.249" class="phpdocumentor-element-found-in__source" data-line="249" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the document collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getCollection</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Collection-Collection.html"><abbr title="\ArangoDB\Collection\Collection">Collection</abbr></a>|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Collection-Collection.html"><abbr title="\ArangoDB\Collection\Collection">Collection</abbr></a>|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Collection object if is set. Null otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getId">
+        getId()
+        <a href="classes/ArangoDB-Document-Document.html#method_getId" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">219</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.219" class="phpdocumentor-element-found-in__source" data-line="219" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the document Id</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getId</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>String if document already exists. Null otherwise (e.g. a new document)</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getKey">
+        getKey()
+        <a href="classes/ArangoDB-Document-Document.html#method_getKey" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">229</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.229" class="phpdocumentor-element-found-in__source" data-line="229" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the document key</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getKey</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>String if document already exists. Null otherwise (e.g. a new document)</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getRevision">
+        getRevision()
+        <a href="classes/ArangoDB-Document-Document.html#method_getRevision" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">239</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.239" class="phpdocumentor-element-found-in__source" data-line="239" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the document revision</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getRevision</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>String if document already exists. Null otherwise (e.g. a new document)</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isNew">
+        isNew()
+        <a href="classes/ArangoDB-Document-Document.html#method_isNew" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">209</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.209" class="phpdocumentor-element-found-in__source" data-line="209" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns true if is a new object</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isNew</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_jsonSerialize">
+        jsonSerialize()
+        <a href="classes/ArangoDB-Document-Document.html#method_jsonSerialize" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">358</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.358" class="phpdocumentor-element-found-in__source" data-line="358" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">jsonSerialize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Document-Document.html#method_jsonSerialize#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\JsonSerializable::jsonSerialize()">JsonSerializable::jsonSerialize()</abbr></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|mixed</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_save">
+        save()
+        <a href="classes/ArangoDB-Document-Document.html#method_save" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">272</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.272" class="phpdocumentor-element-found-in__source" data-line="272" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Save or update the document, if possible</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">save</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$options</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional array of options. Only used on update operations.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Document-Document.html#method_save#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<a href="classes/ArangoDB-Validation-Exceptions-InvalidParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a>|<a href="classes/ArangoDB-Validation-Exceptions-MissingParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true if operation was successful. Throws an exceptions otherwise</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setCollection">
+        setCollection()
+        <a href="classes/ArangoDB-Document-Document.html#method_setCollection" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">259</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.259" class="phpdocumentor-element-found-in__source" data-line="259" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Sets the collection to add this document</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setCollection</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Collection-Collection.html"><abbr title="\ArangoDB\Collection\Collection">Collection</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collection</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$collection</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Collection-Collection.html"><abbr title="\ArangoDB\Collection\Collection">Collection</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_to">
+        to()
+        <a href="classes/ArangoDB-Document-Edge.html#method_to" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Edge.php"><a href="files/src-document-edge.html"><abbr title="src/Document/Edge.php">Edge.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">72</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.72" class="phpdocumentor-element-found-in__source" data-line="72" data-modal="source-view" data-src="files/src/Document/Edge.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the &#039;_to&#039; document</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">to</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Document-Vertex.html"><abbr title="\ArangoDB\Document\Vertex">Vertex</abbr></a>|false</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Document-Edge.html#method_to#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Validation-Exceptions-InvalidParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a>|<a href="classes/ArangoDB-Validation-Exceptions-MissingParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></a>|<a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-Document-Vertex.html"><abbr title="\ArangoDB\Document\Vertex">Vertex</abbr></a>|false</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_toArray">
+        toArray()
+        <a href="classes/ArangoDB-Document-Document.html#method_toArray" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">345</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.345" class="phpdocumentor-element-found-in__source" data-line="345" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a array representation of document</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">toArray</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setDescriptors">
+        setDescriptors()
+        <a href="classes/ArangoDB-Document-Document.html#method_setDescriptors" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">368</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.368" class="phpdocumentor-element-found-in__source" data-line="368" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Set document descriptors</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">setDescriptors</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$descriptors</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$descriptors</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_update">
+        update()
+        <a href="classes/ArangoDB-Document-Document.html#method_update" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Document/Document.php"><a href="files/src-document-document.html"><abbr title="src/Document/Document.php">Document.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">302</span>
+
+            <a href="classes/ArangoDB-Document-Edge.html#source-view.302" class="phpdocumentor-element-found-in__source" data-line="302" data-modal="source-view" data-src="files/src/Document/Document.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Update the document.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">update</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$options</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Document-Document.html#method_update#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Validation-Exceptions-MissingParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></a>|<a href="classes/ArangoDB-Validation-Exceptions-InvalidParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
@@ -423,10 +2236,55 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                            </ul>
+                                                            <li><a href="classes/ArangoDB-Document-Edge.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/ArangoDB-Document-Edge.html#toc-methods">Methods</a></li>
+                                    </ul>
             </li>
             
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/ArangoDB-Document-Document.html#property_attributes">$attributes</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Document-Document.html#property_collection">$collection</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Document-Document.html#property_connection">$connection</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Document-Edge.html#property_database">$database</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Document-Edge.html#property_from">$from</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Document-Document.html#property_id">$id</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Document-Document.html#property_isNew">$isNew</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Document-Document.html#property_key">$key</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Document-Document.html#property_patchDefaultOptions">$patchDefaultOptions</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Document-Document.html#property_revision">$revision</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Document-Edge.html#property_to">$to</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Document-Document.html#property_updateDefaultOptions">$updateDefaultOptions</a></li>
+                                                    <li class=""><a href="classes/ArangoDB-Document-Document.html#property_validator">$validator</a></li>
+                                            </ul>
+                </li>
             
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/ArangoDB-Document-Edge.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method___get">__get()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method___isset">__isset()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method___set">__set()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method___toString">__toString()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method___unset">__unset()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method_delete">delete()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Edge.html#method_from">from()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method_getCollection">getCollection()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method_getId">getId()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method_getKey">getKey()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method_getRevision">getRevision()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method_isNew">isNew()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method_jsonSerialize">jsonSerialize()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method_save">save()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method_setCollection">setCollection()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Edge.html#method_to">to()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method_toArray">toArray()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method_setDescriptors">setDescriptors()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Document-Document.html#method_update">update()</a></li>
+                                    </ul>
+            </li>
                     </ul>
     </section>
 

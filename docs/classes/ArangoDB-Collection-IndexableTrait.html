@@ -237,43 +237,27 @@
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/arangodb-collection.html">Collection</a></li>
     </ul>
 
-    <article class="phpdocumentor-element -class">
+    <article class="phpdocumentor-element -trait">
         <h2 class="phpdocumentor-content__title">
-    KeyType
-
-    
-            <div class="phpdocumentor-element__package">
-            in package
-            <ul class="phpdocumentor-breadcrumbs">
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/ArangoDB.html">ArangoDB</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/ArangoDB-Collection.html">Collection</a></li>
-                            </ul>
-        </div>
-    
-    
+    IndexableTrait
     </h2>
 
-<div class="phpdocumentor-label-line">
-
-
-</div>
-
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/KeyType.php"><a href="files/src-collection-keytype.html"><abbr title="src/Collection/KeyType.php">KeyType.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/IndexableTrait.php"><a href="files/src-collection-indexabletrait.html"><abbr title="src/Collection/IndexableTrait.php">IndexableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
-            <a href="classes/ArangoDB-Collection-KeyType.html#source-view.11" class="phpdocumentor-element-found-in__source" data-line="11" data-modal="source-view" data-src="files/src/Collection/KeyType.php.txt"></a>
+            <a href="classes/ArangoDB-Collection-IndexableTrait.html#source-view.24" class="phpdocumentor-element-found-in__source" data-line="24" data-modal="source-view" data-src="files/src/Collection/IndexableTrait.php.txt"></a>
     </aside>
 
-            <p class="phpdocumentor-summary">Groups the available key generations for new collections</p>
+            <p class="phpdocumentor-summary">Indexable trait</p>
 
 
 
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/ArangoDB-Collection-KeyType.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/ArangoDB-Collection-IndexableTrait.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -294,7 +278,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/ArangoDB-Collection-KeyType.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/ArangoDB-Collection-IndexableTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -304,188 +288,243 @@
 
 
 
-<h4 id="toc-constants">
-    Constants
-    <a href="classes/ArangoDB-Collection-KeyType.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/ArangoDB-Collection-IndexableTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/ArangoDB-Collection-KeyType.html#constant_AUTOINCREMENT">AUTOINCREMENT</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Collection-IndexableTrait.html#method_addIndex">addIndex()</a>
     <span>
-        &nbsp;= &#039;autoincrement&#039;                            </span>
+                                &nbsp;: bool    </span>
 </dt>
+<dd>Create an index for collection</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/ArangoDB-Collection-KeyType.html#constant_PADDED">PADDED</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Collection-IndexableTrait.html#method_dropIndex">dropIndex()</a>
     <span>
-        &nbsp;= &#039;padded&#039;                            </span>
+                                &nbsp;: bool    </span>
 </dt>
+<dd>Drops an index of collection</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/ArangoDB-Collection-KeyType.html#constant_TRADITIONAL">TRADITIONAL</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ArangoDB-Collection-IndexableTrait.html#method_getIndexes">getIndexes()</a>
     <span>
-        &nbsp;= &#039;traditional&#039;                            </span>
+                                &nbsp;: <a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a>    </span>
 </dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/ArangoDB-Collection-KeyType.html#constant_UUID">UUID</a>
-    <span>
-        &nbsp;= &#039;uuid&#039;                            </span>
-</dt>
+<dd>Return all indexes of collection</dd>
 
     </dl>
 
 
 
 
-
+        
 
         
-    <section class="phpdocumentor-constants">
-        <h3 class="phpdocumentor-elements__header" id="constants">
-            Constants
-            <a href="classes/ArangoDB-Collection-KeyType.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/ArangoDB-Collection-IndexableTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_AUTOINCREMENT">
-        AUTOINCREMENT
-        <a href="classes/ArangoDB-Collection-KeyType.html#constant_AUTOINCREMENT" class="headerlink"><i class="fas fa-link"></i></a>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addIndex">
+        addIndex()
+        <a href="classes/ArangoDB-Collection-IndexableTrait.html#method_addIndex" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
-
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/KeyType.php"><a href="files/src-collection-keytype.html"><abbr title="src/Collection/KeyType.php">KeyType.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/IndexableTrait.php"><a href="files/src-collection-indexabletrait.html"><abbr title="src/Collection/IndexableTrait.php">IndexableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
-            <a href="classes/ArangoDB-Collection-KeyType.html#source-view.14" class="phpdocumentor-element-found-in__source" data-line="14" data-modal="source-view" data-src="files/src/Collection/KeyType.php.txt"></a>
+            <a href="classes/ArangoDB-Collection-IndexableTrait.html#source-view.61" class="phpdocumentor-element-found-in__source" data-line="61" data-modal="source-view" data-src="files/src/Collection/IndexableTrait.php.txt"></a>
     </aside>
 
-    
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
+        <p class="phpdocumentor-summary">Create an index for collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">AUTOINCREMENT</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;autoincrement&#039;</span>
-</code>
+                    <span class="phpdocumentor-signature__name">addIndex</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html"><abbr title="\ArangoDB\Collection\Contracts\IndexInterface">IndexInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$index</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$index</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html"><abbr title="\ArangoDB\Collection\Contracts\IndexInterface">IndexInterface</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
 
     
-    
-    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-IndexableTrait.html#method_addIndex#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
 
 </article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_PADDED">
-        PADDED
-        <a href="classes/ArangoDB-Collection-KeyType.html#constant_PADDED" class="headerlink"><i class="fas fa-link"></i></a>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_dropIndex">
+        dropIndex()
+        <a href="classes/ArangoDB-Collection-IndexableTrait.html#method_dropIndex" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
-
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/KeyType.php"><a href="files/src-collection-keytype.html"><abbr title="src/Collection/KeyType.php">KeyType.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/IndexableTrait.php"><a href="files/src-collection-indexabletrait.html"><abbr title="src/Collection/IndexableTrait.php">IndexableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">88</span>
 
-            <a href="classes/ArangoDB-Collection-KeyType.html#source-view.15" class="phpdocumentor-element-found-in__source" data-line="15" data-modal="source-view" data-src="files/src/Collection/KeyType.php.txt"></a>
+            <a href="classes/ArangoDB-Collection-IndexableTrait.html#source-view.88" class="phpdocumentor-element-found-in__source" data-line="88" data-modal="source-view" data-src="files/src/Collection/IndexableTrait.php.txt"></a>
     </aside>
 
-    
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
+        <p class="phpdocumentor-summary">Drops an index of collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">PADDED</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;padded&#039;</span>
-</code>
+                    <span class="phpdocumentor-signature__name">dropIndex</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html"><abbr title="\ArangoDB\Collection\Contracts\IndexInterface">IndexInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$index</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$index</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ArangoDB-Collection-Contracts-IndexInterface.html"><abbr title="\ArangoDB\Collection\Contracts\IndexInterface">IndexInterface</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
 
     
-    
-    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-IndexableTrait.html#method_dropIndex#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
 
 </article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_TRADITIONAL">
-        TRADITIONAL
-        <a href="classes/ArangoDB-Collection-KeyType.html#constant_TRADITIONAL" class="headerlink"><i class="fas fa-link"></i></a>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getIndexes">
+        getIndexes()
+        <a href="classes/ArangoDB-Collection-IndexableTrait.html#method_getIndexes" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
-
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/KeyType.php"><a href="files/src-collection-keytype.html"><abbr title="src/Collection/KeyType.php">KeyType.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/IndexableTrait.php"><a href="files/src-collection-indexabletrait.html"><abbr title="src/Collection/IndexableTrait.php">IndexableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
-            <a href="classes/ArangoDB-Collection-KeyType.html#source-view.13" class="phpdocumentor-element-found-in__source" data-line="13" data-modal="source-view" data-src="files/src/Collection/KeyType.php.txt"></a>
+            <a href="classes/ArangoDB-Collection-IndexableTrait.html#source-view.32" class="phpdocumentor-element-found-in__source" data-line="32" data-modal="source-view" data-src="files/src/Collection/IndexableTrait.php.txt"></a>
     </aside>
 
-    
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
+        <p class="phpdocumentor-summary">Return all indexes of collection</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">TRADITIONAL</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;traditional&#039;</span>
-</code>
+                    <span class="phpdocumentor-signature__name">getIndexes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></span></code>
 
-
+    <div class="phpdocumentor-label-line">
+        </div>
     
     
     
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ArangoDB-Collection-IndexableTrait.html#method_getIndexes#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/ArangoDB-Exceptions-Database-DatabaseException.html"><abbr title="\ArangoDB\Exceptions\Database\DatabaseException">DatabaseException</abbr></a>|<abbr title="\GuzzleHttp\Exception\GuzzleException">GuzzleException</abbr>|<a href="classes/ArangoDB-Validation-Exceptions-InvalidParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\InvalidParameterException">InvalidParameterException</abbr></a>|<a href="classes/ArangoDB-Exceptions-IndexException.html"><abbr title="\ArangoDB\Exceptions\IndexException">IndexException</abbr></a>|<a href="classes/ArangoDB-Validation-Exceptions-MissingParameterException.html"><abbr title="\ArangoDB\Validation\Exceptions\MissingParameterException">MissingParameterException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
 
     
 
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_UUID">
-        UUID
-        <a href="classes/ArangoDB-Collection-KeyType.html#constant_UUID" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Collection/KeyType.php"><a href="files/src-collection-keytype.html"><abbr title="src/Collection/KeyType.php">KeyType.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">16</span>
-
-            <a href="classes/ArangoDB-Collection-KeyType.html#source-view.16" class="phpdocumentor-element-found-in__source" data-line="16" data-modal="source-view" data-src="files/src/Collection/KeyType.php.txt"></a>
-    </aside>
-
-    
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">UUID</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;uuid&#039;</span>
-</code>
-
-
-    
-    
-    
-
-    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/ArangoDB-DataStructures-ArrayList.html"><abbr title="\ArangoDB\DataStructures\ArrayList">ArrayList</abbr></a></span>
+            </section>
 
 </article>
             </section>
 
-        
-
-        
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Collection/KeyType.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Collection/IndexableTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -586,20 +625,17 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                        <li><a href="classes/ArangoDB-Collection-KeyType.html#toc-constants">Constants</a></li>
-                                                                            </ul>
+                                                                                <li><a href="classes/ArangoDB-Collection-IndexableTrait.html#toc-methods">Methods</a></li>
+                                    </ul>
             </li>
-                            <li class="phpdocumentor-on-this-page-section__title">Constants</li>
-                <li>
-                    <ul class="phpdocumentor-list -clean">
-                                                    <li class=""><a href="classes/ArangoDB-Collection-KeyType.html#constant_AUTOINCREMENT">AUTOINCREMENT</a></li>
-                                                    <li class=""><a href="classes/ArangoDB-Collection-KeyType.html#constant_PADDED">PADDED</a></li>
-                                                    <li class=""><a href="classes/ArangoDB-Collection-KeyType.html#constant_TRADITIONAL">TRADITIONAL</a></li>
-                                                    <li class=""><a href="classes/ArangoDB-Collection-KeyType.html#constant_UUID">UUID</a></li>
-                                            </ul>
-                </li>
-            
-            
+                                                <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/ArangoDB-Collection-IndexableTrait.html#method_addIndex">addIndex()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Collection-IndexableTrait.html#method_dropIndex">dropIndex()</a></li>
+                                            <li class=""><a href="classes/ArangoDB-Collection-IndexableTrait.html#method_getIndexes">getIndexes()</a></li>
+                                    </ul>
+            </li>
                     </ul>
     </section>
 
@@ -617,7 +653,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/ArangoDB-Collection-KeyType.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/ArangoDB-Collection-IndexableTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
