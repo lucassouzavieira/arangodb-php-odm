@@ -27,7 +27,7 @@ class Task implements EntityInterface
      *
      * @var string
      */
-    protected string $id;
+    protected $id;
 
     /**
      * Task type.
