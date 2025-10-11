@@ -10,8 +10,21 @@ use ArangoDB\Validation\Exceptions\InvalidParameterException;
 * @package ArangoDB\Collection\Index
 * @author Lucas S. Vieira
 */
-class InvertedIndex extends Index
+final class InvertedIndex extends Index
 {
+    /**
+     * Default options for inverted index
+     *
+     * @var array
+     */
+    protected array $defaultOptions = [
+        'unique' => true,
+        'sparse' => true,
+        'analyzer' => "identity",
+        'inBackground' => true, // Keep the collection available for writes during the index creation
+        'parallelism' => 2,
+    ];
+
     /**
      * InvertedIndex constructor
      *

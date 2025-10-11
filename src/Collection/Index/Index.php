@@ -85,7 +85,7 @@ class Index implements IndexInterface
     /**
      * Index constructor.
      *
-     * @param string $type The index type. Must be one of following values: 'fulltext', 'general', 'geo', 'hash', 'persistent', 'skiplist' or 'ttl'
+     * @param string $type The index type. Must be one of following values: 'fulltext', 'general', 'geo', 'hash', 'persistent', 'skiplist', 'inverted' or 'ttl'
      * @param array $fields An array of attribute names. Normally with just one attribute.
      *
      * @param array $attributes
@@ -97,10 +97,20 @@ class Index implements IndexInterface
             throw new InvalidParameterException("type", $type);
         }
 
+        $fieldNames = [];
+
         foreach ($fields as $key => $field) {
-            if (!is_string($field)) {
-                throw new InvalidParameterException("fields[$key]", $field);
+            if (is_string($field)) {
+                array_push($fieldNames, $field);
+                continue;
             }
+
+            if (is_array($field)) {
+                array_push($fieldNames, $field['name']);
+                continue;
+            }
+
+            throw new InvalidParameterException("fields[$key]", $field);
         }
 
         $this->type = $type;

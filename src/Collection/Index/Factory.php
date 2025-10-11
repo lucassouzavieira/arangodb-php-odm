@@ -62,6 +62,10 @@ final class Factory
             return new TTLIndex($attributes['fields'], $attributes['expireAfter'], $attributes);
         }
 
+        if ($attributes['type'] === 'inverted') {
+            return new InvertedIndex($attributes['fields'], $attributes);
+        }
+
         $class = $indexes[$attributes['type']];
         return new $class($attributes['fields'], $attributes);
     }
