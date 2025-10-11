@@ -2,6 +2,7 @@
 
 namespace Unit\Collection;
 
+use ArangoDB\Collection\Index\InvertedIndex;
 use ArangoDB\Collection\KeyType;
 use Unit\TestCase;
 use GuzzleHttp\Psr7\Response;
@@ -36,20 +37,20 @@ class CollectionTest extends TestCase
         parent::tearDown();
     }
 
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $collection = new Collection('any', $this->getConnectionObject()->getDatabase());
         $this->assertInstanceOf(Collection::class, $collection);
         $this->assertObjectHasProperty('connection', $collection);
     }
 
-    public function testGetDatabase()
+    public function testGetDatabase(): void
     {
         $collection = new Collection('any', $this->getConnectionObject()->getDatabase());
         $this->assertInstanceOf(Database::class, $collection->getDatabase());
     }
 
-    public function testGetter()
+    public function testGetter(): void
     {
         $collection = new Collection('any', $this->getConnectionObject()->getDatabase());
         $this->assertEquals('any', $collection->name);
@@ -60,7 +61,7 @@ class CollectionTest extends TestCase
         $this->assertNull($collection->randomProperty);
     }
 
-    public function testSetter()
+    public function testSetter(): void
     {
         $collection = new Collection('any', $this->getConnectionObject()->getDatabase());
         $this->assertEquals('any', $collection->name);
@@ -74,27 +75,27 @@ class CollectionTest extends TestCase
         $this->assertNull($collection->randomProperty);
     }
 
-    public function testSetterThrowException()
+    public function testSetterThrowException(): void
     {
         $collection = new Collection('any', $this->getConnectionObject()->getDatabase());
         $this->expectException(\Exception::class);
         $collection->randomProperty = true;
     }
 
-    public function testToString()
+    public function testToString(): void
     {
         $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
         $this->assertIsString((string)$collection);
     }
 
-    public function testGetName()
+    public function testGetName(): void
     {
         $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase());
         $this->assertEquals('testing_collection_coll', $collection->getName());
         $this->assertEquals($collection->name, $collection->getName());
     }
 
-    public function testGetId()
+    public function testGetId(): void
     {
         $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase());
         $this->assertNull($collection->getId());
@@ -104,19 +105,19 @@ class CollectionTest extends TestCase
         $this->assertTrue($collection->drop());
     }
 
-    public function testGetStatus()
+    public function testGetStatus(): void
     {
         $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase());
         $this->assertEquals(0, $collection->getStatus());
     }
 
-    public function testGetDescription()
+    public function testGetDescription(): void
     {
         $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase());
         $this->assertEquals('unknown', $collection->getStatusDescription());
     }
 
-    public function testIsSystem()
+    public function testIsSystem(): void
     {
         $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase());
         $this->assertFalse($collection->isSystem());
@@ -125,20 +126,20 @@ class CollectionTest extends TestCase
         $this->assertTrue($collection->isSystem());
     }
 
-    public function testGetAttributes()
+    public function testGetAttributes(): void
     {
         $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
         $this->assertIsArray($collection->getAttributes());
         $this->assertTrue($collection->getAttributes()['isSystem']);
     }
 
-    public function testJsonSerialize()
+    public function testJsonSerialize(): void
     {
         $collection = new Collection('testing_collection_coll', $this->getConnectionObject()->getDatabase(), ['isSystem' => true]);
         $this->assertJson(json_encode($collection));
     }
 
-    public function testGetGloballyUniqueId()
+    public function testGetGloballyUniqueId(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -152,7 +153,7 @@ class CollectionTest extends TestCase
         $this->assertTrue($collection->drop());
     }
 
-    public function testAddFullTextIndex()
+    public function testAddFullTextIndex(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -167,7 +168,7 @@ class CollectionTest extends TestCase
         $this->assertEquals('fulltext', $collection->getIndexes()->last()->getType());
     }
 
-    public function testAddGeoSpatialIndex()
+    public function testAddGeoSpatialIndex(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -182,7 +183,7 @@ class CollectionTest extends TestCase
         $this->assertEquals('geo', $collection->getIndexes()->last()->getType());
     }
 
-    public function testAddHashIndex()
+    public function testAddHashIndex(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -197,7 +198,7 @@ class CollectionTest extends TestCase
         $this->assertEquals('hash', $collection->getIndexes()->last()->getType());
     }
 
-    public function testAddPersistentIndex()
+    public function testAddPersistentIndex(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -212,7 +213,7 @@ class CollectionTest extends TestCase
         $this->assertEquals('persistent', $collection->getIndexes()->last()->getType());
     }
 
-    public function testAddSkipListIndex()
+    public function testAddSkipListIndex(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -227,7 +228,7 @@ class CollectionTest extends TestCase
         $this->assertEquals('skiplist', $collection->getIndexes()->last()->getType());
     }
 
-    public function testAddTTLIndex()
+    public function testAddTTLIndex(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -242,7 +243,22 @@ class CollectionTest extends TestCase
         $this->assertEquals('ttl', $collection->getIndexes()->last()->getType());
     }
 
-    public function testAddIndexThrowDatabaseException()
+    public function testAddInvertedIndex(): void
+    {
+        $db = new Database($this->getConnectionObject());
+        $collection = new Collection('test_save_coll', $db);
+
+        $this->assertTrue($collection->save());
+        $this->assertCount(1, $collection->getIndexes());
+
+        $index = new InvertedIndex(['complicated']);
+        $this->assertTrue($collection->addIndex($index));
+
+        $this->assertCount(2, $collection->getIndexes());
+        $this->assertEquals('inverted', $collection->getIndexes()->last()->getType());
+    }
+
+    public function testAddIndexThrowDatabaseException(): void
     {
         $mock = new MockHandler([
             new Response(200, [], json_encode(['result' => []])),
@@ -262,7 +278,7 @@ class CollectionTest extends TestCase
         $collection->addIndex($index);
     }
 
-    public function testAddIndexOnNewCollectionReturnFalse()
+    public function testAddIndexOnNewCollectionReturnFalse(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -271,7 +287,7 @@ class CollectionTest extends TestCase
         $this->assertFalse($collection->addIndex($index));
     }
 
-    public function testDropIndex()
+    public function testDropIndex(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -294,7 +310,7 @@ class CollectionTest extends TestCase
         $this->assertCount(1, $collection->getIndexes());
     }
 
-    public function testDropIndexOnNewCollectionReturnFalse()
+    public function testDropIndexOnNewCollectionReturnFalse(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -303,7 +319,7 @@ class CollectionTest extends TestCase
         $this->assertFalse($collection->dropIndex($index));
     }
 
-    public function testDropNewIndexReturnFalse()
+    public function testDropNewIndexReturnFalse(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -317,7 +333,7 @@ class CollectionTest extends TestCase
     }
 
 
-    public function testDropNonExistentIndexReturnFalse()
+    public function testDropNonExistentIndexReturnFalse(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -336,7 +352,7 @@ class CollectionTest extends TestCase
         $this->assertFalse($collection->dropIndex($fulltext));
     }
 
-    public function testDropIndexThrowDatabaseException()
+    public function testDropIndexThrowDatabaseException(): void
     {
         $index = new FullTextIndex(['complicated'], 3);
         $mocked = [
@@ -390,7 +406,7 @@ class CollectionTest extends TestCase
         $collection->dropIndex($list->last());
     }
 
-    public function testGetIndexes()
+    public function testGetIndexes(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -418,7 +434,7 @@ class CollectionTest extends TestCase
         $this->assertCount(1, $collection->getIndexes());
     }
 
-    public function testGetIndexesThrowDatabaseException()
+    public function testGetIndexesThrowDatabaseException(): void
     {
         $mock = new MockHandler([
             new Response(200, [], json_encode(['result' => []])),
@@ -434,7 +450,7 @@ class CollectionTest extends TestCase
         $indexes = $collection->getIndexes();
     }
 
-    public function testAll()
+    public function testAll(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -445,7 +461,7 @@ class CollectionTest extends TestCase
         $this->assertInstanceOf(CollectionCursor::class, $collection->all());
     }
 
-    public function testFindByKey()
+    public function testFindByKey(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -462,7 +478,7 @@ class CollectionTest extends TestCase
         $this->assertEquals('testing', $doc->toArray()['document']);
     }
 
-    public function testFindByKeyReturnVertex()
+    public function testFindByKeyReturnVertex(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -479,7 +495,7 @@ class CollectionTest extends TestCase
         $this->assertEquals('testing', $doc->toArray()['document']);
     }
 
-    public function testFindByKeyReturnFalse()
+    public function testFindByKeyReturnFalse(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -492,7 +508,7 @@ class CollectionTest extends TestCase
         $this->assertFalse($doc);
     }
 
-    public function testFindByKeyThrowDatabaseException()
+    public function testFindByKeyThrowDatabaseException(): void
     {
         $mock = new MockHandler([
             new Response(200, [], json_encode(['result' => []])),
@@ -507,7 +523,7 @@ class CollectionTest extends TestCase
         $collection->findByKey("unknown");
     }
 
-    public function testSave()
+    public function testSave(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -520,7 +536,7 @@ class CollectionTest extends TestCase
         $this->assertTrue($collection->drop());
     }
 
-    public function testSaveWithNonDefaultOptions()
+    public function testSaveWithNonDefaultOptions(): void
     {
         $keyOptions = [
             'allowUserKeys' => false,
@@ -538,7 +554,7 @@ class CollectionTest extends TestCase
         $this->assertTrue($collection->drop());
     }
 
-    public function testSaveThrowDatabaseException()
+    public function testSaveThrowDatabaseException(): void
     {
         // Mock error
         $mock = new MockHandler([
@@ -555,7 +571,7 @@ class CollectionTest extends TestCase
         $collection->save();
     }
 
-    public function testDrop()
+    public function testDrop(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -571,7 +587,7 @@ class CollectionTest extends TestCase
         $this->assertFalse($db->hasCollection('test_save_coll'));
     }
 
-    public function testDropReturnFalse()
+    public function testDropReturnFalse(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('coll_to_drop', $db);
@@ -579,7 +595,7 @@ class CollectionTest extends TestCase
         $this->assertFalse($collection->drop());
     }
 
-    public function testDropThrowDatabaseException()
+    public function testDropThrowDatabaseException(): void
     {
         // Mock error
         $mock = new MockHandler([
@@ -596,7 +612,7 @@ class CollectionTest extends TestCase
         $collection->drop();
     }
 
-    public function testTruncate()
+    public function testTruncate(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_save_coll', $db);
@@ -620,7 +636,7 @@ class CollectionTest extends TestCase
         $this->assertFalse($db->hasCollection('test_save_coll'));
     }
 
-    public function testTruncateThrowDatabaseException()
+    public function testTruncateThrowDatabaseException(): void
     {
         // Mock error
         $mock = new MockHandler([
@@ -637,7 +653,7 @@ class CollectionTest extends TestCase
         $collection->truncate();
     }
 
-    public function testRename()
+    public function testRename(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_first_name', $db);
@@ -657,7 +673,7 @@ class CollectionTest extends TestCase
         $this->assertTrue($collection->drop());
     }
 
-    public function testRenameThrowDatabaseException()
+    public function testRenameThrowDatabaseException(): void
     {
         $mock = new MockHandler([
             new Response(200, [], json_encode(['result' => []])),
@@ -678,7 +694,7 @@ class CollectionTest extends TestCase
         $this->assertTrue($collection->rename('test_snd_name'));
     }
 
-    public function testRecalculateCount()
+    public function testRecalculateCount(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_first_name', $db);
@@ -691,7 +707,7 @@ class CollectionTest extends TestCase
         $this->assertTrue($collection->drop());
     }
 
-    public function testRecalculateCountThrowDatabaseException()
+    public function testRecalculateCountThrowDatabaseException(): void
     {
         $mock = new MockHandler([
             new Response(200, [], json_encode(['result' => []])),
@@ -712,7 +728,7 @@ class CollectionTest extends TestCase
         $this->assertIsBool($collection->recalculateCount());
     }
 
-    public function testCount()
+    public function testCount(): void
     {
         $db = new Database($this->getConnectionObject());
         $collection = new Collection('test_first_name', $db);
@@ -727,7 +743,7 @@ class CollectionTest extends TestCase
         // TODO Make tests add with documents
     }
 
-    public function testCountThrowDatabaseException()
+    public function testCountThrowDatabaseException(): void
     {
         $mock = new MockHandler([
             new Response(200, [], json_encode(['result' => []])),
@@ -744,7 +760,7 @@ class CollectionTest extends TestCase
         $this->assertIsBool($collection->count());
     }
 
-    public function testGetChecksum()
+    public function testGetChecksum(): void
     {
         $db = new Database($this->getConnectionObject());
         $coll1 = new Collection('test_first', $db, ['checksum' => '7854980051561']);
@@ -763,7 +779,7 @@ class CollectionTest extends TestCase
         $this->assertTrue($coll2->drop());
     }
 
-    public function testGetChecksumThrowDatabaseException()
+    public function testGetChecksumThrowDatabaseException(): void
     {
         $mock = new MockHandler([
             new Response(200, [], json_encode(['result' => []])),
@@ -780,7 +796,7 @@ class CollectionTest extends TestCase
         $this->assertEquals('0', $collection->getChecksum());
     }
 
-    public function testGetRevision()
+    public function testGetRevision(): void
     {
         $db = new Database($this->getConnectionObject());
 
@@ -805,7 +821,7 @@ class CollectionTest extends TestCase
         $this->assertTrue($coll2->drop());
     }
 
-    public function testGetRevisionThrowDatabaseException()
+    public function testGetRevisionThrowDatabaseException(): void
     {
         $mock = new MockHandler([
             new Response(200, [], json_encode(['result' => []])),
@@ -822,7 +838,7 @@ class CollectionTest extends TestCase
         $this->assertEquals('0', $collection->getRevision());
     }
 
-    public function testIsNew()
+    public function testIsNew(): void
     {
         $db = new Database($this->getConnectionObject());
         $coll1 = $db->createCollection('test_first');
@@ -841,7 +857,7 @@ class CollectionTest extends TestCase
         $this->assertTrue($coll2->drop());
     }
 
-    public function testIsGraph()
+    public function testIsGraph(): void
     {
         $db = new Database($this->getConnectionObject());
         $coll = $db->createCollection('test_graph');

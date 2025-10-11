@@ -13,7 +13,7 @@ class HashIndexTest extends TestCase
         parent::setUp();
     }
 
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $index = new HashIndex(['my_hash_attr']);
 
@@ -22,7 +22,7 @@ class HashIndexTest extends TestCase
         $this->assertEquals("hash", $index->getType());
     }
 
-    public function testIsDeduplicate()
+    public function testIsDeduplicate(): void
     {
         $index = new HashIndex(['my_hash_attr'], ['unique' => false, 'sparse' => false, 'deduplicate' => false]);
         $this->assertFalse($index->isUnique());
@@ -30,13 +30,13 @@ class HashIndexTest extends TestCase
         $this->assertFalse($index->isDeduplicate());
     }
 
-    public function testToArray()
+    public function testToArray(): void
     {
         $index = new HashIndex(['my_hash_attr']);
         $this->assertArrayHasKey('deduplicate', $index->toArray());
     }
 
-    public function testGetCreateData()
+    public function testGetCreateData(): void
     {
         $index = new HashIndex(['my_hash_attr']);
         $this->assertCount(5, $index->getCreateData());

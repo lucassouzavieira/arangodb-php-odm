@@ -1,6 +1,6 @@
 <?php
 
-namespace Unit\Collection\GeneralIndex;
+namespace Unit\Collection\Index;
 
 use Unit\TestCase;
 use ArangoDB\Collection\Collection;
@@ -21,7 +21,7 @@ class IndexTest extends TestCase
         parent::tearDown();
     }
 
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $index = new Index("geo", ['location']);
 
@@ -34,25 +34,25 @@ class IndexTest extends TestCase
         $this->assertEquals("geo", $index->getType());
     }
 
-    public function testConstructorThrowInvalidParameterExceptionForInvalidType()
+    public function testConstructorThrowInvalidParameterExceptionForInvalidType(): void
     {
         $this->expectException(InvalidParameterException::class);
         $index = new Index("easy", ['location']);
     }
 
-    public function testConstructorThrowInvalidParameterExceptionForInvalidKey()
+    public function testConstructorThrowInvalidParameterExceptionForInvalidKey(): void
     {
         $this->expectException(InvalidParameterException::class);
         $index = new Index("fulltext", [154]);
     }
 
-    public function testToString()
+    public function testToString(): void
     {
         $index = new Index("skiplist", ['custom_field']);
         $this->assertIsString((string)$index);
     }
 
-    public function testGetAndSetCollection()
+    public function testGetAndSetCollection(): void
     {
         $collection = $this->getConnectionObject()->getDatabase()->createCollection('index_coll');
         $index = new Index("skiplist", ['custom_field']);
@@ -62,14 +62,14 @@ class IndexTest extends TestCase
         $this->assertInstanceOf(Collection::class, $index->getCollection());
     }
 
-    public function testJsonSerialize()
+    public function testJsonSerialize(): void
     {
         $collection = $this->getConnectionObject()->getDatabase()->createCollection('index_coll');
         $index = $collection->getIndexes()->first();
         $this->assertJson(json_encode($index));
     }
 
-    public function testIsNew()
+    public function testIsNew(): void
     {
         $index = new Index("skiplist", ['custom_field']);
         $this->assertTrue($index->isNew());
@@ -80,7 +80,7 @@ class IndexTest extends TestCase
         $this->assertFalse($index->isNew());
     }
 
-    public function testGetFields()
+    public function testGetFields(): void
     {
         $index = new Index("skiplist", ['custom_field']);
         $this->assertIsArray($index->getFields());
@@ -92,7 +92,7 @@ class IndexTest extends TestCase
         $this->assertEquals("_key", $index->getFields()[0]);
     }
 
-    public function testGetCreateData()
+    public function testGetCreateData(): void
     {
         $index = new Index("skiplist", ['custom_field']);
         $this->assertIsArray($index->getCreateData());
